@@ -1,0 +1,121 @@
+// Prisma schema for Empire National dispatcher onboarding platform
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+enum Role {
+  ADMIN
+  DISPATCHER
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(DISPATCHER)
+  title        String? // e.g. "New Dispatcher", "Senior Dispatcher"
+  createdAt    DateTime @default(now())
+
+  progress  ModuleProgress[]
+  attempts  QuizAttempt[]
+  resources Resource[]
+}
+
+model Module {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  category    String // e.g. "Company Overview", "Equipment", "Compliance"
+  summary     String
+  content     String // markdown body
+  order       Int      @default(0)
+  estMinutes  Int      @default(10)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  quiz     Quiz?
+  progress ModuleProgress[]
+}
+
+model Quiz {
+  id         String @id @default(cuid())
+  moduleId   String @unique
+  module     Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  title      String
+  passPercent Int   @default(80)
+
+  questions Question[]
+  attempts  QuizAttempt[]
+}
+
+model Question {
+  id     String @id @default(cuid())
+  quizId String
+  quiz   Quiz   @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  text   String
+  order  Int    @default(0)
+
+  options Option[]
+}
+
+model Option {
+  id         String   @id @default(cuid())
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  text       String
+  isCorrect  Boolean  @default(false)
+  order      Int      @default(0)
+}
+
+model ModuleProgress {
+  id          String    @id @default(cuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  moduleId    String
+  module      Module    @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  completedAt DateTime  @default(now())
+
+  @@unique([userId, moduleId])
+}
+
+model QuizAttempt {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quizId      String
+  quiz        Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  score       Int // percent correct, 0-100
+  passed      Boolean
+  answers     String // JSON: { [questionId]: optionId }
+  createdAt   DateTime @default(now())
+}
+
+model Resource {
+  id           String   @id @default(cuid())
+  title        String
+  description  String?
+  category     String   @default("General")
+  fileName     String // original uploaded filename, shown to users
+  storedName   String   @unique // filename on disk (random, collision-proof)
+  mimeType     String
+  sizeBytes    Int
+  uploadedById String?
+  uploadedBy   User?    @relation(fields: [uploadedById], references: [id], onDelete: SetNull)
+  createdAt    DateTime @default(now())
+}
+
+model GlossaryTerm {
+  id         String   @id @default(cuid())
+  term       String
+  definition String
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+}
