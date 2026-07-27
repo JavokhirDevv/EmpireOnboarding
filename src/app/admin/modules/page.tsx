@@ -31,6 +31,7 @@ export default async function AdminModulesPage() {
               <th className="py-3 px-5 font-medium">Order</th>
               <th className="py-3 px-5 font-medium">Quiz</th>
               <th className="py-3 px-5 font-medium">Status</th>
+              <th className="py-3 px-5 font-medium"></th>
             </tr>
           </thead>
           <tbody>
@@ -56,11 +57,20 @@ export default async function AdminModulesPage() {
                     <Badge tone="steel">Draft</Badge>
                   )}
                 </td>
+                <td className="py-3 px-5 text-right">
+                  <LinkButton
+                    href={`/admin/modules/${m.id}`}
+                    variant="outline"
+                    className="text-xs px-3 py-1.5"
+                  >
+                    Edit
+                  </LinkButton>
+                </td>
               </tr>
             ))}
             {modules.length === 0 && (
               <tr>
-                <td colSpan={5} className="py-8 text-center text-steel-500">
+                <td colSpan={6} className="py-8 text-center text-steel-500">
                   No modules yet. Create your first one.
                 </td>
               </tr>
