@@ -8,7 +8,7 @@ export default async function DashboardPage() {
   const { modules, total, completed, percent, allComplete } =
     await getDispatcherProgress(user.id);
 
-  const nextStop = modules.find((m) => !m.completed);
+  const nextStop = modules.find((m) => m.status === "current");
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-10">
@@ -19,8 +19,8 @@ export default async function DashboardPage() {
         Welcome, {user.name.split(" ")[0]}
       </h1>
       <p className="text-steel-500 mt-2 max-w-lg">
-        Your onboarding route is on the left — work through each stop in order,
-        then pass its quiz to move on to the next one.
+        Your onboarding route is on the left — stops unlock in order, so
+        finish one to move on to the next.
       </p>
 
       <Card className="p-6 mt-8">
@@ -39,16 +39,19 @@ export default async function DashboardPage() {
       </Card>
 
       {allComplete ? (
-        <Card className="p-6 mt-5 flex items-center justify-between flex-wrap gap-4">
+        <Card className="p-6 mt-5 flex items-center justify-between flex-wrap gap-4 border-gold-400/40 bg-gold-100/40">
           <div>
+            <div className="text-xs font-semibold text-gold-600 uppercase tracking-wide mb-1">
+              Route complete
+            </div>
             <div className="font-semibold text-navy-900">
-              You&apos;ve completed the whole route.
+              You&apos;ve finished every stop.
             </div>
             <div className="text-sm text-steel-500">
-              Every stop is done — your certificate is ready.
+              Your certificate is ready to download.
             </div>
           </div>
-          <LinkButton href="/certificate" variant="primary">
+          <LinkButton href="/certificate" variant="gold">
             View certificate
           </LinkButton>
         </Card>
@@ -56,7 +59,7 @@ export default async function DashboardPage() {
         <Card className="p-6 mt-5 flex items-center justify-between flex-wrap gap-4">
           <div>
             <div className="text-xs font-semibold text-accent-600 uppercase tracking-wide mb-1">
-              Next stop
+              In progress
             </div>
             <div className="font-semibold text-navy-900">{nextStop.title}</div>
             <div className="text-sm text-steel-500">{nextStop.summary}</div>
@@ -77,9 +80,16 @@ export default async function DashboardPage() {
             Your route
           </h2>
           <div className="space-y-2">
-            {modules.map((m, idx) => (
-              <Link key={m.id} href={`/training/${m.slug}`}>
-                <Card className="px-5 py-3.5 flex items-center justify-between gap-4 hover:border-accent-400 transition-colors">
+            {modules.map((m, idx) => {
+              const locked = m.status === "locked";
+              const content = (
+                <Card
+                  className={`px-5 py-3.5 flex items-center justify-between gap-4 transition-colors ${
+                    locked
+                      ? "opacity-60"
+                      : "hover:border-accent-400 cursor-pointer"
+                  }`}
+                >
                   <div className="flex items-center gap-3 min-w-0">
                     <span className="text-xs font-bold text-steel-500 shrink-0">
                       MM {idx + 1}
@@ -88,14 +98,26 @@ export default async function DashboardPage() {
                       {m.title}
                     </span>
                   </div>
-                  {m.completed ? (
+                  {m.status === "completed" ? (
                     <Badge tone="success">Completed</Badge>
+                  ) : m.status === "current" ? (
+                    <Badge tone="accent">In progress</Badge>
                   ) : (
-                    <Badge tone="steel">{m.estMinutes} min</Badge>
+                    <Badge tone="steel">Locked</Badge>
                   )}
                 </Card>
-              </Link>
-            ))}
+              );
+
+              return locked ? (
+                <div key={m.id} title="Complete the previous stop to unlock this one">
+                  {content}
+                </div>
+              ) : (
+                <Link key={m.id} href={`/training/${m.slug}`}>
+                  {content}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}

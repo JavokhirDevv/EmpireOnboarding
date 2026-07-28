@@ -1,6 +1,7 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
+import { getDispatcherProgress } from "@/lib/progress";
 import { QuizRunner } from "./quiz-runner";
 
 export default async function QuizPage({
@@ -9,7 +10,7 @@ export default async function QuizPage({
   params: Promise<{ quizId: string }>;
 }) {
   const { quizId } = await params;
-  await requireUser();
+  const user = await requireUser();
 
   const quiz = await prisma.quiz.findUnique({
     where: { id: quizId },
@@ -24,6 +25,12 @@ export default async function QuizPage({
 
   if (!quiz) {
     notFound();
+  }
+
+  const { modules } = await getDispatcherProgress(user.id);
+  const routeStatus = modules.find((m) => m.slug === quiz.module.slug)?.status;
+  if (routeStatus === "locked") {
+    redirect("/dashboard");
   }
 
   // Strip isCorrect before sending to the client — grading happens server-side.

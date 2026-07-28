@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
+import { getDispatcherProgress } from "@/lib/progress";
 
 export type QuizResult = {
   score: number;
@@ -29,6 +30,12 @@ export async function submitQuizAttempt(
 
   if (!quiz) {
     throw new Error("Quiz not found");
+  }
+
+  const { modules } = await getDispatcherProgress(user.id);
+  const routeStatus = modules.find((m) => m.slug === quiz.module.slug)?.status;
+  if (routeStatus === "locked") {
+    throw new Error("Complete the previous stop before taking this quiz.");
   }
 
   const results: QuizResult["results"] = {};

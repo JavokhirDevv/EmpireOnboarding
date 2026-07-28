@@ -27,6 +27,7 @@ const variants = {
     "border border-border-subtle bg-surface text-navy-900 hover:bg-surface-muted",
   ghost: "text-navy-700 hover:bg-surface-muted",
   danger: "bg-danger-600 text-white hover:bg-danger-600/90",
+  gold: "bg-gold-500 text-white hover:bg-gold-600",
 };
 
 export function Button({
@@ -70,13 +71,14 @@ export function Badge({
   tone = "steel",
 }: {
   children: ReactNode;
-  tone?: "steel" | "success" | "danger" | "accent";
+  tone?: "steel" | "success" | "danger" | "accent" | "gold";
 }) {
   const tones = {
     steel: "bg-steel-100 text-navy-800",
     success: "bg-success-100 text-success-600",
     danger: "bg-danger-100 text-danger-600",
     accent: "bg-accent-100 text-accent-600",
+    gold: "bg-gold-100 text-gold-600",
   };
   return (
     <span

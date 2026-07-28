@@ -3,6 +3,7 @@ import { requireAdmin } from "@/lib/dal";
 import { EmpireLogo } from "@/components/logo";
 import { logout } from "@/lib/actions/auth";
 import { Badge, Button } from "@/components/ui";
+import { InlineClock } from "@/components/live-clock";
 
 export default async function AdminLayout({
   children,
@@ -63,6 +64,9 @@ export default async function AdminLayout({
                   Sign out
                 </Button>
               </form>
+            </div>
+            <div className="pl-1">
+              <InlineClock />
             </div>
           </nav>
         </div>

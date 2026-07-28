@@ -27,6 +27,12 @@
   --success-100: #e2f6ec;
   --danger-600: #b3261e;
   --danger-100: #fbe6e5;
+
+  /* Reserved for the certificate once every module is complete */
+  --gold-600: #a3760f;
+  --gold-500: #c8952a;
+  --gold-400: #e6b94d;
+  --gold-100: #fbf0d9;
 }
 
 @theme inline {
@@ -57,6 +63,11 @@
   --color-success-100: var(--success-100);
   --color-danger-600: var(--danger-600);
   --color-danger-100: var(--danger-100);
+
+  --color-gold-600: var(--gold-600);
+  --color-gold-500: var(--gold-500);
+  --color-gold-400: var(--gold-400);
+  --color-gold-100: var(--gold-100);
 }
 
 body {

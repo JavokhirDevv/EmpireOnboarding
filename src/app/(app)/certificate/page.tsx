@@ -42,12 +42,12 @@ export default async function CertificatePage() {
       <div className="flex justify-end mb-4 print:hidden">
         <PrintButton />
       </div>
-      <div className="bg-surface border-4 border-navy-900 rounded-2xl p-12 text-center relative overflow-hidden">
-        <div className="absolute inset-0 border-[10px] border-accent-500/20 rounded-2xl pointer-events-none" />
+      <div className="bg-surface border-4 border-gold-500 rounded-2xl p-12 text-center relative overflow-hidden">
+        <div className="absolute inset-0 border-[10px] border-gold-400/20 rounded-2xl pointer-events-none" />
         <div className="flex justify-center mb-8">
           <EmpireLogo />
         </div>
-        <div className="text-xs font-semibold tracking-[0.25em] uppercase text-accent-600 mb-3">
+        <div className="text-xs font-semibold tracking-[0.25em] uppercase text-gold-600 mb-3">
           Certificate of Completion
         </div>
         <h1 className="text-3xl font-bold text-navy-900 mb-2">{user.name}</h1>

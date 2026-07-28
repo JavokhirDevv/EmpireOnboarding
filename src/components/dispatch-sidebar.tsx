@@ -6,12 +6,13 @@ import { useState, useTransition } from "react";
 import { logout } from "@/lib/actions/auth";
 import { resetProgress } from "@/lib/actions/training";
 import { EmpireLogo } from "@/components/logo";
+import type { ModuleStatus } from "@/lib/progress";
 
 type SidebarModule = {
   id: string;
   slug: string;
   title: string;
-  completed: boolean;
+  status: ModuleStatus;
 };
 
 export function DispatchSidebar({
@@ -19,6 +20,7 @@ export function DispatchSidebar({
   completed,
   total,
   percent,
+  certificateUnlocked,
   userName,
   userTitle,
 }: {
@@ -26,14 +28,13 @@ export function DispatchSidebar({
   completed: number;
   total: number;
   percent: number;
+  certificateUnlocked: boolean;
   userName: string;
   userTitle: string | null;
 }) {
   const pathname = usePathname();
   const [confirmingReset, setConfirmingReset] = useState(false);
   const [pending, startTransition] = useTransition();
-
-  const nextStopSlug = modules.find((m) => !m.completed)?.slug;
 
   return (
     <aside className="w-80 shrink-0 bg-navy-950 text-white flex flex-col h-full">
@@ -65,51 +66,75 @@ export function DispatchSidebar({
           {modules.map((m, idx) => {
             const href = `/training/${m.slug}`;
             const active = pathname === href;
-            const isNext = m.slug === nextStopSlug;
-            return (
-              <li key={m.id} className="relative pb-5 last:pb-0">
-                <Link
-                  href={href}
-                  className={`group flex items-start gap-3.5 rounded-lg -mx-2 px-2 py-1.5 transition-colors ${
-                    active ? "bg-white/10" : "hover:bg-white/5"
+            const locked = m.status === "locked";
+
+            const circle = (
+              <span
+                className={`relative z-10 shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 ${
+                  m.status === "completed"
+                    ? "bg-accent-500 border-accent-500 text-white"
+                    : m.status === "current"
+                      ? "border-accent-400 text-accent-400 bg-navy-950"
+                      : "border-white/15 text-white/30 bg-navy-950"
+                }`}
+              >
+                {m.status === "completed" ? (
+                  <CheckIcon />
+                ) : m.status === "current" ? (
+                  <PlayIcon />
+                ) : (
+                  <LockIcon />
+                )}
+              </span>
+            );
+
+            const label = (
+              <span className="pt-1.5 min-w-0">
+                <span
+                  className={`block text-[10px] font-semibold tracking-[0.14em] uppercase ${
+                    locked ? "text-white/25" : "text-steel-300"
                   }`}
                 >
-                  <span
-                    className={`relative z-10 shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 ${
-                      m.completed
-                        ? "bg-accent-500 border-accent-500 text-white"
-                        : isNext
-                          ? "border-accent-400 text-accent-400 bg-navy-950"
-                          : "border-white/25 text-steel-300 bg-navy-950"
+                  MM {idx + 1}
+                  {m.status === "current" && (
+                    <span className="ml-2 text-accent-400">In progress</span>
+                  )}
+                </span>
+                <span
+                  className={`block text-sm font-semibold leading-snug ${
+                    locked
+                      ? "text-white/30"
+                      : active
+                        ? "text-white"
+                        : "text-steel-100 group-hover:text-white"
+                  }`}
+                >
+                  {m.title}
+                </span>
+              </span>
+            );
+
+            return (
+              <li key={m.id} className="relative pb-5 last:pb-0">
+                {locked ? (
+                  <div
+                    className="group flex items-start gap-3.5 rounded-lg -mx-2 px-2 py-1.5 cursor-not-allowed"
+                    title="Complete the previous stop to unlock this one"
+                  >
+                    {circle}
+                    {label}
+                  </div>
+                ) : (
+                  <Link
+                    href={href}
+                    className={`group flex items-start gap-3.5 rounded-lg -mx-2 px-2 py-1.5 transition-colors ${
+                      active ? "bg-white/10" : "hover:bg-white/5"
                     }`}
                   >
-                    {m.completed ? (
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path
-                          d="M3 8.5l3 3 7-7.5"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    ) : (
-                      idx + 1
-                    )}
-                  </span>
-                  <span className="pt-1.5 min-w-0">
-                    <span className="block text-[10px] font-semibold tracking-[0.14em] uppercase text-steel-300">
-                      MM {idx + 1}
-                    </span>
-                    <span
-                      className={`block text-sm font-semibold leading-snug ${
-                        active ? "text-white" : "text-steel-100 group-hover:text-white"
-                      }`}
-                    >
-                      {m.title}
-                    </span>
-                  </span>
-                </Link>
+                    {circle}
+                    {label}
+                  </Link>
+                )}
               </li>
             );
           })}
@@ -123,8 +148,13 @@ export function DispatchSidebar({
         <SidebarUtilityLink href="/resources" pathname={pathname} label="Resources">
           <FolderIcon />
         </SidebarUtilityLink>
-        <SidebarUtilityLink href="/certificate" pathname={pathname} label="Certificate">
-          <AwardIcon />
+        <SidebarUtilityLink
+          href="/certificate"
+          pathname={pathname}
+          label="Certificate"
+          gold={certificateUnlocked}
+        >
+          {certificateUnlocked ? <AwardIcon /> : <LockIcon />}
         </SidebarUtilityLink>
 
         <div className="pt-2">
@@ -186,11 +216,13 @@ function SidebarUtilityLink({
   href,
   pathname,
   label,
+  gold = false,
   children,
 }: {
   href: string;
   pathname: string;
   label: string;
+  gold?: boolean;
   children: React.ReactNode;
 }) {
   const active = pathname === href || pathname.startsWith(`${href}/`);
@@ -198,12 +230,65 @@ function SidebarUtilityLink({
     <Link
       href={href}
       className={`flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-semibold transition-colors ${
-        active ? "bg-white/10 text-white" : "text-steel-100 hover:bg-white/5 hover:text-white"
+        gold
+          ? "bg-gold-400/10 text-gold-400 hover:bg-gold-400/15"
+          : active
+            ? "bg-white/10 text-white"
+            : "text-steel-100 hover:bg-white/5 hover:text-white"
       }`}
     >
       {children}
       {label}
+      {gold && (
+        <span className="ml-auto text-[10px] font-bold uppercase tracking-wide text-gold-400">
+          Ready
+        </span>
+      )}
     </Link>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path
+        d="M3 8.5l3 3 7-7.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function PlayIcon() {
+  return (
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor">
+      <path d="M4 2.7c0-.9 1-1.5 1.8-1L13 6c.8.5.8 1.5 0 2l-7.2 4.3c-.8.5-1.8-.1-1.8-1V2.7Z" />
+    </svg>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+      <rect
+        x="3"
+        y="7"
+        width="10"
+        height="7"
+        rx="1.5"
+        stroke="currentColor"
+        strokeWidth="1.4"
+      />
+      <path
+        d="M5 7V5a3 3 0 0 1 6 0v2"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 }
 

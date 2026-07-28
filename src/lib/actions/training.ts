@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
+import { getDispatcherProgress } from "@/lib/progress";
 
 export async function markModuleComplete(moduleId: string) {
   const user = await requireUser();
@@ -16,6 +17,12 @@ export async function markModuleComplete(moduleId: string) {
   if (!moduleWithQuiz) return;
   if (moduleWithQuiz.quiz) {
     // Modules with a quiz are only completed by passing the quiz.
+    return;
+  }
+
+  const { modules } = await getDispatcherProgress(user.id);
+  const routeStatus = modules.find((m) => m.slug === moduleWithQuiz.slug)?.status;
+  if (routeStatus === "locked") {
     return;
   }
 
