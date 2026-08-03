@@ -19,7 +19,7 @@ export default async function AdminLayout({
           <Link href="/admin">
             <EmpireLogo dark />
           </Link>
-          <nav className="flex items-center gap-5">
+          <nav className="flex items-center gap-5 flex-wrap justify-end">
             <Link
               href="/admin"
               className="text-sm font-medium text-steel-300 hover:text-white"
@@ -45,10 +45,22 @@ export default async function AdminLayout({
               Resources
             </Link>
             <Link
+              href="/admin/audio"
+              className="text-sm font-medium text-steel-300 hover:text-white"
+            >
+              Audio
+            </Link>
+            <Link
               href="/admin/glossary"
               className="text-sm font-medium text-steel-300 hover:text-white"
             >
               Glossary
+            </Link>
+            <Link
+              href="/admin/rates"
+              className="text-sm font-medium text-steel-300 hover:text-white"
+            >
+              Rates
             </Link>
             <div className="flex items-center gap-3 pl-4 border-l border-navy-700">
               <Badge tone="accent">Admin</Badge>

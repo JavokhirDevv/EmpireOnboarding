@@ -3,23 +3,32 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { submitQuizAttempt, type QuizResult } from "@/lib/actions/quiz";
-import { Badge, Button, Card, LinkButton } from "@/components/ui";
+import { Badge, Button, Card, LinkButton, inputClass } from "@/components/ui";
 
 type Option = { id: string; text: string };
-type Question = { id: string; text: string; options: Option[] };
+type Question = {
+  id: string;
+  text: string;
+  type: "MULTIPLE_CHOICE" | "FILL_BLANK";
+  options: Option[];
+};
 
 export function QuizRunner({
   quizId,
   quizTitle,
-  moduleSlug,
-  moduleTitle,
+  contentTitle,
+  backHref,
+  resultsHomeHref,
+  resultsHomeLabel,
   passPercent,
   questions,
 }: {
   quizId: string;
   quizTitle: string;
-  moduleSlug: string;
-  moduleTitle: string;
+  contentTitle: string;
+  backHref: string;
+  resultsHomeHref: string;
+  resultsHomeLabel: string;
   passPercent: number;
   questions: Question[];
 }) {
@@ -28,7 +37,7 @@ export function QuizRunner({
   const [pending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
 
-  const allAnswered = questions.every((q) => answers[q.id]);
+  const allAnswered = questions.every((q) => answers[q.id]?.trim());
 
   function handleSubmit() {
     setError(null);
@@ -70,12 +79,12 @@ export function QuizRunner({
         </p>
         <p className="text-sm text-steel-500 mb-6">
           {result.passed
-            ? `"${moduleTitle}" is now marked complete.`
-            : "Review the module and try again when you're ready."}
+            ? `"${contentTitle}" is now marked complete.`
+            : "Review the material and try again when you're ready."}
         </p>
         <div className="flex items-center justify-center gap-3">
-          <LinkButton href="/dashboard" variant="outline">
-            Back to training
+          <LinkButton href={resultsHomeHref} variant="outline">
+            {resultsHomeLabel}
           </LinkButton>
           {!result.passed && (
             <Button variant="primary" onClick={retake}>
@@ -90,10 +99,10 @@ export function QuizRunner({
   return (
     <div>
       <Link
-        href={`/training/${moduleSlug}`}
+        href={backHref}
         className="text-sm text-steel-500 hover:text-navy-800 mb-4 inline-block"
       >
-        ← Back to {moduleTitle}
+        ← Back to {contentTitle}
       </Link>
       <h1 className="text-2xl font-bold text-navy-900 mb-1">{quizTitle}</h1>
       <p className="text-steel-500 mb-8">
@@ -101,40 +110,64 @@ export function QuizRunner({
       </p>
 
       <div className="space-y-6">
-        {questions.map((q, idx) => (
-          <Card key={q.id} className="p-6">
-            <div className="font-semibold text-navy-900 mb-4">
-              {idx + 1}. {q.text}
-            </div>
-            <div className="space-y-2">
-              {q.options.map((opt) => {
-                const selected = answers[q.id] === opt.id;
-                return (
-                  <label
-                    key={opt.id}
-                    className={`flex items-center gap-3 rounded-lg border px-4 py-2.5 cursor-pointer text-sm transition-colors ${
-                      selected
-                        ? "border-accent-500 bg-accent-100/60"
-                        : "border-border-subtle hover:bg-surface-muted"
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name={q.id}
-                      value={opt.id}
-                      checked={selected}
-                      onChange={() =>
-                        setAnswers((prev) => ({ ...prev, [q.id]: opt.id }))
-                      }
-                      className="accent-orange-600"
-                    />
-                    {opt.text}
-                  </label>
-                );
-              })}
-            </div>
-          </Card>
-        ))}
+        {questions.map((q, idx) =>
+          q.type === "FILL_BLANK" ? (
+            <Card key={q.id} className="p-6">
+              <div className="font-semibold text-navy-900 leading-relaxed">
+                {idx + 1}.{" "}
+                {q.text.split("____").map((part, i, arr) => (
+                  <span key={i}>
+                    {part}
+                    {i < arr.length - 1 && (
+                      <input
+                        type="text"
+                        value={answers[q.id] ?? ""}
+                        onChange={(e) =>
+                          setAnswers((prev) => ({ ...prev, [q.id]: e.target.value }))
+                        }
+                        className={`${inputClass} inline-block w-40 mx-1.5 py-1 px-2 font-normal`}
+                        aria-label={`Answer for question ${idx + 1}`}
+                      />
+                    )}
+                  </span>
+                ))}
+              </div>
+            </Card>
+          ) : (
+            <Card key={q.id} className="p-6">
+              <div className="font-semibold text-navy-900 mb-4">
+                {idx + 1}. {q.text}
+              </div>
+              <div className="space-y-2">
+                {q.options.map((opt) => {
+                  const selected = answers[q.id] === opt.id;
+                  return (
+                    <label
+                      key={opt.id}
+                      className={`flex items-center gap-3 rounded-lg border px-4 py-2.5 cursor-pointer text-sm transition-colors ${
+                        selected
+                          ? "border-accent-500 bg-accent-100/60"
+                          : "border-border-subtle hover:bg-surface-muted"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name={q.id}
+                        value={opt.id}
+                        checked={selected}
+                        onChange={() =>
+                          setAnswers((prev) => ({ ...prev, [q.id]: opt.id }))
+                        }
+                        className="accent-orange-600"
+                      />
+                      {opt.text}
+                    </label>
+                  );
+                })}
+              </div>
+            </Card>
+          )
+        )}
       </div>
 
       {error && (

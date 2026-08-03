@@ -14,6 +14,11 @@ enum Role {
   DISPATCHER
 }
 
+enum QuestionType {
+  MULTIPLE_CHOICE
+  FILL_BLANK
+}
+
 model User {
   id           String   @id @default(cuid())
   name         String
@@ -46,23 +51,28 @@ model Module {
 }
 
 model Quiz {
-  id         String @id @default(cuid())
-  moduleId   String @unique
-  module     Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
-  title      String
-  passPercent Int   @default(80)
+  id            String       @id @default(cuid())
+  moduleId      String?      @unique
+  module        Module?      @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  audioLessonId String?      @unique
+  audioLesson   AudioLesson? @relation(fields: [audioLessonId], references: [id], onDelete: Cascade)
+  title         String
+  passPercent   Int          @default(80)
 
   questions Question[]
   attempts  QuizAttempt[]
 }
 
 model Question {
-  id     String @id @default(cuid())
+  id     String       @id @default(cuid())
   quizId String
-  quiz   Quiz   @relation(fields: [quizId], references: [id], onDelete: Cascade)
-  text   String
-  order  Int    @default(0)
+  quiz   Quiz         @relation(fields: [quizId], references: [id], onDelete: Cascade)
+  text   String // for FILL_BLANK, contains a "____" marker where the blank goes
+  type   QuestionType @default(MULTIPLE_CHOICE)
+  order  Int          @default(0)
 
+  // MULTIPLE_CHOICE: 2-6 options, exactly one isCorrect=true.
+  // FILL_BLANK: 1-3 accepted answer variants, all isCorrect=true.
   options Option[]
 }
 
@@ -118,4 +128,30 @@ model GlossaryTerm {
   definition String
   order      Int      @default(0)
   createdAt  DateTime @default(now())
+}
+
+model RateRule {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  critical    Boolean  @default(false) // flags rules about violations/consequences for visual emphasis
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model AudioLesson {
+  id            String   @id @default(cuid())
+  title         String
+  description   String
+  fileName      String // original uploaded filename
+  storedName    String   @unique // filename on disk (random, collision-proof)
+  mimeType      String
+  sizeBytes     Int
+  durationLabel String? // e.g. "12 min" — admin-entered
+  order         Int      @default(0)
+  published     Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  quiz Quiz?
 }

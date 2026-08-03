@@ -747,6 +747,100 @@ const glossaryTerms: { term: string; definition: string; order: number }[] = [
   },
 ];
 
+const rateRules: { title: string; description: string; critical: boolean; order: number }[] = [
+  {
+    title: "What makes a rate valid",
+    description:
+      "A rate is only valid if it includes the lane (origin and destination) and the broker it was quoted to. A rate posted without both of these doesn't count and can't be enforced against other dispatchers.",
+    critical: false,
+    order: 1,
+  },
+  {
+    title: "Share full information",
+    description:
+      "When you post a rate, share the full information — lane, broker, and rate. Partial information creates confusion and makes it impossible for the rest of the team to respect it.\n\nExample of a rate that works: \"Chicago, IL - Dallas, TX TQL\" (City, State - City, State Broker). Full information of the load (Price / Lane / Broker) must be included in the SUBJECT LINE of the email. A rate that only has this information in the BODY of the email will NOT be considered valid.\n\nThe broker's name must be written out in full, unless it is the abbreviation of a well-known broker from the following list:\nTotal Quality Logistics - TQL\nPITTSBURGH LOGISTICS SYSTEMS INC - PLS\nIntegrity Express Logistics - IEL\nSimple Logistics - SILO\nKing of Freight - KOF\nLogistics Dynamics Inc - LDI\nAmerican Logistics Group - ALG\nRoute Transportation & Logistics - RTL\nNational Cold Chain Inc - NCC\nAmerican Diamond Logistics - ADL",
+    critical: false,
+    order: 2,
+  },
+  {
+    title: "Tell the broker before sending the rate",
+    description:
+      "Never send a rate to a broker before letting the team know first. Announcing it after the fact defeats the purpose of coordinating — someone else may already be working that same broker.",
+    critical: true,
+    order: 3,
+  },
+  {
+    title: "Match an existing rate",
+    description:
+      "If another dispatcher already has a rate out on a lane/broker, you can match it — but you must add a \"+\" to show you're bidding at the same rate. Quietly undercutting or duplicating a rate without flagging it is not allowed.",
+    critical: true,
+    order: 4,
+  },
+  {
+    title: "Bidding at the same time",
+    description:
+      "When multiple dispatchers are bidding the same rate at the same time, whoever has the most \"+\"s on that rate has priority. This keeps it fair and avoids two people fighting over the same load.",
+    critical: false,
+    order: 5,
+  },
+  {
+    title: "Lowering a rate to match the broker's counter",
+    description:
+      "If a broker counters with a lower number, the rate can only be lowered to match if at least 66% of the dispatchers bidding on it agree. One person can't unilaterally drop the rate for everyone else.",
+    critical: false,
+    order: 6,
+  },
+  {
+    title: "When you're the only one bidding",
+    description:
+      "If you're the only dispatcher on a rate, you're free to change it as needed — just let the chain know so everyone stays informed, even if no one else is actively involved.",
+    critical: false,
+    order: 7,
+  },
+  {
+    title: "The 15-minute active window",
+    description:
+      "A posted rate stays active for 15 minutes. To keep it alive past that, someone needs to reply with a \"+\" or \"up\" to renew it. If no one renews it in time, the rate is considered expired.",
+    critical: false,
+    order: 8,
+  },
+  {
+    title: "Keeping a rate alive while waiting on the RC",
+    description:
+      "If you're waiting on the rate confirmation from the broker, keep the rate active in the chain (renew it as needed) so no one else accidentally works the same lane/broker while you're closing it out.",
+    critical: false,
+    order: 9,
+  },
+  {
+    title: "Undercutting an active rate",
+    description:
+      "Sending a lower rate on a lane/broker that already has an active rate posted by someone else — without going through the agreement process above — is undercutting. If this happens, the load is automatically reassigned to whoever had the original, valid rate.",
+    critical: true,
+    order: 10,
+  },
+  {
+    title: "Drivers on hold",
+    description:
+      "If a driver is on hold for a load, that driver is exclusive to the dispatcher who put them on hold. Other dispatchers should not bid that driver out on other loads while they're on hold.",
+    critical: false,
+    order: 11,
+  },
+  {
+    title: "Team leader overrides on excessively high rates",
+    description:
+      "Only a team leader can override and take an excessively high rate — meaning a rate at least $150 above what's reasonable for the lane. In that case, the load must be split between the dispatchers involved, and management will look into why the rate got that high in the first place.",
+    critical: true,
+    order: 12,
+  },
+  {
+    title: "Breaking the rules",
+    description:
+      "Rule-breaking (undercutting, hiding information, skipping the broker-notification step, etc.) has consequences. After 3 confirmed strikes, a fine/charge will be applied. These rules exist purely out of respect for other dispatchers, to avoid internal conflict, and to keep things fair for everyone — not to punish people unnecessarily.",
+    critical: true,
+    order: 13,
+  },
+];
+
 async function main() {
   const adminEmail = (process.env.SEED_ADMIN_EMAIL ?? "admin@empirenational.com").toLowerCase();
   const adminPassword = process.env.SEED_ADMIN_PASSWORD ?? "EmpireAdmin!2026";
@@ -844,6 +938,14 @@ async function main() {
     console.log(`Seeded ${glossaryTerms.length} glossary terms.`);
   } else {
     console.log("Glossary already has terms — skipping seed.");
+  }
+
+  const existingRateRules = await prisma.rateRule.count();
+  if (existingRateRules === 0) {
+    await prisma.rateRule.createMany({ data: rateRules });
+    console.log(`Seeded ${rateRules.length} rate rules.`);
+  } else {
+    console.log("Rate rules already exist — skipping seed.");
   }
 }
 

@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
+import { parseQuestionFormData, questionCreateData } from "@/lib/quiz-question-schema";
 
 function slugify(input: string) {
   return input
@@ -111,40 +112,21 @@ export async function upsertQuizMeta(moduleId: string, formData: FormData) {
   redirect(`/admin/modules/${moduleId}`);
 }
 
-const QuestionSchema = z.object({
-  text: z.string().min(2),
-  optionTexts: z.array(z.string().min(1)).min(2).max(6),
-  correctIndex: z.coerce.number().int().min(0),
-});
-
 export async function addQuestion(quizId: string, formData: FormData) {
   await requireAdmin();
 
-  const optionTexts = formData.getAll("optionText").map(String);
-  const parsed = QuestionSchema.parse({
-    text: formData.get("text"),
-    optionTexts,
-    correctIndex: formData.get("correctIndex"),
-  });
+  const input = parseQuestionFormData(formData);
 
   const quiz = await prisma.quiz.findUnique({
     where: { id: quizId },
     include: { module: { select: { id: true } }, questions: true },
   });
-  if (!quiz) throw new Error("Quiz not found");
+  if (!quiz || !quiz.module) throw new Error("Module quiz not found");
 
   await prisma.question.create({
     data: {
       quizId,
-      text: parsed.text,
-      order: quiz.questions.length,
-      options: {
-        create: parsed.optionTexts.map((text, i) => ({
-          text,
-          isCorrect: i === parsed.correctIndex,
-          order: i,
-        })),
-      },
+      ...questionCreateData(input, quiz.questions.length),
     },
   });
 
@@ -158,7 +140,7 @@ export async function deleteQuestion(questionId: string) {
     where: { id: questionId },
     include: { quiz: { select: { moduleId: true } } },
   });
-  if (!question) return;
+  if (!question || !question.quiz.moduleId) return;
 
   await prisma.question.delete({ where: { id: questionId } });
   revalidatePath(`/admin/modules/${question.quiz.moduleId}`);

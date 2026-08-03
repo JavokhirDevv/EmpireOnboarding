@@ -1,6 +1,24 @@
 import { EmpireLogo } from "@/components/logo";
 import { LinkButton } from "@/components/ui";
 
+const coreTeam = [
+  { name: "Cole West", title: "Expedite Manager", photo: "https://randomuser.me/api/portraits/men/32.jpg" },
+  { name: "Justin Manis", title: "Team Lead", photo: "https://randomuser.me/api/portraits/men/45.jpg" },
+  { name: "Rick Maine", title: "Company Relations", photo: "https://randomuser.me/api/portraits/men/18.jpg" },
+  { name: "John Atkinson", title: "Team Lead", photo: "https://randomuser.me/api/portraits/men/54.jpg" },
+  { name: "Austin Philips", title: "Expedite Dispatch", photo: "https://randomuser.me/api/portraits/men/67.jpg" },
+  { name: "Daria Brooks", title: "QA Engineer", photo: "https://randomuser.me/api/portraits/women/58.jpg" },
+];
+
+const branches = [
+  { country: "Mexico", flagCode: "mx", offices: 3 },
+  { country: "Ukraine", flagCode: "ua", offices: 3 },
+  { country: "Poland", flagCode: "pl", offices: 1 },
+  { country: "Turkey", flagCode: "tr", offices: 1, city: "Ankara" },
+];
+
+const totalOffices = branches.reduce((sum, b) => sum + b.offices, 0);
+
 const pillars = [
   {
     title: "Company & Culture",
@@ -91,6 +109,65 @@ export default function Home() {
                 <p className="text-sm text-steel-500 leading-relaxed">{p.desc}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="bg-surface-muted border-t border-border-subtle">
+          <div className="max-w-6xl mx-auto px-6 py-16">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl font-bold text-navy-900 mb-3">Core Team</h2>
+              <span className="inline-block w-14 h-0.5 bg-accent-400" />
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 max-w-4xl mx-auto">
+              {coreTeam.map((person) => (
+                <div key={person.name} className="text-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={person.photo}
+                    alt={person.name}
+                    className="w-28 h-28 rounded-full object-cover border border-border-subtle mx-auto mb-4"
+                  />
+                  <h3 className="font-semibold text-navy-900">{person.name}</h3>
+                  <p className="text-sm text-steel-500">{person.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-navy-900 text-white">
+          <div className="max-w-6xl mx-auto px-6 py-16">
+            <div className="text-center mb-12">
+              <span className="inline-block text-accent-400 font-semibold text-xs tracking-[0.2em] uppercase mb-3">
+                Where we operate
+              </span>
+              <h2 className="text-2xl font-bold text-white mb-1">Global Offices</h2>
+              <p className="text-steel-300 max-w-xl mx-auto">
+                {totalOffices} offices across {branches.length} countries, supporting dispatch around the clock.
+              </p>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {branches.map((b) => (
+                <div
+                  key={b.country}
+                  className="bg-navy-800 border border-navy-700 rounded-2xl p-6 text-center"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`https://flagcdn.com/w80/${b.flagCode}.png`}
+                    alt={`${b.country} flag`}
+                    className="w-12 h-8 object-cover rounded shadow-sm mx-auto mb-3"
+                  />
+                  <div className="text-3xl font-bold text-accent-400 mb-1">{b.offices}</div>
+                  <div className="text-xs font-semibold uppercase tracking-wide text-steel-300 mb-1">
+                    {b.offices === 1 ? "Office" : "Offices"}
+                  </div>
+                  <div className="text-sm text-steel-100">
+                    {b.city ? `${b.city}, ${b.country}` : b.country}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>

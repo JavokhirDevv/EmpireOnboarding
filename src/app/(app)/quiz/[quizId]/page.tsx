@@ -16,6 +16,7 @@ export default async function QuizPage({
     where: { id: quizId },
     include: {
       module: { select: { slug: true, title: true } },
+      audioLesson: { select: { id: true, title: true } },
       questions: {
         orderBy: { order: "asc" },
         include: { options: { orderBy: { order: "asc" } } },
@@ -23,21 +24,39 @@ export default async function QuizPage({
     },
   });
 
-  if (!quiz) {
+  if (!quiz || (!quiz.module && !quiz.audioLesson)) {
     notFound();
   }
 
-  const { modules } = await getDispatcherProgress(user.id);
-  const routeStatus = modules.find((m) => m.slug === quiz.module.slug)?.status;
-  if (routeStatus === "locked") {
-    redirect("/dashboard");
+  let backHref: string;
+  let contentTitle: string;
+  let resultsHomeHref: string;
+  let resultsHomeLabel: string;
+
+  if (quiz.module) {
+    const { modules } = await getDispatcherProgress(user.id);
+    const routeStatus = modules.find((m) => m.slug === quiz.module!.slug)?.status;
+    if (routeStatus === "locked") {
+      redirect("/dashboard");
+    }
+    backHref = `/training/${quiz.module.slug}`;
+    contentTitle = quiz.module.title;
+    resultsHomeHref = "/dashboard";
+    resultsHomeLabel = "Back to training";
+  } else {
+    backHref = `/audio/${quiz.audioLesson!.id}`;
+    contentTitle = quiz.audioLesson!.title;
+    resultsHomeHref = "/audio";
+    resultsHomeLabel = "Back to audio training";
   }
 
-  // Strip isCorrect before sending to the client — grading happens server-side.
+  // Strip answers before sending to the client — grading happens server-side.
+  // FILL_BLANK questions get no options at all (they'd just be the accepted answers).
   const safeQuestions = quiz.questions.map((q) => ({
     id: q.id,
     text: q.text,
-    options: q.options.map((o) => ({ id: o.id, text: o.text })),
+    type: q.type,
+    options: q.type === "FILL_BLANK" ? [] : q.options.map((o) => ({ id: o.id, text: o.text })),
   }));
 
   return (
@@ -45,8 +64,10 @@ export default async function QuizPage({
       <QuizRunner
         quizId={quiz.id}
         quizTitle={quiz.title}
-        moduleSlug={quiz.module.slug}
-        moduleTitle={quiz.module.title}
+        contentTitle={contentTitle}
+        backHref={backHref}
+        resultsHomeHref={resultsHomeHref}
+        resultsHomeLabel={resultsHomeLabel}
         passPercent={quiz.passPercent}
         questions={safeQuestions}
       />

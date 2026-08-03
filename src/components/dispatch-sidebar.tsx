@@ -37,8 +37,8 @@ export function DispatchSidebar({
   const [pending, startTransition] = useTransition();
 
   return (
-    <aside className="w-80 shrink-0 bg-navy-950 text-white flex flex-col h-full">
-      <div className="px-6 pt-7 pb-5">
+    <aside className="w-80 shrink-0 bg-navy-950 text-white flex flex-col h-full min-h-0 overflow-hidden">
+      <div className="px-6 pt-7 pb-5 shrink-0">
         <Link href="/dashboard" className="block mb-6">
           <EmpireLogo dark />
         </Link>
@@ -60,7 +60,7 @@ export function DispatchSidebar({
         </div>
       </div>
 
-      <nav className="flex-1 overflow-y-auto px-6 pb-4">
+      <nav className="flex-1 min-h-0 overflow-y-auto px-6 pb-4">
         <ol className="relative">
           <div className="absolute left-[19px] top-2 bottom-2 border-l-2 border-dashed border-white/15" />
           {modules.map((m, idx) => {
@@ -141,12 +141,18 @@ export function DispatchSidebar({
         </ol>
       </nav>
 
-      <div className="px-6 pb-6 pt-4 border-t border-white/10 space-y-1.5">
+      <div className="shrink-0 px-6 pb-6 pt-4 border-t border-white/10 space-y-1.5">
         <SidebarUtilityLink href="/glossary" pathname={pathname} label="Glossary">
           <BookIcon />
         </SidebarUtilityLink>
+        <SidebarUtilityLink href="/rates" pathname={pathname} label="Rate Rules">
+          <DollarIcon />
+        </SidebarUtilityLink>
         <SidebarUtilityLink href="/resources" pathname={pathname} label="Resources">
           <FolderIcon />
+        </SidebarUtilityLink>
+        <SidebarUtilityLink href="/audio" pathname={pathname} label="Audio Training">
+          <HeadphonesIcon />
         </SidebarUtilityLink>
         <SidebarUtilityLink
           href="/certificate"
@@ -245,6 +251,35 @@ function SidebarUtilityLink({
         </span>
       )}
     </Link>
+  );
+}
+
+function DollarIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path
+        d="M8 1.5v13M11 4.2c0-1.2-1.3-2.2-3-2.2s-3 1-3 2.3c0 3 6 1.5 6 4.4 0 1.3-1.3 2.3-3 2.3s-3-1-3-2.2"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function HeadphonesIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path
+        d="M2 9v-.5a6 6 0 0 1 12 0V9"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+      />
+      <rect x="1.5" y="9" width="3" height="4" rx="1" stroke="currentColor" strokeWidth="1.4" />
+      <rect x="11.5" y="9" width="3" height="4" rx="1" stroke="currentColor" strokeWidth="1.4" />
+    </svg>
   );
 }
 

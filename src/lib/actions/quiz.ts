@@ -25,6 +25,7 @@ export async function submitQuizAttempt(
     include: {
       questions: { include: { options: true }, orderBy: { order: "asc" } },
       module: { select: { id: true, slug: true } },
+      audioLesson: { select: { id: true } },
     },
   });
 
@@ -32,24 +33,35 @@ export async function submitQuizAttempt(
     throw new Error("Quiz not found");
   }
 
-  const { modules } = await getDispatcherProgress(user.id);
-  const routeStatus = modules.find((m) => m.slug === quiz.module.slug)?.status;
-  if (routeStatus === "locked") {
-    throw new Error("Complete the previous stop before taking this quiz.");
+  if (quiz.module) {
+    const { modules } = await getDispatcherProgress(user.id);
+    const routeStatus = modules.find((m) => m.slug === quiz.module!.slug)?.status;
+    if (routeStatus === "locked") {
+      throw new Error("Complete the previous stop before taking this quiz.");
+    }
   }
 
   const results: QuizResult["results"] = {};
   let correctCount = 0;
 
   for (const question of quiz.questions) {
-    const correctOption = question.options.find((o) => o.isCorrect);
-    const submittedOptionId = answers[question.id];
-    const isCorrect = !!correctOption && submittedOptionId === correctOption.id;
+    const submitted = (answers[question.id] ?? "").trim();
+    let isCorrect: boolean;
+    let correctOptionId = "";
+
+    if (question.type === "FILL_BLANK") {
+      const normalize = (s: string) => s.trim().toLowerCase();
+      const match = question.options.find((o) => normalize(o.text) === normalize(submitted));
+      isCorrect = !!match;
+      correctOptionId = match?.id ?? "";
+    } else {
+      const correctOption = question.options.find((o) => o.isCorrect);
+      isCorrect = !!correctOption && submitted === correctOption.id;
+      correctOptionId = correctOption?.id ?? "";
+    }
+
     if (isCorrect) correctCount++;
-    results[question.id] = {
-      correct: isCorrect,
-      correctOptionId: correctOption?.id ?? "",
-    };
+    results[question.id] = { correct: isCorrect, correctOptionId };
   }
 
   const totalQuestions = quiz.questions.length;
@@ -67,7 +79,7 @@ export async function submitQuizAttempt(
     },
   });
 
-  if (passed) {
+  if (passed && quiz.module) {
     await prisma.moduleProgress.upsert({
       where: { userId_moduleId: { userId: user.id, moduleId: quiz.module.id } },
       update: {},
@@ -76,7 +88,12 @@ export async function submitQuizAttempt(
   }
 
   revalidatePath("/dashboard");
-  revalidatePath(`/training/${quiz.module.slug}`);
+  if (quiz.module) {
+    revalidatePath(`/training/${quiz.module.slug}`);
+  } else if (quiz.audioLesson) {
+    revalidatePath("/audio");
+    revalidatePath(`/audio/${quiz.audioLesson.id}`);
+  }
   revalidatePath(`/quiz/${quiz.id}`);
 
   return { score, passed, correctCount, totalQuestions, passPercent: quiz.passPercent, results };

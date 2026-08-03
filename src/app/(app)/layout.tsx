@@ -13,7 +13,7 @@ export default async function AppLayout({
     await getDispatcherProgress(user.id);
 
   return (
-    <div className="flex flex-1 h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden">
       <DispatchSidebar
         modules={modules.map((m) => ({
           id: m.id,
@@ -28,7 +28,9 @@ export default async function AppLayout({
         userName={user.name}
         userTitle={user.title}
       />
-      <main className="flex-1 bg-surface-muted overflow-y-auto">{children}</main>
+      <main className="flex-1 min-w-0 min-h-0 bg-surface-muted overflow-y-auto">
+        {children}
+      </main>
       <LiveClock />
     </div>
   );

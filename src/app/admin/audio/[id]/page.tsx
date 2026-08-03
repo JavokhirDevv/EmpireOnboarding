@@ -1,23 +1,24 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import {
-  updateModule,
-  deleteModule,
-  upsertQuizMeta,
-  addQuestion,
-  deleteQuestion,
-} from "@/lib/actions/modules";
+  updateAudioLesson,
+  deleteAudioLesson,
+  upsertAudioQuizMeta,
+  addAudioQuestion,
+  deleteAudioQuestion,
+} from "@/lib/actions/audio";
 import { Badge, Button, Card, FieldLabel, inputClass } from "@/components/ui";
+import { formatFileSize } from "@/lib/format";
 import { AddQuestionForm } from "@/components/admin/add-question-form";
 
-export default async function EditModulePage({
+export default async function EditAudioLessonPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
 
-  const trainingModule = await prisma.module.findUnique({
+  const lesson = await prisma.audioLesson.findUnique({
     where: { id },
     include: {
       quiz: {
@@ -26,107 +27,84 @@ export default async function EditModulePage({
     },
   });
 
-  if (!trainingModule) notFound();
+  if (!lesson) notFound();
 
-  const updateModuleWithId = updateModule.bind(null, id);
-  const deleteModuleWithId = deleteModule.bind(null, id);
-  const upsertQuizMetaWithId = upsertQuizMeta.bind(null, id);
-  const addQuestionWithId = trainingModule.quiz
-    ? addQuestion.bind(null, trainingModule.quiz.id)
+  const updateAudioLessonWithId = updateAudioLesson.bind(null, id);
+  const deleteAudioLessonWithId = deleteAudioLesson.bind(null, id);
+  const upsertAudioQuizMetaWithId = upsertAudioQuizMeta.bind(null, id);
+  const addAudioQuestionWithId = lesson.quiz
+    ? addAudioQuestion.bind(null, lesson.quiz.id)
     : null;
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-10 space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-navy-900">Edit module</h1>
-          <p className="text-steel-500 text-sm">/training/{trainingModule.slug}</p>
+          <h1 className="text-2xl font-bold text-navy-900">Edit audio lesson</h1>
+          <p className="text-steel-500 text-sm">
+            {lesson.fileName} · {formatFileSize(lesson.sizeBytes)}
+          </p>
         </div>
-        <form action={deleteModuleWithId}>
+        <form action={deleteAudioLessonWithId}>
           <Button type="submit" variant="danger" className="text-xs px-3 py-1.5">
-            Delete module
+            Delete lesson
           </Button>
         </form>
       </div>
 
+      <Card className="p-6">
+        <audio controls preload="none" className="w-full" src={`/api/audio/${lesson.id}`} />
+      </Card>
+
       <Card className="p-7">
-        <form action={updateModuleWithId} className="space-y-5">
+        <form action={updateAudioLessonWithId} className="space-y-5">
           <div>
             <FieldLabel htmlFor="title">Title</FieldLabel>
             <input
               id="title"
               name="title"
               required
-              defaultValue={trainingModule.title}
-              className={inputClass}
-            />
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <FieldLabel htmlFor="category">Category</FieldLabel>
-              <input
-                id="category"
-                name="category"
-                required
-                defaultValue={trainingModule.category}
-                className={inputClass}
-              />
-            </div>
-            <div>
-              <FieldLabel htmlFor="estMinutes">Est. minutes</FieldLabel>
-              <input
-                id="estMinutes"
-                name="estMinutes"
-                type="number"
-                min={1}
-                defaultValue={trainingModule.estMinutes}
-                className={inputClass}
-              />
-            </div>
-          </div>
-
-          <div>
-            <FieldLabel htmlFor="summary">Short summary</FieldLabel>
-            <input
-              id="summary"
-              name="summary"
-              required
-              defaultValue={trainingModule.summary}
+              defaultValue={lesson.title}
               className={inputClass}
             />
           </div>
 
           <div>
-            <FieldLabel htmlFor="content">Content (Markdown)</FieldLabel>
+            <FieldLabel htmlFor="description">Description</FieldLabel>
             <textarea
-              id="content"
-              name="content"
+              id="description"
+              name="description"
               required
-              rows={16}
-              defaultValue={trainingModule.content}
-              className={`${inputClass} font-mono text-[13px] leading-relaxed`}
+              rows={3}
+              defaultValue={lesson.description}
+              className={inputClass}
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4 items-end">
+          <div className="grid grid-cols-3 gap-4 items-end">
+            <div>
+              <FieldLabel htmlFor="durationLabel">Duration</FieldLabel>
+              <input
+                id="durationLabel"
+                name="durationLabel"
+                defaultValue={lesson.durationLabel ?? ""}
+                className={inputClass}
+                placeholder="e.g. 8 min"
+              />
+            </div>
             <div>
               <FieldLabel htmlFor="order">Display order</FieldLabel>
               <input
                 id="order"
                 name="order"
                 type="number"
-                defaultValue={trainingModule.order}
+                defaultValue={lesson.order}
                 className={inputClass}
               />
             </div>
             <label className="flex items-center gap-2 text-sm font-medium text-navy-800 pb-2.5">
-              <input
-                type="checkbox"
-                name="published"
-                defaultChecked={trainingModule.published}
-              />
-              Published (visible to dispatchers)
+              <input type="checkbox" name="published" defaultChecked={lesson.published} />
+              Published
             </label>
           </div>
 
@@ -141,11 +119,10 @@ export default async function EditModulePage({
       <Card className="p-7">
         <h2 className="font-semibold text-navy-900 mb-1">Quiz</h2>
         <p className="text-sm text-steel-500 mb-5">
-          A module with a quiz is only marked complete once the dispatcher
-          passes it.
+          A dispatcher marks this lesson complete once they pass the quiz.
         </p>
         <form
-          action={upsertQuizMetaWithId}
+          action={upsertAudioQuizMetaWithId}
           className="grid grid-cols-3 gap-4 items-end mb-2"
         >
           <div className="col-span-2">
@@ -154,7 +131,7 @@ export default async function EditModulePage({
               id="quizTitle"
               name="title"
               required
-              defaultValue={trainingModule.quiz?.title ?? `${trainingModule.title} Quiz`}
+              defaultValue={lesson.quiz?.title ?? `${lesson.title} Quiz`}
               className={inputClass}
             />
           </div>
@@ -166,32 +143,29 @@ export default async function EditModulePage({
               type="number"
               min={1}
               max={100}
-              defaultValue={trainingModule.quiz?.passPercent ?? 80}
+              defaultValue={lesson.quiz?.passPercent ?? 80}
               className={inputClass}
             />
           </div>
           <div className="col-span-3 flex justify-end">
             <Button type="submit" variant="outline" className="text-sm">
-              {trainingModule.quiz ? "Update quiz settings" : "Create quiz"}
+              {lesson.quiz ? "Update quiz settings" : "Create quiz"}
             </Button>
           </div>
         </form>
       </Card>
 
-      {trainingModule.quiz && (
+      {lesson.quiz && (
         <Card className="p-7">
           <h2 className="font-semibold text-navy-900 mb-5">
-            Questions ({trainingModule.quiz.questions.length})
+            Questions ({lesson.quiz.questions.length})
           </h2>
 
           <div className="space-y-4 mb-8">
-            {trainingModule.quiz.questions.map((q, idx) => {
-              const deleteQuestionWithId = deleteQuestion.bind(null, q.id);
+            {lesson.quiz.questions.map((q, idx) => {
+              const deleteAudioQuestionWithId = deleteAudioQuestion.bind(null, q.id);
               return (
-                <div
-                  key={q.id}
-                  className="border border-border-subtle rounded-lg p-4"
-                >
+                <div key={q.id} className="border border-border-subtle rounded-lg p-4">
                   <div className="flex items-start justify-between gap-3 mb-2">
                     <div className="font-medium text-navy-900 text-sm flex items-center gap-2">
                       <span>
@@ -211,7 +185,7 @@ export default async function EditModulePage({
                       </span>
                       {q.type === "FILL_BLANK" && <Badge tone="accent">Fill blank</Badge>}
                     </div>
-                    <form action={deleteQuestionWithId}>
+                    <form action={deleteAudioQuestionWithId}>
                       <button
                         type="submit"
                         className="text-xs text-danger-600 hover:underline shrink-0"
@@ -246,19 +220,19 @@ export default async function EditModulePage({
                 </div>
               );
             })}
-            {trainingModule.quiz.questions.length === 0 && (
+            {lesson.quiz.questions.length === 0 && (
               <p className="text-sm text-steel-500">
                 No questions yet — add one below.
               </p>
             )}
           </div>
 
-          {addQuestionWithId && (
+          {addAudioQuestionWithId && (
             <div className="border-t border-border-subtle pt-6">
               <h3 className="font-semibold text-navy-900 text-sm mb-4">
                 Add a question
               </h3>
-              <AddQuestionForm action={addQuestionWithId} />
+              <AddQuestionForm action={addAudioQuestionWithId} />
             </div>
           )}
         </Card>

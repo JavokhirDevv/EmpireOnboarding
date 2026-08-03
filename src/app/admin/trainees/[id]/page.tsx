@@ -14,7 +14,10 @@ export default async function TraineeDetailPage({
     where: { id },
     include: {
       progress: { include: { module: true } },
-      attempts: { include: { quiz: { include: { module: true } } }, orderBy: { createdAt: "desc" } },
+      attempts: {
+        include: { quiz: { include: { module: true, audioLesson: true } } },
+        orderBy: { createdAt: "desc" },
+      },
     },
   });
 
@@ -83,7 +86,12 @@ export default async function TraineeDetailPage({
             <tbody>
               {dispatcher.attempts.map((a) => (
                 <tr key={a.id} className="border-b border-border-subtle last:border-0">
-                  <td className="py-2.5 text-navy-800">{a.quiz.module.title}</td>
+                  <td className="py-2.5 text-navy-800">
+                    {a.quiz.module?.title ?? a.quiz.audioLesson?.title}
+                    {a.quiz.audioLesson && (
+                      <span className="ml-2 text-xs text-steel-500">(Audio)</span>
+                    )}
+                  </td>
                   <td className="py-2.5 text-steel-500">{a.score}%</td>
                   <td className="py-2.5">
                     {a.passed ? (
