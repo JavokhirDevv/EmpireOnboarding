@@ -19,6 +19,7 @@ type SeedModule = {
   estMinutes: number;
   order: number;
   content: string;
+  department?: "DISPATCH" | "TRACKING" | "HR";
   quiz?: SeedQuiz;
 };
 
@@ -665,21 +666,247 @@ Booking a load with a non-compliant driver or missing documentation can result i
   },
 ];
 
-const glossaryTerms: { term: string; definition: string; order: number }[] = [
+const trackingModules: SeedModule[] = [
+  {
+    slug: "welcome-to-the-tracking-team",
+    title: "Welcome to the Tracking Team",
+    category: "Company & Culture",
+    summary: "What the tracking desk does and how it supports dispatch and the customer.",
+    estMinutes: 7,
+    order: 1,
+    department: "TRACKING",
+    content: `## What tracking does
+
+The tracking team keeps a live, accurate picture of every load in transit. Where dispatchers plan and book loads, trackers monitor them once they're moving — confirming location, flagging delays early, and making sure the customer always has an up-to-date ETA.
+
+## Why it matters
+
+A late load with no warning damages trust with the customer. A late load that was flagged two hours in advance is just a normal Tuesday. Your job is to be the early-warning system.
+
+## How the team is organized
+
+- **Trackers** — monitor an assigned group of loads each shift, log check calls, and escalate exceptions.
+- **Dispatchers** — book and assign loads; hand off to tracking once a driver is en route.
+- **Operations Manager** — resolves escalations that trackers can't clear on their own.
+- **Customer / Sales team** — relies on tracking updates to keep shippers informed.
+
+## What we expect from a tracker
+
+- **Frequent, accurate updates** — logged in the TMS, not just remembered.
+- **Early escalation** — flag a likely delay as soon as you see it, not after the appointment is missed.
+- **Clear communication** — with drivers, dispatch, and the customer-facing team.
+- **Ownership** — if a load is on your board, you're watching it until it delivers.
+
+The next module covers the day-to-day mechanics: check-call cadence, what to log, and when to escalate.`,
+  },
+  {
+    slug: "check-calls-and-exception-handling",
+    title: "Check Calls & Exception Handling",
+    category: "Tracking Workflow",
+    summary: "The check-call cadence, what to log, and when to escalate a delay.",
+    estMinutes: 10,
+    order: 2,
+    department: "TRACKING",
+    content: `## The check-call cadence
+
+- **At pickup** — confirm the driver loaded on time and the BOL matches expectations.
+- **Mid-route** — at least once per shift on multi-day runs, more often as the delivery window approaches.
+- **Pre-delivery** — confirm ETA against the appointment window with enough lead time to notify the customer of any change.
+- **At delivery** — confirm delivery time and that the BOL was signed and returned.
+
+## What counts as an exception
+
+Anything that puts the delivery appointment at risk: traffic, a breakdown, a missed pickup window, a driver going off-route, or simply going quiet past your check-in cadence. Exceptions get logged and escalated — they don't get "waited out."
+
+## Logging standards
+
+Every check call and exception goes in the TMS, not just a text thread. The next shift needs to see exactly what happened without having to ask around. A good log entry has three things: what happened, what you did about it, and what the current ETA is.
+
+## When to escalate
+
+- **To dispatch** — if the driver needs a new plan (reroute, reassignment, HOS issue).
+- **To the customer-facing team** — as soon as you know an appointment will be missed, not after it passes.
+- **To the Operations Manager** — for anything you can't resolve within your shift: accidents, serious breakdowns, or a driver who's gone unreachable.
+
+## Best practices
+
+- Always give the customer-facing team a real ETA, not an optimistic one.
+- Keep a professional, respectful tone with drivers — a good relationship with tracking makes their day easier.
+- Never let a load go quiet. A quick "still on schedule" update is better than silence.`,
+    quiz: {
+      title: "Check Calls & Exception Handling — Knowledge Check",
+      passPercent: 80,
+      questions: [
+        {
+          text: "When should a tracker do a check call to confirm the load matches the BOL?",
+          options: [
+            { text: "At pickup", correct: true },
+            { text: "Only at delivery" },
+            { text: "Only if the driver calls in" },
+            { text: "Never — that's dispatch's job" },
+          ],
+        },
+        {
+          text: "Which of these counts as an exception that should be logged and escalated?",
+          options: [
+            { text: "A driver who has gone quiet past the check-in cadence", correct: true },
+            { text: "A driver confirming an on-time delivery" },
+            { text: "A normal mid-route check call with no issues" },
+            { text: "A completed BOL signature" },
+          ],
+        },
+        {
+          text: "Where should every check call and exception be logged?",
+          options: [
+            { text: "In the TMS, so the next shift can see it", correct: true },
+            { text: "In a personal notebook" },
+            { text: "Only in a text message thread" },
+            { text: "It doesn't need to be logged" },
+          ],
+        },
+        {
+          text: "When should the customer-facing team be told a delivery appointment will be missed?",
+          options: [
+            { text: "As soon as the tracker knows", correct: true },
+            { text: "After the appointment has already passed" },
+            { text: "Only if the customer asks" },
+            { text: "It's not tracking's job to tell them" },
+          ],
+        },
+      ],
+    },
+  },
+];
+
+const hrModules: SeedModule[] = [
+  {
+    slug: "welcome-to-empire-national-hr",
+    title: "Welcome to Empire National HR",
+    category: "Company & Culture",
+    summary: "The role HR plays across the company and what new HR team members own.",
+    estMinutes: 7,
+    order: 1,
+    department: "HR",
+    content: `## What HR does at Empire National
+
+HR supports every person in the building — drivers, dispatchers, trackers, and office staff alike. That means onboarding new hires, maintaining accurate personnel records, answering benefits and policy questions, and making sure the company stays compliant with employment law.
+
+## Why it matters
+
+Dispatch keeps freight moving; HR keeps the company itself running — hiring, records, compliance, and support for every employee's day-to-day questions. A well-run HR desk is often invisible when it's working right, and very visible when it isn't.
+
+## How the team is organized
+
+- **HR Generalists** — handle onboarding, records, and day-to-day employee questions.
+- **Recruiting** — sources and screens candidates for open roles.
+- **Payroll & Benefits** — administers pay, benefits enrollment, and related questions.
+- **HR Manager** — owns policy decisions and handles escalations.
+
+## What we expect from an HR team member
+
+- **Confidentiality** — personnel records and personal information are never shared outside of a legitimate business need.
+- **Accuracy** — records that are wrong cause real problems for real people (pay, benefits, compliance).
+- **Responsiveness** — employees relying on you for an answer deserve a timely one.
+- **Consistency** — policies get applied the same way for everyone.
+
+The next module covers the basics of employee records and the compliance requirements every HR team member should know.`,
+  },
+  {
+    slug: "employee-records-and-compliance-basics",
+    title: "Employee Records & Compliance Basics",
+    category: "HR Workflow",
+    summary: "The core records HR maintains and the confidentiality rules that protect them.",
+    estMinutes: 10,
+    order: 2,
+    department: "HR",
+    content: `## Core employee records
+
+- **I-9 (Employment Eligibility Verification)** — completed for every new hire within the legally required window; confirms the employee is authorized to work in the U.S.
+- **Personnel file** — application, offer letter, signed policy acknowledgments, and performance records.
+- **Driver Qualification (DQ) file** — for driving positions: CDL, medical certificate, and driving record. Owned jointly with Safety.
+- **Benefits enrollment records** — health coverage, retirement plan elections, and beneficiary designations.
+
+## Confidentiality rules
+
+Personnel records are private by default. A few ground rules:
+
+- Never discuss one employee's pay, discipline, or personal information with another employee.
+- Only share personnel information with someone who has a legitimate business need to know — a manager checking on their own report's status, for example.
+- Store and send sensitive documents (SSNs, medical info, ID copies) only through approved, secure channels — never by casual email or chat.
+- If you're ever unsure whether you can share something, ask the HR Manager first. It's much easier to release information later than to take it back.
+
+## Compliance basics
+
+- New-hire paperwork (I-9, tax forms, policy acknowledgments) must be completed accurately and on time — missed I-9 deadlines carry real legal risk for the company.
+- Personnel files must be kept accurate and current — an outdated file can cause real problems at audit time or when an employee needs something from it.
+- Employment law (wage and hour rules, leave policies, anti-discrimination law) applies to every decision HR makes — when in doubt, escalate to the HR Manager rather than guessing.
+
+## When to escalate
+
+Any question involving termination, a legal complaint, a workplace safety incident, or something you're not sure is allowed should go to the HR Manager before you act.`,
+    quiz: {
+      title: "Employee Records & Compliance Basics — Knowledge Check",
+      passPercent: 80,
+      questions: [
+        {
+          text: "What does the I-9 form confirm about a new hire?",
+          options: [
+            { text: "That they are authorized to work in the U.S.", correct: true },
+            { text: "Their salary history" },
+            { text: "Their driving record" },
+            { text: "Their benefits elections" },
+          ],
+        },
+        {
+          text: "Can you discuss one employee's pay or discipline with another employee?",
+          options: [
+            { text: "No — personnel information is only shared on a need-to-know basis", correct: true },
+            { text: "Yes, if they ask nicely" },
+            { text: "Yes, as long as it's true" },
+            { text: "Only if they work in the same department" },
+          ],
+        },
+        {
+          text: "What should you do if you're unsure whether you're allowed to share a piece of personnel information?",
+          options: [
+            { text: "Ask the HR Manager before sharing it", correct: true },
+            { text: "Share it and see what happens" },
+            { text: "Only share part of it" },
+            { text: "Ignore the request" },
+          ],
+        },
+        {
+          text: "Which of these should always be escalated to the HR Manager?",
+          options: [
+            { text: "A termination or legal complaint", correct: true },
+            { text: "A routine benefits enrollment question" },
+            { text: "Updating a mailing address" },
+            { text: "Filing a completed I-9" },
+          ],
+        },
+      ],
+    },
+  },
+];
+
+const glossaryTerms: { term: string; fullName?: string; definition: string; order: number }[] = [
   {
     term: "TMS",
+    fullName: "Transportation Management System",
     definition:
       "Transportation Management System — the software used to create loads, assign drivers, and track status.",
     order: 1,
   },
   {
     term: "ELD",
+    fullName: "Electronic Logging Device",
     definition:
       "Electronic Logging Device — records a driver's hours of service automatically; replaces paper logbooks.",
     order: 2,
   },
   {
     term: "HOS",
+    fullName: "Hours of Service",
     definition: "Hours of Service — federal rules limiting how long a driver may drive and remain on duty.",
     order: 3,
   },
@@ -705,17 +932,20 @@ const glossaryTerms: { term: string; definition: string; order: number }[] = [
   },
   {
     term: "BOL",
+    fullName: "Bill of Lading",
     definition:
       "Bill of Lading — the legal document confirming what freight was picked up, from where, and going to where.",
     order: 8,
   },
   {
     term: "OTR",
+    fullName: "Over-the-Road",
     definition: "Over-the-Road — long-haul driving where a driver is away from home for multiple days at a time.",
     order: 9,
   },
   {
     term: "Reefer",
+    fullName: "Refrigerated Trailer",
     definition: "A refrigerated trailer with a built-in temperature-control unit, used for perishable freight.",
     order: 10,
   },
@@ -726,6 +956,7 @@ const glossaryTerms: { term: string; definition: string; order: number }[] = [
   },
   {
     term: "CDL",
+    fullName: "Commercial Driver's License",
     definition: "Commercial Driver's License — required to legally operate most commercial trucks.",
     order: 12,
   },
@@ -873,7 +1104,35 @@ async function main() {
   });
   console.log("Demo dispatcher account ready: demo.dispatcher@empirenational.com");
 
-  for (const m of modules) {
+  const demoTrackingPasswordHash = await bcrypt.hash("Tracking!2026", 10);
+  await prisma.user.upsert({
+    where: { email: "demo.tracking@empirenational.com" },
+    update: {},
+    create: {
+      name: "Demo Tracker",
+      email: "demo.tracking@empirenational.com",
+      passwordHash: demoTrackingPasswordHash,
+      role: "TRACKING",
+      title: "New Tracker",
+    },
+  });
+  console.log("Demo tracking account ready: demo.tracking@empirenational.com");
+
+  const demoHrPasswordHash = await bcrypt.hash("HumanResources!2026", 10);
+  await prisma.user.upsert({
+    where: { email: "demo.hr@empirenational.com" },
+    update: {},
+    create: {
+      name: "Demo HR Specialist",
+      email: "demo.hr@empirenational.com",
+      passwordHash: demoHrPasswordHash,
+      role: "HR",
+      title: "New HR Specialist",
+    },
+  });
+  console.log("Demo HR account ready: demo.hr@empirenational.com");
+
+  for (const m of [...modules, ...trackingModules, ...hrModules]) {
     const created = await prisma.module.upsert({
       where: { slug: m.slug },
       update: {
@@ -881,6 +1140,7 @@ async function main() {
         category: m.category,
         summary: m.summary,
         content: m.content,
+        department: m.department ?? "DISPATCH",
         estMinutes: m.estMinutes,
         order: m.order,
         published: true,
@@ -891,6 +1151,7 @@ async function main() {
         category: m.category,
         summary: m.summary,
         content: m.content,
+        department: m.department ?? "DISPATCH",
         estMinutes: m.estMinutes,
         order: m.order,
         published: true,

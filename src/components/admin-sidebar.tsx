@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import type { ReactNode } from "react";
 import { logout } from "@/lib/actions/auth";
 import { EmpireLogo } from "@/components/logo";
@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui";
 
 export function AdminSidebar({ userName }: { userName: string }) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentDepartment = searchParams.get("department");
 
   return (
     <aside className="w-72 shrink-0 bg-navy-950 text-white flex flex-col h-full min-h-0 overflow-hidden">
@@ -26,19 +28,58 @@ export function AdminSidebar({ userName }: { userName: string }) {
         </div>
 
         <div>
-          <SectionLabel>Training Content</SectionLabel>
+          <SectionLabel>Dispatch</SectionLabel>
           <div className="space-y-1">
-            <NavLink href="/admin/modules" label="Modules" pathname={pathname}>
+            <NavLink
+              href="/admin/modules?department=DISPATCH"
+              label="Modules"
+              pathname={pathname}
+              query={{ base: "/admin/modules", department: "DISPATCH", current: currentDepartment }}
+            >
               <LayersIcon />
             </NavLink>
             <NavLink href="/admin/audio" label="Audio Training" pathname={pathname}>
               <HeadphonesIcon />
             </NavLink>
-            <NavLink href="/admin/glossary" label="Glossary" pathname={pathname}>
-              <BookIcon />
-            </NavLink>
             <NavLink href="/admin/rates" label="Rate Rules" pathname={pathname}>
               <DollarIcon />
+            </NavLink>
+          </div>
+        </div>
+
+        <div>
+          <SectionLabel>Tracking</SectionLabel>
+          <div className="space-y-1">
+            <NavLink
+              href="/admin/modules?department=TRACKING"
+              label="Modules"
+              pathname={pathname}
+              query={{ base: "/admin/modules", department: "TRACKING", current: currentDepartment }}
+            >
+              <LayersIcon />
+            </NavLink>
+          </div>
+        </div>
+
+        <div>
+          <SectionLabel>HR</SectionLabel>
+          <div className="space-y-1">
+            <NavLink
+              href="/admin/modules?department=HR"
+              label="Modules"
+              pathname={pathname}
+              query={{ base: "/admin/modules", department: "HR", current: currentDepartment }}
+            >
+              <LayersIcon />
+            </NavLink>
+          </div>
+        </div>
+
+        <div>
+          <SectionLabel>Shared Content</SectionLabel>
+          <div className="space-y-1">
+            <NavLink href="/admin/glossary" label="Glossary" pathname={pathname}>
+              <BookIcon />
             </NavLink>
             <NavLink href="/admin/resources" label="Resources" pathname={pathname}>
               <FolderIcon />
@@ -49,7 +90,7 @@ export function AdminSidebar({ userName }: { userName: string }) {
         <div>
           <SectionLabel>People</SectionLabel>
           <div className="space-y-1">
-            <NavLink href="/admin/trainees" label="Dispatchers" pathname={pathname}>
+            <NavLink href="/admin/trainees" label="Trainees" pathname={pathname}>
               <UsersIcon />
             </NavLink>
           </div>
@@ -92,15 +133,22 @@ function NavLink({
   label,
   pathname,
   exact = false,
+  query,
   children,
 }: {
   href: string;
   label: string;
   pathname: string;
   exact?: boolean;
+  /** For query-string-scoped links (e.g. Modules per department): compares `department` param instead of the raw pathname. */
+  query?: { base: string; department: string; current: string | null };
   children: ReactNode;
 }) {
-  const active = exact ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
+  const active = query
+    ? pathname === query.base && query.current === query.department
+    : exact
+      ? pathname === href
+      : pathname === href || pathname.startsWith(`${href}/`);
   return (
     <Link
       href={href}

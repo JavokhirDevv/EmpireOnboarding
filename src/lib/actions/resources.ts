@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma";
 import {
   ALLOWED_RESOURCE_TYPES,
   MAX_RESOURCE_BYTES,
+  MAX_RESOURCE_MB,
   deleteResourceFile,
   saveResourceFile,
 } from "@/lib/storage";
@@ -34,7 +35,7 @@ export async function uploadResource(
     return { error: "Only PDF, PNG, JPG, WEBP, or GIF files are allowed." };
   }
   if (file.size > MAX_RESOURCE_BYTES) {
-    return { error: "File is too large — the limit is 20MB." };
+    return { error: `File is too large — the limit is ${MAX_RESOURCE_MB}MB.` };
   }
 
   const parsed = ResourceMetaSchema.safeParse({

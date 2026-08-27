@@ -3,11 +3,11 @@ import { GlossarySearch } from "./glossary-search";
 
 export default async function GlossaryPage() {
   const terms = await prisma.glossaryTerm.findMany({
-    orderBy: [{ order: "asc" }, { term: "asc" }],
+    orderBy: { term: "asc" },
   });
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-10">
+    <div className="max-w-4xl mx-auto px-6 py-10">
       <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-accent-600">
         Reference
       </span>
@@ -18,7 +18,12 @@ export default async function GlossaryPage() {
       </p>
 
       <GlossarySearch
-        terms={terms.map((t) => ({ id: t.id, term: t.term, definition: t.definition }))}
+        terms={terms.map((t) => ({
+          id: t.id,
+          term: t.term,
+          fullName: t.fullName,
+          definition: t.definition,
+        }))}
       />
     </div>
   );

@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
-import { getDispatcherProgress } from "@/lib/progress";
+import { getTraineeProgress, departmentForRole } from "@/lib/progress";
 
 export type QuizResult = {
   score: number;
@@ -19,12 +19,16 @@ export async function submitQuizAttempt(
   answers: Record<string, string>
 ): Promise<QuizResult> {
   const user = await requireUser();
+  const department = departmentForRole(user.role);
+  if (!department) {
+    throw new Error("Quiz not found");
+  }
 
   const quiz = await prisma.quiz.findUnique({
     where: { id: quizId },
     include: {
       questions: { include: { options: true }, orderBy: { order: "asc" } },
-      module: { select: { id: true, slug: true } },
+      module: { select: { id: true, slug: true, department: true } },
       audioLesson: { select: { id: true } },
     },
   });
@@ -33,8 +37,17 @@ export async function submitQuizAttempt(
     throw new Error("Quiz not found");
   }
 
+  // Module quizzes belong to whichever department authored the module;
+  // audio-lesson quizzes are a Dispatch-only feature.
+  if (quiz.module && quiz.module.department !== department) {
+    throw new Error("Quiz not found");
+  }
+  if (quiz.audioLesson && department !== "DISPATCH") {
+    throw new Error("Quiz not found");
+  }
+
   if (quiz.module) {
-    const { modules } = await getDispatcherProgress(user.id);
+    const { modules } = await getTraineeProgress(user.id, department);
     const routeStatus = modules.find((m) => m.slug === quiz.module!.slug)?.status;
     if (routeStatus === "locked") {
       throw new Error("Complete the previous stop before taking this quiz.");

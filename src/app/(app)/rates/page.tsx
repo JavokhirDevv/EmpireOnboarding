@@ -1,7 +1,15 @@
+import { redirect } from "next/navigation";
+import { requireUser } from "@/lib/dal";
+import { departmentForRole } from "@/lib/progress";
 import { prisma } from "@/lib/prisma";
 import { Badge, Card } from "@/components/ui";
 
 export default async function RatesPage() {
+  const user = await requireUser();
+  if (departmentForRole(user.role) !== "DISPATCH") {
+    redirect("/dashboard");
+  }
+
   const rules = await prisma.rateRule.findMany({
     orderBy: [{ order: "asc" }, { createdAt: "asc" }],
   });

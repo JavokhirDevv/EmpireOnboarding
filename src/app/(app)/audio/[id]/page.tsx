@@ -1,7 +1,8 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
+import { departmentForRole } from "@/lib/progress";
 import { Badge, Card, LinkButton } from "@/components/ui";
 import { formatFileSize } from "@/lib/format";
 
@@ -12,6 +13,9 @@ export default async function AudioLessonPage({
 }) {
   const { id } = await params;
   const user = await requireUser();
+  if (departmentForRole(user.role) !== "DISPATCH") {
+    redirect("/dashboard");
+  }
 
   const lesson = await prisma.audioLesson.findUnique({
     where: { id },

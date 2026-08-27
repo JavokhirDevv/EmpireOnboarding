@@ -1,9 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { inputClass } from "@/components/ui";
+import { Card, inputClass } from "@/components/ui";
 
-type Term = { id: string; term: string; definition: string };
+type Term = { id: string; term: string; fullName: string | null; definition: string };
 
 export function GlossarySearch({ terms }: { terms: Term[] }) {
   const [query, setQuery] = useState("");
@@ -13,7 +13,9 @@ export function GlossarySearch({ terms }: { terms: Term[] }) {
     if (!q) return terms;
     return terms.filter(
       (t) =>
-        t.term.toLowerCase().includes(q) || t.definition.toLowerCase().includes(q)
+        t.term.toLowerCase().includes(q) ||
+        t.fullName?.toLowerCase().includes(q) ||
+        t.definition.toLowerCase().includes(q)
     );
   }, [terms, query]);
 
@@ -27,19 +29,29 @@ export function GlossarySearch({ terms }: { terms: Term[] }) {
         className={`${inputClass} py-3`}
       />
 
-      <dl className="mt-6 divide-y divide-border-subtle">
+      <div className="mt-6 grid sm:grid-cols-2 gap-4">
         {filtered.map((t) => (
-          <div key={t.id} className="py-4">
-            <dt className="font-mono font-semibold text-navy-900">{t.term}</dt>
-            <dd className="text-steel-500 mt-1 leading-relaxed">{t.definition}</dd>
-          </div>
+          <Card key={t.id} className="p-5">
+            <div className="flex items-baseline gap-2 flex-wrap">
+              <span className="font-mono font-bold text-navy-900 text-lg tracking-tight">
+                {t.term}
+              </span>
+              {t.fullName && (
+                <>
+                  <span className="text-steel-300">—</span>
+                  <span className="font-semibold text-accent-600">{t.fullName}</span>
+                </>
+              )}
+            </div>
+            <p className="text-steel-500 text-sm leading-relaxed mt-2">{t.definition}</p>
+          </Card>
         ))}
         {filtered.length === 0 && (
-          <p className="py-8 text-center text-steel-500">
+          <p className="col-span-full py-8 text-center text-steel-500">
             No terms match &quot;{query}&quot;.
           </p>
         )}
-      </dl>
+      </div>
     </div>
   );
 }

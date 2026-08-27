@@ -12,6 +12,14 @@ datasource db {
 enum Role {
   ADMIN
   DISPATCHER
+  TRACKING
+  HR
+}
+
+enum Department {
+  DISPATCH
+  TRACKING
+  HR
 }
 
 enum QuestionType {
@@ -34,17 +42,18 @@ model User {
 }
 
 model Module {
-  id          String   @id @default(cuid())
-  slug        String   @unique
+  id          String     @id @default(cuid())
+  slug        String     @unique
   title       String
   category    String // e.g. "Company Overview", "Equipment", "Compliance"
   summary     String
   content     String // markdown body
-  order       Int      @default(0)
-  estMinutes  Int      @default(10)
-  published   Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  department  Department @default(DISPATCH)
+  order       Int        @default(0)
+  estMinutes  Int        @default(10)
+  published   Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
 
   quiz     Quiz?
   progress ModuleProgress[]
@@ -125,6 +134,7 @@ model Resource {
 model GlossaryTerm {
   id         String   @id @default(cuid())
   term       String
+  fullName   String? // spelled-out name for abbreviations, e.g. "Transportation Management System" for "TMS"
   definition String
   order      Int      @default(0)
   createdAt  DateTime @default(now())

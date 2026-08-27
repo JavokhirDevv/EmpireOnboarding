@@ -7,6 +7,8 @@ import { logout } from "@/lib/actions/auth";
 import { resetProgress } from "@/lib/actions/training";
 import { EmpireLogo } from "@/components/logo";
 import type { ModuleStatus } from "@/lib/progress";
+import { DEPARTMENT_LABELS } from "@/lib/departments";
+import type { Department } from "@/generated/prisma/enums";
 
 type SidebarModule = {
   id: string;
@@ -15,7 +17,8 @@ type SidebarModule = {
   status: ModuleStatus;
 };
 
-export function DispatchSidebar({
+export function TraineeSidebar({
+  department,
   modules,
   completed,
   total,
@@ -24,6 +27,7 @@ export function DispatchSidebar({
   userName,
   userTitle,
 }: {
+  department: Department;
   modules: SidebarModule[];
   completed: number;
   total: number;
@@ -35,6 +39,7 @@ export function DispatchSidebar({
   const pathname = usePathname();
   const [confirmingReset, setConfirmingReset] = useState(false);
   const [pending, startTransition] = useTransition();
+  const departmentLabel = DEPARTMENT_LABELS[department];
 
   return (
     <aside className="w-80 shrink-0 bg-navy-950 text-white flex flex-col h-full min-h-0 overflow-hidden">
@@ -43,7 +48,7 @@ export function DispatchSidebar({
           <EmpireLogo dark />
         </Link>
         <div className="text-[11px] font-semibold tracking-[0.18em] uppercase text-steel-300">
-          Dispatch Academy
+          {departmentLabel} Academy
         </div>
         <h1 className="text-xl font-bold text-white mt-0.5">Onboarding Route</h1>
 
@@ -145,15 +150,19 @@ export function DispatchSidebar({
         <SidebarUtilityLink href="/glossary" pathname={pathname} label="Glossary">
           <BookIcon />
         </SidebarUtilityLink>
-        <SidebarUtilityLink href="/rates" pathname={pathname} label="Rate Rules">
-          <DollarIcon />
-        </SidebarUtilityLink>
+        {department === "DISPATCH" && (
+          <SidebarUtilityLink href="/rates" pathname={pathname} label="Rate Rules">
+            <DollarIcon />
+          </SidebarUtilityLink>
+        )}
         <SidebarUtilityLink href="/resources" pathname={pathname} label="Resources">
           <FolderIcon />
         </SidebarUtilityLink>
-        <SidebarUtilityLink href="/audio" pathname={pathname} label="Audio Training">
-          <HeadphonesIcon />
-        </SidebarUtilityLink>
+        {department === "DISPATCH" && (
+          <SidebarUtilityLink href="/audio" pathname={pathname} label="Audio Training">
+            <HeadphonesIcon />
+          </SidebarUtilityLink>
+        )}
         <SidebarUtilityLink
           href="/certificate"
           pathname={pathname}
@@ -201,7 +210,9 @@ export function DispatchSidebar({
         <div className="pt-4 mt-3 border-t border-white/10 flex items-center justify-between gap-3">
           <div className="min-w-0">
             <div className="text-sm font-semibold text-white truncate">{userName}</div>
-            <div className="text-xs text-steel-300 truncate">{userTitle ?? "Dispatcher"}</div>
+            <div className="text-xs text-steel-300 truncate">
+              {userTitle ?? `${departmentLabel} Trainee`}
+            </div>
           </div>
           <form action={logout}>
             <button

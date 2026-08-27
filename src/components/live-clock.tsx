@@ -21,13 +21,18 @@ function formatEasternTime(date: Date) {
   return { zone, time };
 }
 
+let cachedTimestamp = Date.now();
+
 function subscribeToClock(callback: () => void) {
-  const id = setInterval(callback, 1000);
+  const id = setInterval(() => {
+    cachedTimestamp = Date.now();
+    callback();
+  }, 1000);
   return () => clearInterval(id);
 }
 
 function getClockSnapshot() {
-  return Date.now();
+  return cachedTimestamp;
 }
 
 function getServerClockSnapshot() {

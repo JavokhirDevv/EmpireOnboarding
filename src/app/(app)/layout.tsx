@@ -1,6 +1,7 @@
+import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/dal";
-import { getDispatcherProgress } from "@/lib/progress";
-import { DispatchSidebar } from "@/components/dispatch-sidebar";
+import { getTraineeProgress, departmentForRole } from "@/lib/progress";
+import { TraineeSidebar } from "@/components/trainee-sidebar";
 import { LiveClock } from "@/components/live-clock";
 
 export default async function AppLayout({
@@ -9,12 +10,18 @@ export default async function AppLayout({
   children: React.ReactNode;
 }) {
   const user = await requireUser();
+  const department = departmentForRole(user.role);
+  if (!department) {
+    redirect("/admin");
+  }
+
   const { modules, completed, total, percent, certificateUnlocked } =
-    await getDispatcherProgress(user.id);
+    await getTraineeProgress(user.id, department);
 
   return (
     <div className="flex h-screen overflow-hidden">
-      <DispatchSidebar
+      <TraineeSidebar
+        department={department}
         modules={modules.map((m) => ({
           id: m.id,
           slug: m.slug,

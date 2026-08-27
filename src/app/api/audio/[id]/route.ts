@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
+import { departmentForRole } from "@/lib/progress";
 import {
   readUploadedFile,
   readUploadedFileRange,
@@ -12,7 +13,10 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const session = await getSession();
-  if (!session) {
+  // Audio Training is a Dispatch-only feature. Admins can still stream files
+  // for preview from the admin panel; Tracking/HR trainees cannot.
+  const allowed = session && (session.role === "ADMIN" || departmentForRole(session.role) === "DISPATCH");
+  if (!allowed) {
     return new NextResponse(null, { status: 401 });
   }
 

@@ -1,10 +1,15 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
+import { departmentForRole } from "@/lib/progress";
 import { Badge, Card } from "@/components/ui";
 
 export default async function AudioTrainingPage() {
   const user = await requireUser();
+  if (departmentForRole(user.role) !== "DISPATCH") {
+    redirect("/dashboard");
+  }
 
   const lessons = await prisma.audioLesson.findMany({
     where: { published: true },

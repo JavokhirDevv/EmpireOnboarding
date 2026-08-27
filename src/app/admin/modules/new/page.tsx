@@ -1,7 +1,16 @@
 import { createModule } from "@/lib/actions/modules";
 import { Button, Card, FieldLabel, inputClass } from "@/components/ui";
 
-export default function NewModulePage() {
+export default async function NewModulePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ department?: string }>;
+}) {
+  const { department } = await searchParams;
+  const defaultDepartment = ["DISPATCH", "TRACKING", "HR"].includes(department ?? "")
+    ? department!
+    : "DISPATCH";
+
   return (
     <div className="max-w-2xl mx-auto px-6 py-10">
       <h1 className="text-2xl font-bold text-navy-900 mb-1">New training module</h1>
@@ -24,6 +33,19 @@ export default function NewModulePage() {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
+              <FieldLabel htmlFor="department">Department</FieldLabel>
+              <select
+                id="department"
+                name="department"
+                defaultValue={defaultDepartment}
+                className={inputClass}
+              >
+                <option value="DISPATCH">Dispatch</option>
+                <option value="TRACKING">Tracking</option>
+                <option value="HR">HR</option>
+              </select>
+            </div>
+            <div>
               <FieldLabel htmlFor="category">Category</FieldLabel>
               <input
                 id="category"
@@ -31,6 +53,19 @@ export default function NewModulePage() {
                 required
                 className={inputClass}
                 placeholder="e.g. Equipment & Trailers"
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <FieldLabel htmlFor="summary">Short summary</FieldLabel>
+              <input
+                id="summary"
+                name="summary"
+                required
+                className={inputClass}
+                placeholder="One sentence shown on the dashboard card"
               />
             </div>
             <div>
@@ -44,17 +79,6 @@ export default function NewModulePage() {
                 className={inputClass}
               />
             </div>
-          </div>
-
-          <div>
-            <FieldLabel htmlFor="summary">Short summary</FieldLabel>
-            <input
-              id="summary"
-              name="summary"
-              required
-              className={inputClass}
-              placeholder="One sentence shown on the dashboard card"
-            />
           </div>
 
           <div>
@@ -82,7 +106,7 @@ export default function NewModulePage() {
             </div>
             <label className="flex items-center gap-2 text-sm font-medium text-navy-800 pb-2.5">
               <input type="checkbox" name="published" defaultChecked />
-              Published (visible to dispatchers)
+              Published (visible to trainees)
             </label>
           </div>
 

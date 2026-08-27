@@ -1,11 +1,14 @@
 import "server-only";
 import { prisma } from "@/lib/prisma";
+import type { Department } from "@/generated/prisma/enums";
+
+export { DEPARTMENT_LABELS, departmentForRole } from "@/lib/departments";
 
 export type ModuleStatus = "completed" | "current" | "locked";
 
-export async function getDispatcherProgress(userId: string) {
+export async function getTraineeProgress(userId: string, department: Department) {
   const modules = await prisma.module.findMany({
-    where: { published: true },
+    where: { published: true, department },
     orderBy: { order: "asc" },
     include: {
       quiz: { select: { id: true, title: true, passPercent: true } },

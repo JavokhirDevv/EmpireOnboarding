@@ -1,12 +1,15 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/dal";
-import { getDispatcherProgress } from "@/lib/progress";
+import { getTraineeProgress, departmentForRole } from "@/lib/progress";
 import { Badge, Card, LinkButton, ProgressBar } from "@/components/ui";
 
 export default async function DashboardPage() {
   const user = await requireUser();
+  const department = departmentForRole(user.role);
+  if (!department) redirect("/admin");
   const { modules, total, completed, percent, allComplete } =
-    await getDispatcherProgress(user.id);
+    await getTraineeProgress(user.id, department);
 
   const nextStop = modules.find((m) => m.status === "current");
 

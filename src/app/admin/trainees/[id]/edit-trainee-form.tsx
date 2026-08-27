@@ -1,48 +1,48 @@
 "use client";
 
 import { useActionState } from "react";
-import { createDispatcher } from "@/lib/actions/users";
+import { updateTrainee } from "@/lib/actions/users";
 import { Button, FieldLabel, inputClass } from "@/components/ui";
 
-export function NewDispatcherForm() {
-  const [state, action, pending] = useActionState(createDispatcher, undefined);
+export function EditTraineeForm({
+  userId,
+  name,
+  title,
+}: {
+  userId: string;
+  name: string;
+  title: string | null;
+}) {
+  const [state, action, pending] = useActionState(
+    updateTrainee.bind(null, userId),
+    undefined
+  );
 
   return (
     <form action={action} className="space-y-4">
       <div>
         <FieldLabel htmlFor="name">Full name</FieldLabel>
-        <input id="name" name="name" required className={inputClass} />
+        <input id="name" name="name" required defaultValue={name} className={inputClass} />
       </div>
       <div>
-        <FieldLabel htmlFor="email">Email</FieldLabel>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          className={inputClass}
-          placeholder="firstname.lastname@empirenational.com"
-        />
-      </div>
-      <div>
-        <FieldLabel htmlFor="title">Title (optional)</FieldLabel>
+        <FieldLabel htmlFor="title">Title</FieldLabel>
         <input
           id="title"
           name="title"
-          className={inputClass}
+          defaultValue={title ?? ""}
           placeholder="New Dispatcher"
+          className={inputClass}
         />
       </div>
       <div>
-        <FieldLabel htmlFor="password">Temporary password</FieldLabel>
+        <FieldLabel htmlFor="password">Reset password (optional)</FieldLabel>
         <input
           id="password"
           name="password"
           type="text"
-          required
           minLength={8}
+          placeholder="Leave blank to keep current password"
           className={inputClass}
-          placeholder="At least 8 characters"
         />
       </div>
       {state?.error && (
@@ -52,7 +52,7 @@ export function NewDispatcherForm() {
       )}
       <div className="flex justify-end pt-2">
         <Button type="submit" disabled={pending} variant="primary">
-          {pending ? "Creating..." : "Create account"}
+          {pending ? "Saving..." : "Save changes"}
         </Button>
       </div>
     </form>

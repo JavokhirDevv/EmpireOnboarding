@@ -4,23 +4,25 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
-import { getDispatcherProgress } from "@/lib/progress";
+import { getTraineeProgress, departmentForRole } from "@/lib/progress";
 
 export async function markModuleComplete(moduleId: string) {
   const user = await requireUser();
+  const department = departmentForRole(user.role);
+  if (!department) return;
 
   const moduleWithQuiz = await prisma.module.findUnique({
     where: { id: moduleId },
-    select: { id: true, slug: true, quiz: { select: { id: true } } },
+    select: { id: true, slug: true, department: true, quiz: { select: { id: true } } },
   });
 
-  if (!moduleWithQuiz) return;
+  if (!moduleWithQuiz || moduleWithQuiz.department !== department) return;
   if (moduleWithQuiz.quiz) {
     // Modules with a quiz are only completed by passing the quiz.
     return;
   }
 
-  const { modules } = await getDispatcherProgress(user.id);
+  const { modules } = await getTraineeProgress(user.id, department);
   const routeStatus = modules.find((m) => m.slug === moduleWithQuiz.slug)?.status;
   if (routeStatus === "locked") {
     return;

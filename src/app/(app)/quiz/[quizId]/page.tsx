@@ -1,7 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
-import { getDispatcherProgress } from "@/lib/progress";
+import { getTraineeProgress, departmentForRole } from "@/lib/progress";
 import { QuizRunner } from "./quiz-runner";
 
 export default async function QuizPage({
@@ -11,11 +11,13 @@ export default async function QuizPage({
 }) {
   const { quizId } = await params;
   const user = await requireUser();
+  const department = departmentForRole(user.role);
+  if (!department) redirect("/admin");
 
   const quiz = await prisma.quiz.findUnique({
     where: { id: quizId },
     include: {
-      module: { select: { slug: true, title: true } },
+      module: { select: { slug: true, title: true, department: true } },
       audioLesson: { select: { id: true, title: true } },
       questions: {
         orderBy: { order: "asc" },
@@ -28,13 +30,22 @@ export default async function QuizPage({
     notFound();
   }
 
+  // Audio-lesson quizzes are a Dispatch-only feature; module quizzes belong to
+  // whichever department the module itself was authored under.
+  if (quiz.module && quiz.module.department !== department) {
+    notFound();
+  }
+  if (quiz.audioLesson && department !== "DISPATCH") {
+    notFound();
+  }
+
   let backHref: string;
   let contentTitle: string;
   let resultsHomeHref: string;
   let resultsHomeLabel: string;
 
   if (quiz.module) {
-    const { modules } = await getDispatcherProgress(user.id);
+    const { modules } = await getTraineeProgress(user.id, department);
     const routeStatus = modules.find((m) => m.slug === quiz.module!.slug)?.status;
     if (routeStatus === "locked") {
       redirect("/dashboard");

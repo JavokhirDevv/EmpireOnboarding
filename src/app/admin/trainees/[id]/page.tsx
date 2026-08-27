@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { deleteUser } from "@/lib/actions/users";
 import { Badge, Button, Card } from "@/components/ui";
+import { DEPARTMENT_LABELS, departmentForRole } from "@/lib/progress";
+import { EditTraineeForm } from "./edit-trainee-form";
 
 export default async function TraineeDetailPage({
   params,
@@ -10,7 +12,7 @@ export default async function TraineeDetailPage({
 }) {
   const { id } = await params;
 
-  const dispatcher = await prisma.user.findUnique({
+  const trainee = await prisma.user.findUnique({
     where: { id },
     include: {
       progress: { include: { module: true } },
@@ -21,24 +23,28 @@ export default async function TraineeDetailPage({
     },
   });
 
-  if (!dispatcher || dispatcher.role !== "DISPATCHER") notFound();
+  const department = trainee ? departmentForRole(trainee.role) : null;
+  if (!trainee || !department) notFound();
 
   const modules = await prisma.module.findMany({
-    where: { published: true },
+    where: { published: true, department },
     orderBy: { order: "asc" },
   });
 
-  const completedModuleIds = new Set(dispatcher.progress.map((p) => p.moduleId));
-  const deleteUserWithId = deleteUser.bind(null, dispatcher.id);
+  const completedModuleIds = new Set(trainee.progress.map((p) => p.moduleId));
+  const deleteUserWithId = deleteUser.bind(null, trainee.id);
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-10 space-y-8">
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-navy-900">{dispatcher.name}</h1>
-          <p className="text-steel-500">{dispatcher.email}</p>
-          {dispatcher.title && (
-            <p className="text-sm text-steel-500 mt-1">{dispatcher.title}</p>
+          <div className="flex items-center gap-2.5 mb-1">
+            <h1 className="text-2xl font-bold text-navy-900">{trainee.name}</h1>
+            <Badge tone="accent">{DEPARTMENT_LABELS[department]}</Badge>
+          </div>
+          <p className="text-steel-500">{trainee.email}</p>
+          {trainee.title && (
+            <p className="text-sm text-steel-500 mt-1">{trainee.title}</p>
           )}
         </div>
         <form action={deleteUserWithId}>
@@ -47,6 +53,15 @@ export default async function TraineeDetailPage({
           </Button>
         </form>
       </div>
+
+      <Card className="p-6 max-w-lg">
+        <h2 className="font-semibold text-navy-900 mb-4">Edit trainee</h2>
+        <EditTraineeForm
+          userId={trainee.id}
+          name={trainee.name}
+          title={trainee.title}
+        />
+      </Card>
 
       <Card className="p-6">
         <h2 className="font-semibold text-navy-900 mb-4">
@@ -66,12 +81,15 @@ export default async function TraineeDetailPage({
               )}
             </li>
           ))}
+          {modules.length === 0 && (
+            <p className="text-sm text-steel-500">No published modules for this department yet.</p>
+          )}
         </ul>
       </Card>
 
       <Card className="p-6">
         <h2 className="font-semibold text-navy-900 mb-4">Quiz attempt history</h2>
-        {dispatcher.attempts.length === 0 ? (
+        {trainee.attempts.length === 0 ? (
           <p className="text-sm text-steel-500">No quiz attempts yet.</p>
         ) : (
           <table className="w-full text-sm">
@@ -84,7 +102,7 @@ export default async function TraineeDetailPage({
               </tr>
             </thead>
             <tbody>
-              {dispatcher.attempts.map((a) => (
+              {trainee.attempts.map((a) => (
                 <tr key={a.id} className="border-b border-border-subtle last:border-0">
                   <td className="py-2.5 text-navy-800">
                     {a.quiz.module?.title ?? a.quiz.audioLesson?.title}

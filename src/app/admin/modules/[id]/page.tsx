@@ -62,7 +62,20 @@ export default async function EditModulePage({
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <FieldLabel htmlFor="department">Department</FieldLabel>
+              <select
+                id="department"
+                name="department"
+                defaultValue={trainingModule.department}
+                className={inputClass}
+              >
+                <option value="DISPATCH">Dispatch</option>
+                <option value="TRACKING">Tracking</option>
+                <option value="HR">HR</option>
+              </select>
+            </div>
             <div>
               <FieldLabel htmlFor="category">Category</FieldLabel>
               <input
@@ -126,7 +139,7 @@ export default async function EditModulePage({
                 name="published"
                 defaultChecked={trainingModule.published}
               />
-              Published (visible to dispatchers)
+              Published (visible to trainees)
             </label>
           </div>
 
@@ -141,7 +154,7 @@ export default async function EditModulePage({
       <Card className="p-7">
         <h2 className="font-semibold text-navy-900 mb-1">Quiz</h2>
         <p className="text-sm text-steel-500 mb-5">
-          A module with a quiz is only marked complete once the dispatcher
+          A module with a quiz is only marked complete once the trainee
           passes it.
         </p>
         <form

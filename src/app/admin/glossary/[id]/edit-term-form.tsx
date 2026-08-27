@@ -1,11 +1,24 @@
 "use client";
 
 import { useActionState } from "react";
-import { addGlossaryTerm } from "@/lib/actions/glossary";
+import { updateGlossaryTerm } from "@/lib/actions/glossary";
 import { Button, FieldLabel, inputClass } from "@/components/ui";
 
-export function AddTermForm() {
-  const [state, action, pending] = useActionState(addGlossaryTerm, undefined);
+export function EditTermForm({
+  termId,
+  term,
+  fullName,
+  definition,
+}: {
+  termId: string;
+  term: string;
+  fullName: string | null;
+  definition: string;
+}) {
+  const [state, action, pending] = useActionState(
+    updateGlossaryTerm.bind(null, termId),
+    undefined
+  );
 
   return (
     <form action={action} className="space-y-4">
@@ -15,6 +28,7 @@ export function AddTermForm() {
           id="term"
           name="term"
           required
+          defaultValue={term}
           className={inputClass}
           placeholder="e.g. TMS"
         />
@@ -24,6 +38,7 @@ export function AddTermForm() {
         <input
           id="fullName"
           name="fullName"
+          defaultValue={fullName ?? ""}
           className={inputClass}
           placeholder="e.g. Transportation Management System"
         />
@@ -35,6 +50,7 @@ export function AddTermForm() {
           name="definition"
           required
           rows={3}
+          defaultValue={definition}
           className={inputClass}
           placeholder="Plain-language explanation for a brand-new dispatcher"
         />
@@ -46,7 +62,7 @@ export function AddTermForm() {
       )}
       <div className="flex justify-end pt-2">
         <Button type="submit" disabled={pending} variant="primary">
-          {pending ? "Adding..." : "Add term"}
+          {pending ? "Saving..." : "Save changes"}
         </Button>
       </div>
     </form>

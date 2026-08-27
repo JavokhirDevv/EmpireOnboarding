@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
-import { getDispatcherProgress } from "@/lib/progress";
+import { getTraineeProgress, departmentForRole } from "@/lib/progress";
 import { Badge, Card, LinkButton } from "@/components/ui";
 import { MarkCompleteButton } from "./mark-complete-button";
 
@@ -15,6 +15,8 @@ export default async function TrainingModulePage({
 }) {
   const { slug } = await params;
   const user = await requireUser();
+  const department = departmentForRole(user.role);
+  if (!department) redirect("/admin");
 
   const trainingModule = await prisma.module.findUnique({
     where: { slug },
@@ -24,11 +26,11 @@ export default async function TrainingModulePage({
     },
   });
 
-  if (!trainingModule || !trainingModule.published) {
+  if (!trainingModule || !trainingModule.published || trainingModule.department !== department) {
     notFound();
   }
 
-  const { modules } = await getDispatcherProgress(user.id);
+  const { modules } = await getTraineeProgress(user.id, department);
   const routeIndex = modules.findIndex((m) => m.slug === slug);
   const routeStatus = modules[routeIndex]?.status;
   if (routeStatus === "locked") {

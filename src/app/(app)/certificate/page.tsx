@@ -1,13 +1,16 @@
+import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/dal";
-import { getDispatcherProgress } from "@/lib/progress";
+import { getTraineeProgress, departmentForRole, DEPARTMENT_LABELS } from "@/lib/progress";
 import { Card, LinkButton, ProgressBar } from "@/components/ui";
 import { EmpireLogo } from "@/components/logo";
 import { PrintButton } from "./print-button";
 
 export default async function CertificatePage() {
   const user = await requireUser();
+  const department = departmentForRole(user.role);
+  if (!department) redirect("/admin");
   const { modules, total, completed, percent, allComplete } =
-    await getDispatcherProgress(user.id);
+    await getTraineeProgress(user.id, department);
 
   if (!allComplete) {
     return (
@@ -52,9 +55,8 @@ export default async function CertificatePage() {
         </div>
         <h1 className="text-3xl font-bold text-navy-900 mb-2">{user.name}</h1>
         <p className="text-steel-500 mb-8">
-          has successfully completed the Empire National Dispatcher
-          Onboarding Program, covering company operations, equipment
-          knowledge, dispatch workflow, and safety &amp; compliance training.
+          has successfully completed the Empire National {DEPARTMENT_LABELS[department]}{" "}
+          Onboarding Program.
         </p>
         <div className="grid grid-cols-2 gap-6 max-w-sm mx-auto text-sm">
           <div>
