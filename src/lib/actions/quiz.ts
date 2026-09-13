@@ -4,8 +4,10 @@ import { revalidatePath } from "next/cache";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
 import { getTraineeProgress, departmentForRole } from "@/lib/progress";
+import { gradeAnswer } from "@/lib/quiz-grading";
 
 export type QuizResult = {
+  attemptId: string;
   score: number;
   passed: boolean;
   correctCount: number;
@@ -58,23 +60,9 @@ export async function submitQuizAttempt(
   let correctCount = 0;
 
   for (const question of quiz.questions) {
-    const submitted = (answers[question.id] ?? "").trim();
-    let isCorrect: boolean;
-    let correctOptionId = "";
-
-    if (question.type === "FILL_BLANK") {
-      const normalize = (s: string) => s.trim().toLowerCase();
-      const match = question.options.find((o) => normalize(o.text) === normalize(submitted));
-      isCorrect = !!match;
-      correctOptionId = match?.id ?? "";
-    } else {
-      const correctOption = question.options.find((o) => o.isCorrect);
-      isCorrect = !!correctOption && submitted === correctOption.id;
-      correctOptionId = correctOption?.id ?? "";
-    }
-
+    const { correct: isCorrect, matched } = gradeAnswer(question, answers[question.id] ?? "");
     if (isCorrect) correctCount++;
-    results[question.id] = { correct: isCorrect, correctOptionId };
+    results[question.id] = { correct: isCorrect, correctOptionId: matched?.id ?? "" };
   }
 
   const totalQuestions = quiz.questions.length;
@@ -82,7 +70,7 @@ export async function submitQuizAttempt(
     totalQuestions === 0 ? 0 : Math.round((correctCount / totalQuestions) * 100);
   const passed = score >= quiz.passPercent;
 
-  await prisma.quizAttempt.create({
+  const attempt = await prisma.quizAttempt.create({
     data: {
       userId: user.id,
       quizId: quiz.id,
@@ -109,5 +97,13 @@ export async function submitQuizAttempt(
   }
   revalidatePath(`/quiz/${quiz.id}`);
 
-  return { score, passed, correctCount, totalQuestions, passPercent: quiz.passPercent, results };
+  return {
+    attemptId: attempt.id,
+    score,
+    passed,
+    correctCount,
+    totalQuestions,
+    passPercent: quiz.passPercent,
+    results,
+  };
 }

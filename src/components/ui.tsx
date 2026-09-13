@@ -30,6 +30,11 @@ const variants = {
   gold: "bg-gold-500 text-white hover:bg-gold-600",
 };
 
+/** Button styling for elements that aren't buttons — e.g. a download <a>. */
+export function buttonClass(variant: keyof typeof variants = "primary", className = "") {
+  return `${buttonBase} ${variants[variant]} ${className}`;
+}
+
 export function Button({
   children,
   variant = "primary",

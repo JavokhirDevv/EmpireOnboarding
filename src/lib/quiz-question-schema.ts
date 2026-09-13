@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { shuffleAnswerOptions } from "./quiz-options";
 
 // Shared by both admin question-builder actions (module quizzes and audio
 // quizzes) — not itself a server action, just parsing/shaping helpers.
@@ -70,14 +71,20 @@ export function questionCreateData(input: QuestionInput, order: number) {
       },
     };
   }
+  // Stored in shuffled order so the correct answer doesn't always sit in slot A.
+  const shuffled = shuffleAnswerOptions(
+    input.text,
+    input.optionTexts.map((text, i) => ({ text, isCorrect: i === input.correctIndex }))
+  );
+
   return {
     text: input.text,
     type: "MULTIPLE_CHOICE" as const,
     order,
     options: {
-      create: input.optionTexts.map((text, i) => ({
-        text,
-        isCorrect: i === input.correctIndex,
+      create: shuffled.map((option, i) => ({
+        text: option.text,
+        isCorrect: option.isCorrect,
         order: i,
       })),
     },

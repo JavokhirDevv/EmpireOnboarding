@@ -2,6 +2,7 @@ import "dotenv/config";
 import bcrypt from "bcryptjs";
 import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
 import { PrismaClient } from "../src/generated/prisma/client";
+import { shuffleAnswerOptions } from "../src/lib/quiz-options";
 
 const adapter = new PrismaBetterSqlite3({
   url: process.env.DATABASE_URL ?? "file:./dev.db",
@@ -1179,7 +1180,9 @@ async function main() {
             text: q.text,
             order: qIndex,
             options: {
-              create: q.options.map((o, oIndex) => ({
+              // Seed data lists the correct answer first; shuffle so it lands
+              // in a different slot per question.
+              create: shuffleAnswerOptions(q.text, q.options).map((o, oIndex) => ({
                 text: o.text,
                 isCorrect: !!o.correct,
                 order: oIndex,

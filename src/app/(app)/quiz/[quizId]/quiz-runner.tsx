@@ -3,7 +3,7 @@
 import { useState, useTransition } from "react";
 import Link from "next/link";
 import { submitQuizAttempt, type QuizResult } from "@/lib/actions/quiz";
-import { Badge, Button, Card, LinkButton, inputClass } from "@/components/ui";
+import { Badge, Button, Card, LinkButton, buttonClass, inputClass } from "@/components/ui";
 
 type Option = { id: string; text: string };
 type Question = {
@@ -82,16 +82,27 @@ export function QuizRunner({
             ? `"${contentTitle}" is now marked complete.`
             : "Review the material and try again when you're ready."}
         </p>
-        <div className="flex items-center justify-center gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-3">
           <LinkButton href={resultsHomeHref} variant="outline">
             {resultsHomeLabel}
           </LinkButton>
+          {/* Plain anchor, not <Link>: this is a file download, not a navigation. */}
+          <a
+            href={`/api/quiz-attempts/${result.attemptId}/pdf`}
+            download
+            className={buttonClass("navy")}
+          >
+            Download answers (PDF)
+          </a>
           {!result.passed && (
             <Button variant="primary" onClick={retake}>
               Retake quiz
             </Button>
           )}
         </div>
+        <p className="text-xs text-steel-500 mt-4">
+          Save the PDF or forward it to HR — it lists every question with the answer given.
+        </p>
       </Card>
     );
   }
