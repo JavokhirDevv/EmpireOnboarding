@@ -10,7 +10,13 @@ const adapter = new PrismaBetterSqlite3({
 const prisma = new PrismaClient({ adapter });
 
 type SeedOption = { text: string; correct?: boolean };
-type SeedQuestion = { text: string; options: SeedOption[] };
+// FILL_BLANK questions put "____" in the text and list every accepted answer
+// as an option; MULTIPLE_CHOICE questions mark exactly one option correct.
+type SeedQuestion = {
+  text: string;
+  type?: "MULTIPLE_CHOICE" | "FILL_BLANK";
+  options: SeedOption[];
+};
 type SeedQuiz = { title: string; passPercent: number; questions: SeedQuestion[] };
 type SeedModule = {
   slug: string;
@@ -29,37 +35,186 @@ const modules: SeedModule[] = [
     slug: "welcome-to-empire-national",
     title: "Welcome to Empire National",
     category: "Company & Culture",
-    summary: "Who we are, what we haul, and what it means to be part of the team.",
+    summary: "Who we are, the equipment we run, and how the team is organized.",
     estMinutes: 8,
     order: 1,
     content: `## Welcome aboard
 
-Empire National is a full-service truckload carrier and brokerage connecting shippers and drivers across the country. As a dispatcher, you are the daily point of contact between our drivers on the road and the customers waiting on their freight — you keep loads moving safely, on time, and profitably.
+Empire National specializes in **expedited Sprinter van transportation**, providing fast, reliable, and dedicated freight services across the country. Our dispatchers connect drivers, brokers, and customers to ensure shipments are handled professionally and delivered on time.
+
+Our primary fleet consists of regular Sprinter vans for dedicated and time-sensitive shipments. In addition, we operate a limited number of **53' dry vans** serving specific long-haul lanes:
+
+- North/South Carolina, Georgia, Tennessee, and Virginia ↔ Southern California
+- Southern California ↔ Chicago
+- Chicago ↔ North/South Carolina, Georgia, and Tennessee
+
+Every shipment we handle is focused on reliability, speed, clear communication, and exceptional service.
 
 ## Our mission
 
-Move freight reliably, treat drivers like partners, and give customers a dispatch team they can trust. Every load you touch reflects on the company's reputation.
+Our mission is simple: provide fast, reliable, and dedicated transportation while delivering a high level of service to every customer.
+
+As a dispatcher, your role is critical. You help keep drivers moving, communicate with customers and brokers, manage each shipment from pickup to delivery, and make sure every load is handled professionally.
 
 ## What we haul
 
-Empire National runs a mixed fleet across several equipment types, including **dry van**, **refrigerated (reefer)**, and **flatbed**, serving regional and long-haul lanes. You'll learn the details of each equipment type in the next section.
+Empire National operates an exclusive Sprinter van fleet designed for expedited and dedicated freight. Our equipment consists of regular Sprinter vans **without reefer, liftgate, or dock-high capabilities**.
 
 ## How the team is organized
 
-- **Dispatchers** – plan loads, assign drivers, and are the primary point of contact for drivers during a shift.
-- **Driver Managers / Fleet Managers** – handle driver onboarding, performance, and retention.
+- **Dispatchers** – book loads, assign drivers, and are the primary point of contact for drivers during a shift.
+- **Tracking Team** – monitors shipments throughout transit and provides location updates every two hours, helping maintain visibility and keeping customers and brokers informed.
+- **Human Resources / Driver Support** – handle driver onboarding, performance, and retention.
 - **Operations Manager** – oversees the dispatch floor and resolves escalations.
-- **Safety & Compliance** – manages DOT compliance, driver qualification files, and incident response.
-- **Customer / Sales team** – books freight and manages the shipper relationship.
-
-## What we expect from a dispatcher
-
-- **Clear communication** — with drivers, customers, and your team lead.
-- **Ownership** — if a load is yours, you own it from pickup to delivery.
-- **Calm under pressure** — breakdowns, delays, and detention happen. React, don't panic.
-- **Compliance first** — never ask or allow a driver to run outside of Hours of Service rules to save a load.
-
-You'll spend the next several modules learning our equipment, our dispatch workflow, and the safety rules that keep everyone — drivers and the company — protected. Take your time, and use the quizzes to check your understanding before moving on.`,
+- **Safety & Compliance** – responsible for maintaining regulatory compliance, reviewing driver qualification and safety requirements, monitoring incidents, and helping ensure that drivers and operations follow applicable transportation regulations.`,
+    quiz: {
+      title: "Welcome to Empire National — Knowledge Check",
+      passPercent: 80,
+      questions: [
+        {
+          text: "What type of transportation does Empire National specialize in?",
+          options: [
+            { text: "Expedited Sprinter van transportation", correct: true },
+            { text: "Refrigerated LTL consolidation" },
+            { text: "Flatbed heavy haul and oversize freight" },
+            { text: "Intermodal rail drayage" },
+          ],
+        },
+        {
+          text: "What makes up Empire National's primary fleet?",
+          options: [
+            { text: "Regular Sprinter vans for dedicated and time-sensitive shipments", correct: true },
+            { text: "Refrigerated trailers for produce lanes" },
+            { text: "Flatbeds and step decks" },
+            { text: "Box trucks with liftgates for residential delivery" },
+          ],
+        },
+        {
+          text: "Besides Sprinter vans, what equipment does Empire National operate?",
+          options: [
+            { text: "A limited number of 53' dry vans on specific long-haul lanes", correct: true },
+            { text: "A large fleet of 48' flatbeds nationwide" },
+            { text: "Refrigerated Sprinter vans for food shipments" },
+            { text: "Owner-operator power only for container work" },
+          ],
+        },
+        {
+          text: "Which lane is served by Empire National's 53' dry vans?",
+          options: [
+            { text: "Southern California to Chicago", correct: true },
+            { text: "Miami to New York City" },
+            { text: "Seattle to Denver" },
+            { text: "Houston to Minneapolis" },
+          ],
+        },
+        {
+          text: "Which states run opposite Southern California on our dry van lanes?",
+          options: [
+            { text: "North/South Carolina, Georgia, Tennessee, and Virginia", correct: true },
+            { text: "Ohio, Michigan, and Indiana" },
+            { text: "Arizona, Nevada, and Utah" },
+            { text: "Maine, Vermont, and New Hampshire" },
+          ],
+        },
+        {
+          text: "Which capabilities do Empire National's Sprinter vans NOT have?",
+          options: [
+            { text: "Reefer, liftgate, and dock-high capability", correct: true },
+            { text: "Interstate operating authority" },
+            { text: "The ability to run team drivers" },
+            { text: "GPS tracking and electronic paperwork" },
+          ],
+        },
+        {
+          text: "How is Empire National's mission described?",
+          options: [
+            { text: "Provide fast, reliable, and dedicated transportation with a high level of service to every customer", correct: true },
+            { text: "Be the lowest-priced carrier on every load board" },
+            { text: "Operate the largest fleet in the country" },
+            { text: "Move only local freight within a single region" },
+          ],
+        },
+        {
+          text: "Which team books loads, assigns drivers, and is the primary point of contact for drivers during a shift?",
+          options: [
+            { text: "Dispatchers", correct: true },
+            { text: "Safety & Compliance" },
+            { text: "Human Resources / Driver Support" },
+            { text: "The Operations Manager" },
+          ],
+        },
+        {
+          text: "Who handles driver onboarding, performance, and retention?",
+          options: [
+            { text: "Human Resources / Driver Support", correct: true },
+            { text: "Dispatchers" },
+            { text: "Safety & Compliance" },
+            { text: "The customer's broker" },
+          ],
+        },
+        {
+          text: "Who oversees the dispatch floor and resolves escalations?",
+          options: [
+            { text: "The Operations Manager", correct: true },
+            { text: "The Safety & Compliance team" },
+            { text: "The driver on the load" },
+            { text: "Human Resources / Driver Support" },
+          ],
+        },
+        {
+          text: "Which team monitors shipments in transit and provides location updates every two hours?",
+          options: [
+            { text: "The Tracking Team", correct: true },
+            { text: "Dispatchers" },
+            { text: "Safety & Compliance" },
+            { text: "Human Resources / Driver Support" },
+          ],
+        },
+        {
+          text: "Which team reviews driver qualification and safety requirements and monitors incidents?",
+          options: [
+            { text: "Safety & Compliance", correct: true },
+            { text: "Dispatchers" },
+            { text: "The Operations Manager" },
+            { text: "Human Resources / Driver Support" },
+          ],
+        },
+        {
+          text: "According to this module, what is part of a dispatcher's role?",
+          options: [
+            { text: "Managing each shipment from pickup to delivery and communicating with customers and brokers", correct: true },
+            { text: "Performing maintenance on the Sprinter vans" },
+            { text: "Setting fuel prices for the fleet" },
+            { text: "Issuing driver qualification files and CDLs" },
+          ],
+        },
+        {
+          text: "Empire National specializes in expedited ____ van transportation.",
+          type: "FILL_BLANK",
+          options: [{ text: "Sprinter" }],
+        },
+        {
+          text: "Alongside the van fleet, the company runs a limited number of 53' ____ vans on specific long-haul lanes.",
+          type: "FILL_BLANK",
+          options: [{ text: "dry" }],
+        },
+        {
+          text: "Our Sprinter vans have no reefer, no ____, and no dock-high capability.",
+          type: "FILL_BLANK",
+          options: [{ text: "liftgate" }, { text: "lift gate" }, { text: "lift-gate" }],
+        },
+        {
+          text: "Two of our dry van lanes run to and from ____, the Midwest end of that network.",
+          type: "FILL_BLANK",
+          options: [{ text: "Chicago" }],
+        },
+        {
+          text: "A dispatcher manages each shipment from pickup all the way to ____.",
+          type: "FILL_BLANK",
+          options: [{ text: "delivery" }],
+        },
+      ],
+    },
   },
   {
     slug: "the-dispatchers-role",
@@ -1174,17 +1329,22 @@ async function main() {
       await prisma.question.deleteMany({ where: { quizId: quiz.id } });
 
       for (const [qIndex, q] of m.quiz.questions.entries()) {
+        const isFillBlank = q.type === "FILL_BLANK";
+        // Seed data lists the correct answer first; shuffle so it lands in a
+        // different slot per question. Fill-blank answers keep their order —
+        // they're all accepted variants, not slots.
+        const options = isFillBlank ? q.options : shuffleAnswerOptions(q.text, q.options);
+
         await prisma.question.create({
           data: {
             quizId: quiz.id,
             text: q.text,
+            type: q.type ?? "MULTIPLE_CHOICE",
             order: qIndex,
             options: {
-              // Seed data lists the correct answer first; shuffle so it lands
-              // in a different slot per question.
-              create: shuffleAnswerOptions(q.text, q.options).map((o, oIndex) => ({
+              create: options.map((o, oIndex) => ({
                 text: o.text,
-                isCorrect: !!o.correct,
+                isCorrect: isFillBlank ? true : !!o.correct,
                 order: oIndex,
               })),
             },
