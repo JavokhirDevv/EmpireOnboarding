@@ -4,9 +4,10 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
-import { getTraineeProgress, departmentForRole } from "@/lib/progress";
+import { getTraineeProgress, departmentForRole, getLatestAttempt } from "@/lib/progress";
 import { Badge, Card, LinkButton } from "@/components/ui";
 import { MarkCompleteButton } from "./mark-complete-button";
+import { QuizResultDownload } from "@/components/quiz-result-download";
 
 export default async function TrainingModulePage({
   params,
@@ -41,6 +42,12 @@ export default async function TrainingModulePage({
   const nextStop = routeIndex >= 0 ? modules[routeIndex + 1] : null;
 
   const completed = trainingModule.progress.length > 0;
+
+  // Most recent attempt, so the trainee can re-download the answer sheet for
+  // HR long after they finished the quiz.
+  const latestAttempt = trainingModule.quiz
+    ? await getLatestAttempt(user.id, trainingModule.quiz.id)
+    : null;
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-10">
@@ -91,11 +98,15 @@ export default async function TrainingModulePage({
               <div className="text-sm text-steel-500">
                 Score {trainingModule.quiz.passPercent}% or higher to complete this
                 stop.
+                {latestAttempt && <> Last attempt: {latestAttempt.score}%.</>}
               </div>
             </div>
-            <LinkButton href={`/quiz/${trainingModule.quiz.id}`} variant="primary">
-              {completed ? "Retake quiz" : "Take quiz"}
-            </LinkButton>
+            <div className="flex flex-wrap items-center gap-3">
+              <LinkButton href={`/quiz/${trainingModule.quiz.id}`} variant="primary">
+                {completed ? "Retake quiz" : "Take quiz"}
+              </LinkButton>
+              {latestAttempt && <QuizResultDownload attemptId={latestAttempt.id} />}
+            </div>
           </>
         ) : (
           <>

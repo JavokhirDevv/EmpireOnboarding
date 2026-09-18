@@ -94,8 +94,8 @@ export default async function DashboardPage() {
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <span className="text-xs font-bold text-steel-500 shrink-0">
-                      MM {idx + 1}
+                    <span className="text-[11px] font-bold tracking-[0.12em] uppercase text-steel-500 shrink-0 w-[3.6rem]">
+                      Stop {idx + 1}
                     </span>
                     <span className="font-medium text-navy-900 truncate">
                       {m.title}

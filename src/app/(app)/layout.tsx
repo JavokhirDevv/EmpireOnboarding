@@ -26,6 +26,7 @@ export default async function AppLayout({
           id: m.id,
           slug: m.slug,
           title: m.title,
+          category: m.category,
           status: m.status,
         }))}
         completed={completed}

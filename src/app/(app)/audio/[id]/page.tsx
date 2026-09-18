@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { departmentForRole } from "@/lib/progress";
 import { Badge, Card, LinkButton } from "@/components/ui";
 import { formatFileSize } from "@/lib/format";
+import { QuizResultDownload } from "@/components/quiz-result-download";
 
 export default async function AudioLessonPage({
   params,
@@ -70,14 +71,15 @@ export default async function AudioLessonPage({
             <div className="font-semibold text-navy-900">{lesson.quiz.title}</div>
             <div className="text-sm text-steel-500">
               Score {lesson.quiz.passPercent}% or higher to pass.
-              {latestAttempt && !passed && (
-                <> Last attempt: {latestAttempt.score}%.</>
-              )}
+              {latestAttempt && <> Last attempt: {latestAttempt.score}%.</>}
             </div>
           </div>
-          <LinkButton href={`/quiz/${lesson.quiz.id}`} variant="primary">
-            {passed ? "Retake quiz" : "Take quiz"}
-          </LinkButton>
+          <div className="flex flex-wrap items-center gap-3">
+            <LinkButton href={`/quiz/${lesson.quiz.id}`} variant="primary">
+              {passed ? "Retake quiz" : "Take quiz"}
+            </LinkButton>
+            {latestAttempt && <QuizResultDownload attemptId={latestAttempt.id} />}
+          </div>
         </Card>
       ) : (
         <Card className="p-6 text-steel-500 text-sm">

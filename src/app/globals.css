@@ -185,3 +185,34 @@ body {
   background: var(--surface-muted);
   color: var(--brand-navy-900);
 }
+
+/* Sidebar scroll region — a thin, unobtrusive rail on the dark panel. */
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+}
+
+.sidebar-scroll:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.24);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-scroll {
+    scroll-behavior: auto;
+  }
+}

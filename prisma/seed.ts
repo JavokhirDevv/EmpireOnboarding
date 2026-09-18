@@ -305,12 +305,77 @@ If you hit a situation you can't resolve — an accident, a serious mechanical b
     },
   },
   {
+    slug: "key-players-in-the-logistics-chain",
+    title: "Key Players in the Logistics Chain",
+    category: "Company & Culture",
+    summary: "Who owns the money, the freight, and the decisions on every load you dispatch.",
+    estMinutes: 10,
+    order: 3,
+    content: `## Why this matters
+
+In US trucking, every load is a chain of responsibility. Knowing who owns what — money, freight, and decisions — helps you dispatch without mistakes.
+
+## Shipper (Consignor)
+
+- **Who it is:** the company that is shipping the freight (origin).
+- **Main responsibilities:** tenders the load, provides pickup details, freight description, and shipping documents.
+
+## Consignee (Receiver)
+
+- **Who it is:** the company that receives the freight (destination).
+- **Main responsibilities:** unloads/receives the freight and signs the **POD** (or provides electronic proof).
+
+## Customer
+
+- **Who it is:** the party paying and looking for the full transportation service — this can be the shipper directly, or a broker.
+
+## Broker
+
+- **Who it is:** the intermediary that sells the load to carriers (us).
+- **Main responsibilities:** finds capacity, negotiates the rate, issues the **Rate Confirmation (RC)**, and manages shipper/consignee communication.
+- **What a dispatcher needs from them:** the RC, pickup/delivery numbers, detention/TONU/layover policy, and the tracking method (check calls vs. tracking link).
+
+## Carrier (Trucking company)
+
+- **Who it is:** the company legally authorized to haul freight under its own DOT/MC authority.
+- **Main responsibilities:** provides the equipment and driver, complies with FMCSA rules, and maintains insurance.
+
+## Owner
+
+- **Who it is:** the person or company that owns the trucks and employs or leases the drivers — can be the same as the carrier, or part of it.
+- **Main responsibilities:** assigns drivers and equipment, handles the rate instead of the driver, and sometimes keeps communication instead of the driver.
+
+## Driver
+
+- **Who it is:** the person physically moving the load.
+- **Main responsibilities:** safe operation, on-time pickup and delivery, check-in, securing the freight, and sending all documents from the shipper and receiver.
+- **What a dispatcher needs from them:** current location, remaining hours, status at every milestone (arrived / loaded / rolling), and any issue immediately — breakdown, delay, or refusal.
+
+## Dispatcher (carrier-side)
+
+- **Who it is:** the operations coordinator between the broker/shipper and the driver.
+- **Main responsibilities:** load planning and booking, appointment coordination when required, problem solving, accessorial documentation, and keeping track of shipments so everything runs without issues.
+
+## Customs broker (cross-border only)
+
+- **Who it is:** the licensed party that files entry and clearance paperwork for international shipments.
+- **Main responsibilities:** ensures customs compliance and release so the shipment can continue.
+- **What dispatch and tracking need from them:** clearance status, reference numbers, and what to do if the load is held or inspected.
+
+## Quick rule (important)
+
+| Flow | Path |
+| --- | --- |
+| **Money** usually flows | Customer / shipper → broker → carrier |
+| **Freight** usually flows | Shipper → carrier / driver → consignee |`,
+  },
+  {
     slug: "trailer-types-101",
     title: "Trailer Types 101",
     category: "Equipment & Trailers",
     summary: "The trailer types in our fleet and what freight each one is built to haul.",
     estMinutes: 12,
-    order: 3,
+    order: 4,
     content: `## Why trailer type matters
 
 Matching the right trailer to the right freight is one of the most important calls a dispatcher makes. Booking the wrong equipment type causes missed pickups, damaged freight, and unhappy customers. Here are the trailer types you'll dispatch most often.
@@ -417,7 +482,7 @@ A specialized open or enclosed trailer built to transport multiple vehicles at o
     category: "Equipment & Trailers",
     summary: "Tractor and truck configurations you'll see across the fleet and driver network.",
     estMinutes: 9,
-    order: 4,
+    order: 5,
     content: `## Day Cab vs. Sleeper Cab
 
 - **Day Cab** — no sleeping berth. Used for short-haul, regional routes where the driver returns home or to a terminal nightly.
@@ -487,7 +552,7 @@ When you're booking a load, you need to confirm the truck/trailer combination ca
     category: "Dispatch Workflow",
     summary: "How loads get booked, confirmed, and assigned to a driver from start to finish.",
     estMinutes: 11,
-    order: 5,
+    order: 6,
     content: `## The lifecycle of a load
 
 1. **Load is booked** — sales/customer team confirms the freight, rate, and pickup/delivery windows with the shipper.
@@ -580,7 +645,7 @@ Before assigning a load, confirm:
     category: "Dispatch Workflow",
     summary: "How and when dispatchers stay in touch with drivers throughout a load.",
     estMinutes: 8,
-    order: 6,
+    order: 7,
     content: `## Why check calls matter
 
 A check call is a scheduled touchpoint between dispatcher and driver to confirm status: location, ETA, and any issues. Consistent check calls let you catch problems — traffic, breakdowns, delays — early enough to fix them before they impact the customer.
@@ -654,7 +719,7 @@ A check call is a scheduled touchpoint between dispatcher and driver to confirm 
     category: "Safety & Compliance",
     summary: "The FMCSA driving-time rules every dispatcher must respect when planning loads.",
     estMinutes: 12,
-    order: 7,
+    order: 8,
     content: `## Why this matters
 
 Hours of Service (HOS) rules are federal regulations from the FMCSA that limit how long a commercial driver can drive and work before resting. They exist to prevent fatigue-related crashes. A dispatcher who pressures a driver to run outside these limits isn't just risking a fine — they're risking lives, and it can result in the company being placed **out of service**.
@@ -739,7 +804,7 @@ Plan around it: find a legal stopping point, adjust the delivery appointment wit
     category: "Safety & Compliance",
     summary: "Key documents and compliance checks dispatchers should know about, even if Safety owns them.",
     estMinutes: 10,
-    order: 8,
+    order: 9,
     content: `## Dispatch's role in compliance
 
 Compliance is primarily owned by the Safety department, but dispatchers interact with compliance-related documents and rules every day. Knowing the basics helps you avoid booking a driver or load that isn't legally cleared to run.
