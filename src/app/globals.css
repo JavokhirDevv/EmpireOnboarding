@@ -186,6 +186,27 @@ body {
   color: var(--brand-navy-900);
 }
 
+/* Equipment photos and any other image inside module content. Photos arrive at
+   mixed sizes and aspect ratios, so each sits in a fixed band and is contained
+   rather than cropped or stretched. */
+.prose-training :where(img) {
+  display: block;
+  width: 100%;
+  height: 290px;
+  object-fit: contain;
+  margin: 0.9rem 0 1.1rem;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface);
+}
+
+@media (max-width: 640px) {
+  .prose-training :where(img) {
+    height: 200px;
+  }
+}
+
 /* Sidebar scroll region — a thin, unobtrusive rail on the dark panel. */
 .sidebar-scroll {
   scrollbar-width: thin;

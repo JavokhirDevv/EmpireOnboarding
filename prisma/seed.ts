@@ -370,108 +370,264 @@ In US trucking, every load is a chain of responsibility. Knowing who owns what �
 | **Freight** usually flows | Shipper → carrier / driver → consignee |`,
   },
   {
-    slug: "trailer-types-101",
-    title: "Trailer Types 101",
-    category: "Equipment & Trailers",
-    summary: "The trailer types in our fleet and what freight each one is built to haul.",
-    estMinutes: 12,
+    slug: "types-of-transportation",
+    title: "Types of Transportation",
+    category: "Freight Fundamentals",
+    summary: "FTL, LTL, partial, exclusive use, and the special handling types you will book.",
+    estMinutes: 11,
     order: 4,
-    content: `## Why trailer type matters
+    content: `## How freight moves in the US
 
-Matching the right trailer to the right freight is one of the most important calls a dispatcher makes. Booking the wrong equipment type causes missed pickups, damaged freight, and unhappy customers. Here are the trailer types you'll dispatch most often.
+Trucking is the most common mode in the country — about **65% of freight by weight** moves by truck. The service type you book decides how the trailer is filled, how many times the freight is handled, and how it is priced.
+
+| Service | Trailer space | Handling | Typical cost |
+| --- | --- | --- | --- |
+| **FTL** | The whole trailer, one shipper | Fewest touches | Highest per load, lowest per pound |
+| **Partial** | More than LTL, less than a full trailer | Few stops | Between LTL and FTL |
+| **LTL** | Shared with other shippers | Terminals and cross-docks | Lowest per shipment |
+
+## FTL (Full Truckload)
+
+One shipper uses the full trailer. Faster and simpler: fewer touches, fewer stops, and lower damage risk.
+
+## LTL (Less-Than-Truckload)
+
+The shipment shares trailer space with other shippers. Best for smaller freight, often 1-6 pallets.
+
+- Usually moves through terminals (cross-docks), so transit can be longer and there are more touch points — a higher risk of delay or damage.
+- Pricing depends on **freight class, weight, dimensions, and accessorials** (liftgate, residential, inside delivery).
+
+## Partial (Partial Truckload)
+
+More space than LTL but not a full trailer. Usually fewer stops than LTL and better transit time.
+
+Common when the shipment is too big or heavy for LTL pricing to make sense but still does not fill a 53' trailer. Pricing sits between LTL and FTL and depends on how much trailer space — and weight — the freight occupies.
+
+## Exclusive Use
+
+You pay for the full trailer, so no other freight is loaded even if yours does not fill it. Used for sensitive or high-value freight, strict contamination rules, temperature-sensitive loads, or when the shipper wants maximum security and control. Think of it as **your freight only** — often requested by shippers with special handling requirements.
+
+## Direct (Straight Through)
+
+Point A to Point B with no intermediate stops or terminal handling. Used for urgent freight and strict ETAs, and typically costs more than standard routing.
+
+## Food grade (sanitary loads)
+
+Freight — often food ingredients or packaging — that must move in clean, odor-free, contamination-free equipment with no holes in the trailer.
+
+## Fragile loads
+
+Freight that damages easily: glass, electronics, medical equipment, furniture. It needs extra protection and careful handling. Common requirements:
+
+- **Do Not Stack** and **This Side Up** markings
+- Padding, blankets, load bars, and straps
+- Careful pallet placement, with no heavy floor-loaded freight stacked on top
+- Sometimes exclusive use`,
+  },
+  {
+    slug: "customs-logistics",
+    title: "Customs Logistics",
+    category: "Freight Fundamentals",
+    summary: "What customs does to a load, and the schedule and cost risk it puts on dispatch.",
+    estMinutes: 7,
+    order: 5,
+    content: `## What customs is
+
+Customs is the government authority that controls the flow of goods into and out of a country and collects duties and taxes on imports.
+
+In real transportation terms, customs is a **mandatory stop on the route** — at a border, port, or airport — where freight can be held until documents and inspections are complete.
+
+## Why it matters for dispatch
+
+- **Border equals schedule risk.** Holds and inspections can break your ETA and your delivery appointment.
+- **Extra time equals extra cost.** Detention, layover, storage, rework, and broker fees all land on the load.
+- **Not every carrier can run it.** Some loads require bonded or in-bond movement, or specific compliance the carrier may not hold.
+
+## Who you work with
+
+The **customs broker** is the licensed party that files entry and clearance paperwork. Dispatch and tracking need three things from them: clearance status, reference numbers, and instructions for what to do if the load is held or inspected. Their place in the wider chain is covered in **Key Players in the Logistics Chain**.`,
+  },
+  {
+    slug: "equipment-types",
+    title: "Equipment Types",
+    category: "Equipment & Trailers",
+    summary: "Dry van, reefer, flatbed, cargo van, Sprinter, box truck, and RGN — what each one hauls.",
+    estMinutes: 12,
+    order: 6,
+    content: `## Why equipment type matters
+
+Matching the right equipment to the freight is one of the most important calls a dispatcher makes. Book the wrong type and you get a refused load, damaged freight, or a truck that cannot physically load at the dock.
+
+Empire National primarily operates **Sprinter vans**, along with a limited number of **53' dry vans** on specific long-haul lanes. The other equipment types mentioned below are not operated by Empire National. However, you may still encounter them when working with brokers, so it is important to recognize and understand the basic differences between them.
 
 ## Dry Van
 
-The most common trailer in trucking — a fully enclosed box, typically 53 feet long. Used for general freight: packaged goods, retail products, non-perishable food, and palletized cargo. Loaded and unloaded from the rear via a dock.
+![Tractor and 53-foot dry van trailer](/equipment/dry-van.jpg)
 
-## Refrigerated ("Reefer")
+A fully enclosed 53' trailer — the most common equipment in trucking. No temperature control, loaded and unloaded at a dock from the rear.
 
-An enclosed trailer with a temperature-controlled unit built into the nose. Used for perishable freight — produce, meat, dairy, pharmaceuticals. Dispatchers must confirm the **set temperature** and whether the unit runs **continuous or cycle mode**, and track fuel for the reefer unit separately from the truck.
+**Best for:** palletized general freight, retail goods, packaged non-perishables.
+
+## Reefer (Refrigerated)
+
+![Refrigerated truck with a nose-mounted cooling unit](/equipment/reefer.jpg)
+
+An insulated body — a trailer or, as pictured, a straight truck — with a temperature-control unit mounted on the nose. Dispatch must confirm the **set temperature** and whether the unit runs **continuous or cycle** mode, and watch fuel for the reefer unit separately.
+
+**Best for:** produce, meat, dairy, pharmaceuticals, and anything with a temperature requirement.
 
 ## Flatbed
 
-An open trailer with no walls or roof — freight is secured with straps, chains, and tarps instead of being enclosed. Used for lumber, steel, machinery, pipe, and construction materials. Drivers need flatbed-specific securement training and load-specific tarps.
+![Flatbed with an open deck](/equipment/flatbed.jpg)
 
-## Step Deck (Drop Deck)
+An open deck with no walls or roof. Freight is held down with straps, chains, and tarps instead of being enclosed, so the driver needs securement training and the right tarps.
 
-Like a flatbed but with two height levels — a raised front deck and a lower rear deck — allowing taller freight to stay under the legal height limit. Common for tall equipment and machinery.
+**Best for:** lumber, steel, pipe, machinery, and construction materials.
 
-## Removable Gooseneck (RGN) / Lowboy
+## Cargo Van
 
-A specialized flatbed with a detachable front section, allowing wheeled or tracked equipment to be driven directly onto the trailer. Used for heavy construction and industrial equipment. Often requires permits for oversize/overweight loads.
+![Standard-roof cargo van](/equipment/cargo-van.png)
 
-## Tanker
+The smallest unit in expedited freight — a standard-roof van for light, small shipments that need to move now. Loads at ground level, so no dock is required.
 
-Hauls liquids or gases in bulk — fuel, chemicals, food-grade liquids like milk or juice. Requires drivers to hold a **Tank Vehicle (N) endorsement**, and food-grade and hazmat tankers have extra handling and cleaning requirements.
+**Best for:** a few pallets or less, hot-shot and expedited runs.
 
-## Power Only
+## Sprinter Van
 
-No trailer at all — the carrier supplies just the tractor and driver to pull a trailer owned by the shipper or another party (common with drop-and-hook freight or intermodal/container moves).
+![High-roof Sprinter van](/equipment/sprinter-van.jpg)
 
-## Auto Hauler
+A high-roof van with more cubic capacity than a cargo van, and Empire National's primary equipment. Ours run **without reefer, liftgate, or dock-high capability** — confirm that before accepting a load that assumes any of them.
 
-A specialized open or enclosed trailer built to transport multiple vehicles at once, typically for dealership or auction moves.
+**Best for:** dedicated and time-sensitive shipments, team-driver direct runs.
 
-## Quick reference
+## Box Truck
 
-| Trailer Type | Best For |
-| --- | --- |
-| Dry Van | General, palletized, non-perishable freight |
-| Reefer | Temperature-sensitive freight |
-| Flatbed | Building materials, machinery |
-| Step Deck | Tall freight needing extra clearance |
-| RGN / Lowboy | Heavy, wheeled equipment |
-| Tanker | Bulk liquids and gases |
-| Power Only | Drop-and-hook, shipper-owned trailers |
-| Auto Hauler | Vehicle transport |`,
+![Box truck with an enclosed body](/equipment/box-truck.jpg)
+
+A straight truck — cab and enclosed body on one chassis, rather than a tractor pulling a trailer. Many are fitted with a **liftgate**, which lets them deliver where there is no dock.
+
+**Best for:** mid-size shipments, residential and inside delivery, local and regional work.
+
+## RGN (Removable Gooseneck)
+
+![Removable gooseneck lowboy trailer](/equipment/rgn.jpg)
+
+A specialized lowboy whose front section detaches to become a ramp, so wheeled or tracked equipment can drive straight onto a very low deck. Tall and heavy loads often need **oversize or overweight permits** and routing approval.
+
+**Best for:** excavators, dozers, cranes, and other heavy machinery.`,
     quiz: {
-      title: "Trailer Types 101 — Knowledge Check",
+      title: "Equipment Types — Knowledge Check",
       passPercent: 80,
       questions: [
         {
-          text: "Which trailer type is the fully enclosed 53-foot box most commonly used for general freight?",
+          text: "Which equipment is Empire National's primary fleet?",
           options: [
-            { text: "Dry Van", correct: true },
-            { text: "Flatbed" },
-            { text: "Step Deck" },
-            { text: "RGN" },
+            { text: "Sprinter vans", correct: true },
+            { text: "Reefer trailers" },
+            { text: "Flatbeds" },
+            { text: "RGN lowboys" },
           ],
         },
         {
-          text: "A load of fresh produce that must stay refrigerated should be dispatched on which trailer?",
+          text: "What is a dry van?",
           options: [
-            { text: "Power Only" },
-            { text: "Reefer", correct: true },
-            { text: "Auto Hauler" },
-            { text: "Tanker" },
+            { text: "A fully enclosed 53' trailer with no temperature control", correct: true },
+            { text: "An open deck trailer with no roof or walls" },
+            { text: "An insulated trailer with a cooling unit" },
+            { text: "A straight truck with a liftgate" },
           ],
         },
         {
-          text: "What makes a Step Deck trailer different from a standard flatbed?",
+          text: "Which two things must dispatch confirm on a reefer load?",
           options: [
-            { text: "It has two height levels to keep tall freight under the legal height limit", correct: true },
-            { text: "It is fully enclosed" },
-            { text: "It can only haul liquids" },
-            { text: "It has no wheels" },
+            { text: "The set temperature and whether the unit runs continuous or cycle mode", correct: true },
+            { text: "The tarp count and strap rating" },
+            { text: "The permit number and escort vehicle" },
+            { text: "The liftgate capacity and dock height" },
           ],
         },
         {
-          text: "Which trailer type allows wheeled or tracked equipment to be driven directly onto it via a detachable front section?",
+          text: "How is freight secured on a flatbed?",
           options: [
-            { text: "Dry Van" },
-            { text: "Reefer" },
-            { text: "Removable Gooseneck (RGN) / Lowboy", correct: true },
-            { text: "Power Only" },
+            { text: "With straps, chains, and tarps, since there are no walls or roof", correct: true },
+            { text: "With a temperature-controlled seal" },
+            { text: "By locking the rear doors at the dock" },
+            { text: "With a removable gooseneck ramp" },
           ],
         },
         {
-          text: "What special driver endorsement is typically required to haul a tanker load?",
+          text: "What makes a Sprinter van different from a cargo van?",
           options: [
-            { text: "Tank Vehicle (N) endorsement", correct: true },
-            { text: "Motorcycle endorsement" },
-            { text: "School Bus (S) endorsement" },
-            { text: "No special endorsement is needed" },
+            { text: "A high roof, giving it more cubic capacity", correct: true },
+            { text: "A built-in refrigeration unit" },
+            { text: "A detachable front section" },
+            { text: "A 53-foot enclosed body" },
           ],
+        },
+        {
+          text: "Which capabilities do Empire National's Sprinter vans NOT have?",
+          options: [
+            { text: "Reefer, liftgate, and dock-high", correct: true },
+            { text: "Team drivers and direct runs" },
+            { text: "Interstate authority" },
+            { text: "Ground-level loading" },
+          ],
+        },
+        {
+          text: "What is a box truck?",
+          options: [
+            { text: "A straight truck with the cab and enclosed body on one chassis", correct: true },
+            { text: "A tractor pulling a 53' enclosed trailer" },
+            { text: "An open deck trailer for machinery" },
+            { text: "A van with a standard roof" },
+          ],
+        },
+        {
+          text: "Why does a liftgate matter on a box truck?",
+          options: [
+            { text: "It lets the truck deliver where there is no dock", correct: true },
+            { text: "It keeps the freight at a set temperature" },
+            { text: "It raises the deck height for tall freight" },
+            { text: "It replaces straps and chains for securement" },
+          ],
+        },
+        {
+          text: "What makes an RGN different from a standard flatbed?",
+          options: [
+            { text: "Its front section detaches to become a ramp onto a very low deck", correct: true },
+            { text: "It is fully enclosed against weather" },
+            { text: "It carries a refrigeration unit on the nose" },
+            { text: "It loads only at dock height" },
+          ],
+        },
+        {
+          text: "Which load would most likely need an RGN?",
+          options: [
+            { text: "An excavator being moved between job sites", correct: true },
+            { text: "Twelve pallets of packaged snacks" },
+            { text: "A temperature-controlled produce load" },
+            { text: "Two pallets of documents on an expedited run" },
+          ],
+        },
+        {
+          text: "A reefer trailer carries a temperature-control unit mounted on its ____.",
+          type: "FILL_BLANK",
+          options: [{ text: "nose" }, { text: "front" }],
+        },
+        {
+          text: "A box truck fitted with a ____ can deliver where there is no dock.",
+          type: "FILL_BLANK",
+          options: [{ text: "liftgate" }, { text: "lift gate" }, { text: "lift-gate" }],
+        },
+        {
+          text: "Freight on a flatbed is held down with straps, chains, and ____.",
+          type: "FILL_BLANK",
+          options: [{ text: "tarps" }, { text: "tarpaulins" }, { text: "tarp" }],
+        },
+        {
+          text: "Oversize machinery on an RGN often requires oversize or overweight ____ before it can move.",
+          type: "FILL_BLANK",
+          options: [{ text: "permits" }, { text: "permit" }],
         },
       ],
     },
@@ -482,7 +638,7 @@ A specialized open or enclosed trailer built to transport multiple vehicles at o
     category: "Equipment & Trailers",
     summary: "Tractor and truck configurations you'll see across the fleet and driver network.",
     estMinutes: 9,
-    order: 5,
+    order: 7,
     content: `## Day Cab vs. Sleeper Cab
 
 - **Day Cab** — no sleeping berth. Used for short-haul, regional routes where the driver returns home or to a terminal nightly.
@@ -552,7 +708,7 @@ When you're booking a load, you need to confirm the truck/trailer combination ca
     category: "Dispatch Workflow",
     summary: "How loads get booked, confirmed, and assigned to a driver from start to finish.",
     estMinutes: 11,
-    order: 6,
+    order: 8,
     content: `## The lifecycle of a load
 
 1. **Load is booked** — sales/customer team confirms the freight, rate, and pickup/delivery windows with the shipper.
@@ -645,7 +801,7 @@ Before assigning a load, confirm:
     category: "Dispatch Workflow",
     summary: "How and when dispatchers stay in touch with drivers throughout a load.",
     estMinutes: 8,
-    order: 7,
+    order: 9,
     content: `## Why check calls matter
 
 A check call is a scheduled touchpoint between dispatcher and driver to confirm status: location, ETA, and any issues. Consistent check calls let you catch problems — traffic, breakdowns, delays — early enough to fix them before they impact the customer.
@@ -719,7 +875,7 @@ A check call is a scheduled touchpoint between dispatcher and driver to confirm 
     category: "Safety & Compliance",
     summary: "The FMCSA driving-time rules every dispatcher must respect when planning loads.",
     estMinutes: 12,
-    order: 8,
+    order: 10,
     content: `## Why this matters
 
 Hours of Service (HOS) rules are federal regulations from the FMCSA that limit how long a commercial driver can drive and work before resting. They exist to prevent fatigue-related crashes. A dispatcher who pressures a driver to run outside these limits isn't just risking a fine — they're risking lives, and it can result in the company being placed **out of service**.
@@ -804,7 +960,7 @@ Plan around it: find a legal stopping point, adjust the delivery appointment wit
     category: "Safety & Compliance",
     summary: "Key documents and compliance checks dispatchers should know about, even if Safety owns them.",
     estMinutes: 10,
-    order: 9,
+    order: 11,
     content: `## Dispatch's role in compliance
 
 Compliance is primarily owned by the Safety department, but dispatchers interact with compliance-related documents and rules every day. Knowing the basics helps you avoid booking a driver or load that isn't legally cleared to run.
