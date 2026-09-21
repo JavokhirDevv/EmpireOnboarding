@@ -217,100 +217,12 @@ Empire National operates an exclusive Sprinter van fleet designed for expedited 
     },
   },
   {
-    slug: "the-dispatchers-role",
-    title: "The Dispatcher's Role",
-    category: "Company & Culture",
-    summary: "A day in the life of an Empire National dispatcher and how success is measured.",
-    estMinutes: 10,
-    order: 2,
-    content: `## What a dispatcher actually does
-
-A dispatcher is responsible for a group of drivers (a "board") and makes sure each one has a legal, profitable load lined up before their current one delivers. On a typical shift you will:
-
-1. **Check overnight updates** — driver messages, load board activity, and any exceptions from the previous shift.
-2. **Plan the board** — confirm every driver has their next load booked or is actively being covered.
-3. **Communicate pickup and delivery details** — appointment times, addresses, load numbers, and special instructions.
-4. **Track loads in transit** — via check calls and ELD/GPS tracking, watching for delays.
-5. **Solve problems in real time** — traffic, breakdowns, detention, weather, and re-routes.
-6. **Update the system of record** — so customers and teammates always see accurate, current status.
-
-## How success is measured
-
-- **On-time pickup and delivery percentage**
-- **Driver utilization** — minimizing unpaid downtime between loads
-- **Communication response time** — how quickly you respond to drivers and customers
-- **Compliance** — zero Hours of Service violations caused by dispatch decisions
-
-## The dispatcher/driver relationship
-
-Drivers are our customers too. A dispatcher who is clear, honest, and responsive earns driver trust — and trusted drivers stay longer and perform better. A few ground rules:
-
-- Always give drivers accurate information. Never promise a load isn't confirmed.
-- Respect **Hours of Service** limits — it is illegal, not just risky, to pressure a driver to drive past their available hours.
-- If plans change, tell the driver as soon as you know — don't let them find out at the dock.
-
-## Escalation path
-
-If you hit a situation you can't resolve — an accident, a serious mechanical breakdown, or a compliance question — loop in your **Fleet Manager** or **Operations Manager** immediately. Speed matters more than trying to handle it alone.`,
-    quiz: {
-      title: "The Dispatcher's Role — Knowledge Check",
-      passPercent: 80,
-      questions: [
-        {
-          text: "What is the primary responsibility of an Empire National dispatcher?",
-          options: [
-            { text: "Making sure each driver on their board has a legal, profitable next load", correct: true },
-            { text: "Negotiating rates directly with shippers" },
-            { text: "Performing roadside truck repairs" },
-            { text: "Issuing CDL licenses" },
-          ],
-        },
-        {
-          text: "Which of these is NOT one of the core success metrics for a dispatcher?",
-          options: [
-            { text: "On-time pickup and delivery percentage" },
-            { text: "Driver utilization" },
-            { text: "Number of personal social media followers", correct: true },
-            { text: "Communication response time" },
-          ],
-        },
-        {
-          text: "If a driver's plans change after a load is booked, when should the dispatcher tell them?",
-          options: [
-            { text: "As soon as the dispatcher knows", correct: true },
-            { text: "Only if the driver asks" },
-            { text: "When the driver arrives at the dock" },
-            { text: "It's not necessary to tell them" },
-          ],
-        },
-        {
-          text: "What should a dispatcher do if a driver is out of Hours of Service but a load is at risk of being late?",
-          options: [
-            { text: "Respect the Hours of Service limit and adjust the plan", correct: true },
-            { text: "Tell the driver to push through since the load is time-sensitive" },
-            { text: "Log different hours in the system" },
-            { text: "Ignore the issue and hope it resolves itself" },
-          ],
-        },
-        {
-          text: "When should a dispatcher escalate to a Fleet Manager or Operations Manager?",
-          options: [
-            { text: "Only at the end of the week in a summary report" },
-            { text: "Never — dispatchers should always resolve issues alone" },
-            { text: "Immediately for accidents, serious breakdowns, or compliance questions", correct: true },
-            { text: "Only if the customer complains first" },
-          ],
-        },
-      ],
-    },
-  },
-  {
     slug: "key-players-in-the-logistics-chain",
     title: "Key Players in the Logistics Chain",
     category: "Company & Culture",
     summary: "Who owns the money, the freight, and the decisions on every load you dispatch.",
     estMinutes: 10,
-    order: 3,
+    order: 2,
     content: `## Why this matters
 
 In US trucking, every load is a chain of responsibility. Knowing who owns what — money, freight, and decisions — helps you dispatch without mistakes.
@@ -375,7 +287,7 @@ In US trucking, every load is a chain of responsibility. Knowing who owns what �
     category: "Freight Fundamentals",
     summary: "FTL, LTL, partial, exclusive use, and the special handling types you will book.",
     estMinutes: 11,
-    order: 4,
+    order: 3,
     content: `## How freight moves in the US
 
 Trucking is the most common mode in the country — about **65% of freight by weight** moves by truck. The service type you book decides how the trailer is filled, how many times the freight is handled, and how it is priced.
@@ -430,7 +342,7 @@ Freight that damages easily: glass, electronics, medical equipment, furniture. I
     category: "Freight Fundamentals",
     summary: "What customs does to a load, and the schedule and cost risk it puts on dispatch.",
     estMinutes: 7,
-    order: 5,
+    order: 4,
     content: `## What customs is
 
 Customs is the government authority that controls the flow of goods into and out of a country and collects duties and taxes on imports.
@@ -453,7 +365,7 @@ The **customs broker** is the licensed party that files entry and clearance pape
     category: "Equipment & Trailers",
     summary: "Dry van, reefer, flatbed, cargo van, Sprinter, box truck, and RGN — what each one hauls.",
     estMinutes: 12,
-    order: 6,
+    order: 5,
     content: `## Why equipment type matters
 
 Matching the right equipment to the freight is one of the most important calls a dispatcher makes. Book the wrong type and you get a refused load, damaged freight, or a truck that cannot physically load at the dock.
@@ -633,175 +545,12 @@ A specialized lowboy whose front section detaches to become a ramp, so wheeled o
     },
   },
   {
-    slug: "truck-types-and-configurations",
-    title: "Truck Types & Configurations",
-    category: "Equipment & Trailers",
-    summary: "Tractor and truck configurations you'll see across the fleet and driver network.",
-    estMinutes: 9,
-    order: 7,
-    content: `## Day Cab vs. Sleeper Cab
-
-- **Day Cab** — no sleeping berth. Used for short-haul, regional routes where the driver returns home or to a terminal nightly.
-- **Sleeper Cab** — includes a berth for the driver to rest during required off-duty time. Used for long-haul, over-the-road (OTR) routes where drivers are away for days at a time.
-
-## Straight Truck vs. Tractor-Trailer
-
-- **Straight Truck** — the cab and cargo area are one single unit (no separate trailer). Common for local delivery and box truck routes.
-- **Tractor-Trailer** — a separate tractor (the powered unit) pulls a detachable trailer. This is the standard combination for most over-the-road freight.
-
-## Axle configurations
-
-Axle count affects legal weight limits and the type of freight a truck can haul:
-
-- **Tandem axle tractor** — two rear axles on the tractor; the most common setup for van and reefer freight.
-- **Tridem / spread axle trailer** — extra axles on the trailer to legally carry heavier loads, common on flatbed and specialized heavy-haul equipment.
-
-## Why this matters for dispatch
-
-When you're booking a load, you need to confirm the truck/trailer combination can legally and physically handle the freight — matching axle configuration to weight, and sleeper vs. day cab to the length of the route. Booking a day-cab driver on a 1,200-mile run sets them up to violate Hours of Service rules, since they have nowhere to legally rest.`,
-    quiz: {
-      title: "Truck Types & Configurations — Knowledge Check",
-      passPercent: 80,
-      questions: [
-        {
-          text: "Which cab type includes a berth for the driver to rest during required off-duty time?",
-          options: [
-            { text: "Day Cab" },
-            { text: "Sleeper Cab", correct: true },
-            { text: "Straight Truck" },
-            { text: "Auto Hauler" },
-          ],
-        },
-        {
-          text: "A day cab driver is best suited for which type of route?",
-          options: [
-            { text: "A 1,200-mile cross-country run" },
-            { text: "A short-haul regional route returning to base nightly", correct: true },
-            { text: "A multi-day sleeper run" },
-            { text: "International ocean freight" },
-          ],
-        },
-        {
-          text: "In a tractor-trailer combination, what is the 'tractor'?",
-          options: [
-            { text: "The detachable cargo trailer" },
-            { text: "The powered unit that pulls the trailer", correct: true },
-            { text: "A type of forklift" },
-            { text: "The loading dock equipment" },
-          ],
-        },
-        {
-          text: "Why does axle configuration matter when booking a load?",
-          options: [
-            { text: "It affects legal weight limits for the freight", correct: true },
-            { text: "It determines the driver's pay rate" },
-            { text: "It has no impact on dispatch decisions" },
-            { text: "It only matters for reefer loads" },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    slug: "load-planning-and-booking",
-    title: "Load Planning & Booking",
-    category: "Dispatch Workflow",
-    summary: "How loads get booked, confirmed, and assigned to a driver from start to finish.",
-    estMinutes: 11,
-    order: 8,
-    content: `## The lifecycle of a load
-
-1. **Load is booked** — sales/customer team confirms the freight, rate, and pickup/delivery windows with the shipper.
-2. **Rate confirmation** — a document outlining pickup/delivery locations, appointment times, rate, and load-specific instructions. Always review this before dispatching a driver.
-3. **Driver assignment** — dispatcher matches the load to an available, compliant driver with the right trailer type and Hours of Service to make it.
-4. **Dispatch to driver** — driver receives pickup details: address, appointment window, load/reference numbers, and special instructions (e.g., "driver assist," "lumper required," "no touch freight").
-5. **Pickup confirmation** — driver checks in, loads freight, and confirms the Bill of Lading (BOL) matches what's expected.
-6. **In-transit tracking** — dispatcher monitors progress via check calls and ELD/GPS.
-7. **Delivery confirmation** — driver delivers, gets the BOL signed, and confirms delivery time back to dispatch.
-
-## Reading a rate confirmation
-
-Every rate confirmation should be checked for:
-
-- **Pickup and delivery addresses and appointment windows**
-- **Commodity and weight** (confirms the right trailer type and legal weight)
-- **Rate and any accessorial charges** (detention, layover, lumper fees)
-- **Special instructions** (temperature settings, tarping requirements, dock hours)
-
-## Matching driver to load
-
-Before assigning a load, confirm:
-
-- The driver has enough **Hours of Service** remaining to make the pickup and delivery appointments legally.
-- The **trailer type** matches what the freight requires.
-- The driver's **location** allows a reasonable deadhead (empty miles) to pickup.
-- Any **compliance holds** (expired medical card, missing inspection) are cleared.
-
-## Common booking mistakes to avoid
-
-- Confirming an appointment time without checking the driver's actual available hours.
-- Assigning the wrong trailer type (e.g., a dry van driver for a reefer load).
-- Failing to pass along special instructions, leading to a rejected delivery.
-- Not confirming detention or lumper policies before the driver arrives, causing disputes at the dock.`,
-    quiz: {
-      title: "Load Planning & Booking — Knowledge Check",
-      passPercent: 80,
-      questions: [
-        {
-          text: "What document outlines pickup/delivery locations, appointment times, rate, and instructions for a load?",
-          options: [
-            { text: "Bill of Lading" },
-            { text: "Rate confirmation", correct: true },
-            { text: "Driver qualification file" },
-            { text: "Certificate of insurance" },
-          ],
-        },
-        {
-          text: "Before assigning a load to a driver, what must a dispatcher confirm about Hours of Service?",
-          options: [
-            { text: "Nothing — HOS is the driver's responsibility only" },
-            { text: "The driver has enough hours remaining to legally make pickup and delivery", correct: true },
-            { text: "The driver has been driving for exactly 8 hours" },
-            { text: "HOS only matters for reefer loads" },
-          ],
-        },
-        {
-          text: "What confirms that the freight loaded matches what was expected at pickup?",
-          options: [
-            { text: "The Bill of Lading (BOL)", correct: true },
-            { text: "The driver's CDL" },
-            { text: "The fuel receipt" },
-            { text: "The load board posting" },
-          ],
-        },
-        {
-          text: "Which of these is a common booking mistake dispatchers should avoid?",
-          options: [
-            { text: "Confirming an appointment without checking the driver's available hours", correct: true },
-            { text: "Reviewing the rate confirmation before dispatching" },
-            { text: "Matching trailer type to the freight" },
-            { text: "Passing along special instructions to the driver" },
-          ],
-        },
-        {
-          text: "What should be confirmed before a driver arrives at a dock with detention or lumper fee policies?",
-          options: [
-            { text: "Nothing, it can be sorted out afterward" },
-            { text: "The detention or lumper policy, to avoid disputes at the dock", correct: true },
-            { text: "Only the driver's home address" },
-            { text: "The color of the trailer" },
-          ],
-        },
-      ],
-    },
-  },
-  {
     slug: "driver-communication-and-check-calls",
     title: "Driver Communication & Check Calls",
     category: "Dispatch Workflow",
     summary: "How and when dispatchers stay in touch with drivers throughout a load.",
     estMinutes: 8,
-    order: 9,
+    order: 6,
     content: `## Why check calls matter
 
 A check call is a scheduled touchpoint between dispatcher and driver to confirm status: location, ETA, and any issues. Consistent check calls let you catch problems — traffic, breakdowns, delays — early enough to fix them before they impact the customer.
@@ -864,178 +613,6 @@ A check call is a scheduled touchpoint between dispatcher and driver to confirm 
             { text: "At pickup" },
             { text: "At delivery" },
             { text: "Only after the invoice is paid", correct: true },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    slug: "hours-of-service-basics",
-    title: "Hours of Service (HOS) Basics",
-    category: "Safety & Compliance",
-    summary: "The FMCSA driving-time rules every dispatcher must respect when planning loads.",
-    estMinutes: 12,
-    order: 10,
-    content: `## Why this matters
-
-Hours of Service (HOS) rules are federal regulations from the FMCSA that limit how long a commercial driver can drive and work before resting. They exist to prevent fatigue-related crashes. A dispatcher who pressures a driver to run outside these limits isn't just risking a fine — they're risking lives, and it can result in the company being placed **out of service**.
-
-## The core rules (property-carrying drivers)
-
-- **11-Hour Driving Limit** — a driver may drive a maximum of 11 hours after 10 consecutive hours off duty.
-- **14-Hour Window** — a driver may not drive beyond the 14th consecutive hour after coming on duty, following 10 hours off duty. This window doesn't pause for breaks.
-- **30-Minute Break Rule** — a driver must take a 30-minute break after 8 cumulative hours of driving without at least a 30-minute interruption.
-- **60/70-Hour Limit** — a driver may not drive after being on duty 60 hours in 7 consecutive days (or 70 hours in 8 days), depending on the carrier's operation. This resets with 34 consecutive hours off duty ("34-hour restart").
-- **Sleeper Berth Provision** — sleeper-equipped drivers can split their required 10 hours off duty into two periods (e.g., 7/3 or 8/2 split), as long as neither period is less than 2 hours and they combine to at least 10 hours, with specific rules about which period counts toward the 14-hour window.
-
-## ELDs (Electronic Logging Devices)
-
-Nearly all commercial drivers are required to use an ELD, which automatically records driving time and enforces these limits. Dispatchers can see a driver's available hours in the TMS or ELD dashboard — **always check this before booking an appointment time**, not just when a driver flags a problem.
-
-## What dispatchers must never do
-
-- Ask or pressure a driver to falsify logs.
-- Book an appointment time that requires a driver to drive beyond their available hours.
-- Ignore a driver's warning that they're low on hours.
-- Treat HOS violations as a "cost of doing business" — they are a serious compliance and safety failure.
-
-## When a driver is low on hours
-
-Plan around it: find a legal stopping point, adjust the delivery appointment with the customer, or swap the load to another driver with available hours. It is always the dispatcher's job to solve this within the rules — never the driver's job to break them.`,
-    quiz: {
-      title: "Hours of Service Basics — Knowledge Check",
-      passPercent: 80,
-      questions: [
-        {
-          text: "Under the 11-Hour Driving Limit, how many hours may a driver drive after 10 consecutive hours off duty?",
-          options: [
-            { text: "8 hours" },
-            { text: "11 hours", correct: true },
-            { text: "14 hours" },
-            { text: "24 hours" },
-          ],
-        },
-        {
-          text: "What does the 14-Hour Window rule limit?",
-          options: [
-            { text: "The total miles a driver can drive in a week" },
-            { text: "The window of consecutive hours in which a driver may drive after coming on duty, following 10 hours off", correct: true },
-            { text: "The number of stops a driver can make" },
-            { text: "The maximum weight a truck can carry" },
-          ],
-        },
-        {
-          text: "What is required after 8 cumulative hours of driving without at least a 30-minute interruption?",
-          options: [
-            { text: "A mandatory 30-minute break", correct: true },
-            { text: "An immediate 10-hour reset" },
-            { text: "A phone call to dispatch" },
-            { text: "Nothing is required" },
-          ],
-        },
-        {
-          text: "What allows a driver's on-duty hour limit (60/70-hour rule) to reset?",
-          options: [
-            { text: "Driving faster to finish early" },
-            { text: "34 consecutive hours off duty", correct: true },
-            { text: "Switching trailers" },
-            { text: "It never resets" },
-          ],
-        },
-        {
-          text: "What should a dispatcher do if a driver reports they are low on available hours?",
-          options: [
-            { text: "Tell them to keep driving to make the appointment" },
-            { text: "Ask them to adjust their logs" },
-            { text: "Plan around it — find a legal stop, adjust the appointment, or reassign the load", correct: true },
-            { text: "Ignore it since ELDs will handle it automatically" },
-          ],
-        },
-      ],
-    },
-  },
-  {
-    slug: "dot-compliance-and-documentation",
-    title: "DOT Compliance & Documentation",
-    category: "Safety & Compliance",
-    summary: "Key documents and compliance checks dispatchers should know about, even if Safety owns them.",
-    estMinutes: 10,
-    order: 11,
-    content: `## Dispatch's role in compliance
-
-Compliance is primarily owned by the Safety department, but dispatchers interact with compliance-related documents and rules every day. Knowing the basics helps you avoid booking a driver or load that isn't legally cleared to run.
-
-## Key documents you'll encounter
-
-- **Bill of Lading (BOL)** — the legal document confirming what freight was picked up, from where, and going to where. Signed at pickup and delivery.
-- **Rate Confirmation** — the agreement between the carrier and the customer/broker for a specific load's terms.
-- **Driver Qualification (DQ) File** — maintained by Safety, includes the driver's CDL, medical certificate, and driving record. A driver with an expired medical card cannot legally drive.
-- **Certificate of Insurance (COI)** — proof of the carrier's cargo and liability insurance, sometimes requested by customers before a load.
-- **Permits** — required for oversize/overweight loads (common with flatbed, step deck, and RGN freight), and vary by state.
-
-## CDL classes (know the basics)
-
-- **Class A** — required for combination vehicles (tractor-trailer) over 26,001 lbs GVWR — the standard license for most of our OTR drivers.
-- **Class B** — for single vehicles over 26,001 lbs GVWR (e.g., straight trucks), not towing a trailer over 10,000 lbs.
-- **Endorsements** — additional certifications layered onto a CDL, such as **Hazmat (H)**, **Tanker (N)**, or combined **Tanker/Hazmat (X)**.
-
-## Red flags dispatchers should escalate to Safety
-
-- A driver's medical card or CDL is expiring soon or has expired.
-- A load requires an endorsement (e.g., hazmat) the assigned driver doesn't hold.
-- An oversize/overweight load doesn't have permits confirmed for the route.
-- Any accident, injury, or serious mechanical failure in transit.
-
-## Why this matters
-
-Booking a load with a non-compliant driver or missing documentation can result in the load being turned away at the dock, fines, or a roadside out-of-service order — all of which cost the company money and damage customer trust. When in doubt, ask Safety before dispatching.`,
-    quiz: {
-      title: "DOT Compliance & Documentation — Knowledge Check",
-      passPercent: 80,
-      questions: [
-        {
-          text: "What document is signed at both pickup and delivery to confirm what freight was picked up and delivered?",
-          options: [
-            { text: "Certificate of Insurance" },
-            { text: "Bill of Lading (BOL)", correct: true },
-            { text: "Driver Qualification File" },
-            { text: "Rate Confirmation" },
-          ],
-        },
-        {
-          text: "What happens if a driver's medical certificate has expired?",
-          options: [
-            { text: "Nothing, it's just a formality" },
-            { text: "They cannot legally drive until it's renewed", correct: true },
-            { text: "They can still drive for one more week" },
-            { text: "Only Safety needs to know, dispatch can ignore it" },
-          ],
-        },
-        {
-          text: "Which CDL class is required for most tractor-trailer combination vehicles over 26,001 lbs GVWR?",
-          options: [
-            { text: "Class A", correct: true },
-            { text: "Class B" },
-            { text: "Class C" },
-            { text: "No CDL is required" },
-          ],
-        },
-        {
-          text: "What type of load commonly requires special state permits due to size or weight?",
-          options: [
-            { text: "Standard dry van freight" },
-            { text: "Oversize/overweight flatbed, step deck, or RGN loads", correct: true },
-            { text: "Small parcel freight" },
-            { text: "Empty trailer moves" },
-          ],
-        },
-        {
-          text: "If a load requires a hazmat endorsement and the assigned driver doesn't have one, what should the dispatcher do?",
-          options: [
-            { text: "Dispatch the load anyway" },
-            { text: "Escalate to Safety before dispatching", correct: true },
-            { text: "Have the driver drive without the endorsement just this once" },
-            { text: "Cancel all future loads for that driver" },
           ],
         },
       ],
