@@ -263,6 +263,12 @@ export function TraineeSidebar({
 
           <GroupHeading>Reference</GroupHeading>
 
+          <NavRow
+            href="/handbook"
+            active={isActive(pathname, "/handbook")}
+            icon={<ShieldIcon />}
+            label="Safety Handbook"
+          />
           <NavRow href="/glossary" active={isActive(pathname, "/glossary")} icon={<BookIcon />} label="Glossary" />
           {department === "DISPATCH" && (
             <NavRow href="/rates" active={isActive(pathname, "/rates")} icon={<DollarIcon />} label="Rate Rules" />
@@ -537,6 +543,20 @@ function LockIcon() {
     <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
       <rect x="3" y="7" width="10" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
       <path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function ShieldIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path
+        d="M8 1.8 13 3.6v4.1c0 3.1-2 5.4-5 6.5-3-1.1-5-3.4-5-6.5V3.6L8 1.8Z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+      <path d="M5.9 7.9 7.4 9.4l2.8-3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

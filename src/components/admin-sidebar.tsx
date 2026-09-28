@@ -78,6 +78,9 @@ export function AdminSidebar({ userName }: { userName: string }) {
         <div>
           <SectionLabel>Shared Content</SectionLabel>
           <div className="space-y-1">
+            <NavLink href="/admin/handbook" label="Safety Handbook" pathname={pathname}>
+              <ShieldIcon />
+            </NavLink>
             <NavLink href="/admin/glossary" label="Glossary" pathname={pathname}>
               <BookIcon />
             </NavLink>
@@ -216,6 +219,20 @@ function HeadphonesIcon() {
       />
       <rect x="1.5" y="9" width="3" height="4" rx="1" stroke="currentColor" strokeWidth="1.4" />
       <rect x="11.5" y="9" width="3" height="4" rx="1" stroke="currentColor" strokeWidth="1.4" />
+    </svg>
+  );
+}
+
+function ShieldIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path
+        d="M8 1.8 13 3.6v4.1c0 3.1-2 5.4-5 6.5-3-1.1-5-3.4-5-6.5V3.6L8 1.8Z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+      <path d="M5.9 7.9 7.4 9.4l2.8-3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

@@ -186,25 +186,182 @@ body {
   color: var(--brand-navy-900);
 }
 
-/* Equipment photos and any other image inside module content. Photos arrive at
-   mixed sizes and aspect ratios, so each sits in a fixed band and is contained
-   rather than cropped or stretched. */
-.prose-training :where(img) {
-  display: block;
-  width: 100%;
-  height: 290px;
-  object-fit: contain;
-  margin: 0.9rem 0 1.1rem;
-  padding: 10px;
-  border-radius: 12px;
+/* Layout primitives for handbook pages: ::::grid and :::card{tone=...} */
+.prose-training :where(.md-grid) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  margin: 1.1rem 0 1.3rem;
+  align-items: stretch;
+}
+
+@media (max-width: 720px) {
+  .prose-training :where(.md-grid) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.prose-training :where(.md-card) {
+  border-radius: 14px;
+  padding: 1.15rem 1.25rem;
   border: 1px solid var(--border-subtle);
   background: var(--surface);
 }
 
-@media (max-width: 640px) {
-  .prose-training :where(img) {
-    height: 200px;
-  }
+.prose-training :where(.md-card p) {
+  margin: 0.55rem 0;
+  font-size: 0.93rem;
+  line-height: 1.65;
+}
+
+.prose-training :where(.md-card p:first-of-type) {
+  margin-top: 0;
+}
+
+.prose-training :where(.md-card p:last-child) {
+  margin-bottom: 0;
+}
+
+.prose-training :where(.md-card__label) {
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+  color: var(--brand-accent-600);
+}
+
+/* Dark panel — the statement card. */
+.prose-training :where(.md-card--dark) {
+  background: var(--brand-navy-900);
+  border-color: var(--brand-navy-900);
+  color: var(--brand-steel-100);
+}
+
+.prose-training :where(.md-card--dark p) {
+  color: var(--brand-steel-100);
+}
+
+.prose-training :where(.md-card--dark strong) {
+  color: #ffffff;
+}
+
+.prose-training :where(.md-card--dark .md-card__label) {
+  color: var(--brand-accent-400);
+}
+
+/* Soft panel — supporting note. */
+.prose-training :where(.md-card--soft) {
+  background: var(--brand-accent-100);
+  border-color: rgba(26, 114, 187, 0.22);
+}
+
+/* Risk columns. */
+.prose-training :where(.md-card--high) {
+  border-color: rgba(179, 38, 30, 0.28);
+  background: var(--danger-100);
+}
+
+.prose-training :where(.md-card--high .md-card__label),
+.prose-training :where(.md-card--high strong) {
+  color: var(--danger-600);
+}
+
+.prose-training :where(.md-card--low) {
+  border-color: rgba(22, 121, 79, 0.26);
+  background: var(--success-100);
+}
+
+.prose-training :where(.md-card--low .md-card__label),
+.prose-training :where(.md-card--low strong) {
+  color: var(--success-600);
+}
+
+.prose-training :where(.md-card--high .md-card__label),
+.prose-training :where(.md-card--low .md-card__label) {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  background: var(--surface);
+  letter-spacing: 0.1em;
+}
+
+/* Numbered step tiles. */
+.prose-training :where(.md-card--step) {
+  background: var(--brand-navy-900);
+  border-color: var(--brand-navy-900);
+  color: var(--brand-steel-100);
+  padding-top: 1.35rem;
+}
+
+.prose-training :where(.md-card--step p) {
+  color: var(--brand-steel-100);
+}
+
+.prose-training :where(.md-card--step strong) {
+  color: #ffffff;
+}
+
+.prose-training :where(.md-card--step .md-card__label) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.4rem;
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  background: var(--brand-accent-500);
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.85rem;
+}
+
+/* Callout: a blockquote in module or handbook content. */
+.prose-training :where(blockquote) {
+  margin: 1.1rem 0;
+  padding: 0.95rem 1.1rem;
+  border-left: 3px solid var(--brand-accent-500);
+  border-radius: 0 10px 10px 0;
+  background: var(--brand-accent-100);
+  color: var(--brand-navy-900);
+}
+
+.prose-training :where(blockquote p) {
+  margin: 0.35rem 0;
+}
+
+.prose-training :where(blockquote p:first-child) {
+  margin-top: 0;
+}
+
+.prose-training :where(blockquote p:last-child) {
+  margin-bottom: 0;
+}
+
+.prose-training :where(a) {
+  color: var(--brand-accent-600);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-training :where(a:hover) {
+  color: var(--brand-accent-500);
+}
+
+/* Equipment photos in module content. Every photo file is normalized to
+   1600x900, so one frame fits them all — same width, same height, same crop. */
+.prose-training :where(img) {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  margin: 0.9rem 0 1.15rem;
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-muted);
+  box-shadow: 0 1px 2px rgba(20, 19, 58, 0.06);
 }
 
 /* Sidebar scroll region — a thin, unobtrusive rail on the dark panel. */
