@@ -3099,14 +3099,343 @@ Make sure a carrier packet or a proper **broker-carrier agreement** is offered b
 > If we ever file a **claim against the broker's bond** for non-payment, we need that paperwork on hand.
 `,
   },
-  { slug: "nick-saponaro-question", title: "Nick Saponaro (question)", summary: "Reference notes from the Nick Saponaro question.", order: 10 },
-  { slug: "insurance-empire-national", title: "Insurance - Empire National", summary: "Our insurance coverage and certificate handling.", order: 11 },
-  { slug: "general-dnu-guidelines", title: "GENERAL DNU GUIDELINES", summary: "General Do Not Use guidelines.", order: 12 },
-  { slug: "freightguard-threat", title: "Freightguard Threat", summary: "What to do when a FreightGuard report is threatened.", order: 13 },
+  {
+    slug: "nick-saponaro-question",
+    title: "Nick Saponaro (question)",
+    summary:
+      "Watch Nick Saponaro's classes, then his call recordings — the model for handling difficult situations.",
+    order: 10,
+    content: `> Nick Saponaro's calls are the example to follow when a situation gets difficult.
+
+## Where to start
+
+1. Watch **one to three [classes](https://drive.google.com/drive/folders/1HFIL-lP4wr4ZLgBWM9nzZdie39wFizW4)** with Nick Saponaro first.
+2. Then listen to his **[call recordings](https://drive.google.com/drive/folders/1HFIL-lP4wr4ZLgBWM9nzZdie39wFizW4)**.
+
+Both the classes and the recordings sit in the same Drive folder. Work through them in that order — the classes explain the approach, and the recordings show it being used on a live call.
+`,
+  },
+  {
+    slug: "insurance-empire-national",
+    title: "Insurance - Empire National",
+    summary:
+      "Our coverages A/B/C, how to read the COI, what to tell a broker about VINs, and how to request a certificate holder.",
+    order: 11,
+    content: `> If you have any questions about insurance, you can always contact your **TL, your manager, or the Compliance team**.
+
+## The four types of insurance we use
+
+These are the coverages that relate to the trucks.
+
+::::grid
+:::card[1. Cargo liability]{tone=soft}
+Covers the **freight** we are hauling. If cargo is damaged, this is the coverage that responds.
+:::
+
+:::card[2. Auto liability]{tone=soft}
+Covers damage and injury the **vehicle causes to others** while it is being operated.
+:::
+
+:::card[3. General liability]{tone=soft}
+The cheapest and mandatory coverage (around $15 per company). It covers the vehicle when it is **not moving** — parked and someone dents it, or something falls on it.
+:::
+
+:::card[4. Physical damage]{tone=soft}
+Covers **our own insured vehicle** against accidents and damage. If the vehicle hits another vehicle or an object, this pays for repair or replacement.
+:::
+::::
+
+## Who insures us
+
+Our Certificate of Insurance (COI) is issued through **AIC Insurance Agency Vancouver**. Three insurers carry our coverage, and on the COI each one is given a letter:
+
+| Letter | Insurer | NAIC # | What it carries |
+| --- | --- | --- | --- |
+| **A** | Penn-America Insurance Co | 32859 | Commercial general liability |
+| **B** | Falls Lake National Insurance Co | 31925 | Automobile liability (any auto) |
+| **C** | Travelers Property & Casualty Co of America | 25674 | Cargo and non-owned trailer |
+
+> **How to read the letters.** On the COI, the letter in the left column of each coverage row tells you **which insurer carries that coverage**.
+
+> **NAIC number.** Every insurance company holds a certificate confirming it is a valid insurer. The NAIC number on the COI is that certificate number.
+
+## What our COI shows
+
+Policy period **08/08/2025 – 08/08/2026**. The insured is **Empire National Inc, 4600 Hendersonville Rd Ste D, Fletcher, NC 28732**.
+
+| Coverage | Policy number | Limits |
+| --- | --- | --- |
+| General liability (A) | PAV0396171 | $1,000,000 each occurrence · $2,000,000 aggregate · $100,000 damage to rented premises · $5,000 medical |
+| Automobile liability (B) | NISTK6159837 | $1,000,000 combined single limit · $500,000 UM/UIM |
+| Cargo (C) | QT-660-5T752144-TIL-24 | $250,000 · $2,500 deductible · reefer breakdown included |
+| Non-owned trailer (C) | QT-660-5T752144-TIL-24 | $80,000 · $2,500 deductible |
+
+## A — General liability
+
+The cheapest insurance, and mandatory — around **$15 per company**. It covers situations where the vehicle **is not moving**: parked and someone dents it, or something falls on it. It applies while the vehicle is stationary and out of service.
+
+## B — Automobile liability
+
+This is the **biggest and most complicated** type of car insurance.
+
+It covers the costs if a truck accident causes someone to **die or get hurt** and they need to go to hospital, and it covers payments to **firefighters and other emergency services**. This is the coverage that applies when the vehicle **was moving** at the time of the incident.
+
+:::card[Any Auto]{tone=dark}
+**Any Auto** means that **any truck operating under our MC number** — Sprinters and big trucks alike — is covered under this policy. All VIN numbers are covered without being listed.
+
+With **Scheduled Auto**, by contrast, the specific truck VIN numbers have to be listed on the certificate.
+:::
+
+**You can get Any Auto coverage in two ways:**
+
+1. By reporting a **high number of miles driven** — we drive about 200,000 miles per week.
+2. Based on **revenue**.
+
+## C — Cargo
+
+Cargo coverage is **$250,000**.
+
+> **Deductible (DED)** is the amount **not** covered by the insurance — you pay all expenses up to that amount yourself. The higher the deductible, the cheaper the insurance, because the insurer takes on less risk.
+
+## What to say when the VIN does not match the insurance
+
+::::grid
+:::card[Answer 1]{tone=step}
+All of the vehicles in our fleet are insured under the **"Any Auto" clause** stated in our Certificate of Insurance, so there is no need to specify a particular VIN number.
+:::
+
+:::card[Answer 2]{tone=step}
+On this particular load we are using a **legally contracted owner-operator** working under our MC and authority. They are insured under the "Any Auto" clause in our COI, which does not require us to specify their particular VIN number.
+:::
+
+:::card[Answer 3 — optional]{tone=step}
+If necessary, we can send a **copy of their contract** to prove that this unit is legally and operationally tied to our MC and insurance.
+:::
+
+:::card[Keep it short]{tone=high}
+Do not answer every question a broker asks. If you do respond, keep it **very short**, so they have no opening for follow-up questions.
+
+Say it with confidence: *"Yes, we have ANY AUTO insurance, it covers this driver, everything will be fine."*
+:::
+::::
+
+**Two definitions that come up in these conversations:**
+
+- **Non-commercial truck** — a truck that weighs 10,000 pounds and does not carry hazmat loads. We do not have to put stickers on it.
+- **Non-company vehicle** — not a company-owned vehicle, but it operates under our MC number, and that is fine.
+
+> We have been in business for almost ten years, we work with top brokers — C.H. Robinson, RXO, XPO, TQL, Nolan, Armstrong — and we always aim to service our customers the best way possible. If anything happens, we do right by our partners.
+
+## How to get a COI with a specific certificate holder
+
+To get an updated COI naming a certain company as the certificate holder, send a request to **certs@aicinsagency.com** containing:
+
+1. A **subject line** with the company name and the type of request — for example: *Updated COI + Certificate holder for Axle Logistics*.
+2. A **short explanation in the body** with the details of the company being added.
+
+:::card[Example body]{tone=soft}
+Kindly help us to get a certificate of insurance with the below details as a Certificate holder:
+
+Axle Logistics
+835 N Central Street
+Knoxville, TN 37917
+:::
+
+## Who to contact
+
+- **Insurance agency:** AIC Insurance Agency Vancouver — 201 NE Park Plaza Drive, Suite 110, Vancouver, WA 98684
+- **Agent:** Yelena Stepanyuk — 360-450-2211 · ystepanyuk@aicinsagency.com
+- **Certificate requests:** certs@aicinsagency.com
+- **Inside Empire:** your TL, your manager, or the Compliance team
+`,
+  },
+  {
+    slug: "general-dnu-guidelines",
+    title: "GENERAL DNU GUIDELINES",
+    summary:
+      "Check both DNU tabs in the blacklist before every bid, and who to tell when a DNU situation comes up.",
+    order: 12,
+    content: `> **Mandatory.** To avoid unnecessary DNU violations, **all dispatchers must use our extension** and check the two main tabs before bidding on any load.
+
+## Before you bid on a load
+
+1. Open the [Expedite Blacklist — Empire National Inc](https://docs.google.com/spreadsheets/d/1d7FbJTPEW23BGqE-e9tROdveVGI-Dvb3fkTqirqtrmk/edit).
+2. Check the **DNU list** tab.
+3. Check the **Agents DNU** tab.
+4. Search with the quick key **Ctrl + F** in the search bar.
+
+Both tabs get checked — a broker company can be clear while the individual agent is not.
+
+## If you hear about a DNU situation
+
+Whenever you are told — **over the phone or by email** — that we have a DNU situation:
+
+- **Notify your colleagues in Rates immediately.**
+- **Let Daria Brooks and Ryan King know**, with all the details of the situation.
+
+> Pass on every detail you have. A DNU that only one dispatcher knows about is a DNU the rest of the floor can still walk into.
+`,
+  },
+  {
+    slug: "freightguard-threat",
+    title: "Freightguard Threat",
+    summary:
+      "What to do the moment a FreightGuard threat appears, who to email, and how to handle the conversation.",
+    order: 13,
+    content: `:::card[FreightGuard alert notification]{tone=high}
+As soon as you become aware of a **FreightGuard threat** — or that we might receive one if we do not comply with a broker's request — **immediately inform your TL and the Compliance team**.
+
+**Do not** try to explain or resolve the problem on your own.
+:::
+
+## Send the email
+
+After you have notified your TL and Compliance, send an email to **fg.threat@empirenational.com**.
+
+| Field | What goes in it |
+| --- | --- |
+| **To** | fg.threat@empirenational.com |
+| **CC** | Your TL · your manager · Nick Saponaro · Ryan King · Daria Brooks |
+| **Subject** | **FREIGHTGUARD** + company name + MC # |
+| **Body** | Everything you know — **brief and specific** |
+
+:::card[Example]{tone=soft}
+**Subject:** FREIGHTGUARD Threat FTL / Shram Logistics Solutions MC 636302 / Current Load Alpharetta, GA 02/16
+
+Hello,
+
+No need for Nick to get involved at the moment. I will let you know how the delivery goes tomorrow.
+
+The broker has threatened us, stating: *"If this load arrives at delivery with ANY evidence of partial, you will not be paid at all, and we will report you in every possible way. The load must look exactly like it did in the pictures and must have the seal intact."*
+
+The broker might be suspicious of consolidation because the load could not be delivered on time today at 06:30. The freight was loaded and ready to go; however, we did not have a driver available to cover the delivery.
+
+The load cannot be delivered in the original trailer from the Fletcher, NC terminal, because that trailer remained in Des Plaines, IL.
+
+The situation is further complicated by the fact that when the broker requested a photo of the sealed trailer, a photo of trailer 2509 — unrelated to this freight, and with a different seal — was sent to the broker.
+:::
+
+Notice what the example does: it states **who threatened us**, **quotes the threat word for word**, and then lays out **what actually happened**, in order, without excuses.
+
+## How to handle the conversation
+
+You need to be prepared for situations like this and know how to respond.
+
+- **Stay calm and focused.** Acknowledge the issue, apologize where appropriate, and concentrate on a practical solution.
+- **Look forward, not back.** Instead of dwelling on what went wrong, think about what alternatives you can offer to fix it.
+- **Listen carefully.** Stay polite, patient, and empathetic, with a calm and confident tone of voice.
+- **Do not argue.** Do not try to prove that we handled the situation correctly. Your priority is to de-escalate and find a way forward.
+- **Never take it personally** or respond emotionally. Ask yourself: *"What can I do now to resolve this, and what can I do differently next time?"*
+- **If a broker asks us to stay away, respect it.** Apologize, confirm that we will, and end the call before the situation escalates further.
+- **Escalate early.** If the issue is difficult or needs support, involve your Team Lead immediately so you can work out the right solution together.
+
+> Always do your best to maintain and improve your own and the company's reputation — with brokers, with drivers, and with anyone else.
+`,
+  },
   { slug: "most-frequently-asked-dnu-questions", title: "Most frequently asked DNU questions", summary: "Common questions about Do Not Use decisions.", order: 14 },
-  { slug: "mandatory-tl-notifications", title: "Mandatory TL Notifications", summary: "Notifications a dispatcher must send to the team lead.", order: 15 },
-  { slug: "load-booking-safety-checklist", title: "Load Booking Safety Checklist", summary: "Checks to run before booking any load.", order: 16 },
-  { slug: "confidentiality-and-internal-policies", title: "Confidentiality and Internal Policies", summary: "What stays internal, and the policies that govern it.", order: 17 },
+  {
+    slug: "mandatory-tl-notifications",
+    title: "Mandatory TL Notifications Checklist",
+    summary:
+      "The 17 situations where a dispatcher must notify their TL immediately, in the chatbox or in person.",
+    order: 15,
+    content: `> Dispatchers must notify their **TL immediately** in every situation below. Notifications **must be made in the chatbox and/or in person**.
+
+## Notify your TL when…
+
+1. **You need to cancel a load.**
+2. **You cannot find an option 15 minutes after receiving the rate confirmation.**
+3. **You are unable to reach a driver for 60 minutes or more** — during transit, or when you need confirmation during the bidding process.
+4. **You cannot reach a driver who has an owner.** The owner resists, the number is wrong, nobody picks up, a person with a different name answers, or you need to speak with the driver directly and cannot. The same applies to any failure to contact unregistered drivers.
+5. **A driver cannot get loaded or unloaded because of equipment issues** — the load will not fit, the facility is not dock height, there is no forklift, driver assist is required but the load is too heavy, and so on.
+6. **A driver threatens not to unload, not to drop the load, or to leave the facility** without authorization.
+7. **A driver will not be paid for a load, or the rate is reduced** by any amount — whether by the broker or by the dispatcher.
+8. **A broker, shipper, or receiver complains that the driver used their own MC or their own stickers.**
+9. **Damage to the vehicle, the load, or the facility** at any point during the load.
+10. **Motor vehicle accidents, injuries, or legal problems** of any kind.
+11. **A FreightGuard threat, or a blacklist / DNU threat.**
+12. **Problems with documents or access requirements** of any kind — border crossing, military background checks, TSA/TWIC, and similar.
+13. **A recovery or a serious delay** — the driver is sick, a family emergency, bad weather, road closures.
+14. **A driver engages in untrustworthy behavior** — double brokering, unauthorized partial, and so on.
+15. **A broker claims to have sent a rate confirmation** or another important document that you never received.
+16. **Any bad surprise** that could make a broker go crazy or damage the company's reputation.
+17. **A broker gets angry** for any reason, justified or not.
+
+> Knowing and making these notifications is the **responsibility of the dispatcher**, and is an obligatory part of basic dispatcher training.
+`,
+  },
+  {
+    slug: "load-booking-safety-checklist",
+    title: "Load Booking Safety Checklist",
+    summary:
+      "What to verify before you accept a rate con, right after booking, and while the load runs.",
+    order: 16,
+    content: `> Before you consider a load **booked and in the system**, double-check the points below. A few minutes here prevents most of the problems that show up later.
+
+## Before you accept the rate confirmation
+
+1. **Make sure your driver can actually do the load** — equipment, certifications, and a rate calculated on the correct information. Even if you found the option through texting or the CRM, confirm everything **by phone** before accepting a rate con:
+    - Ask the driver directly: **"Are you empty and ready to go?"** — even when our system shows an *AVAILABLE* status.
+    - Always get at least a **rough ETA**. If the driver has prior commitments on other loads, find out when they can really haul your cargo.
+    - Always double-check the driver's **current location and drop-off location**, especially when dealing with an owner. It may differ from what our system displays.
+
+2. **Make sure the broker knows the exact dims of your equipment.** However small the dims are, make sure the broker knows the equipment is a **Sprinter** (unless you are using something else). If the load description says "box truck" or anything other than Sprinter — on the load board, the rate con, anywhere — confirm with the broker that our equipment is **not dock height** and has **no liftgate or pallet jack**.
+
+3. **Make sure you have received your rate con.** If it is missing, check every folder — spam, updates — and notify your TL.
+
+4. **Double-check the rate con before you sign.** Rate, pickup and delivery times, weight, dims, pallets, special requirements — now is the time. Once you sign, most non-warm brokers will not take responsibility for charges they can escape through a loophole in a signed rate con. Only hit send when you are willing to own what you signed.
+
+:::card[If the numbers do not add up]{tone=high}
+If you catch a driver in a lie, or find discrepancies in their answers, **report it to your TL** and be very careful.
+
+It is **your responsibility** to verify every important load detail. A driver may quote you a rate while not actually meeting a crucial requirement — pickup and delivery time, truck dimensions, and so on.
+:::
+
+## Once the load is booked
+
+5. **Update your driver in the CRM** before someone else starts using them.
+
+6. **Make sure the driver has been properly dispatched** with the correct information — including the **correct driver rate** and instructions **not to touch the load without authorization** from the dispatcher. Otherwise the driver will want to charge extra for loading by hand.
+
+7. **Make sure the load is properly entered in the CRM and the Expedite spreadsheet** — correct driver info, correct tracking team info, correct rates, correct pickup and delivery times and locations, load weight and pallets, and the properly filled rate con attached.
+
+8. **Check the email for your assigned tracking team** and make sure every relevant broker agent is on the chain. The agent on your rate con often works with an assistant or two; leaving them off the chain causes communication breakdowns that lead to late pickups and deliveries.
+
+## While the load runs
+
+9. **Update the broker yourself on the important events** — pickups, deliveries, problems — whenever you can. Tracking does this too, but your participation improves safety and raises the chance of turning that broker into a warm one.
+
+10. **When problems develop, the window to solve them can be very short.** Do not depend on tracking to fix the problem or to notify you in time.
+
+> Whatever happens on the load, good or bad, becomes part of your professional reputation. **The broker will not care who messed the load up — they will blame you.**
+`,
+  },
+  {
+    slug: "confidentiality-and-internal-policies",
+    title: "Confidentiality and Internal Information",
+    summary:
+      "What must never be shared with drivers or brokers, and who to ask when you are unsure.",
+    order: 17,
+    content: `> **Do not share screenshots from our CRM** with drivers or brokers, and do not disclose any internal or confidential information to them.
+
+## What stays internal
+
+Never share externally:
+
+- Our **internal processes**
+- The **RATES system**
+- The **driver rating system**, and any individual **driver's score**
+- Any other **tools and procedures** that are not intended to be shared outside the company
+
+## When you are not sure
+
+:::card[Ask first]{tone=high}
+If you are unsure whether a piece of information can be shared, **check with your Team Lead before you provide it**.
+
+Asking costs a minute. Sharing something that should have stayed internal cannot be undone.
+:::
+`,
+  },
 ];
 
 async function main() {
