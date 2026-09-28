@@ -2647,9 +2647,458 @@ Approve the fake rate with the **HR manager** and **your Team Lead**.
 ::::
 `,
   },
-  { slug: "hr-part", title: "HR Part", summary: "HR policies that sit inside the safety handbook.", order: 7 },
-  { slug: "claims", title: "Claims", summary: "How freight claims are opened, handled, and closed.", order: 8 },
-  { slug: "double-broker-scammer", title: "Double-broker / Scammer", summary: "Recognizing double-brokering and scam attempts.", order: 9 },
+  {
+    slug: "hr-part",
+    title: "Compensation Policy",
+    summary:
+      "How contractors are paid, what gets deducted, and how to report an issue to HR.",
+    order: 7,
+    content: `> Even if the broker has not paid us, **we still pay the driver according to the contract** — he works with us.
+
+## Reporting issues
+
+If a driver does something against the rules, or if something happens on a load, **write a report and let HR know**.
+
+HR cannot know about a situation if nobody reports it. So if something happens, report it — we need HR aware of every issue.
+
+:::card[Full document]{tone=soft}
+The complete policy is below. You can also [download the original document](/docs/compensation-policy.docx) (DOCX) to send to a contractor.
+:::
+
+## Compensation Policy
+
+### 1. Mileage Calculation
+
+Shipment distance is calculated based on ZIP-to-ZIP, not exact addresses. Contractor must provide accurate and truthful current location information, including ZIP code, to ensure correct empty mileage calculation. In case of disputes, mileage will be verified using Google Maps.
+
+### 2. Load Availability
+
+Before assigning a load, the Dispatcher must confirm that the Contractor does not have an active load with another company or another Empire National Dispatcher.
+
+### 3. TONU (Truck Ordered, Not Used)
+
+TONU applies when a truck is ordered and the load is later canceled. Contractor is not eligible for TONU if they cancel the load themselves.
+
+If the Contractor travels less than 50 miles toward pickup, compensation is $50. If more than 50 miles are driven, compensation is calculated at $1 per mile, with a maximum of $150.
+
+TONU is not paid if the Contractor arrives late, if the cancellation is caused by the Contractor’s actions or inaction, or if the load is canceled within 15 minutes after confirmation or within 12 hours prior to pickup (for non-same-day appointments).
+
+### 4. Detention
+
+Detention begins 2 hours after the Contractor checks in on time at the facility. Arrival and departure times must be documented on the Bill of Lading.
+
+Compensation is $20 per hour, with a maximum of $150. Detention is not paid if the Contractor misses the appointment due to their own fault or negligence.
+
+### 5. Layover / Overnight
+
+Compensation for overnight stay or the first 24-hour layover is $150. Each additional 24-hour period is also compensated at $150. Weekend layover is compensated at a total of $300.
+
+Layover is not paid if the delay is caused by the Contractor arriving late.
+
+### 6. Loading / Unloading
+
+Loading and unloading is compensated at $10 per 150 lbs. Driver assistance is compensated at $5 per 150 lbs.
+
+These services must be approved in advance by the Dispatcher or Operations and must be documented on the Bill of Lading and Proof of Delivery. Unauthorized services will not be compensated.
+
+### 7. Extra Weight
+
+The base rate includes shipments up to 1,500 lbs. For any weight exceeding this limit, compensation increases by $10 for each additional 100 lbs.
+
+Contractor has the right to refuse a load if it exceeds the vehicle’s declared capacity.
+
+### 8. Extra Space
+
+No additional compensation is provided if the load exceeds the initially stated size, as the Company reserves the full cargo space when booking.
+
+### 9. Extra Miles and Stops
+
+If actual mileage exceeds the mileage stated in the rate confirmation, additional miles are paid at the same per-mile rate. The same rate applies if fewer miles are driven.
+
+Each additional pickup or delivery stop is compensated at $50.
+
+### 10. Escalation
+
+Any issues related to policy violations must be reported to the Driver Support Department.
+
+## Payment Policy
+
+### 1. Payment Schedule
+
+Loads delivered by Wednesday 8:00 EST are paid on Friday via ACH. Payment is issued only after the load is closed and the Company has received payment from the customer.
+
+### 2. Deductions
+
+The Company may apply deductions, chargebacks, or other amounts owed by the Contractor.
+
+### 3. Required Documents
+
+Some customers require a scanned Bill of Lading or original Proof of Delivery for payment. All required documents must be mailed to 4600 Hendersonville Rd Ste. D, Fletcher, NC 28732, and shipping costs are the Contractor’s responsibility.
+
+Contractor must retain all documents for 4 months and provide copies upon request. Payment may be held until all required documents are received.
+
+After mailing the Proof of Delivery, the Contractor must provide a tracking number and send a clear copy to the Company application chat and to bol@empirenational.com.
+
+### 4. Payment Conditions
+
+No advance payments are provided before delivery is completed and the Proof of Delivery is approved by the customer. Payments are made directly to the Contractor, who is responsible for compensating their own employees or agents.
+
+### 5. Submission Requirements
+
+To receive payment, the Contractor must submit a voided check with full banking details, a properly signed Bill of Lading, and any additional required documents.
+
+All documents must be emailed and uploaded to the application chat within 15 minutes after pickup and after delivery.
+
+### 6. Split Loads
+
+If a load is completed by another driver, the first Contractor is paid only after final delivery is completed and the Proof of Delivery is approved by the customer.
+
+### 7. Overpayments
+
+Any overpayment or chargeback will be deducted from future settlements.
+
+### 8. Payment Holds
+
+Payment may be withheld in cases such as missing signatures, incomplete documents, poor-quality scans, incorrect carrier information, late delivery, damages, or any issue requiring customer verification.
+
+### 9. Printing Compensation
+
+The rate includes printing up to five pages. If more than five pages are required, an additional $10 will be paid.
+
+### 10. Quick Pay
+
+Quick Pay is available 24 hours after delivery, subject to Accounting approval. It is processed via ACH with a $50 fee per transaction, and funds are typically received the next business day.
+
+The fee applies per vehicle if multiple units are used. No payment advances are allowed.
+
+### 11. Final Settlement
+
+Final settlement is issued within 45 days after full compliance with contract terms upon termination.
+
+## Deductions Policy
+
+### 1. Lateness
+
+Contractor must notify the Dispatcher in advance about any delay. Late arrival to pickup or delivery results in a 25% rate deduction. Late arrival to a strict appointment results in a 50% rate deduction. Continued lateness may lead to contract termination.
+
+If a Contractor wants to arrive earlier than scheduled, this must be approved by the Dispatcher, otherwise additional charges may apply.
+
+Any delays, accidents, damaged freight, or risks to cargo must be reported immediately to Operations or the Dispatcher, with photo proof provided.
+
+No deduction applies if the delay is necessary to maintain safety.
+
+### 2. Partial Loads (Strictly Prohibited)
+
+All loads are dedicated, meaning no additional freight may be transported at the same time, even if another load is offered by the Company.
+
+If a Contractor performs a partial load, a deduction of up to 100% of the rate will apply, with a minimum charge of $500.
+
+Any unauthorized items in the cargo area may be treated as a partial load and result in full deduction.
+
+### 3. Load Cancellation
+
+Contractor may not cancel a load after confirming acceptance by phone, text, or verbally.
+
+The Dispatcher must send the rate confirmation within 30 minutes. If no rate confirmation or follow-up is provided within that time, the Contractor may cancel without penalty.
+
+Violation results in a $250 cancellation fee and may lead to contract termination. Emergency situations must be supported with proof.
+
+### 4. Documentation Errors & Submission
+
+If the wrong Bill of Lading (BOL) is taken at pickup, the Contractor must return and obtain the correct one. Failure to do so may result in up to a 100% rate deduction or termination.
+
+All documents (BOL, POD, PO) must be submitted in good quality within 15 minutes after delivery.
+
+Failure to provide a valid Proof of Delivery results in a 15% rate deduction and may delay or block payment.
+
+Contractor must keep original documents for 3 months and provide them upon request.
+
+If only the original POD is mailed without sending a copy via email and app chat, a $10 deduction will apply.
+
+### 5. Photo Requirement
+
+Contractor must send high-quality photos of the freight at both pickup and delivery to the app chat and email.
+
+Photos must be sent before contacting Dispatcher or Operations regarding the load.
+
+Failure to provide photos at any stop results in a $10 deduction. Repeated violations may lead to increased charges.
+
+At the time of delivery, the Company app chat must be open on the Contractor’s device.
+
+### 6. Wrong Delivery Location
+
+If a load is delivered to the wrong location without a valid reason, the Contractor may be fined or held responsible for all costs related to redelivery. Photo proof must be provided when applicable.
+
+### 7. Pets Policy
+
+Pets are not allowed in the vehicle without prior approval from Driver Support. Violations result in additional charges.
+
+Service dogs are allowed only if the Company is informed in advance and supporting documents (certificate and doctor’s prescription) are provided upon request. This may limit eligibility for certain loads.
+
+### 8. Driver & Vehicle Registration
+
+All drivers must be registered with the Company before handling any load.
+
+If a Contractor adds a driver or vehicle without providing required documents, a 100% rate deduction will apply, with a minimum charge of $500.
+
+### 9. Cargo Responsibility
+
+Contractor is fully responsible for delivering the load in the same quantity and condition as received.
+
+Any damage to freight must be covered by the Contractor. The Company reserves the right to file a claim with the Contractor’s insurance.
+
+### 10. Compliance & Termination
+
+Failure to follow these rules may result in contract termination.
+
+If the Contractor operates with multiple drivers, all drivers must be informed of and comply with this policy.
+
+## Authorized MC and USDOT Policy
+
+### 1. Active Authority Restriction
+
+The Company does not knowingly assign loads to any Contractor that has active or operating Motor Carrier (MC) authority or a USDOT number registered with the FMCSA.
+
+If the Contractor holds or activates MC authority or a USDOT number at any time, the Company reserves the right to terminate the Agreement immediately.
+
+### 2. Contractor Notification Requirement
+
+The Contractor must immediately notify the Driver Support Department if they obtain, activate, or register MC authority or a USDOT number, either for themselves or their vehicle. Failure to disclose this information may result in termination of the Agreement.
+
+### 3. Prohibited Practices
+
+The Contractor is strictly prohibited from double brokering, subcontracting, or re-brokering any load assigned by the Company. Any violation of this rule may result in immediate termination.
+
+## Rate Confirmation Policy
+
+### 1. Information Accuracy
+
+The Contractor is required to provide complete, accurate, and truthful information at all times. The Contractor must also notify the Dispatcher if they are already assigned to another load, either with another company or another Empire National Dispatcher, before accepting a new assignment.
+
+### 2. Load Acceptance and Rate Agreement
+
+Once the Contractor confirms acceptance of a load verbally, by phone, or by text and agrees to the offered rate, the Contractor is not permitted to change the rate or refuse the load afterward. All confirmations must be clear and final.
+
+### 3. Holding Period After Bid
+
+After placing a bid or confirming interest in a load, the Contractor will be placed on a 15-minute hold period. During this time, the Contractor must not accept any other loads.
+
+If the Dispatcher requires more time or confirms the load, they will inform the Contractor within this 15-minute window. Failure to comply with this rule may result in contract termination.
+
+### 4. Special Facility Requirements
+
+For shipments involving Canada, U.S. military bases, or government facilities, the Contractor must fully comply with all access requirements, including background checks and entry permissions.
+
+If the Contractor is unable to access such facilities due to prior restrictions or criminal history, they must inform Dispatch at the time of load acceptance. Failure to disclose this may result in the Contractor being responsible for all costs associated with re-dispatch or load recovery.
+
+## Recovery Policy
+
+### 1. Breakdown Notification
+
+If the truck experiences a breakdown or any operational issue during transit, the Contractor must immediately notify the Operations Department.
+
+Evidence of the issue must be provided within 30 minutes and may include photos, repair invoices, or any relevant documentation.
+
+### 2. Load Interruption or Non-Completion
+
+If the Contractor accepts a load but is unable to complete delivery due to reasons not caused by external uncontrollable circumstances, the Company reserves the right to charge the Contractor for all recovery-related expenses. Each case will be reviewed individually by the Safety Department. In emergency situations, final decisions will be made based on full case evaluation.
+
+## Non-Applicability of Federal Regulations
+
+The Contractor agrees that the equipment used under this Agreement does not qualify as a Commercial Motor Vehicle under 49 CFR 390.5, as its gross vehicle weight, gross vehicle weight rating, or combined weight rating does not exceed 10,000 pounds.
+
+Based on this classification, the Contractor and the Company are not subject to FMCSA or USDOT regulatory requirements for the operation of this vehicle. Any references in this Agreement to USDOT or FMCSA rules shall not apply to the Contractor’s operations under this lease agreement.
+
+## Passenger Policy
+
+The Contractor is strictly prohibited from allowing any unauthorized passenger in the vehicle while performing services under this Agreement.
+
+If the Contractor chooses to carry a passenger, prior approval is required along with proof of Passenger Accident Insurance that includes both the named driver and the authorized passenger.
+
+An authorized passenger is defined as a non-employee individual who is riding only as a guest and does not receive any form of compensation or employment-related benefit.
+
+If the Contractor proceeds with a passenger without valid insurance coverage, this Agreement will be considered void as of the date of such violation.
+
+Passengers are strictly prohibited from operating the vehicle under any circumstances.
+
+## Contractor Liability and Claims Responsibility
+
+The Contractor agrees to fully defend, indemnify, and hold the Company harmless from any claims, losses, damages, or legal costs, including reasonable attorney fees, arising from the following situations, whether through settlement deductions, escrow/security deposits, or direct reimbursement.
+
+This includes any loss, shortage, or damage to cargo transported under this Agreement, regardless of cause.
+
+The Contractor is also responsible for any damage or loss to Company equipment used during operations, whether caused by the Contractor, their agents, employees, or representatives.
+
+The Contractor is further liable for any bodily injury, death, or property damage occurring during the execution of this Agreement when such incidents are not covered by applicable insurance, are subject to a deductible, or exceed policy limits.
+
+All incidents, including accidents, injuries, cargo damage, shortages, or property damage, must be reported immediately to the Operations Department. A complete written report must be submitted as soon as possible in the form required by the Company and, when applicable, any governmental authority or insurance representative.
+
+## Uninsured / Underinsured Motorist Claims
+
+If employees of the Contractor make claims under the Company’s liability insurance for uninsured or underinsured motorist coverage, and if such claims result in deductibles, uncovered amounts, or partial insurance payment, the Contractor agrees to reimburse the Company for all related costs paid by the Company.
+`,
+  },
+  {
+    slug: "claims",
+    title: "Claims",
+    summary:
+      "Load security, documenting cargo damage, and the two claim tracks — under and over $1,000.",
+    order: 8,
+    content: `## The dispatcher's role in a claim
+
+The dispatcher must remain **actively involved throughout the entire claim resolution process**. They are responsible for maintaining communication with the broker, helping obtain all necessary information, and supporting the Tracking Team until the claim is fully resolved.
+
+The dispatcher should stay in contact with the broker, follow up on outstanding questions or documents, and make sure the broker provides the information needed to investigate and close the claim. Treat claim resolution as a priority and take an active role in moving the case toward closure.
+
+## Cargo delivery and load security
+
+> The most important service we provide is cargo delivery. It is our responsibility to deliver the load **in the same condition in which it was received** at the pick-up location.
+
+The Tracking Team must always pay close attention to load security. If the straps or other securing equipment are not visible in the pictures provided by the driver, the Tracking Team must instruct the driver to properly secure the load and provide updated pictures.
+
+**There are no exceptions to this requirement.** Many things can go wrong during transportation, and an unsecured load creates an unnecessary risk of cargo damage. Proper load securement is one of the key steps in preventing avoidable damage.
+
+## When cargo damage is identified
+
+If the Tracking Team notices any damage to the cargo, the driver must be instructed to **immediately check the cargo with the shipper or receiver** and have the damage documented on the appropriate paperwork.
+
+The Tracking Team must notify the broker about the damage and confirm the situation with them. If the damage was caused by a forklift operator, facility employee, or other personnel at the shipper or receiver location, written confirmation from the shipper or receiver must be included in the paperwork.
+
+> The broker must also confirm **in the email chain, in writing**, that they have no claim against Empire National / Expedited and that we are clear to proceed. Get this in writing even if the broker already confirmed the same thing over the phone.
+
+A claim report must be created for **every** cargo-damage incident — even when the damage clearly was not caused by Empire National / Expedited and the broker confirms there will be no claim against us.
+
+## Documenting cargo damage
+
+1. **Obtain an incident report.** Instruct the driver to get a written incident report from the shipper or receiver documenting what happened and, whenever possible, identifying the cause of the damage.
+2. **Take detailed pictures.** Ask the driver for clear pictures of the damaged product from multiple angles, showing both the damage itself and the surrounding condition of the cargo where relevant.
+3. **Notify the broker.** Inform the broker as soon as possible and keep communicating until the situation is clarified.
+4. **Collect details from the driver.** Ask for a detailed explanation of how the damage occurred — when and where it happened, and who was involved, if known.
+5. **Prepare and distribute the report.** Prepare a claim/damage report and send it to:
+    - **Safety Team** — claim.expedite@empirenational.com or auto-claim@empireexpedited.com
+    - **Office Manager**
+    - **HR Representative**
+    - **Dispatcher**
+
+The report must include the incident report and all relevant pictures of the freight.
+
+## Determining the next steps
+
+Once we have a general understanding of the situation — what happened, who may be responsible, whether a claim will be filed, and the potential amount involved — the Tracking Team must document the findings and coordinate next steps with the appropriate parties.
+
+The next steps depend on the circumstances of the incident and whether the damage is the responsibility of Empire National / Expedited or another party.
+
+::::grid
+:::card[Damages under $1,000]{tone=soft}
+Handled by **Tracking and Dispatch** with Accounting. The Safety Department does not take the case. $1,000 is held from the owner-operator, and the claim is paid out of the held funds.
+:::
+
+:::card[Damages over $1,000]{tone=dark}
+The **Safety Department** takes the case. All available funds are held, the owner goes on Hidden OOS, and the claim is settled through a repayment plan or insurance.
+:::
+::::
+
+## Damages under $1,000
+
+1. If possible, Tracking asks the shipper or receiver for a copy of the incident report and pictures of the damage.
+2. Tracking or Dispatch sends the email to the Claims Expedite chain (claim.expedite@empirenational.com). The Safety Department will **not** handle the issue. Add the accounting team:
+    - annaug@empirenational.com
+    - nicole@empirenational.com
+    - connorgr@empirenational.com
+3. Expedite HR should request that Accounting place **$1,000 on hold** for the owner-operator.
+4. The booking dispatcher must work with the broker to determine the exact amount of the damage and obtain the supporting documents.
+5. If the damage is less than $1,000 — for example $350 — the HR point of contact for the owner-operator must speak with them and explain the claim details.
+    - Let the owner-operator know that we have to pay the claim from the held funds.
+6. The booking dispatcher arranges for the cargo release to be signed, and makes sure we pay the broker and charge the owner-operator.
+7. Release any additional funds that were on hold.
+8. Make sure the broker is not retaining more funds than are needed to cover the claim.
+    - Accounting can verify whether the broker is holding any funds.
+9. Make sure we get paid for the load — the broker needs to pay OTR once the claim is resolved.
+
+## Damages over $1,000
+
+1. If possible, ask the shipper or receiver for a copy of the incident report and pictures of the damage.
+2. The booking dispatcher emails the claims.expedite@empirenational.com group to inform the Safety Department.
+3. The booking dispatcher must work with the broker to determine the exact amount of the damage and collect the supporting documents. **The dispatcher stays the point of contact** between the broker and the Safety Department.
+4. The Expedite HR dispatcher should request that Accounting place **all available funds on hold** for the owner-operator, and should notify the owner-operator about the hold. Use caution if the driver is new or is currently on a load.
+    - annaug@empirenational.com
+    - nicole@empirenational.com
+    - connorgr@empirenational.com
+5. Place the owner on **Hidden OOS**.
+6. If the damage exceeds $1,000 — for example $3,000 — the Safety Department representative contacts the owner-operator to explain the claim details.
+7. Determine whether the owner would rather pay the claim out of pocket than file an insurance claim.
+8. If the owner is paying out of pocket, the Safety Department representative must set up a **4–6 week repayment plan** with them.
+9. The owner-operator must sign a **Confession of Judgment**.
+10. We may need to file a claim with insurance if the owner-operator stops providing services and stops communicating with the company during the repayment process.
+11. Any claim **over $5,000** must be filed with the owner-operator's insurance company after speaking with them, unless the owner is wiring the full amount immediately. We cannot sign repayment agreements for amounts this large.
+12. If the owner decides to file through insurance, the Safety Department handles it.
+13. The Safety Department representative must update all involved parties **at least once per week**.
+14. Safety updates go to everyone on the internal team and to the owner-operator. Dispatch updates go to the broker — how often is at the dispatcher's discretion.
+15. Hold the maximum available funds, but **no less than $1,000**, until the insurance payout is received. We may need that $1,000 to cover the insurance deductible by sending it to the broker, since the payout may be less than the deductible.
+
+> **Owner-operator contact (updated 6/3/25).** For owners hired by the **MX office**, involve **Emile Ramos** when HR needs to speak with them. For owners hired by the **UA office**, refer to **Monica Rogers**.
+`,
+  },
+  {
+    slug: "double-broker-scammer",
+    title: "Double-broker / Scammer",
+    summary:
+      "The 24 signs of a double-broker or non-paying broker, and how to book safely when you see them.",
+    order: 9,
+    content: `> These are the 24 hints that a broker company is a **double-broker**, a straight-up **scammer**, or a broker that **might not pay us** — or stops paying at some point.
+
+## The 24 warning signs
+
+1. They are **not approved by our factoring company** (OTR Capital — check [crm.empirenational.com/adm/otr](https://crm.empirenational.com/adm/otr)), and they refuse to do Quick Pay or actively dodge it.
+2. The broker agent has **no signature block** at the bottom of their email — no cell, no office number, no logo.
+3. You call the office or cell **multiple times and nobody picks up**.
+4. The **rate confirmation looks sketchy** — strange or hand-made, as if built in Photoshop or Word rather than generated by the integrated CRM that normal brokers use.
+5. **Low score on DAT** — 3 stars or below, and/or 3 or fewer reviews. On [directory.dat.com](https://directory.dat.com) you can see the general score and the reports carriers leave about the broker; if those reports show any of the bad signs here, that is a red flag. Five-star reviews that look suspiciously good while the rest of this list is failing are also a flag.
+6. The broker agent on the phone has a **very thick non-US accent** (on its own this proves nothing).
+7. **Communication and issue resolution take a long time**, because they have to check everything with the broker above them, who checks with their customer — especially slow if any link in that chain goes quiet.
+8. They **do not pay TONU, detention, or layover** — they avoid accessorials at all costs with different excuses, or pay a token $50, $75, or $100 where the standard amount should apply.
+9. The **BOL shows a different broker company** in the header, and/or lists their broker company as the carrier.
+10. The broker asks you to have the driver **check in as a different carrier**, or otherwise misrepresent information to the shipper or customer.
+11. The broker **does not know or provide dimensions** — because they booked it somewhere else, e.g. from a large broker like CH Robinson where only weight is listed, for a dry van or box truck load they are now trying to fit into a Sprinter.
+12. The broker gives **only a first name**, or a first name plus one initial (for example "Dave" or "Dave V.").
+13. The main office is **registered or located in Southern California**, especially Glendale (on its own this proves nothing).
+14. The agent's email carries a **"Virus-free. www.avast.com"** footer, and/or the **timestamps are far off from US time zones**.
+15. The broker appeared in a **[freightbrokeralert.com](https://freightbrokeralert.com) update from our Compliance team**.
+16. The **carrier setup packet came as a PDF or Word document** instead of through an authorized platform such as RMIS, MyCarrierPacket, GoHighway, or DAT Onboard.
+17. On a **first-ever booking** with them — when you add them to the CRM as a new company — they **offer no setup, contract, or broker-carrier agreement**. Unless they are a direct customer, they should send some kind of agreement or packet. Push for one and get it signed.
+18. **They pay too slowly.** On the main CRM panel (LoadBoard) there are sections for Loads en Route, Loads Delivered, Loads Invoiced, and Loads Paid. If loads with this broker sit in **Loads Invoiced for over a month** without moving to Loads Paid, that is a sign.
+19. **The MC number is fresh.** Broadly, the more digits, the younger the company: a 6-digit MC is relatively old (for example 966111), while the newest companies right now start with 16 and have 7 digits (for example MC 1635888).
+20. The broker company tries to **book with you using their carrier MC**.
+21. The broker has **suspiciously many blind or double-blind shipments**, especially blind pickups in odd locations that do not show up on Google as warehouses or legitimate businesses.
+22. Agents use **Gmail, Yahoo, Outlook, or other free public email** — for example davebravologistics@gmail.com.
+23. The broker company **has no profile on DAT or Truckstop**.
+24. The broker company **has no website**.
+
+> No single factor proves a broker is double-brokering or planning not to pay. But **the more of these you see on one broker, the higher the probability** — so take extra caution before letting dispatchers book with them, or before adding them.
+
+## Extra caution before booking
+
+- Check their **payment background with Accounting**.
+- Check them **in our CRM** to see whether anyone at Empire has already run loads with them.
+- See whether they **can Quick Pay**.
+- **Do not take their loads cheap** — Quick Pay can eat a significant chunk of the margin.
+- Expect that **any issue along the way may take a long time** to resolve.
+- Book **no more than one load on Quick Pay** with them.
+- Keep the **first load low on the broker's gross pay** — see the example below.
+
+:::card[Why the first load should be small]{tone=dark}
+A load from CA to NY where the broker pays **$3,000** and the driver gets **$2,900** puts **$2,900 at risk** to gain **$100** — and the driver still has to be paid either way. Quick Pay then eats roughly 3–10% of that $100.
+
+A local load at **$300** broker pay and **$150** driver pay carries far less risk and is fine.
+:::
+
+## Paperwork protects us
+
+Make sure a carrier packet or a proper **broker-carrier agreement** is offered by the broker. Once the dispatcher fills it out, send it to **setup@empirenational.com**.
+
+> If we ever file a **claim against the broker's bond** for non-payment, we need that paperwork on hand.
+`,
+  },
   { slug: "nick-saponaro-question", title: "Nick Saponaro (question)", summary: "Reference notes from the Nick Saponaro question.", order: 10 },
   { slug: "insurance-empire-national", title: "Insurance - Empire National", summary: "Our insurance coverage and certificate handling.", order: 11 },
   { slug: "general-dnu-guidelines", title: "GENERAL DNU GUIDELINES", summary: "General Do Not Use guidelines.", order: 12 },
