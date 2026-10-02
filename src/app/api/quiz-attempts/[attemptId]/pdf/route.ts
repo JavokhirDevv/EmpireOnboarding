@@ -12,8 +12,9 @@ export async function GET(
   _request: Request,
   { params }: { params: Promise<{ attemptId: string }> }
 ) {
+  // Answer sheets are an admin tool: trainees submit, admins download.
   const session = await getSession();
-  if (!session) {
+  if (!session || session.role !== "ADMIN") {
     return new NextResponse(null, { status: 401 });
   }
 
@@ -35,9 +36,7 @@ export async function GET(
     },
   });
 
-  // Trainees can only print their own sheet; admins can print anyone's to pass
-  // along to HR.
-  if (!attempt || (attempt.userId !== session.userId && session.role !== "ADMIN")) {
+  if (!attempt) {
     return new NextResponse(null, { status: 404 });
   }
 

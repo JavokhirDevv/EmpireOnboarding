@@ -1,13 +1,8 @@
 import "dotenv/config";
 import bcrypt from "bcryptjs";
-import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
-import { PrismaClient } from "../src/generated/prisma/client";
+// Shared client: picks the SQLite or Postgres adapter from DATABASE_URL.
+import { prisma } from "../src/lib/prisma";
 import { shuffleAnswerOptions } from "../src/lib/quiz-options";
-
-const adapter = new PrismaBetterSqlite3({
-  url: process.env.DATABASE_URL ?? "file:./dev.db",
-});
-const prisma = new PrismaClient({ adapter });
 
 type SeedOption = { text: string; correct?: boolean };
 // FILL_BLANK questions put "____" in the text and list every accepted answer

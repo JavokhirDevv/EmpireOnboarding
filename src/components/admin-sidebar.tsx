@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import type { ReactNode } from "react";
-import { logout } from "@/lib/actions/auth";
 import { EmpireLogo } from "@/components/logo";
+import { SignOutButton } from "@/components/sign-out-button";
 import { Badge } from "@/components/ui";
 
 export function AdminSidebar({ userName }: { userName: string }) {
@@ -96,6 +96,9 @@ export function AdminSidebar({ userName }: { userName: string }) {
             <NavLink href="/admin/trainees" label="Trainees" pathname={pathname}>
               <UsersIcon />
             </NavLink>
+            <NavLink href="/admin/results" label="Test Results" pathname={pathname}>
+              <ClipboardIcon />
+            </NavLink>
           </div>
         </div>
       </nav>
@@ -108,15 +111,7 @@ export function AdminSidebar({ userName }: { userName: string }) {
               {userName}
             </div>
           </div>
-          <form action={logout}>
-            <button
-              type="submit"
-              title="Sign out"
-              className="shrink-0 w-8 h-8 rounded-md flex items-center justify-center text-steel-300 hover:text-white hover:bg-white/10 transition-colors"
-            >
-              <SignOutIcon />
-            </button>
-          </form>
+          <SignOutButton />
         </div>
       </div>
     </aside>
@@ -283,6 +278,21 @@ function FolderIcon() {
   );
 }
 
+function ClipboardIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path
+        d="M5.5 3H4a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-1.5"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+      <rect x="5.5" y="1.8" width="5" height="2.6" rx="0.8" stroke="currentColor" strokeWidth="1.4" />
+      <path d="M5.8 8.2h4.4M5.8 11h3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function UsersIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -303,16 +313,3 @@ function UsersIcon() {
   );
 }
 
-function SignOutIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path
-        d="M6.5 2H4a1.5 1.5 0 0 0-1.5 1.5v9A1.5 1.5 0 0 0 4 14h2.5M10.5 11l3-3-3-3M13.2 8H6"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}

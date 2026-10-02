@@ -7,7 +7,6 @@ import { prisma } from "@/lib/prisma";
 import { getTraineeProgress, departmentForRole, getLatestAttempt } from "@/lib/progress";
 import { Badge, Card, LinkButton } from "@/components/ui";
 import { MarkCompleteButton } from "./mark-complete-button";
-import { QuizResultDownload } from "@/components/quiz-result-download";
 
 export default async function TrainingModulePage({
   params,
@@ -43,8 +42,7 @@ export default async function TrainingModulePage({
 
   const completed = trainingModule.progress.length > 0;
 
-  // Most recent attempt, so the trainee can re-download the answer sheet for
-  // HR long after they finished the quiz.
+  // Most recent attempt, shown as a score line under the quiz CTA.
   const latestAttempt = trainingModule.quiz
     ? await getLatestAttempt(user.id, trainingModule.quiz.id)
     : null;
@@ -101,12 +99,9 @@ export default async function TrainingModulePage({
                 {latestAttempt && <> Last attempt: {latestAttempt.score}%.</>}
               </div>
             </div>
-            <div className="flex flex-wrap items-center gap-3">
-              <LinkButton href={`/quiz/${trainingModule.quiz.id}`} variant="primary">
-                {completed ? "Retake quiz" : "Take quiz"}
-              </LinkButton>
-              {latestAttempt && <QuizResultDownload attemptId={latestAttempt.id} />}
-            </div>
+            <LinkButton href={`/quiz/${trainingModule.quiz.id}`} variant="primary">
+              {completed ? "Retake quiz" : "Take quiz"}
+            </LinkButton>
           </>
         ) : (
           <>

@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
-import { logout } from "@/lib/actions/auth";
 import { resetProgress } from "@/lib/actions/training";
 import { EmpireLogo } from "@/components/logo";
+import { SignOutButton } from "@/components/sign-out-button";
 import type { ModuleStatus } from "@/lib/progress";
 import { DEPARTMENT_LABELS } from "@/lib/departments";
 import type { Department } from "@/generated/prisma/enums";
@@ -351,16 +351,7 @@ export function TraineeSidebar({
             {userTitle ?? `${departmentLabel} Trainee`}
           </div>
         </div>
-        <form action={logout}>
-          <button
-            type="submit"
-            title="Sign out"
-            aria-label="Sign out"
-            className="shrink-0 w-8 h-8 rounded-md flex items-center justify-center text-steel-300 hover:text-white hover:bg-white/10 transition-colors"
-          >
-            <SignOutIcon />
-          </button>
-        </form>
+          <SignOutButton />
       </div>
     </aside>
   );
@@ -607,16 +598,3 @@ function AwardIcon() {
   );
 }
 
-function SignOutIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path
-        d="M6.5 2H4a1.5 1.5 0 0 0-1.5 1.5v9A1.5 1.5 0 0 0 4 14h2.5M10.5 11l3-3-3-3M13.2 8H6"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
