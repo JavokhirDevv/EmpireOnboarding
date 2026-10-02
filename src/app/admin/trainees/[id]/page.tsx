@@ -4,6 +4,7 @@ import { deleteUser } from "@/lib/actions/users";
 import { Badge, Button, Card } from "@/components/ui";
 import { DEPARTMENT_LABELS, departmentForRole } from "@/lib/progress";
 import { EditTraineeForm } from "./edit-trainee-form";
+import { QuizResultDownload } from "@/components/quiz-result-download";
 
 export default async function TraineeDetailPage({
   params,
@@ -99,6 +100,7 @@ export default async function TraineeDetailPage({
                 <th className="py-2 font-medium">Score</th>
                 <th className="py-2 font-medium">Result</th>
                 <th className="py-2 font-medium">Date</th>
+                <th className="py-2 font-medium text-right">Answers</th>
               </tr>
             </thead>
             <tbody>
@@ -123,6 +125,14 @@ export default async function TraineeDetailPage({
                       dateStyle: "medium",
                       timeStyle: "short",
                     }).format(a.createdAt)}
+                  </td>
+                  <td className="py-2.5 text-right">
+                    <QuizResultDownload
+                      attemptId={a.id}
+                      label="PDF"
+                      variant="outline"
+                      className="text-xs px-3 py-1.5"
+                    />
                   </td>
                 </tr>
               ))}

@@ -49,3 +49,6 @@ next-env.d.ts
 
 # uploaded resource files (training PDFs, images)
 /uploads
+
+# Generated from prisma/schema.prisma for local SQLite development
+prisma/schema.sqlite.prisma
