@@ -1,5 +1,7 @@
 import { EmpireLogo } from "@/components/logo";
 import { LinkButton } from "@/components/ui";
+import { GlobalOffices } from "@/components/global-offices";
+import { CoreTeam } from "@/components/core-team";
 
 const coreTeam = [
   { name: "Cole West", title: "Expedite Manager", photo: "/TeamPics/cole.jpeg" },
@@ -54,35 +56,61 @@ export default function Home() {
         <section className="bg-navy-900 text-white">
           <div className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block text-accent-400 font-semibold text-xs tracking-[0.2em] uppercase mb-4">
+              <span
+                className="hero-fade inline-block text-accent-400 font-semibold text-xs tracking-[0.2em] uppercase mb-4"
+                style={{ "--reveal-delay": "80ms" } as React.CSSProperties}
+              >
                 Dispatcher Onboarding Portal
               </span>
-              <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-5">
+              <h1
+                className="hero-fade text-4xl sm:text-5xl font-bold leading-tight mb-5"
+                style={{ "--reveal-delay": "200ms" } as React.CSSProperties}
+              >
                 Welcome to Empire National
               </h1>
-              <p className="text-steel-300 text-lg leading-relaxed mb-8 max-w-lg">
+              <p
+                className="hero-fade text-steel-300 text-lg leading-relaxed mb-8 max-w-lg"
+                style={{ "--reveal-delay": "340ms" } as React.CSSProperties}
+              >
                 Everything a new dispatcher needs to get up to speed — company
                 training, equipment knowledge, and compliance — in one place,
                 with certification quizzes to confirm you&apos;re ready for the floor.
               </p>
-              <LinkButton href="/login" variant="primary" className="text-base px-6 py-3">
-                Sign in to start training
-              </LinkButton>
+              <span
+                className="hero-fade inline-block"
+                style={{ "--reveal-delay": "480ms" } as React.CSSProperties}
+              >
+                <LinkButton href="/login" variant="primary" className="text-base px-6 py-3">
+                  Sign in to start training
+                </LinkButton>
+              </span>
             </div>
-            <div className="bg-navy-800 border border-navy-700 rounded-2xl p-8">
+            <div
+              className="hero-fade bg-navy-800 border border-navy-700 rounded-2xl p-8"
+              style={{ "--reveal-delay": "560ms" } as React.CSSProperties}
+            >
               <div className="text-sm font-semibold text-accent-400 uppercase tracking-wide mb-4">
                 What you&apos;ll complete
               </div>
               <ul className="space-y-3 text-steel-300 text-sm">
-                <li className="flex gap-3">
+                <li
+                  className="hero-fade flex gap-3"
+                  style={{ "--reveal-delay": "700ms" } as React.CSSProperties}
+                >
                   <span className="text-accent-400 font-bold">01</span>
                   Guided training modules written for new dispatchers
                 </li>
-                <li className="flex gap-3">
+                <li
+                  className="hero-fade flex gap-3"
+                  style={{ "--reveal-delay": "810ms" } as React.CSSProperties}
+                >
                   <span className="text-accent-400 font-bold">02</span>
                   Short knowledge-check quizzes after each module
                 </li>
-                <li className="flex gap-3">
+                <li
+                  className="hero-fade flex gap-3"
+                  style={{ "--reveal-delay": "920ms" } as React.CSSProperties}
+                >
                   <span className="text-accent-400 font-bold">03</span>
                   A completion certificate once you pass every quiz
                 </li>
@@ -118,23 +146,7 @@ export default function Home() {
               <h2 className="text-2xl font-bold text-navy-900 mb-3">Core Team</h2>
               <span className="inline-block w-14 h-0.5 bg-accent-400" />
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 max-w-4xl mx-auto">
-              {coreTeam.map((person) => (
-                <div key={person.name} className="text-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={person.photo}
-                    alt={person.name}
-                    width={144}
-                    height={144}
-                    loading="lazy"
-                    className="w-36 h-36 rounded-full object-cover object-center bg-surface-muted ring-1 ring-border-subtle mx-auto mb-4"
-                  />
-                  <h3 className="font-semibold text-navy-900">{person.name}</h3>
-                  <p className="text-sm text-steel-500">{person.title}</p>
-                </div>
-              ))}
-            </div>
+            <CoreTeam members={coreTeam} />
           </div>
         </section>
 
@@ -149,28 +161,7 @@ export default function Home() {
                 {totalOffices} offices across {branches.length} countries, supporting dispatch around the clock.
               </p>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {branches.map((b) => (
-                <div
-                  key={b.country}
-                  className="bg-navy-800 border border-navy-700 rounded-2xl p-6 text-center"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`https://flagcdn.com/w80/${b.flagCode}.png`}
-                    alt={`${b.country} flag`}
-                    className="w-12 h-8 object-cover rounded shadow-sm mx-auto mb-3"
-                  />
-                  <div className="text-3xl font-bold text-accent-400 mb-1">{b.offices}</div>
-                  <div className="text-xs font-semibold uppercase tracking-wide text-steel-300 mb-1">
-                    {b.offices === 1 ? "Office" : "Offices"}
-                  </div>
-                  <div className="text-sm text-steel-100">
-                    {b.city ? `${b.city}, ${b.country}` : b.country}
-                  </div>
-                </div>
-              ))}
-            </div>
+            <GlobalOffices branches={branches} />
           </div>
         </section>
       </main>

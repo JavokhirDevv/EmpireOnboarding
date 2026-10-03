@@ -394,3 +394,147 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* Global Offices: cards rise in sequence, lift on hover, and a pulse travels
+   the connector line. All of it is decorative — motion is dropped entirely
+   when the visitor asks for reduced motion. */
+.office-card {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 850ms ease,
+    transform 850ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.office-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.office-card:hover {
+  border-color: rgba(74, 147, 209, 0.55);
+  box-shadow: 0 14px 30px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(74, 147, 209, 0.2);
+  transform: translateY(-4px);
+}
+
+@keyframes office-pulse-travel {
+  0% { left: 2%; opacity: 0; }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% { left: 98%; opacity: 0; }
+}
+
+.office-pulse {
+  animation: office-pulse-travel 8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .office-card {
+    opacity: 1;
+    transform: none;
+    transition: border-color 200ms ease;
+  }
+
+  .office-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .office-pulse {
+    animation: none;
+    display: none;
+  }
+}
+
+/* Core team: portraits drop in from above and settle, then lift under the
+   cursor. Deliberately a different motion from the offices row, which rises. */
+.team-card {
+  opacity: 0;
+}
+
+@keyframes team-drop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-70px) scale(0.94);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(8px) scale(1.01);
+  }
+  78% {
+    transform: translateY(-4px) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.team-card.is-visible {
+  animation: team-drop-in 900ms cubic-bezier(0.33, 1, 0.68, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.team-card__frame {
+  transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.team-card__frame::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  transition: border-color 350ms ease, box-shadow 350ms ease;
+}
+
+.team-card:hover .team-card__frame {
+  transform: translateY(-6px) scale(1.04);
+}
+
+.team-card:hover .team-card__frame::after {
+  border-color: rgba(26, 114, 187, 0.45);
+  box-shadow: 0 14px 28px -14px rgba(20, 19, 58, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-card,
+  .team-card.is-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .team-card:hover .team-card__frame {
+    transform: none;
+  }
+}
+
+/* Landing hero: content fades up on load, a step at a time. Pure CSS — the
+   hero is above the fold, so there is nothing to wait for. */
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade {
+  opacity: 0;
+  animation: hero-fade-in 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
