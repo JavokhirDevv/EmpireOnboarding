@@ -2,12 +2,12 @@ import { EmpireLogo } from "@/components/logo";
 import { LinkButton } from "@/components/ui";
 
 const coreTeam = [
-  { name: "Cole West", title: "Expedite Manager", photo: "https://randomuser.me/api/portraits/men/32.jpg" },
-  { name: "Justin Manis", title: "Team Lead", photo: "https://randomuser.me/api/portraits/men/45.jpg" },
-  { name: "Rick Maine", title: "Company Relations", photo: "https://randomuser.me/api/portraits/men/18.jpg" },
-  { name: "John Atkinson", title: "Team Lead", photo: "https://randomuser.me/api/portraits/men/54.jpg" },
-  { name: "Austin Philips", title: "Expedite Dispatch", photo: "https://randomuser.me/api/portraits/men/67.jpg" },
-  { name: "Daria Brooks", title: "QA Engineer", photo: "https://randomuser.me/api/portraits/women/58.jpg" },
+  { name: "Cole West", title: "Expedite Manager", photo: "/TeamPics/cole.jpeg" },
+  { name: "Nicole Medina", title: "Accounting Specialist", photo: "/TeamPics/nicole.jpeg" },
+  { name: "Ryan King", title: "Company Relations", photo: "/TeamPics/ryan.jpeg" },
+  { name: "John Atkinson", title: "Team Lead", photo: "/TeamPics/john.jpeg" },
+  { name: "Alex Green", title: "Operations Manager", photo: "/TeamPics/alex.jpeg" },
+  { name: "Daria Brooks", title: "QA Engineer", photo: "/TeamPics/dasha.jpeg" },
 ];
 
 const branches = [
@@ -125,7 +125,10 @@ export default function Home() {
                   <img
                     src={person.photo}
                     alt={person.name}
-                    className="w-28 h-28 rounded-full object-cover border border-border-subtle mx-auto mb-4"
+                    width={144}
+                    height={144}
+                    loading="lazy"
+                    className="w-36 h-36 rounded-full object-cover object-center bg-surface-muted ring-1 ring-border-subtle mx-auto mb-4"
                   />
                   <h3 className="font-semibold text-navy-900">{person.name}</h3>
                   <p className="text-sm text-steel-500">{person.title}</p>

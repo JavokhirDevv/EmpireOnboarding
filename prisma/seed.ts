@@ -748,19 +748,63 @@ Beyond the truck or van itself, a load often depends on the right handling equip
 
 ## Loading & unloading tools
 
-- **Liftgate** — a motorized platform at the back of a truck, used at locations without a loading dock or forklift.
-- **Pallet jack** — a manual tool (also called a pallet truck) used to move pallets.
-- **Forklift** — also called a lift truck; loads or unloads merchandise packed on pallets (or slip sheets) and can move them short distances.
-- **Ramp** — used when there is no loading dock available.
-- **Dolly / hand dolly** — a small wheeled cart used to move heavy boxes, appliances, or freight that can't easily be carried by hand. A hand dolly (upright, two-wheel) tips the load back and rolls it on two wheels; a platform dolly (four-wheel) slides under the freight and rolls it flat.
+### Liftgate
+
+A motorized platform at the back of a truck, used at locations **without a loading dock or forklift**. It raises freight from ground level up to the floor of the truck.
+
+![Liftgate on the back of a truck](/Tools/liftgate.jpeg)
+
+### Pallet jack
+
+A manual tool — also called a pallet truck — used to **move pallets** short distances. The forks slide under the pallet and a hand pump lifts it just off the floor.
+
+![Manual pallet jack](/Tools/palletjack.jpg)
+
+### Forklift
+
+Also called a lift truck. It loads or unloads merchandise packed on pallets (or slip sheets) and can **move it short distances**. Forklifts belong to the facility, not to us — if a location has none, the load needs a liftgate or driver assist.
+
+![Forklift](/Tools/forklift.jpeg)
+
+### Ramp
+
+Used when there is **no loading dock available**, so freight can be rolled or walked into the vehicle from ground level.
+
+![Loading ramp](/Tools/ramp.jpg)
+
+### Dolly / hand dolly
+
+A small wheeled cart used to move heavy boxes, appliances, or freight that cannot easily be carried by hand. A **hand dolly** (upright, two-wheel) tips the load back and rolls it on two wheels; a **platform dolly** (four-wheel) slides under the freight and rolls it flat.
+
+![Hand dolly](/Tools/dolly.jpg)
 
 ## Securing freight in transit
 
-- **Straps** — hold cargo together and secure it in place during transit, either keeping freight tightly packed to minimize movement or strapping it to the trailer floor. Flexible, soft material prevents damage to the freight itself.
-- **Blankets** — keep commodities dry and warm, and protect freight from scratches, dents, and vibration during transit.
-- **Air ride (air-ride suspension)** — a suspension setup that reduces vibration and shock during transit. Often required for fragile or high-value freight: electronics, medical equipment, glass, trade show freight.
-- **Shrink wrap (stretch wrap)** — clear plastic film wound tightly around pallets or grouped items to stabilize and protect freight during transit. Prevents shifting, keeps boxes together, and offers basic moisture/dust protection. Standard pallet wrap is typically 18" wide.
-- **E-tracks (E-track system)** — metal rails mounted on the walls or floor of a trailer/box truck with slots that accept fittings (straps, rings, hooks), letting cargo be tied down at almost any position along the rail without drilling new anchor points.
+### Straps
+
+Hold cargo together and secure it in place during transit — either keeping freight tightly packed to minimize movement, or strapping it to the trailer floor. The flexible, soft material prevents damage to the freight itself.
+
+![Cargo straps](/Tools/straps.jpg)
+
+### Shrink wrap (stretch wrap)
+
+Clear plastic film wound tightly around pallets or grouped items to **stabilize and protect** freight in transit. It prevents shifting, keeps boxes together, and offers basic moisture and dust protection. Standard pallet wrap is typically 18" wide.
+
+![Shrink wrap / stretch wrap](/Tools/shrink.jpg)
+
+### E-tracks (E-track system)
+
+Metal rails mounted on the walls or floor of a trailer or box truck, with slots that accept fittings — straps, rings, hooks. They let cargo be tied down at almost **any position along the rail**, without drilling new anchor points.
+
+![E-track rail mounted in a trailer](/Tools/etracks.jpeg)
+
+### Blankets
+
+Keep commodities dry and warm, and protect freight from **scratches, dents, and vibration** during transit.
+
+### Air ride (air-ride suspension)
+
+A suspension setup that reduces **vibration and shock** in transit. Often required for fragile or high-value freight: electronics, medical equipment, glass, and trade show freight.
 
 ## PPE (Personal Protective Equipment)
 
@@ -768,7 +812,9 @@ PPE is clothing or equipment worn to minimize risk to a person's health and safe
 
 - A long-sleeved shirt and pants
 - A high-visibility shirt or vest when working outside the vehicle
-- Safety shoes`,
+- Safety shoes
+
+![Personal protective equipment](/Tools/ppe.png)`,
     quiz: {
       title: "Load Securement & Handling Equipment — Knowledge Check",
       passPercent: 80,
@@ -828,100 +874,137 @@ PPE is clothing or equipment worn to minimize risk to a person's health and safe
     slug: "sprinter-van-dimensions",
     title: "Sprinter Van Dimensions & Load Fit",
     category: "Equipment & Trailers",
-    summary: "Cargo space, feet-to-inches conversions, and how to tell if freight will actually fit and stack.",
+    summary:
+      "Cargo space, feet-to-inches conversions, and how to tell if freight will actually fit and stack.",
     estMinutes: 8,
     order: 8,
-    content: `## Quick rule
+    content: `> **Quick rule: 1 ft = 12 in.** Use inches whenever you compare freight dimensions to van space — brokers and shippers quote both, and one bad conversion books a load that physically will not fit.
 
-1 ft = 12 in. Always use inches when comparing freight dimensions to van space — brokers and shippers often quote in inches, and a small conversion mistake can mean booking a load that physically will not fit.
-
-## Typical Sprinter van cargo space
+## Van cargo space (typical)
 
 | Dimension | Range | Average |
 | --- | --- | --- |
 | **Length** | 10 ft (120 in) to 16 ft (192 in) | 12 ft (144 in) |
 | **Width** | 48–56 in | 53 in |
 | **Height** | 48–72 in | 70 in |
-| **Payload (weight)** | 1,500–4,500 lbs | 3,000–4,000 lbs |
+| **Payload (load weight)** | 1,500–4,500 lbs | 3,000–4,000 lbs |
 
-Every Sprinter van has its own dimensions — choose your option carefully and responsibly, and always double-check the actual van's specs before quoting a fit.
-
-## Feet → inches (fast conversions)
+## Feet to inches (fast conversions)
 
 | Feet | Inches | Feet | Inches |
 | --- | --- | --- | --- |
-| 1 ft | 12 in | 9 ft | 108 in |
-| 2 ft | 24 in | 10 ft | 120 in |
-| 3 ft | 36 in | 11 ft | 132 in |
-| 4 ft | 48 in | 12 ft | 144 in |
-| 5 ft | 60 in | 13 ft | 156 in |
-| 6 ft | 72 in | 14 ft | 168 in |
-| 7 ft | 84 in | 15 ft | 180 in |
-| 8 ft | 96 in | 16 ft | 192 in |
+| 0.1 ft | 1.2 in | 9 ft | 108 in |
+| 1 ft | 12 in | 10 ft | 120 in |
+| 2 ft | 24 in | 11 ft | 132 in |
+| 3 ft | 36 in | 12 ft | 144 in |
+| 4 ft | 48 in | 13 ft | 156 in |
+| 5 ft | 60 in | 14 ft | 168 in |
+| 6 ft | 72 in | 15 ft | 180 in |
+| 7 ft | 84 in | 16 ft | 192 in |
+| 8 ft | 96 in | | |
 
-## Stackable vs. non-stackable pallets
+> Remember that **every Sprinter van has its own dimensions**. Choose your option **carefully and responsibly**, and check the actual van's specs before you promise a fit.
 
-**Stackable** means another pallet can safely be placed on top without damaging the product or crushing the packaging. Typically this means strong cartons/crates with a stable base, palletized freight with an even top surface, and a defined max stack height or top-load weight.
+## Stackable vs non-stackable pallets and skids
 
-**Non-stackable** means nothing can be placed on top — common reasons include fragile product, irregular shape, top-heavy loads, "Do Not Stack" cartons, or risk of crushing.
+**Stackable** means another pallet can be safely placed on top of it **during transit** without damaging the product or crushing the packaging. Typically the shipper has:
 
-Why this matters for you:
+- strong cartons or crates and a stable base
+- palletized freight with an even top surface (or dunnage)
+- a defined **max stack height** and/or **max top-load weight**
 
-- **It helps you sell the Sprinter option.** When freight is stackable, you can explain to the broker that the load still fits in a Sprinter because pieces can be stacked safely — as long as weight and height limits are respected.
-- **It prevents service failures.** Knowing a load is non-stackable stops drivers or warehouses from placing freight on top and causing claims.
+**Non-stackable** means **nothing can be placed on top**. Common reasons: fragile product, irregular shape, top-heavy freight, "Do Not Stack" cartons, or risk of crushing.
 
-Two quick questions to always ask: *"Are the pallets stackable?"* and, if not, *"Is that because of fragile product, irregular shape, or no top-load allowed?"*`,
+## Why it matters to you
+
+- **It helps you sell the Sprinter option to the broker.** When the freight is stackable, you can explain that the load still fits in a Sprinter because the pallets or pieces can be stacked safely — as long as weight and height limits are respected.
+- **It prevents service failures.** Knowing a load is non-stackable stops drivers and warehouses from placing freight on top and causing claims.
+
+## Quick questions to ask
+
+1. *"Are the pallets stackable?"*
+2. *"If non-stackable — is that because of **fragile** product, **irregular shape**, or **no top-load allowed**?"*`,
     quiz: {
       title: "Sprinter Van Dimensions & Load Fit — Knowledge Check",
       passPercent: 80,
       questions: [
         {
-          text: "What is the average length of an Empire National Sprinter van's cargo space?",
+          text: "How many inches are in one foot?",
           options: [
-            { text: "About 12 ft (144 in)", correct: true },
-            { text: "About 20 ft (240 in)", },
-            { text: "About 8 ft (96 in)" },
-            { text: "About 53 ft (636 in)" },
+            { text: "12 inches", correct: true },
+            { text: "10 inches" },
+            { text: "16 inches" },
+            { text: "24 inches" },
           ],
         },
         {
-          text: "How many inches are in 9 feet?",
+          text: "What is the average cargo length of a Sprinter van?",
           options: [
-            { text: "108 in", correct: true },
-            { text: "90 in" },
+            { text: "12 ft (144 in)", correct: true },
+            { text: "10 ft (120 in)" },
+            { text: "16 ft (192 in)" },
+            { text: "8 ft (96 in)" },
+          ],
+        },
+        {
+          text: "What is the average cargo width of a Sprinter van?",
+          options: [
+            { text: "53 in", correct: true },
+            { text: "48 in" },
+            { text: "56 in" },
+            { text: "70 in" },
+          ],
+        },
+        {
+          text: "What is the standard cargo height to work with?",
+          options: [
+            { text: "70 in", correct: true },
+            { text: "48 in" },
+            { text: "53 in" },
             { text: "96 in" },
-            { text: "120 in" },
           ],
         },
         {
-          text: "What is the typical average payload for a Sprinter van?",
+          text: "What payload do we treat as the standard working range?",
           options: [
             { text: "3,000–4,000 lbs", correct: true },
-            { text: "10,000–12,000 lbs" },
-            { text: "500–1,000 lbs" },
-            { text: "45,000 lbs" },
+            { text: "1,500–2,000 lbs" },
+            { text: "4,500–6,000 lbs" },
+            { text: "800–1,200 lbs" },
           ],
         },
         {
-          text: "What does 'stackable' mean for a pallet of freight?",
+          text: "What does it mean when freight is stackable?",
           options: [
-            { text: "Another pallet can safely be placed on top without damaging the product", correct: true },
-            { text: "The pallet can be loaded sideways" },
-            { text: "The freight is hazmat" },
-            { text: "The pallet must go on a flatbed" },
+            { text: "Another pallet can be safely placed on top of it during transit without damaging the product", correct: true },
+            { text: "The pallets can be unloaded without a forklift" },
+            { text: "The freight can be loaded on its side to save space" },
+            { text: "The shipper will stack it for us at pickup" },
           ],
         },
         {
-          text: "Why should you always ask whether pallets are stackable before quoting a Sprinter?",
+          text: "Why does stackable freight help you sell the Sprinter option to a broker?",
           options: [
-            {
-              text: "Because stackable freight may still fit in a Sprinter even if it wouldn't fit unstacked, as long as limits are respected",
-              correct: true,
-            },
-            { text: "Because non-stackable freight is always hazmat" },
-            { text: "Stackability has no effect on whether a load fits" },
-            { text: "Because it determines the driver's pay rate" },
+            { text: "The pieces can be stacked safely, so the load still fits within the van's weight and height limits", correct: true },
+            { text: "Stackable freight is always lighter than non-stackable freight" },
+            { text: "Brokers pay a higher rate for stackable freight" },
+            { text: "Stackable freight does not need to be secured in transit" },
           ],
+        },
+        {
+          text: "16 feet converts to ____ inches.",
+          type: "FILL_BLANK",
+          options: [{ text: "192" }],
+        },
+        {
+          text: "A Sprinter van's payload can reach a maximum of ____ lbs.",
+          type: "FILL_BLANK",
+          options: [{ text: "4500" }, { text: "4,500" }],
+        },
+        {
+          text: "Nothing may be placed on top of a ____ pallet.",
+          type: "FILL_BLANK",
+          options: [{ text: "non-stackable" }, { text: "nonstackable" }, { text: "non stackable" }],
         },
       ],
     },

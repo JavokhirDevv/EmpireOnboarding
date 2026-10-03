@@ -18,7 +18,7 @@ export function LoginForm() {
           required
           autoComplete="email"
           className={inputClass}
-          placeholder="you@empirenational.com"
+          placeholder="your.name@empirenational.com"
         />
       </div>
       <div>
@@ -30,7 +30,7 @@ export function LoginForm() {
           required
           autoComplete="current-password"
           className={inputClass}
-          placeholder="••••••••"
+          placeholder="Enter your password"
         />
       </div>
       {state?.error && (
