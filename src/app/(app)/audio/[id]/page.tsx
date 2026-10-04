@@ -34,7 +34,7 @@ export default async function AudioLessonPage({
   const latestAttempt = lesson.quiz?.attempts[0];
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-10">
+    <div className="stagger-children max-w-3xl mx-auto px-6 py-10">
       <Link
         href="/audio"
         className="text-sm text-steel-500 hover:text-navy-800 mb-4 inline-block"

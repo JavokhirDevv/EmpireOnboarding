@@ -68,7 +68,7 @@ export function LiveClock() {
   const clock = useEasternClock();
   if (!clock) return null;
   return (
-    <div className="fixed top-4 right-4 z-50 pointer-events-none">
+    <div className="print-hide fixed top-4 right-4 z-50 pointer-events-none">
       <div className="pointer-events-auto">
         <ClockBadge zone={clock.zone} time={clock.time} />
       </div>

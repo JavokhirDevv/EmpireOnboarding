@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useReveal } from "@/components/use-reveal";
+import { CountUp } from "@/components/count-up";
 
 export type Branch = {
   country: string;
@@ -61,48 +61,4 @@ export function GlobalOffices({ branches }: { branches: Branch[] }) {
       </div>
     </div>
   );
-}
-
-/** Ticks from 0 to `value` once the card is revealed. */
-function CountUp({
-  value,
-  start,
-  delay,
-}: {
-  value: number;
-  start: boolean;
-  delay: number;
-}) {
-  const [shown, setShown] = useState(0);
-
-  useEffect(() => {
-    if (!start) return;
-
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let frame = 0;
-    const DURATION = 1000;
-
-    const timer = window.setTimeout(() => {
-      if (reduced) {
-        setShown(value);
-        return;
-      }
-
-      const began = performance.now();
-      const tick = (now: number) => {
-        const progress = Math.min((now - began) / DURATION, 1);
-        // Ease-out so the number slows as it lands.
-        setShown(Math.round(value * (1 - Math.pow(1 - progress, 3))));
-        if (progress < 1) frame = requestAnimationFrame(tick);
-      };
-      frame = requestAnimationFrame(tick);
-    }, reduced ? 0 : delay);
-
-    return () => {
-      window.clearTimeout(timer);
-      cancelAnimationFrame(frame);
-    };
-  }, [start, value, delay]);
-
-  return <>{shown}</>;
 }

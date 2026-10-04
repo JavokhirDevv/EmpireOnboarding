@@ -15,7 +15,7 @@ export default async function RatesPage() {
   });
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-10">
+    <div className="stagger-children max-w-3xl mx-auto px-6 py-10">
       <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-accent-600">
         Policy
       </span>

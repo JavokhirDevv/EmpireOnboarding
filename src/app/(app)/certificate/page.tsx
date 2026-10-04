@@ -41,11 +41,11 @@ export default async function CertificatePage() {
     .sort((a, b) => b.getTime() - a.getTime())[0];
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-12">
-      <div className="flex justify-end mb-4 print:hidden">
+    <div className="certificate-page max-w-3xl mx-auto px-6 py-12">
+      <div className="print-hide flex justify-end mb-4">
         <PrintButton />
       </div>
-      <div className="bg-surface border-4 border-gold-500 rounded-2xl p-12 text-center relative overflow-hidden">
+      <div className="certificate-sheet bg-surface border-4 border-gold-500 rounded-2xl p-12 text-center relative overflow-hidden">
         <div className="absolute inset-0 border-[10px] border-gold-400/20 rounded-2xl pointer-events-none" />
         <div className="flex justify-center mb-8">
           <EmpireLogo />

@@ -1,11 +1,10 @@
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { requireUser } from "@/lib/dal";
 import { prisma } from "@/lib/prisma";
 import { getTraineeProgress, departmentForRole, getLatestAttempt } from "@/lib/progress";
 import { Badge, Card, LinkButton } from "@/components/ui";
+import { MarkdownContent } from "@/components/markdown-content";
 import { MarkCompleteButton } from "./mark-complete-button";
 
 export default async function TrainingModulePage({
@@ -48,7 +47,7 @@ export default async function TrainingModulePage({
     : null;
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-10">
+    <div className="stagger-children max-w-3xl mx-auto px-6 py-10">
       <Link
         href="/dashboard"
         className="text-sm text-steel-500 hover:text-navy-800 mb-5 inline-flex items-center gap-1.5"
@@ -77,9 +76,7 @@ export default async function TrainingModulePage({
       <Card className="overflow-hidden mb-6">
         <div className="h-1.5 bg-gradient-to-r from-accent-400 via-accent-500 to-navy-600" />
         <div className="prose-training p-7">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {trainingModule.content}
-          </ReactMarkdown>
+          <MarkdownContent>{trainingModule.content}</MarkdownContent>
         </div>
       </Card>
 

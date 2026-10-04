@@ -1,16 +1,20 @@
+import type React from "react";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import Link from "next/link";
 
 export function Card({
   children,
   className = "",
+  style,
 }: {
   children: ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }) {
   return (
     <div
       className={`bg-surface border border-border-subtle rounded-xl shadow-sm ${className}`}
+      style={style}
     >
       {children}
     </div>
@@ -94,13 +98,26 @@ export function Badge({
   );
 }
 
-export function ProgressBar({ percent }: { percent: number }) {
+export function ProgressBar({
+  percent,
+  animate = false,
+}: {
+  percent: number;
+  /** Sweeps the fill out from zero on first paint, with a shine passing over it. */
+  animate?: boolean;
+}) {
   const clamped = Math.max(0, Math.min(100, percent));
   return (
     <div className="w-full h-2 rounded-full bg-surface-muted overflow-hidden">
       <div
-        className="h-full rounded-full bg-accent-500 transition-all"
-        style={{ width: `${clamped}%` }}
+        className={`h-full rounded-full bg-accent-500 ${
+          animate ? "progress-fill" : "transition-all"
+        }`}
+        style={
+          animate
+            ? ({ "--bar-width": `${clamped}%` } as React.CSSProperties)
+            : { width: `${clamped}%` }
+        }
       />
     </div>
   );

@@ -57,19 +57,19 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
             <div>
               <span
-                className="hero-fade inline-block text-accent-400 font-semibold text-xs tracking-[0.2em] uppercase mb-4"
+                className="fade-up inline-block text-accent-400 font-semibold text-xs tracking-[0.2em] uppercase mb-4"
                 style={{ "--reveal-delay": "80ms" } as React.CSSProperties}
               >
                 Dispatcher Onboarding Portal
               </span>
               <h1
-                className="hero-fade text-4xl sm:text-5xl font-bold leading-tight mb-5"
+                className="fade-up text-4xl sm:text-5xl font-bold leading-tight mb-5"
                 style={{ "--reveal-delay": "200ms" } as React.CSSProperties}
               >
                 Welcome to Empire National
               </h1>
               <p
-                className="hero-fade text-steel-300 text-lg leading-relaxed mb-8 max-w-lg"
+                className="fade-up text-steel-300 text-lg leading-relaxed mb-8 max-w-lg"
                 style={{ "--reveal-delay": "340ms" } as React.CSSProperties}
               >
                 Everything a new dispatcher needs to get up to speed — company
@@ -77,7 +77,7 @@ export default function Home() {
                 with certification quizzes to confirm you&apos;re ready for the floor.
               </p>
               <span
-                className="hero-fade inline-block"
+                className="fade-up inline-block"
                 style={{ "--reveal-delay": "480ms" } as React.CSSProperties}
               >
                 <LinkButton href="/login" variant="primary" className="text-base px-6 py-3">
@@ -86,7 +86,7 @@ export default function Home() {
               </span>
             </div>
             <div
-              className="hero-fade bg-navy-800 border border-navy-700 rounded-2xl p-8"
+              className="fade-up bg-navy-800 border border-navy-700 rounded-2xl p-8"
               style={{ "--reveal-delay": "560ms" } as React.CSSProperties}
             >
               <div className="text-sm font-semibold text-accent-400 uppercase tracking-wide mb-4">
@@ -94,21 +94,21 @@ export default function Home() {
               </div>
               <ul className="space-y-3 text-steel-300 text-sm">
                 <li
-                  className="hero-fade flex gap-3"
+                  className="fade-up flex gap-3"
                   style={{ "--reveal-delay": "700ms" } as React.CSSProperties}
                 >
                   <span className="text-accent-400 font-bold">01</span>
                   Guided training modules written for new dispatchers
                 </li>
                 <li
-                  className="hero-fade flex gap-3"
+                  className="fade-up flex gap-3"
                   style={{ "--reveal-delay": "810ms" } as React.CSSProperties}
                 >
                   <span className="text-accent-400 font-bold">02</span>
                   Short knowledge-check quizzes after each module
                 </li>
                 <li
-                  className="hero-fade flex gap-3"
+                  className="fade-up flex gap-3"
                   style={{ "--reveal-delay": "920ms" } as React.CSSProperties}
                 >
                   <span className="text-accent-400 font-bold">03</span>

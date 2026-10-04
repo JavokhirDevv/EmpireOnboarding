@@ -541,74 +541,337 @@ A specialized lowboy whose front section detaches to become a ramp, so wheeled o
   },
   {
     slug: "driver-communication-and-check-calls",
-    title: "Driver Communication & Check Calls",
+    title: "Driver Communication & Customer Service Training",
     category: "Dispatch Workflow",
-    summary: "How and when dispatchers stay in touch with drivers throughout a load.",
-    estMinutes: 8,
+    summary:
+      "The criteria every call is graded on, and the phrasing that meets them.",
+    estMinutes: 9,
     order: 14,
-    content: `## Why check calls matter
+    content: `## What we grade on a call
 
-A check call is a scheduled touchpoint between dispatcher and driver to confirm status: location, ETA, and any issues. Consistent check calls let you catch problems — traffic, breakdowns, delays — early enough to fix them before they impact the customer.
+Every call is reviewed against these criteria.
 
-## Standard check-call cadence
+| Area | What we check |
+| --- | --- |
+| **Greeting** | Introduction — your name and the company |
+| **Listening** | Confirmation phrases · Human touch (empathy) · Using the customer's name · No interruption · Avoiding dead air |
+| **Controlling** | Asking the necessary questions |
+| **Solving** | Clear and complete |
+| **Tone of voice** | Volume · Pitch (low, high, monotonous) · No mumbling · Friendliness — interest in your voice |
+| **Closing a call** | Thank the customer · Offer additional help (inbound calls) · No hanging up |
+| **Telephone etiquette** | Small talk · Positive word choice, no imperatives · Avoiding fillers · No noises, loud breathing, singing, or coughing |
+| **Procedures** | HOLD · TRANSFER · CALL BACK |
+| **Handling difficult customers** | — |
 
-- **At dispatch** — confirm the driver received and understood the load details.
-- **At pickup** — confirm freight is loaded and BOL matches expectations.
-- **Mid-route** — at least once per shift on multi-day runs, or per company policy for shorter runs.
-- **Pre-delivery** — confirm ETA against the appointment window with enough lead time to notify the customer of any change.
-- **At delivery** — confirm delivery time and that the BOL was signed and returned.
+## Introduction (name, company)
 
-## Communication tools
+Say **your name** and **the name of the company**.
 
-- **ELD / in-cab messaging** — for structured location and status updates.
-- **Phone and SMS** — for real-time conversations, especially urgent issues.
-- **TMS (Transportation Management System)** — the system of record where dispatchers log every update so the whole team can see current status.
+> "Good morning. This is \_\_\_\_\_\_ with Empire National."
+>
+> "Empire National, this is \_\_\_\_\_\_. How can I help you?"
 
-## Best practices
+## Confirmation phrases
 
-- Always log the outcome of a check call in the TMS, not just in a text thread — the next shift needs to see it too.
-- If a driver reports they'll miss an appointment, notify the customer-facing team **immediately**, not after the appointment has already passed.
-- Keep a professional, respectful tone — drivers are working long hours alone on the road, and a good relationship with dispatch makes their day easier.
-- Never ignore a driver message. Even a quick acknowledgment ("got it, checking now") keeps trust intact.`,
+Keep the other person hearing that you are following along:
+
+Awesome · great · I see · I understand · sure · okay · alright · sounds good · very well · sounds like a plan · that's right · perfect · absolutely.
+
+## Human touch (empathy)
+
+- "Thank you for explaining your situation. Right now I'm doing my best to figure out the details for you."
+- "I'm sorry to hear that. Let me take care of your situation right away."
+- "I'm so sorry to hear that. I can assure you that I am able to get this fixed."
+- "I know how frustrating it is. I will do my best to help you right now, okay?"
+- "I'm really sorry to hear that happened to you. I would be upset as well. I'll take care of your issue right away."
+- "Oh, really? I'm so happy to hear that!" — when something good happens.
+
+## Using the customer's name
+
+**Why it matters:**
+
+- Builds trust
+- Shows respect
+- Draws their attention to the situation
+- Keeps warm customers
+
+> **Man, Buddy, Bro and Boss are forbidden.**
+
+If the person introduced themselves, use their name **at least 2–3 times** in the conversation. If you did not catch the name, ask them to repeat it. If you placed the call and the name is in the system, use it.
+
+## No interruption
+
+**Do not interrupt.** If you have already interrupted somebody, add the word "sorry", or the phrase *"I'm sorry for interrupting you."*
+
+## Avoiding dead air
+
+Let the customer know that you are going to need some time to check the information.
+
+- "Give me just a quick second. I will look that up for you, okay?"
+- "Thank you for waiting. I'm still working on the information for you."
+- "Let me pull it up for you really quick."
+- "I'm here with you, okay? Just need some time to pull this up for you."
+
+## Asking the necessary questions
+
+Ask the questions you need:
+
+- "Would you be able to ______?"
+- "Do you think you can ______?"
+- "May I have your ______?"
+- "Do you want me to ______?"
+- "Could you say that again please?"
+- "To better assist you, may I ask you a couple of questions?"
+
+## Solving — clear and complete
+
+- "What I can offer you is ______."
+- "I can suggest ______."
+- "What we can do is ______."
+- "The best solution in this case would be ______. How does it sound to you?"
+- "I can assure you, I am able to resolve this for you."
+
+> If you do not know the solution — **never hang up.** Always do your best to explain what you are going to do.
+
+## Tone of voice
+
+**Volume.** Speak loudly, but do not yell. You need to sound as clear as possible.
+
+**Pitch, mumbling and friendliness.** Do not speak monotonously, and do not mumble — let interest come through in your voice.
+
+## Closing a call
+
+Thank the customer, offer additional help on inbound calls, and never hang up first.
+
+- "Is there anything else that I can help you with?"
+- "Please do not hesitate to reach out to me if you need me, okay?"
+- "Thank you! Have a great day! Bye bye!"
+
+## Small talk
+
+If the customer makes small talk, answer the question **and ask them one back**.
+
+| Reasons to use small talk | Taboo topics |
+| --- | --- |
+| 1. To break the ice | Politics |
+| 2. To fill dead air (weird pauses) | Religion |
+| 3. To keep warm customers | Money and salaries |
+
+::::grid
+:::card[Openers]{tone=soft}
+"How's your day going?"
+
+"How's your Friday going?"
+
+"How was your weekend?" — with warm customers.
+:::
+
+:::card[If they ask you]{tone=soft}
+"Doing great! Thank you!"
+
+"So far so good."
+
+"It's Friday already, looking forward to the weekend."
+
+"About to have my morning coffee."
+
+"I have just arrived from vacation."
+
+"Full of energy for the week."
+:::
+::::
+
+:::card[If the topic turns to politics, religion or race]{tone=high}
+Do not answer these questions directly. Use one of these instead:
+
+- "I believe I'm not the right person to answer this question. Is there anything that I can do for you?"
+- "If I may, I'd rather not talk about that."
+- "I'm not really into this topic. Can we proceed with ______?"
+:::
+
+## Positive word choice — no imperatives
+
+| Instead of | Say |
+| --- | --- |
+| You can't | You can… / What you can do is… / Instead you can… / Here's what we can do. |
+| I'll try | I'll do my best. / I will. |
+| As I told you | As **we** discussed before. / As we agreed to. |
+| I don't know | Let me check. / That's a good question — let me verify that for you. |
+| We don't handle this | Let me find the right person to help you. / Let me transfer you to the person in charge — they're in the best position to help you. |
+| Someone | The person in charge (by name, if possible) |
+| I've sent you a message. I don't know if you received it. | I've sent you a message. Have you received it? *(Ask a question — it avoids weird pauses.)* |
+
+Orders become requests:
+
+| Instead of | Say |
+| --- | --- |
+| Give me your email | May I have your email please? |
+| Tell me | Could you please tell me? / Tell me please. |
+| You have to ______ | It would really help if you ______. *(Or avoid "you have to" altogether — people answer it with "No, I don't have to do anything.")* |
+
+## Avoiding fillers
+
+Cut the fillers: *amm, hmmm, eeeemm, I mean,* and the rest.
+
+## No noises on the line
+
+No loud breathing, singing, or coughing. If you need to cough, **use mute** — and if you did not manage to, simply apologize.
+
+## Procedures
+
+### HOLD
+
+::::grid
+:::card[Steps]{tone=dark}
+1. Give the **timeframe** and the **reason**.
+2. Ask for **permission** to put the customer on hold.
+3. Wait for the agreement.
+4. Check the customer is still there, and thank them for waiting.
+5. Present the solution — the reason you put them on hold.
+:::
+
+:::card[Phrases]{tone=soft}
+**1–2.** "May I put you on hold really quick to check this information?"
+
+**3.** "Thank you." — once they agree.
+
+**4.** "*Name*, are you still there? Thank you for waiting."
+
+**5.** "So, what I have found is ______."
+:::
+::::
+
+### TRANSFER (warm)
+
+1. Ask who's calling.
+2. Give the **reason** for the transfer.
+3. Ask for **permission**.
+4. Wait for the agreement.
+5. **Brief the other party** — who is calling and what the situation is.
+6. Transfer.
+
+### CALL BACK
+
+::::grid
+:::card[Arranging a call back]{tone=dark}
+1. Give the **reason** for the call back.
+2. Ask for **permission**.
+3. Wait for agreement.
+4. Set the **time** for the call back.
+5. Confirm the customer's phone number.
+6. Keep your promise — **call them back.**
+:::
+
+:::card[Phrases]{tone=soft}
+"May I call you back in 30 minutes / at 3 pm to provide the solution to this issue?"
+
+"What's your best call back number?"
+
+"Awesome, thank you. I will call you back in ______ / at ______."
+:::
+
+:::card[Making a call back]{tone=dark}
+1. **Identify** yourself and the company.
+2. **Confirm** you are talking to the right person — ask their name if they do not give it.
+3. **Explain the reason** for the call back, to remind them.
+4. **Ask if now still works** — their plans may have changed.
+:::
+
+:::card[Phrases]{tone=soft}
+"Good morning, this is ______ from Empire National."
+
+"Am I speaking to ______?"
+
+"I'm calling back regarding ______."
+
+"Do you have a few minutes now to discuss this?"
+:::
+::::
+
+## Communicating with brokers
+
+**With a non-warm broker:**
+
+- Address them **by their name**.
+- If you did not catch the name, kindly ask them to repeat it.
+- If you still did not understand and there is no way to ask, use **"sir"** or **"ma'am"**.
+- *Man, bro, buddy* are only acceptable when the broker uses them first and does not use your name.
+- To turn them warm, start using their name.
+
+> **With a warm broker** whose number Compliance already has — send yours in — the forbidden words are allowed.
+
+Each dispatcher should send in a list of their warm brokers' numbers.`,
     quiz: {
-      title: "Driver Communication & Check Calls — Knowledge Check",
+      title: "Driver Communication & Customer Service — Knowledge Check",
       passPercent: 80,
       questions: [
         {
-          text: "What is a 'check call'?",
+          text: "What must your greeting include?",
           options: [
-            { text: "A scheduled touchpoint to confirm a driver's location, ETA, and any issues", correct: true },
-            { text: "A call to verify the driver's CDL number" },
-            { text: "A customer complaint call" },
-            { text: "A call made only when a load is cancelled" },
+            { text: "Your name and the name of the company", correct: true },
+            { text: "Only the company name" },
+            { text: "Only your first name" },
+            { text: "The load number" },
           ],
         },
         {
-          text: "Where should the outcome of a check call be recorded?",
+          text: "Which of these is a confirmation phrase?",
           options: [
-            { text: "Nowhere, it doesn't need to be tracked" },
-            { text: "Only in a personal notebook" },
-            { text: "In the TMS, so the whole team can see current status", correct: true },
-            { text: "Only in a text message thread" },
+            { text: "Sounds like a plan", correct: true },
+            { text: "Hold on" },
+            { text: "Whatever works" },
+            { text: "I guess so" },
           ],
         },
         {
-          text: "If a driver reports they will miss a delivery appointment, what should the dispatcher do?",
+          text: "Which phrase shows empathy on a difficult call?",
           options: [
-            { text: "Wait until after the appointment time to say anything" },
-            { text: "Notify the customer-facing team immediately", correct: true },
-            { text: "Do nothing, it's the driver's problem" },
-            { text: "Cancel the load" },
+            { text: "I know how frustrating it is. I will do my best to help you right now, okay?", correct: true },
+            { text: "That is not our problem." },
+            { text: "You will have to call back later." },
+            { text: "I already told you what happened." },
           ],
         },
         {
-          text: "Which of these is NOT a typical check-call point in a load's lifecycle?",
+          text: "How often should you use the customer's name once they have introduced themselves?",
           options: [
-            { text: "At dispatch" },
-            { text: "At pickup" },
-            { text: "At delivery" },
-            { text: "Only after the invoice is paid", correct: true },
+            { text: "At least 2–3 times in the conversation", correct: true },
+            { text: "Once, at the very end" },
+            { text: "Every single sentence" },
+            { text: "Never — it sounds too familiar" },
           ],
+        },
+        {
+          text: "Which forms of address are forbidden on a call?",
+          options: [
+            { text: "Man, Buddy, Bro, Boss", correct: true },
+            { text: "Sir and Ma'am" },
+            { text: "The customer's first name" },
+            { text: "Mr. and Ms. with a last name" },
+          ],
+        },
+        {
+          text: "Which of these belongs to the Closing a call criteria?",
+          options: [
+            { text: "Thank the customer, offer additional help, and do not hang up first", correct: true },
+            { text: "Ask all the necessary questions" },
+            { text: "Avoid dead air while you search" },
+            { text: "Keep your pitch low and even" },
+          ],
+        },
+        {
+          text: "Avoiding dead air and not interrupting fall under which area?",
+          options: [
+            { text: "Listening", correct: true },
+            { text: "Procedures" },
+            { text: "Tone of voice" },
+            { text: "Greeting" },
+          ],
+        },
+        {
+          text: "The three call procedures we are graded on are HOLD, TRANSFER and ____.",
+          type: "FILL_BLANK",
+          options: [{ text: "CALL BACK" }, { text: "call back" }, { text: "callback" }],
         },
       ],
     },
@@ -1366,7 +1629,6 @@ Many brokers no longer send a PDF packet — they use online onboarding platform
 - **RMIS** — Registry Monitoring Insurance Services, compliance + insurance monitoring, used by large brokers.
 - **Highway** — a modern carrier identity and fraud-prevention platform, very common today.
 - **DAT Onboarding / DAT Carrier Suite** — built into the DAT ecosystem for quick broker–carrier setup.
-- **Truckstop RMIS / Truckstop Compliance** — onboarding via the Truckstop load board ecosystem.
 
 **Tip:** always confirm where the broker wants the packet returned. If they use MyCarrierPackets, RMIS, or Highway, our profile is usually already there — point them to MC# 966111 / DOT# 2878524 and they can pull everything automatically. This is faster and lowers fraud risk for both sides.`,
     quiz: {
@@ -1453,15 +1715,61 @@ DAT Load Board (often just "DAT") is an online marketplace where brokers/shipper
 
 A load board is lead generation, not a guarantee — always verify the broker and load details (rate, appointments, requirements, payment terms) before accepting.
 
-## Setting up a Sprinter van search
+## DAT visual walkthrough
 
-Empire National runs **two separate DAT searches** for Sprinter van freight:
+How to search for loads on a **New Search**.
 
-**Search 1 — Sprinter van equipment only**
-Origin/Destination: zones Z0–Z9, ZC, ZE, ZM, ZW. DH-O and DH-D: 150 miles. Load type: Full and Partial. Equipment: Sprinter Van (SV), Sprinter Van Team (SM), Sprinter Van Hazmat (SZ). Length/Weight: blank. Date range: a month ahead.
+### 1. Choose Search Loads from the menu
 
-**Search 2 — Equipment brokers may post instead of Sprinter van**
-Same origin/destination zones and deadhead settings. Equipment: Straight Box Truck (SB), Van Hotshot (VH), Van Logistics (VL), Moving Van (MV). Weight: 4,500 lbs max. Date range: a month ahead.
+![DAT One New Search screen, with Search Loads selected in the left menu](/Tools/dat1.jpg)
+
+### 2. Complete the form with your truck information
+
+- **Origin** — where your truck is, or will be.
+- **DH-O** — deadhead from origin: how far you are willing to drive to pick up a load.
+- **Destination** — where you want to go. Enter a city, a state, or the zones you are willing to run to. Leaving it blank is the equivalent of "anywhere".
+- **DH-D** — deadhead from destination: how far you are willing to drive from your desired destination. Only required when you enter a *city* as the destination.
+- **Load Type** — Full, Partial, or both.
+- **Equipment Type** — the equipment you are offering.
+- **Length** — the length of your trailer.
+- **Weight** — the maximum cargo weight you can haul.
+- **Date Range** — the dates you are available to pick up a load.
+
+> **Note:** once the required fields above are filled in, the **Search** button turns blue and you can run the search. To narrow it further, add the filters below.
+
+## Setting up your DAT search for Sprinter van loads
+
+Empire National runs **two separate searches**.
+
+### Search 1 — Sprinter Van equipment only
+
+![DAT search filtered to Sprinter Van equipment](/Tools/sprinterFilter.jpg)
+
+- **Origin** — Z0, Z1, Z2, Z3, Z4, Z5, Z6, Z7, Z8, Z9, ZC, ZE, ZM, ZW
+- **DH-O** — 150
+- **Destination** — Z0, Z1, Z2, Z3, Z4, Z5, Z6, Z7, Z8, Z9, ZC, ZE, ZM, ZW
+- **DH-D** — 150
+- **Load Type** — Full and Partial
+- **Equipment Type** — Sprinter Van (SV), Sprinter Van Team (SM), Sprinter Van Hazmat (SZ)
+- **Length** — blank
+- **Weight** — blank
+- **Date Range** — a month ahead
+
+### Search 2 — other equipment brokers may post a Sprinter load under
+
+Brokers sometimes post freight that a Sprinter can carry under a different equipment type, so the second search covers those.
+
+![DAT search filtered to the alternative equipment types](/Tools/secondFilter.jpg)
+
+- **Origin** — Z0, Z1, Z2, Z3, Z4, Z5, Z6, Z7, Z8, Z9, ZC, ZE, ZM, ZW
+- **DH-O** — 150
+- **Destination** — Z0, Z1, Z2, Z3, Z4, Z5, Z6, Z7, Z8, Z9, ZC, ZE, ZM, ZW
+- **DH-D** — 150
+- **Load Type** — Full and Partial
+- **Equipment Type** — Straight Box Truck (SB), Van Hotshot (VH), Van Logistics (VL), Moving Van (MV)
+- **Length** — blank
+- **Weight** — 4,500 lbs maximum
+- **Date Range** — a month ahead
 
 ## DAT red flags — treat as a no-go
 
@@ -1487,7 +1795,6 @@ Tracking (visibility) platforms let dispatchers, brokers, and shippers monitor a
 - **Trucker Tools** — driver-facing app for load tracking and capacity.
 - **Turvo Tracking** — real-time shipment visibility and collaboration across carriers, brokers, and shippers.
 - **Project44** — enterprise visibility platform with automated tracking and ETA.
-- **Motive (KeepTruckin)** — ELD + fleet GPS tracking with a driver app and dispatch tools.
 
 **Rule of thumb:** if the customer requires a specific tracking method, treat it as a load requirement and confirm the driver can comply *before* you accept the load.`,
     quiz: {

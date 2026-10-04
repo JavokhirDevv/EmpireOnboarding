@@ -3,6 +3,7 @@ import { requireUser } from "@/lib/dal";
 import { getTraineeProgress, departmentForRole } from "@/lib/progress";
 import { TraineeSidebar } from "@/components/trainee-sidebar";
 import { LiveClock } from "@/components/live-clock";
+import { PageTransition } from "@/components/page-transition";
 
 export default async function AppLayout({
   children,
@@ -37,7 +38,7 @@ export default async function AppLayout({
         userTitle={user.title}
       />
       <main className="flex-1 min-w-0 min-h-0 bg-surface-muted overflow-y-auto">
-        {children}
+        <PageTransition>{children}</PageTransition>
       </main>
       <LiveClock />
     </div>

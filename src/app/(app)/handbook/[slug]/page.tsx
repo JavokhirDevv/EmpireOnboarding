@@ -26,7 +26,7 @@ export default async function HandbookPageView({
   const next = index < pages.length - 1 ? pages[index + 1] : null;
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-10">
+    <div className="stagger-children max-w-3xl mx-auto px-6 py-10">
       <Link
         href="/handbook"
         className="text-sm text-steel-500 hover:text-navy-800 mb-5 inline-flex items-center gap-1.5"

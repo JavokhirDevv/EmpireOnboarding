@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/dal";
 import { getTraineeProgress, departmentForRole } from "@/lib/progress";
 import { Badge, Card, LinkButton, ProgressBar } from "@/components/ui";
+import { CountUp } from "@/components/count-up";
 
 export default async function DashboardPage() {
   const user = await requireUser();
@@ -15,18 +16,30 @@ export default async function DashboardPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-10">
-      <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-accent-600">
+      <span
+        className="fade-up inline-block text-[11px] font-semibold tracking-[0.18em] uppercase text-accent-600"
+        style={{ "--reveal-delay": "60ms" } as React.CSSProperties}
+      >
         Overview
       </span>
-      <h1 className="text-3xl font-bold text-navy-900 mt-1">
+      <h1
+        className="fade-up text-3xl font-bold text-navy-900 mt-1"
+        style={{ "--reveal-delay": "180ms" } as React.CSSProperties}
+      >
         Welcome, {user.name.split(" ")[0]}
       </h1>
-      <p className="text-steel-500 mt-2 max-w-lg">
+      <p
+        className="fade-up text-steel-500 mt-2 max-w-lg"
+        style={{ "--reveal-delay": "300ms" } as React.CSSProperties}
+      >
         Your onboarding route is on the left — stops unlock in order, so
         finish one to move on to the next.
       </p>
 
-      <Card className="p-6 mt-8">
+      <Card
+        className="fade-up p-6 mt-8"
+        style={{ "--reveal-delay": "420ms" } as React.CSSProperties}
+      >
         <div className="flex items-center justify-between mb-3">
           <div>
             <div className="text-sm font-semibold text-navy-900">
@@ -36,13 +49,18 @@ export default async function DashboardPage() {
               {completed} of {total} stops complete
             </div>
           </div>
-          <div className="text-2xl font-bold text-navy-900">{percent}%</div>
+          <div className="text-2xl font-bold text-navy-900 tabular-nums">
+            <CountUp value={percent} delay={700} duration={1500} suffix="%" />
+          </div>
         </div>
-        <ProgressBar percent={percent} />
+        <ProgressBar percent={percent} animate />
       </Card>
 
       {allComplete ? (
-        <Card className="p-6 mt-5 flex items-center justify-between flex-wrap gap-4 border-gold-400/40 bg-gold-100/40">
+        <Card
+          className="fade-up p-6 mt-5 flex items-center justify-between flex-wrap gap-4 border-gold-400/40 bg-gold-100/40"
+          style={{ "--reveal-delay": "620ms" } as React.CSSProperties}
+        >
           <div>
             <div className="text-xs font-semibold text-gold-600 uppercase tracking-wide mb-1">
               Route complete
@@ -59,7 +77,10 @@ export default async function DashboardPage() {
           </LinkButton>
         </Card>
       ) : nextStop ? (
-        <Card className="p-6 mt-5 flex items-center justify-between flex-wrap gap-4">
+        <Card
+          className="fade-up p-6 mt-5 flex items-center justify-between flex-wrap gap-4"
+          style={{ "--reveal-delay": "620ms" } as React.CSSProperties}
+        >
           <div>
             <div className="text-xs font-semibold text-accent-600 uppercase tracking-wide mb-1">
               In progress
@@ -72,14 +93,20 @@ export default async function DashboardPage() {
           </LinkButton>
         </Card>
       ) : (
-        <Card className="p-8 text-center text-steel-500 mt-5">
+        <Card
+          className="fade-up p-8 text-center text-steel-500 mt-5"
+          style={{ "--reveal-delay": "620ms" } as React.CSSProperties}
+        >
           No training stops have been published yet. Check back soon.
         </Card>
       )}
 
       {total > 0 && (
         <div className="mt-10">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-steel-500 mb-3">
+          <h2
+            className="fade-up text-sm font-bold uppercase tracking-wide text-steel-500 mb-3"
+            style={{ "--reveal-delay": "780ms" } as React.CSSProperties}
+          >
             Your route
           </h2>
           <div className="space-y-2">
@@ -111,12 +138,26 @@ export default async function DashboardPage() {
                 </Card>
               );
 
+              const rowStyle = {
+                "--reveal-delay": `${880 + idx * 120}ms`,
+              } as React.CSSProperties;
+
               return locked ? (
-                <div key={m.id} title="Complete the previous stop to unlock this one">
+                <div
+                  key={m.id}
+                  className="slide-in"
+                  style={rowStyle}
+                  title="Complete the previous stop to unlock this one"
+                >
                   {content}
                 </div>
               ) : (
-                <Link key={m.id} href={`/training/${m.slug}`}>
+                <Link
+                  key={m.id}
+                  href={`/training/${m.slug}`}
+                  className="slide-in block"
+                  style={rowStyle}
+                >
                   {content}
                 </Link>
               );
