@@ -1,7 +1,10 @@
 import { Card } from "@/components/ui";
 import { NewAudioLessonForm } from "./new-audio-form";
+import { requireDispatchAdmin } from "@/lib/dal";
 
-export default function NewAudioLessonPage() {
+export default async function NewAudioLessonPage() {
+  await requireDispatchAdmin();
+
   return (
     <div className="max-w-2xl mx-auto px-6 py-10">
       <h1 className="text-2xl font-bold text-navy-900 mb-1">New audio lesson</h1>

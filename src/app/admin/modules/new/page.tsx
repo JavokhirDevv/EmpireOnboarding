@@ -1,4 +1,5 @@
 import { createModule } from "@/lib/actions/modules";
+import { requireAdminScope } from "@/lib/dal";
 import { Button, Card, FieldLabel, inputClass } from "@/components/ui";
 
 export default async function NewModulePage({
@@ -6,10 +7,11 @@ export default async function NewModulePage({
 }: {
   searchParams: Promise<{ department?: string }>;
 }) {
+  const { scope } = await requireAdminScope();
   const { department } = await searchParams;
-  const defaultDepartment = ["DISPATCH", "TRACKING", "HR"].includes(department ?? "")
-    ? department!
-    : "DISPATCH";
+  const defaultDepartment =
+    scope ??
+    (["DISPATCH", "TRACKING", "HR"].includes(department ?? "") ? department! : "DISPATCH");
 
   return (
     <div className="max-w-2xl mx-auto px-6 py-10">

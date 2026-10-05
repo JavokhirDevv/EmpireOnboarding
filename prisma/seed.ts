@@ -2324,7 +2324,7 @@ Dispatch keeps freight moving; HR keeps the company itself running — hiring, r
 
 ## How the team is organized
 
-- **HR Generalists** — handle onboarding, records, and day-to-day employee questions.
+- **Driver Support** — handle onboarding, records, and day-to-day employee questions.
 - **Recruiting** — sources and screens candidates for open roles.
 - **Payroll & Benefits** — administers pay, benefits enrollment, and related questions.
 - **HR Manager** — owns policy decisions and handles escalations.
@@ -2339,12 +2339,753 @@ Dispatch keeps freight moving; HR keeps the company itself running — hiring, r
 The next module covers the basics of employee records and the compliance requirements every HR team member should know.`,
   },
   {
+    slug: "driver-types-solo-and-team",
+    title: "Driver Types: Solo & Team",
+    category: "Drivers & Equipment",
+    summary: "The difference between solo and team drivers, and the extra requirements some loads carry.",
+    estMinutes: 7,
+    order: 2,
+    department: "HR",
+    content: `> **Why this matters to HR.** Driver Support owns onboarding, performance and retention — and the driver type decides which documents we collect, which loads a driver can be offered, and what has to be verified before they ever touch freight.
+
+## Solo drivers
+
+One driver on the truck. They have to stop to rest, so rest time is part of the transit time a dispatcher quotes.
+
+- Suits standard transit times and shorter runs.
+- One driver file to maintain: identity, work authorization, licence, and the documents in the carrier packet.
+
+## Team drivers
+
+Two drivers on the same truck, alternating at the wheel. The truck can keep moving with only short stops for fuel and food, which is why teams cover the long, time-critical runs — a coast-to-coast run that a solo driver could not deliver in time.
+
+- Used for **direct, expedited** freight where the broker is paying for continuous movement.
+- **Both drivers must be fully registered** — a team is two complete driver files, not one driver plus a passenger.
+- Both sets of driver information go to the broker when the load is booked.
+
+:::card[The rule that drives our paperwork]{tone=high}
+From the Compensation Policy: **all drivers must be registered with the Company before handling any load.** If a contractor adds a driver or vehicle without providing the required documents, a **100% rate deduction applies, with a minimum charge of $500**.
+
+This is why Driver Support has to complete a file *before* the driver is offered a load, not after.
+:::
+
+## Work authorization and citizenship
+
+Every driver must be legally authorized to work in the United States, and Driver Support collects and verifies that documentation during onboarding.
+
+Some freight goes further than that. Sensitive loads — **military bases, government and defense freight, and certain secure pharmaceutical or electronics shipments** — require drivers to be **US citizens or permanent residents** and to pass specific background checks. A driver who cannot meet that requirement cannot be assigned to those loads, so it has to be known before dispatch commits.
+
+## TWIC and facility access
+
+A **TWIC card** (Transportation Worker Identification Credential) is the federal credential for unescorted access to secure port and maritime facilities. Obtaining one involves a background check and a TSA threat assessment.
+
+Where a load enters a port, a military base, or a government facility, the driver must satisfy **all access requirements** — background checks and entry permissions included. If a driver has prior restrictions or a criminal history that will block access, **dispatch must be told at the time of load acceptance**, not at the gate.
+
+## What Driver Support checks before a driver runs
+
+| Check | Solo | Team |
+| --- | --- | --- |
+| Complete driver file on record before any load | Yes | **Both drivers** |
+| Work authorization verified | Yes | **Both drivers** |
+| Citizenship / residency where the freight requires it | If applicable | **Both drivers** |
+| TWIC or facility background checks where the lane requires it | If applicable | **Both drivers** |
+| Vehicle documents on file before the unit is used | Yes | Yes |
+
+> If a driver's file is incomplete, the answer to dispatch is **no** until it is complete. Every exception becomes a deduction, a service failure, or a driver who cannot get into the facility.`,
+  },
+  {
+    slug: "hr-equipment-types",
+    title: "Equipment Types",
+    category: "Drivers & Equipment",
+    summary:
+      "Cargo van, Sprinter, box truck and straight truck — what sets each apart, and what HR records for each.",
+    estMinutes: 7,
+    order: 3,
+    department: "HR",
+    content: `> **Why HR needs this.** When you onboard an owner-operator you record the vehicle as well as the driver. The equipment type decides which loads dispatch can offer them, which documents and specifications you collect, and in some cases which credentials the driver needs.
+
+## The four types, smallest to largest
+
+| Type | What it is | Loads at |
+| --- | --- | --- |
+| **Cargo van** | A standard-roof van — the smallest unit in expedited freight | Ground level |
+| **Sprinter van** | A high-roof van with more cubic capacity. **Empire National's primary fleet** | Ground level |
+| **Box truck** | Cab and a separate enclosed box on one chassis | Ground level, or a dock if the heights match |
+| **Straight truck** | The wider family that a box truck belongs to — cab and body on one frame | Depends on the body |
+
+## Cargo van
+
+The smallest unit we deal with. Standard roof, loads at ground level, and suited to light, small shipments that have to move now — a few pallets at most.
+
+![Standard-roof cargo van](/equipment/cargo-van.jpg)
+
+## Sprinter van
+
+A high-roof van. Same ground-level loading as a cargo van, but noticeably more cubic capacity, which is why it carries most of our freight.
+
+Ours run **without reefer, liftgate, or dock-high capability**. That matters when a driver asks what they can accept — a load that assumes any of those is not a fit for a standard Sprinter.
+
+![High-roof Sprinter van](/equipment/sprinter-van.jpg)
+
+## Box truck
+
+A **straight truck** with an enclosed box body — cab and cargo box sit on one chassis, rather than a tractor pulling a separate trailer. Bigger than a Sprinter, and many are fitted with a **liftgate**, which lets them deliver where there is no dock.
+
+![Box truck with an enclosed body](/equipment/box-truck.jpg)
+
+## Straight truck
+
+"Straight truck" is the category, not a separate vehicle. It means any truck where the **cab and the cargo body are on a single frame** — as opposed to a tractor-trailer, where the trailer detaches. A box truck is the most common straight truck; flatbed and refrigerated straight trucks exist too.
+
+So when a driver says "straight truck", ask what body it has. When they say "box truck", you already know.
+
+## Why the difference matters to HR
+
+- **Onboarding records.** The vehicle is registered alongside the driver — type, dimensions, payload, and its documents. Our policy applies a **100% rate deduction, minimum $500**, if a contractor adds a vehicle without providing the required documents, so the record has to be complete before the unit runs.
+- **What dispatch can offer.** Load fit comes down to cubic space and payload. The next stop, **Basic Equipment Specifications**, covers the actual numbers.
+- **Capabilities, not just size.** Dock height, liftgate and pallet jack are separate questions from how big the van is — and they decide whether a driver can physically complete a delivery.
+- **Credentials.** Our policy records that this equipment **does not qualify as a Commercial Motor Vehicle under 49 CFR 390.5** by weight, so FMCSA and USDOT operating requirements do not apply to it. Larger straight trucks can cross that line — if you onboard one, check the weight rating before assuming the same rules apply.`,
+  },
+  {
+    slug: "basic-equipment-specifications",
+    title: "Basic Equipment Specifications",
+    category: "Drivers & Equipment",
+    summary:
+      "Dimensions, payload and weight ratings — the numbers HR records and dispatch quotes from.",
+    estMinutes: 9,
+    order: 4,
+    department: "HR",
+    content: `> **Why HR needs the numbers.** The dimensions and payload you record at onboarding are the numbers dispatch quotes from. If they are wrong, the result is a driver turned away at the dock, a refused load, or a claim — and the record came from us.
+
+## The numbers at a glance
+
+| Equipment | Load length | Width | Height | Payload | Pallets |
+| --- | --- | --- | --- | --- | --- |
+| **Cargo van** | 8–10 ft (96–120 in) | 48–55 in | 50–60 in | 1,500–3,000 lbs | 2–3 |
+| **Sprinter van** | 10–16 ft (120–192 in) | 48–56 in | 48–72 in | 1,500–4,500 lbs | 3–5 |
+| **Box / straight truck** | 16–26 ft (192–312 in) | ~96 in | 84–96 in | 5,000–12,000 lbs | 6–12 |
+
+The **Sprinter figures are Empire's own**, taken from the dispatch standard below. The cargo van and box truck ranges are typical industry figures — useful for orientation, but **always record the actual numbers from the vehicle you are onboarding**, because they vary by model, wheelbase and build.
+
+## Empire's Sprinter standard
+
+This is the one you will use most, and the one dispatch works from.
+
+| Dimension | Range | Standard |
+| --- | --- | --- |
+| **Length** | 10 ft (120 in) to 16 ft (192 in) | 12 ft (144 in) |
+| **Width** | 48–56 in | 53 in |
+| **Height** | 48–72 in | 70 in |
+| **Payload** | 1,500–4,500 lbs | 3,000–4,000 lbs |
+
+> Every Sprinter is slightly different. Treat the standard as the planning figure and the vehicle's own numbers as the truth.
+
+## Feet and inches
+
+Freight is quoted in both, and the conversion is where mistakes happen. **1 ft = 12 in.**
+
+| 8 ft | 10 ft | 12 ft | 14 ft | 16 ft |
+| --- | --- | --- | --- | --- |
+| 96 in | 120 in | 144 in | 168 in | 192 in |
+
+## Two ways a van fills up
+
+A vehicle has two separate limits, and freight hits one or the other first.
+
+::::grid
+:::card[Weighs out]{tone=soft}
+The payload limit is reached while there is still floor space left.
+
+Dense freight does this: paper, liquids, machine parts, printed material. A single pallet can be 2,000 lbs on its own.
+:::
+
+:::card[Cubes out]{tone=soft}
+The space runs out while the van is still well under its weight limit.
+
+Light, bulky freight does this: packaging, foam, textiles, empty containers.
+:::
+::::
+
+This is why the record needs **both** numbers. A van described only as "3,500 lbs payload" tells dispatch nothing about whether six pallets will physically fit.
+
+## Why width decides pallet count
+
+A standard GMA pallet is **48 × 40 inches**. A Sprinter's interior is about **53 inches** wide between the wheel wells and walls.
+
+That means pallets load **single file** — one behind another, not side by side. So the number of pallets a van holds is a question about **length**, not width, and a van that is 2 feet longer is a van that takes roughly one more pallet.
+
+## Weight thresholds that change a driver's paperwork
+
+Vehicle weight rating decides which federal rules apply to the unit, which is squarely HR's concern at onboarding.
+
+| Gross vehicle weight rating | What applies |
+| --- | --- |
+| **10,000 lbs or less** | Not a Commercial Motor Vehicle under 49 CFR 390.5 — the classification our own policy relies on for this equipment |
+| **10,001–26,000 lbs** | Commercial Motor Vehicle: DOT rules apply, but no CDL required |
+| **26,001 lbs and above** | CDL required |
+
+Vans sit comfortably in the first band. Box and straight trucks can fall in either of the other two, so **check the weight rating on the vehicle** before assuming a driver needs nothing extra.
+
+## What the numbers do to pay
+
+From the Compensation Policy, two rules hang directly off the figures you record:
+
+- The **base rate includes shipments up to 1,500 lbs**. Above that, compensation increases by **$10 for each additional 100 lbs**.
+- A contractor has the **right to refuse a load that exceeds the vehicle's declared capacity**.
+
+That second one is the reason declared capacity matters. It is the number that protects the driver from an impossible load and the company from a refusal at pickup — and it is only as good as the record HR took at onboarding.
+
+## What to record for every unit
+
+- Interior **length, width and height** — measured, not estimated from the model name
+- **Payload** in pounds, and the **gross vehicle weight rating**
+- Whether it has a **liftgate**, **pallet jack**, or is **dock height** — ours generally are not
+- Year, make, model and VIN, with the vehicle documents attached
+
+> If any of these are missing, the unit is not ready to be offered a load. Our policy applies a **100% rate deduction, minimum $500**, where a vehicle is added without the required documents.`,
+  },
+  {
+    slug: "driver-communication-standards",
+    title: "Driver Communication Standards",
+    category: "Working with Drivers",
+    summary:
+      "Response times, what has to be reported and when, and the standard for every driver call.",
+    estMinutes: 8,
+    order: 5,
+    department: "HR",
+    content: `> **Why this sits with HR.** Driver Support sets these expectations at onboarding and has the conversation when they are not met. Everything below is company policy — not a preference — and most of it carries a deduction when it slips.
+
+## Expected response times
+
+These are the clocks a driver is working against. They come from the Compensation and Recovery policies.
+
+| What | When |
+| --- | --- |
+| **Photos of the freight** at pickup and delivery | Sent to the app chat and email **before** contacting dispatch about the load |
+| **Documents** — BOL, POD, PO | **Within 15 minutes** after pickup, and again after delivery |
+| **Breakdown evidence** — photos, repair invoices | **Within 30 minutes** of notifying Operations |
+| **Any delay** | **In advance** — as soon as the driver knows, not once they are late |
+| **Accidents, damaged freight, risk to cargo** | **Immediately**, with photo proof |
+| **App chat** | **Open on the driver's device** at the time of delivery |
+
+:::card[The 60-minute rule]{tone=high}
+If a dispatcher **cannot reach a driver for 60 minutes or more** during transit, that is a mandatory Team Lead notification under the Safety Handbook.
+
+An unreachable driver is not a small thing. It is the point where a load stops being trackable and the broker stops being able to be told anything true.
+:::
+
+## What a driver has to report, and when
+
+### At every milestone
+
+Dispatch needs a status at each stage, not a summary at the end:
+
+- **Arrived** at the shipper
+- **Loaded** and rolling
+- **Arrived** at the receiver
+- **Delivered**, with documents sent
+
+Alongside that: **current location** and **remaining hours**, whenever asked.
+
+### Immediately, without being asked
+
+- Breakdowns and mechanical problems
+- Delays of any kind, including traffic and weather
+- Accidents, injuries, or damage to the freight, the vehicle, or the facility
+- Being refused at a facility, or unable to get access
+- Anything that puts the cargo at risk
+
+> The pattern to teach: **bad news travels first.** A problem reported early is a dispatch problem. The same problem reported late is a claim, a deduction, and a broker who no longer trusts the load.
+
+## What it costs when reporting slips
+
+These are the live deductions tied to communication, straight from the Compensation Policy:
+
+| Miss | Consequence |
+| --- | --- |
+| No photos at a stop | **$10 deduction**, rising for repeat violations |
+| No valid Proof of Delivery | **15% rate deduction**, and payment may be delayed or blocked |
+| Original POD mailed with no emailed or app copy | **$10 deduction** |
+| Documents late or poor quality | Payment held until received |
+
+Worth saying out loud to a new driver: none of these are penalties for having a bad day. They are penalties for **not telling anyone**.
+
+## Tone and professionalism
+
+Dispatchers are graded on every call — greeting, listening, tone of voice, closing, and telephone etiquette. We hold driver conversations to the same bar, in both directions.
+
+::::grid
+:::card[What good sounds like]{tone=soft}
+Identify yourself and the company.
+
+Use the person's name.
+
+Confirm you are following — *"I see," "sounds good," "that's right."*
+
+Say when you need a moment rather than leaving silence.
+
+Close by confirming what happens next.
+:::
+
+:::card[What we do not accept]{tone=high}
+Shouting, or losing the thread into an argument.
+
+Interrupting — and if it happens, no apology for it.
+
+Dead air while someone looks something up.
+
+Hanging up first.
+
+Promising a driver something dispatch has not agreed to.
+:::
+::::
+
+A driver who is calm and specific on a bad day is worth more than one who is fast on a good day. That is the behaviour to recognise and keep.
+
+## What HR does with all this
+
+1. **Set it at onboarding.** The driver hears the response times and the reporting rules from us, before the first load — not from a deduction.
+2. **Watch the pattern, not the incident.** One late POD is a reminder. Four in a month is a performance conversation.
+3. **Separate "could not" from "did not".** A driver with no signal is a different problem from a driver who did not answer.
+4. **Escalate what the handbook requires.** The 60-minute rule and the reportable incidents go to the Team Lead, every time.`,
+  },
+  {
+    slug: "tracking-app-requirements",
+    title: "Tracking App Requirements",
+    category: "Working with Drivers",
+    summary:
+      "The platforms brokers require, and what a driver must have working before a load starts.",
+    estMinutes: 8,
+    order: 6,
+    department: "HR",
+    content: `> **Why HR needs this.** The driver's phone *is* the tracking device. If the app is not installed, not logged in, or the location permission is wrong, the load goes dark — and the first person to hear about it is the broker. Getting this right at onboarding prevents most of it.
+
+## How tracking actually works
+
+A broker buys visibility along with the freight. There are two ways to give it:
+
+- **Automated tracking** — an app on the driver's phone reports location on a schedule, with no action from the driver.
+- **Check calls** — the driver or the tracking team reports position manually, by phone or message.
+
+Which one applies is **set per load by the broker**, and dispatch confirms the driver can comply *before* accepting it. A driver who cannot run the required app is not a fit for that load.
+
+## MacroPoint
+
+The most widely used carrier tracking platform, integrated into many broker TMS systems. The driver receives a tracking request — usually a text with a link, or a prompt in the app — and consents to share location **for the duration of that load**. After that it reports automatically.
+
+What it needs from the driver: accept the request, and leave location sharing on until the load delivers.
+
+## Trucker Tools
+
+A driver-facing app covering load tracking and capacity. Installed once and signed in, it shares location while a load is active, and the driver can see their own loads in it.
+
+What it needs from the driver: installed, logged in, and location permission granted.
+
+## Other platforms brokers request
+
+| Platform | Where you will see it |
+| --- | --- |
+| **Turvo Tracking** | Real-time visibility shared across carrier, broker and shipper |
+| **Project44** | Enterprise visibility with automated ETA — common with large customers |
+| **Broker portals** | Some brokers run their own and send a link per load |
+| **Check calls** | No app at all — scheduled updates by phone or message |
+
+The broker chooses; we comply per load. Treat a named tracking platform the same as any other load requirement.
+
+## What a driver must have before a load
+
+:::card[The pre-load checklist]{tone=dark}
+1. A **smartphone with a working data plan** — tracking is useless on wifi only.
+2. The **required tracking app installed and logged in**, before the load starts, not at the shipper.
+3. **Location permission set to "Always"** — not "While using the app".
+4. **Battery saver off** for the tracking app, and a charger in the vehicle.
+5. The **company app chat installed**, and open on the device at delivery.
+6. **Notifications enabled**, so a tracking request is not missed.
+7. The ability to **send photos and documents from the phone** — the 15-minute document rule depends on it.
+:::
+
+## The permission that breaks most loads
+
+"While using the app" sounds harmless and is the single most common tracking failure. On both iOS and Android it stops location updates the moment the screen locks or the driver switches apps — which is exactly what happens once they start driving.
+
+**Always** is the setting that keeps a load visible. Walk a new driver through it on their own phone during onboarding rather than describing it.
+
+## When tracking goes quiet
+
+| What happened | How it looks to the broker | What fixes it |
+| --- | --- | --- |
+| Permission set to "while using" | Pings stop minutes after departure | Change to Always |
+| Battery saver throttling the app | Long gaps, then a jump | Exempt the app from battery optimisation |
+| Driver signed out, or app deleted | No pings at all | Reinstall and sign in |
+| Genuine dead zone or dead battery | A gap with a plausible route | Driver calls dispatch with position |
+
+The last row is the important distinction: **a driver who calls in during a dead zone is doing the job.** A driver who is simply unreachable for 60 minutes or more triggers a mandatory Team Lead notification.
+
+## What HR records and checks
+
+- Which **tracking apps** the driver has installed, and the phone platform
+- That **location permission is set correctly** — verified, not asked about
+- That the driver **understands location is shared only while a load is active**, which is the question most of them actually want answered
+- A re-check whenever a driver changes phones — a new device means an uninstalled app and a reset permission`,
+  },
+  {
+    slug: "pickup-and-delivery-process-overview",
+    title: "Pickup & Delivery Process Overview",
+    category: "Loads & Process",
+    summary: "What happens from arrival at the shipper to signing out at the receiver.",
+    estMinutes: 8,
+    order: 7,
+    department: "HR",
+    content: `> **Why HR needs this.** A new driver's first question is "what actually happens on a load?" This is the sequence, in order, with the moment each deduction can bite.
+
+## Before the wheels turn
+
+1. The driver gives a **bid**, or accepts an offered rate.
+2. The dispatcher sends the **Rate Confirmation (RC)** — within **30 minutes** of acceptance. If no RC arrives in that window and there is no follow-up, the driver may cancel without penalty.
+3. The driver is dispatched with the **correct driver rate** and the load instructions — including **not touching the freight without authorization** from the dispatcher.
+
+:::card[Acceptance is binding]{tone=high}
+A contractor **may not cancel a load after confirming acceptance** by phone, text, or verbally. Violation carries a **$250 cancellation fee** and can lead to contract termination. Emergencies must be supported with proof.
+:::
+
+## At the shipper
+
+- **Arrive within the appointment window.** Late arrival to pickup or delivery is a **25% rate deduction**; a strict appointment missed is worse.
+- **Check in** and have arrival time written on the paperwork.
+- **Photograph the freight** — to the app chat and email, *before* contacting dispatch about the load.
+- **Take the correct BOL.** If the wrong one is taken, the driver must go back for the right one; failing to do so can mean up to a **100% rate deduction**.
+- **Secure the load**, and send photos showing the securement.
+- Report **loaded and rolling**.
+
+## In transit
+
+- Tracking stays **active**; the required app keeps reporting.
+- Status at each milestone, plus **current location and remaining hours** on request.
+- Anything unexpected — delay, breakdown, damage, refusal — goes to dispatch **immediately**, with photo proof.
+
+## At the receiver
+
+- Arrive in the window, check in, departure and arrival times noted on the BOL.
+- Unload only as authorized. Loading or unloading labour must be **approved in advance** and **written on the BOL/POD**, or it is not paid.
+- Get the **signed POD**.
+- Photograph the freight again at delivery, with the **company app chat open on the device**.
+
+## After delivery
+
+| Step | Deadline |
+| --- | --- |
+| Documents sent — BOL, POD, PO, in good quality | **Within 15 minutes** of delivery |
+| Original POD mailed, where the customer requires it | With tracking number, plus a copy by email and app chat |
+| Documents retained by the contractor | **3–4 months**, available on request |
+
+No valid POD is a **15% rate deduction** and can block payment entirely. Mailing the original without sending a copy is a **$10 deduction**.
+
+## Where it usually goes wrong
+
+| The miss | What it costs |
+| --- | --- |
+| Late to pickup or delivery | 25% rate deduction |
+| Wrong BOL taken at pickup | Up to 100% rate deduction |
+| No photos at a stop | $10, rising on repeat |
+| No valid POD | 15%, payment blocked |
+| Unauthorised loading or unloading | Not paid at all |
+| Cancelling after acceptance | $250, possible termination |
+
+> Every one of these is avoidable, and every one of them starts with the same thing: the driver either did not know the rule, or did not tell anyone early. The first is HR's job to fix.`,
+  },
+  {
+    slug: "basic-load-terminology",
+    title: "Basic Load Terminology",
+    category: "Loads & Process",
+    summary: "The terms that come up on every load — BOL, POD, RC, TONU, layover, detention.",
+    estMinutes: 8,
+    order: 8,
+    department: "HR",
+    content: `> **Why HR needs this.** Drivers use these words on every call, and so do brokers. You do not need to dispatch — you need to understand what a driver means when they say "I'm still waiting on the TONU."
+
+## The six that come up most
+
+| Term | What it means | Where you will hear it |
+| --- | --- | --- |
+| **BOL** — Bill of Lading | The legal document confirming **what** freight was picked up, **from where**, and **going where** | "They gave me the wrong BOL" |
+| **POD** — Proof of Delivery | Proof the load was delivered, often a signed BOL. Needed to invoice and get paid | "I sent the POD already" |
+| **RC** — Rate Confirmation | The document confirming the **agreed rate, terms and load details** — pickup and delivery info, accessorials, detention and TONU terms, tracking requirements | "I never got the rate con" |
+| **TONU** — Truck Ordered Not Used | Compensation when the truck was dispatched but the load was cancelled or never loaded | "Am I getting TONU for this?" |
+| **Layover** | An overnight or 24-hour wait at pickup or delivery | "They're holding me overnight" |
+| **Detention** | Time held at a shipper or receiver **beyond the agreed free time** — often billable | "I've been sitting here three hours" |
+
+## What each one is worth at Empire
+
+The exact numbers live in **Accessorials & Additional Payments**, the next stop. The short version a driver will ask you for:
+
+- **TONU** — $50 under 50 miles toward pickup; $1/mile up to $150 over that
+- **Detention** — starts **2 hours** after check-in, $20/hour, max $150
+- **Layover** — $150 per 24-hour period, $300 for a weekend
+
+> Each of these depends on **documentation**. Detention is not paid unless arrival and departure times are written on the BOL. A driver who waited four hours and has nothing written down has, as far as the paperwork is concerned, not waited at all.
+
+## A few more you will hear
+
+| Term | Meaning |
+| --- | --- |
+| **Accessorial** | Any charge on top of the base linehaul rate |
+| **Deadhead** | Miles driven empty, usually heading to the next pickup |
+| **Lumper** | A third-party worker paid to load or unload at a dock — and the fee for it |
+| **Check call** | A scheduled call to confirm location, progress and delays |
+| **Linehaul** | The base rate for moving the freight, before accessorials |
+
+## The one distinction worth teaching twice
+
+**BOL at pickup. POD at delivery.** They are frequently the same piece of paper — a BOL signed at delivery becomes the proof of delivery — which is exactly why drivers mix them up, and why "I sent the BOL" does not mean payment can be invoiced.`,
+  },
+  {
+    slug: "hr-accessorials-and-additional-payments",
+    title: "Accessorials & Additional Payments",
+    category: "Loads & Process",
+    summary: "The extra charges beyond the line-haul rate, and when they apply.",
+    estMinutes: 8,
+    order: 9,
+    department: "HR",
+    content: `> **Why HR needs this.** Accessorials are what drivers call about. They are also where most pay disputes start — almost always because a condition was not met rather than because the rate was wrong.
+
+## What an accessorial is
+
+Anything paid **on top of the linehaul rate**, because the load took extra time, labour, equipment, risk, or special handling.
+
+## What Empire National pays
+
+### TONU — Truck Ordered Not Used
+
+| Situation | Paid |
+| --- | --- |
+| Driver travelled **under 50 miles** toward pickup | **$50** |
+| Driver travelled **over 50 miles** | **$1 per mile, maximum $150** |
+
+**Not paid** if the driver was late, if the cancellation was caused by the driver, or if the load was cancelled within 15 minutes of confirmation — or within 12 hours of a non-same-day pickup appointment.
+
+### Detention
+
+Starts **2 hours** after check-in, within the confirmed appointment window. **$20 per hour, maximum $150.**
+
+Requires the shipper or receiver to write **arrival and departure times on the BOL**. Not paid if the driver missed their window, unless it was outside their control.
+
+### Layover / overnight
+
+**$150** per 24-hour period, including the first. A **weekend layover is $300** in total. Not paid if the driver arrived late, unless it was outside their control.
+
+### Loading, unloading and driver assist
+
+| Service | Rate |
+| --- | --- |
+| Loading or unloading | **$10 per 150 lbs** |
+| Driver assistance with loading or unloading | **$5 per 150 lbs** |
+
+Both must be **authorised in advance** by the dispatcher or Operations **and** noted on the BOL/POD. Without both, it is not paid.
+
+### Weight, miles, stops and space
+
+- **Extra weight** — above 1,500 lbs, **+$10 per 100 lbs**. The driver may refuse a load that exceeds the payload on file for their vehicle.
+- **Extra miles** — paid at the **same per-mile rate as the load**. A $800 / 1,000 mile load pays extra miles at $0.80.
+- **Extra stops** — **$50 per additional stop** beyond the RC.
+- **Extra space** — **no additional payment.** The company books the whole vehicle regardless of how much of it the freight fills.
+
+:::card[The pattern behind every unpaid accessorial]{tone=high}
+Two conditions decide almost every dispute:
+
+1. Was it **authorised before it happened**?
+2. Is it **written on the BOL or POD**?
+
+A driver who waited, or lifted, or made an extra stop, and has neither of those, is in a conversation about goodwill rather than entitlement. Teach this at onboarding, not at the first claim.
+:::
+
+## What HR does with this
+
+- **Know the numbers** well enough to answer without checking — these are the most frequent driver questions.
+- **Ask for the documentation first** when a driver raises an accessorial. Usually the answer is in whether the BOL was annotated.
+- **Escalate the genuine misses.** If a driver met both conditions and was still not paid, that belongs with Operations, not a shrug.`,
+  },
+  {
+    slug: "finding-a-driver-for-a-load",
+    title: "Finding a Driver for a Load",
+    category: "The Dispatcher Side",
+    summary: "How a load gets matched to a driver, and what we check before committing.",
+    estMinutes: 8,
+    order: 10,
+    department: "HR",
+    content: `> **Why HR needs this.** Every check a dispatcher makes before giving a driver a load runs on records HR created. When a file is thin, the driver does not get offered the work.
+
+## Where loads come from
+
+Most come from the **DAT load board** — an online marketplace where brokers post freight and dispatchers search by lane and equipment. Others come from **warm brokers** who contact a dispatcher directly because they have worked together before.
+
+## What dispatch is matching
+
+A load has requirements; a driver has attributes. The match has to hold on all of them:
+
+| The load needs | Dispatch checks the driver for |
+| --- | --- |
+| Equipment type and size | The vehicle on file, its dimensions and payload |
+| A pickup window | Current location, and a realistic ETA |
+| Enough driving time | Remaining hours, and whether they are solo or team |
+| Clean access to the facility | TWIC, background checks, citizenship where required |
+| A tracking method | The required app installed and working |
+
+## What a dispatcher does before committing
+
+From the Load Booking Safety Checklist in the Safety Handbook:
+
+1. **Confirm by phone**, even when the option came from a message or the CRM.
+2. Ask directly: **"Are you empty and ready to go?"** — regardless of what the system shows.
+3. Get a **rough ETA**, and ask about prior commitments.
+4. Double-check the driver's **current location and drop-off location** — especially with an owner-operator.
+
+> If a driver's answers do not line up, it goes to the Team Lead. A driver may quote a rate while not actually meeting a crucial requirement — pickup time, truck dimensions, availability.
+
+## The 15-minute bid rule
+
+A driver's bid is good for **15 minutes**. If the dispatcher needs longer, they can ask the driver to stand by another 5–10 minutes — and the driver is allowed to decline.
+
+After placing a bid, the driver is on a **15-minute hold** and must not accept other work in that window.
+
+## Where HR's work shows up
+
+:::card[What makes a driver easy to book]{tone=soft}
+A complete file: vehicle dimensions, payload, documents, tracking app, credentials.
+
+A reachable phone, and a driver who answers it.
+
+An accurate current location.
+
+A history of accepting what they bid on.
+:::
+
+:::card[What quietly costs a driver work]{tone=high}
+Missing vehicle documents — the unit cannot be offered.
+
+A stale or wrong location on file.
+
+No tracking app, on a lane that requires one.
+
+A record of cancelling after acceptance.
+:::
+
+A driver who is hard to verify is a driver who gets called second. That is worth saying out loud in a retention conversation — it is usually fixable in ten minutes of paperwork.`,
+  },
+  {
+    slug: "how-offers-work-for-the-driver",
+    title: "How Offers Work for the Driver",
+    category: "The Dispatcher Side",
+    summary: "What an offer looks like from the dispatcher's side, and how a driver accepts it.",
+    estMinutes: 8,
+    order: 11,
+    department: "HR",
+    content: `> **Why HR needs this.** This is the sequence drivers dispute most. Knowing exactly where a commitment becomes binding lets you answer "but I didn't agree to that" with a fact rather than an opinion.
+
+## The sequence
+
+1. **Dispatcher finds a load** and identifies a driver who fits it.
+2. **The offer goes out** — the lane, the pickup and delivery windows, the equipment needed, and the rate.
+3. **The driver responds**: accepts, declines, or **bids** a different number.
+4. **The driver is placed on a 15-minute hold.** During it they must not accept other work.
+5. **Acceptance.** Once the driver confirms — by phone, text, or verbally — the rate is agreed.
+6. **The RC is sent** within **30 minutes** of acceptance.
+7. **The driver is dispatched** with the correct rate and the load instructions.
+
+## The three rules that settle most arguments
+
+:::card[1. A bid lasts 15 minutes]{tone=dark}
+After that it expires. A dispatcher who needs longer can ask the driver to hold another 5–10 minutes, and the driver may say no.
+:::
+
+:::card[2. Acceptance cannot be taken back]{tone=dark}
+A contractor **may not cancel after confirming acceptance** — by phone, text, or verbally. The fee is **$250**, and repeat behaviour can end the contract. Emergencies need proof.
+:::
+
+:::card[3. The rate is fixed at acceptance]{tone=dark}
+Once the driver confirms and agrees the rate, they are **not permitted to change it or refuse the load afterward**.
+:::
+
+## The one protection that runs the other way
+
+If the dispatcher does **not** send the rate confirmation within **30 minutes**, and there is no follow-up, the driver may cancel **without penalty**.
+
+That is a fair exchange, and worth pointing out during onboarding: the commitment binds both sides, and the RC is what makes it real.
+
+## Where it goes wrong
+
+| What happened | How it reads to us |
+| --- | --- |
+| Driver accepts, then finds better-paying freight and backs out | $250 fee, and a note on the file |
+| Driver bids, goes quiet, accepts elsewhere | A bid is a commitment for 15 minutes |
+| Driver says the rate "was supposed to be higher" | The agreed rate is the rate; the RC records it |
+| Driver never received the RC and walked away | Legitimate, if 30 minutes passed with no follow-up |
+
+## What HR does with this
+
+- **Explain the binding moment at onboarding.** Most cancellation disputes come from drivers who genuinely thought a verbal yes was provisional.
+- **Check the timestamps** before taking a side — when was acceptance given, when was the RC sent.
+- **Watch the pattern.** One cancellation is an incident. Three is a conversation about whether this contractor is working out.`,
+  },
+  {
+    slug: "load-board-walkthrough",
+    title: "Load Board Walkthrough",
+    category: "The Dispatcher Side",
+    summary: "A guided look at the load board a dispatcher works from.",
+    estMinutes: 8,
+    order: 12,
+    department: "HR",
+    content: `> **Why HR needs this.** When a dispatcher says "there is nothing on the board", this is what they are looking at. Understanding it makes the whole dispatch side of the business legible.
+
+## What a load board is
+
+**DAT** is an online marketplace. Brokers and 3PLs post freight they need moved; carriers and dispatchers search for loads that match their truck and lane. Think of a job board, but for loads instead of jobs.
+
+![DAT One search screen](/Tools/dat1.jpg)
+
+## What a posting shows
+
+| Field | What it tells the dispatcher |
+| --- | --- |
+| **Lane** | Pickup city/state → delivery city/state |
+| **Equipment type** | What the broker expects to show up — SV, box truck, and so on |
+| **Pickup and delivery windows** | Whether our driver can physically make it |
+| **Weight and commodity notes** | Hazmat, team required, liftgate, dock-high |
+| **Rate** | Sometimes posted, often "call for rate" |
+| **Broker contact and reference numbers** | Who to call, and what to quote |
+
+## How a dispatcher searches
+
+They filter by **origin and destination zones**, how far they are willing to drive to pick up (**DH-O**), equipment type, and date range. Empire runs **two searches**: one for Sprinter van equipment, and a second for the other equipment types brokers sometimes post a Sprinter-sized load under.
+
+## From posting to driver
+
+1. Filter for the right lane and equipment.
+2. Call or email the broker to confirm every detail.
+3. Negotiate the rate if needed.
+4. Broker sends the **RC**.
+5. Dispatch the driver, track the load, collect the **POD**.
+
+> A load board is **lead generation, not a guarantee.** Every posting gets verified — broker, rate, appointments, requirements, payment terms — before anyone accepts it.
+
+## Why some loads get skipped
+
+Dispatchers treat certain postings as a no-go, and it is useful for HR to know a driver was not passed over out of favouritism:
+
+- Equipment we do not run — dock-high, liftgate, pallet jack required
+- **Hazmat** in any form — we do not haul it
+- Insurance requirements above our coverage
+- Freight that will not fit a Sprinter
+- Broker warning signs — free email domains, no website, no profile on DAT or Truckstop
+
+The full list lives in the dispatch training and the Safety Handbook. The short version: a load that looks good on the board can still be one we will not touch.`,
+  },
+  {
     slug: "employee-records-and-compliance-basics",
     title: "Employee Records & Compliance Basics",
     category: "HR Workflow",
     summary: "The core records HR maintains and the confidentiality rules that protect them.",
     estMinutes: 10,
-    order: 2,
+    order: 13,
     department: "HR",
     content: `## Core employee records
 
@@ -3840,6 +4581,47 @@ async function main() {
     },
   });
   console.log(`Admin account ready: ${adminEmail}`);
+
+  // Department admins: same panel, limited to their own department.
+  const departmentAdmins = [
+    {
+      email: "dispatch.admin@empirenational.com",
+      name: "Dispatch Admin",
+      title: "Dispatch Administrator",
+      adminDepartment: "DISPATCH" as const,
+      password: process.env.SEED_DISPATCH_ADMIN_PASSWORD ?? "DispatchAdmin!2026",
+    },
+    {
+      email: "tracking.admin@empirenational.com",
+      name: "Tracking Admin",
+      title: "Tracking Administrator",
+      adminDepartment: "TRACKING" as const,
+      password: process.env.SEED_TRACKING_ADMIN_PASSWORD ?? "TrackingAdmin!2026",
+    },
+    {
+      email: "hr.admin@empirenational.com",
+      name: "HR Admin",
+      title: "HR Administrator",
+      adminDepartment: "HR" as const,
+      password: process.env.SEED_HR_ADMIN_PASSWORD ?? "HrAdmin!2026",
+    },
+  ];
+
+  for (const admin of departmentAdmins) {
+    await prisma.user.upsert({
+      where: { email: admin.email },
+      update: { adminDepartment: admin.adminDepartment, role: "ADMIN" },
+      create: {
+        name: admin.name,
+        email: admin.email,
+        passwordHash: await bcrypt.hash(admin.password, 10),
+        role: "ADMIN",
+        adminDepartment: admin.adminDepartment,
+        title: admin.title,
+      },
+    });
+    console.log(`Department admin ready: ${admin.email}`);
+  }
 
   const demoPasswordHash = await bcrypt.hash("Dispatcher!2026", 10);
   await prisma.user.upsert({

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { requireAdminScope } from "@/lib/dal";
 import { Card, LinkButton, Badge } from "@/components/ui";
 import { DEPARTMENT_LABELS, departmentForRole } from "@/lib/progress";
 import type { Department } from "@/generated/prisma/enums";
@@ -10,16 +11,34 @@ const DEPARTMENT_TONE: Record<Department, "accent" | "success" | "gold"> = {
   HR: "gold",
 };
 
+const ROLE_FOR_DEPARTMENT: Record<Department, "DISPATCHER" | "TRACKING" | "HR"> = {
+  DISPATCH: "DISPATCHER",
+  TRACKING: "TRACKING",
+  HR: "HR",
+};
+
 export default async function AdminOverviewPage() {
+  const { scope } = await requireAdminScope();
+
+  // A department admin's figures only count their own department.
+  const traineeRoles = scope
+    ? [ROLE_FOR_DEPARTMENT[scope]]
+    : (["DISPATCHER", "TRACKING", "HR"] as const);
+  const moduleWhere = scope ? { department: scope } : {};
+
   const [traineeCount, moduleCount, publishedModules, attempts, resourceCount, trainees] =
     await Promise.all([
-      prisma.user.count({ where: { role: { in: ["DISPATCHER", "TRACKING", "HR"] } } }),
-      prisma.module.count(),
-      prisma.module.groupBy({ by: ["department"], where: { published: true }, _count: { _all: true } }),
-      prisma.quizAttempt.count(),
+      prisma.user.count({ where: { role: { in: [...traineeRoles] } } }),
+      prisma.module.count({ where: moduleWhere }),
+      prisma.module.groupBy({
+        by: ["department"],
+        where: { published: true, ...moduleWhere },
+        _count: { _all: true },
+      }),
+      prisma.quizAttempt.count({ where: { user: { role: { in: [...traineeRoles] } } } }),
       prisma.resource.count(),
       prisma.user.findMany({
-        where: { role: { in: ["DISPATCHER", "TRACKING", "HR"] } },
+        where: { role: { in: [...traineeRoles] } },
         include: { progress: true },
       }),
     ]);

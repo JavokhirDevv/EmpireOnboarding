@@ -2,8 +2,10 @@ import { prisma } from "@/lib/prisma";
 import { deleteRateRule } from "@/lib/actions/rate-rules";
 import { Badge, Card } from "@/components/ui";
 import { AddRuleForm } from "./add-rule-form";
+import { requireDispatchAdmin } from "@/lib/dal";
 
 export default async function AdminRatesPage() {
+  await requireDispatchAdmin();
   const rules = await prisma.rateRule.findMany({
     orderBy: [{ order: "asc" }, { createdAt: "asc" }],
   });

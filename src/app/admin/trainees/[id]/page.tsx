@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import { requireAdminScope } from "@/lib/dal";
 import { deleteUser } from "@/lib/actions/users";
 import { Badge, Button, Card } from "@/components/ui";
 import { DEPARTMENT_LABELS, departmentForRole } from "@/lib/progress";
@@ -11,6 +12,7 @@ export default async function TraineeDetailPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  const { scope } = await requireAdminScope();
   const { id } = await params;
 
   const trainee = await prisma.user.findUnique({
@@ -26,6 +28,7 @@ export default async function TraineeDetailPage({
 
   const department = trainee ? departmentForRole(trainee.role) : null;
   if (!trainee || !department) notFound();
+  if (scope && department !== scope) notFound();
 
   const modules = await prisma.module.findMany({
     where: { published: true, department },

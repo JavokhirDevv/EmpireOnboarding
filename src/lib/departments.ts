@@ -8,6 +8,13 @@ export const DEPARTMENT_LABELS: Record<Department, string> = {
   HR: "HR",
 };
 
+/** The programme name shown under the logo, per department. */
+export const ONBOARDING_LABELS: Record<Department, string> = {
+  DISPATCH: "Dispatcher Onboarding",
+  TRACKING: "Tracking Onboarding",
+  HR: "HR Onboarding",
+};
+
 /** Maps a trainee's login role to the content department they belong to. Returns null for ADMIN. */
 export function departmentForRole(role: Role): Department | null {
   switch (role) {

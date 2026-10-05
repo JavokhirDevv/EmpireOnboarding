@@ -7,7 +7,7 @@ import { resetProgress } from "@/lib/actions/training";
 import { EmpireLogo } from "@/components/logo";
 import { SignOutButton } from "@/components/sign-out-button";
 import type { ModuleStatus } from "@/lib/progress";
-import { DEPARTMENT_LABELS } from "@/lib/departments";
+import { DEPARTMENT_LABELS, ONBOARDING_LABELS } from "@/lib/departments";
 import type { Department } from "@/generated/prisma/enums";
 
 type SidebarModule = {
@@ -124,7 +124,7 @@ export function TraineeSidebar({
           href="/dashboard"
           className="block rounded-lg px-1 py-1 -mx-1 hover:bg-white/[0.04] transition-colors"
         >
-          <EmpireLogo dark />
+          <EmpireLogo dark subtitle={ONBOARDING_LABELS[department]} />
         </Link>
       </div>
 

@@ -33,6 +33,9 @@ model User {
   email        String   @unique
   passwordHash String
   role         Role     @default(DISPATCHER)
+  // Set on ADMIN accounts that only manage one department. Null means a
+  // company-wide admin who can see and edit everything.
+  adminDepartment Department?
   title        String? // e.g. "New Dispatcher", "Senior Dispatcher"
   createdAt    DateTime @default(now())
 

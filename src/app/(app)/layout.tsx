@@ -1,9 +1,22 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
-import { requireUser } from "@/lib/dal";
+import { getCurrentUser, requireUser } from "@/lib/dal";
+import { ONBOARDING_LABELS } from "@/lib/departments";
 import { getTraineeProgress, departmentForRole } from "@/lib/progress";
 import { TraineeSidebar } from "@/components/trainee-sidebar";
 import { LiveClock } from "@/components/live-clock";
 import { PageTransition } from "@/components/page-transition";
+
+// The browser tab follows the trainee's own programme.
+export async function generateMetadata(): Promise<Metadata> {
+  const user = await getCurrentUser();
+  const department = user ? departmentForRole(user.role) : null;
+  return {
+    title: department
+      ? `Empire National | ${ONBOARDING_LABELS[department]}`
+      : "Empire National | Onboarding",
+  };
+}
 
 export default async function AppLayout({
   children,

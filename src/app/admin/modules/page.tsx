@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { requireAdminScope } from "@/lib/dal";
 import { Badge, Card, LinkButton } from "@/components/ui";
 import type { Department } from "@/generated/prisma/enums";
 
@@ -21,8 +22,15 @@ export default async function AdminModulesPage({
 }: {
   searchParams: Promise<{ department?: string }>;
 }) {
+  const { scope } = await requireAdminScope();
   const { department } = await searchParams;
-  const activeTab = TABS.some((t) => t.value === department) ? department! : "ALL";
+  // A department admin only ever sees their own department.
+  const activeTab = scope
+    ? scope
+    : TABS.some((t) => t.value === department)
+      ? department!
+      : "ALL";
+  const tabs = scope ? [] : TABS;
 
   const modules = await prisma.module.findMany({
     where: activeTab === "ALL" ? {} : { department: activeTab as Department },
@@ -48,7 +56,7 @@ export default async function AdminModulesPage({
       </div>
 
       <div className="flex items-center gap-1.5 mb-6">
-        {TABS.map((tab) => {
+        {tabs.map((tab) => {
           const href = tab.value === "ALL" ? "/admin/modules" : `/admin/modules?department=${tab.value}`;
           const active = tab.value === activeTab;
           return (

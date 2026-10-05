@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Badge, Card, LinkButton } from "@/components/ui";
+import { requireDispatchAdmin } from "@/lib/dal";
 
 export default async function AdminAudioPage() {
+  await requireDispatchAdmin();
   const lessons = await prisma.audioLesson.findMany({
     orderBy: [{ order: "asc" }, { createdAt: "desc" }],
     include: { quiz: { include: { questions: true } } },

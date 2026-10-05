@@ -10,12 +10,14 @@ import {
 import { Badge, Button, Card, FieldLabel, inputClass } from "@/components/ui";
 import { formatFileSize } from "@/lib/format";
 import { AddQuestionForm } from "@/components/admin/add-question-form";
+import { requireDispatchAdmin } from "@/lib/dal";
 
 export default async function EditAudioLessonPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
+  await requireDispatchAdmin();
   const { id } = await params;
 
   const lesson = await prisma.audioLesson.findUnique({

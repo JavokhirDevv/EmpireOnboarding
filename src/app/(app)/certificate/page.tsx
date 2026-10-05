@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { requireUser } from "@/lib/dal";
 import { getTraineeProgress, departmentForRole, DEPARTMENT_LABELS } from "@/lib/progress";
+import { ONBOARDING_LABELS } from "@/lib/departments";
 import { Card, LinkButton, ProgressBar } from "@/components/ui";
 import { EmpireLogo } from "@/components/logo";
 import { PrintButton } from "./print-button";
@@ -48,7 +49,7 @@ export default async function CertificatePage() {
       <div className="certificate-sheet bg-surface border-4 border-gold-500 rounded-2xl p-12 text-center relative overflow-hidden">
         <div className="absolute inset-0 border-[10px] border-gold-400/20 rounded-2xl pointer-events-none" />
         <div className="flex justify-center mb-8">
-          <EmpireLogo />
+          <EmpireLogo subtitle={ONBOARDING_LABELS[department]} />
         </div>
         <div className="text-xs font-semibold tracking-[0.25em] uppercase text-gold-600 mb-3">
           Certificate of Completion

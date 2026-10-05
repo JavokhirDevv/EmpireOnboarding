@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import { requireAdminScope } from "@/lib/dal";
 import {
   updateModule,
   deleteModule,
@@ -15,6 +16,7 @@ export default async function EditModulePage({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  const { scope } = await requireAdminScope();
   const { id } = await params;
 
   const trainingModule = await prisma.module.findUnique({
@@ -27,6 +29,8 @@ export default async function EditModulePage({
   });
 
   if (!trainingModule) notFound();
+  // Out of a department admin's remit.
+  if (scope && trainingModule.department !== scope) notFound();
 
   const updateModuleWithId = updateModule.bind(null, id);
   const deleteModuleWithId = deleteModule.bind(null, id);

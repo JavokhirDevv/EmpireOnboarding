@@ -3,9 +3,12 @@ import Image from "next/image";
 export function EmpireLogo({
   className = "",
   dark = false,
+  subtitle = "Dispatcher Onboarding",
 }: {
   className?: string;
   dark?: boolean;
+  /** Programme name under the wordmark — varies by department. */
+  subtitle?: string;
 }) {
   const textColor = dark ? "text-white" : "text-navy-900";
   const subColor = dark ? "text-accent-400" : "text-accent-600";
@@ -25,7 +28,7 @@ export function EmpireLogo({
           Empire National
         </div>
         <div className={`text-[11px] font-semibold tracking-[0.16em] uppercase ${subColor}`}>
-          Dispatcher Onboarding
+          {subtitle}
         </div>
       </div>
     </div>

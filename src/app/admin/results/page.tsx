@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+import { requireAdminScope } from "@/lib/dal";
 import { Badge, Card } from "@/components/ui";
 import { QuizResultDownload } from "@/components/quiz-result-download";
 import { DEPARTMENT_LABELS, departmentForRole } from "@/lib/progress";
@@ -25,8 +26,14 @@ export default async function AdminResultsPage({
 }: {
   searchParams: Promise<{ department?: string; result?: string }>;
 }) {
+  const { scope } = await requireAdminScope();
   const { department, result } = await searchParams;
-  const activeTab = TABS.some((t) => t.value === department) ? department! : "ALL";
+  const activeTab = scope
+    ? scope
+    : TABS.some((t) => t.value === department)
+      ? department!
+      : "ALL";
+  const tabs = scope ? [] : TABS;
   const onlyFailed = result === "failed";
 
   const attempts = await prisma.quizAttempt.findMany({
@@ -63,7 +70,7 @@ export default async function AdminResultsPage({
       </div>
 
       <div className="flex flex-wrap items-center gap-1.5 mb-6">
-        {TABS.map((tab) => {
+        {tabs.map((tab) => {
           const params = new URLSearchParams();
           if (tab.value !== "ALL") params.set("department", tab.value);
           if (onlyFailed) params.set("result", "failed");

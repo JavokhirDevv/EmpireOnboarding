@@ -6,8 +6,17 @@ import type { ReactNode } from "react";
 import { EmpireLogo } from "@/components/logo";
 import { SignOutButton } from "@/components/sign-out-button";
 import { Badge } from "@/components/ui";
+import { DEPARTMENT_LABELS, ONBOARDING_LABELS } from "@/lib/departments";
+import type { Department } from "@/generated/prisma/enums";
 
-export function AdminSidebar({ userName }: { userName: string }) {
+export function AdminSidebar({
+  userName,
+  scope,
+}: {
+  userName: string;
+  /** Department this admin manages, or null for a company-wide admin. */
+  scope: Department | null;
+}) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentDepartment = searchParams.get("department");
@@ -16,7 +25,7 @@ export function AdminSidebar({ userName }: { userName: string }) {
     <aside className="w-72 shrink-0 bg-navy-950 text-white flex flex-col h-full min-h-0 overflow-hidden">
       <div className="px-6 pt-7 pb-6 shrink-0">
         <Link href="/admin" className="block">
-          <EmpireLogo dark />
+          <EmpireLogo dark subtitle={scope ? ONBOARDING_LABELS[scope] : undefined} />
         </Link>
       </div>
 
@@ -27,53 +36,37 @@ export function AdminSidebar({ userName }: { userName: string }) {
           </NavLink>
         </div>
 
-        <div>
-          <SectionLabel>Dispatch</SectionLabel>
-          <div className="space-y-1">
-            <NavLink
-              href="/admin/modules?department=DISPATCH"
-              label="Modules"
-              pathname={pathname}
-              query={{ base: "/admin/modules", department: "DISPATCH", current: currentDepartment }}
-            >
-              <LayersIcon />
-            </NavLink>
-            <NavLink href="/admin/audio" label="Audio Training" pathname={pathname}>
-              <HeadphonesIcon />
-            </NavLink>
-            <NavLink href="/admin/rates" label="Rate Rules" pathname={pathname}>
-              <DollarIcon />
-            </NavLink>
-          </div>
-        </div>
-
-        <div>
-          <SectionLabel>Tracking</SectionLabel>
-          <div className="space-y-1">
-            <NavLink
-              href="/admin/modules?department=TRACKING"
-              label="Modules"
-              pathname={pathname}
-              query={{ base: "/admin/modules", department: "TRACKING", current: currentDepartment }}
-            >
-              <LayersIcon />
-            </NavLink>
-          </div>
-        </div>
-
-        <div>
-          <SectionLabel>HR</SectionLabel>
-          <div className="space-y-1">
-            <NavLink
-              href="/admin/modules?department=HR"
-              label="Modules"
-              pathname={pathname}
-              query={{ base: "/admin/modules", department: "HR", current: currentDepartment }}
-            >
-              <LayersIcon />
-            </NavLink>
-          </div>
-        </div>
+        {(["DISPATCH", "TRACKING", "HR"] as const)
+          .filter((department) => !scope || scope === department)
+          .map((department) => (
+            <div key={department}>
+              <SectionLabel>{DEPARTMENT_LABELS[department]}</SectionLabel>
+              <div className="space-y-1">
+                <NavLink
+                  href={`/admin/modules?department=${department}`}
+                  label="Modules"
+                  pathname={pathname}
+                  query={{
+                    base: "/admin/modules",
+                    department,
+                    current: currentDepartment,
+                  }}
+                >
+                  <LayersIcon />
+                </NavLink>
+                {department === "DISPATCH" && (
+                  <>
+                    <NavLink href="/admin/audio" label="Audio Training" pathname={pathname}>
+                      <HeadphonesIcon />
+                    </NavLink>
+                    <NavLink href="/admin/rates" label="Rate Rules" pathname={pathname}>
+                      <DollarIcon />
+                    </NavLink>
+                  </>
+                )}
+              </div>
+            </div>
+          ))}
 
         <div>
           <SectionLabel>Shared Content</SectionLabel>
@@ -106,7 +99,7 @@ export function AdminSidebar({ userName }: { userName: string }) {
       <div className="shrink-0 px-4 pb-5 pt-4 border-t border-white/10">
         <div className="flex items-center justify-between gap-3 px-2">
           <div className="min-w-0">
-            <Badge tone="accent">Admin</Badge>
+            <Badge tone="accent">{scope ? `${DEPARTMENT_LABELS[scope]} admin` : "Admin"}</Badge>
             <div className="text-sm font-semibold text-white truncate mt-1.5">
               {userName}
             </div>

@@ -1,5 +1,6 @@
 import { NewTraineeForm } from "./new-trainee-form";
 import { Card } from "@/components/ui";
+import { requireAdminScope } from "@/lib/dal";
 
 const ROLE_FOR_DEPARTMENT: Record<string, string> = {
   DISPATCH: "DISPATCHER",
@@ -12,8 +13,11 @@ export default async function NewTraineePage({
 }: {
   searchParams: Promise<{ department?: string }>;
 }) {
+  const { scope } = await requireAdminScope();
   const { department } = await searchParams;
-  const defaultDepartment = ROLE_FOR_DEPARTMENT[department ?? ""] ?? "DISPATCHER";
+  const defaultDepartment = scope
+    ? ROLE_FOR_DEPARTMENT[scope]
+    : ROLE_FOR_DEPARTMENT[department ?? ""] ?? "DISPATCHER";
 
   return (
     <div className="max-w-lg mx-auto px-6 py-10">
