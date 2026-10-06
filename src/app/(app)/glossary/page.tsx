@@ -11,8 +11,8 @@ export default async function GlossaryPage() {
       <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-accent-600">
         Reference
       </span>
-      <h1 className="text-4xl font-bold text-navy-900 mt-1">Glossary</h1>
-      <p className="text-steel-500 mt-3 max-w-lg">
+      <h1 className="text-4xl font-bold text-content mt-1">Glossary</h1>
+      <p className="text-content-muted mt-3 max-w-lg">
         Common terms you&apos;ll hear on your first weeks in dispatch. Search or
         scroll — this list will keep growing as you pick up more of the job.
       </p>

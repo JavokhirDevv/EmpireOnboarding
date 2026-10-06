@@ -19,7 +19,7 @@ export default async function EditGlossaryTermPage({
   return (
     <div className="max-w-lg mx-auto px-6 py-10">
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold text-navy-900">Edit glossary term</h1>
+        <h1 className="text-2xl font-bold text-content">Edit glossary term</h1>
         <form action={deleteTermWithId}>
           <Button type="submit" variant="danger" className="text-xs px-3 py-1.5">
             Delete term

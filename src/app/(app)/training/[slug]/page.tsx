@@ -50,7 +50,7 @@ export default async function TrainingModulePage({
     <div className="stagger-children max-w-3xl mx-auto px-6 py-10">
       <Link
         href="/dashboard"
-        className="text-sm text-steel-500 hover:text-navy-800 mb-5 inline-flex items-center gap-1.5"
+        className="text-sm text-content-muted hover:text-content-soft mb-5 inline-flex items-center gap-1.5"
       >
         ← Back to your route
       </Link>
@@ -60,18 +60,18 @@ export default async function TrainingModulePage({
           Stop {routeIndex + 1} of {modules.length}
         </span>
         <span className="h-3 w-px bg-border-subtle" />
-        <span className="text-[11px] font-bold tracking-[0.14em] uppercase text-steel-500">
+        <span className="text-[11px] font-bold tracking-[0.14em] uppercase text-content-muted">
           {trainingModule.category}
         </span>
       </div>
 
       <div className="flex items-start justify-between gap-4 mb-2">
-        <h1 className="text-3xl font-bold text-navy-900">
+        <h1 className="text-3xl font-bold text-content">
           {trainingModule.title}
         </h1>
         {completed && <Badge tone="success">Completed</Badge>}
       </div>
-      <p className="text-steel-500 mb-8 max-w-xl">{trainingModule.summary}</p>
+      <p className="text-content-muted mb-8 max-w-xl">{trainingModule.summary}</p>
 
       <Card className="overflow-hidden mb-6">
         <div className="h-1.5 bg-gradient-to-r from-accent-400 via-accent-500 to-navy-600" />
@@ -87,10 +87,10 @@ export default async function TrainingModulePage({
               <div className="text-xs font-semibold text-accent-600 uppercase tracking-wide mb-1">
                 {completed ? "Knowledge check" : "Next: knowledge check"}
               </div>
-              <div className="font-semibold text-navy-900">
+              <div className="font-semibold text-content">
                 {trainingModule.quiz.title}
               </div>
-              <div className="text-sm text-steel-500">
+              <div className="text-sm text-content-muted">
                 Score {trainingModule.quiz.passPercent}% or higher to complete this
                 stop.
                 {latestAttempt && <> Last attempt: {latestAttempt.score}%.</>}
@@ -106,7 +106,7 @@ export default async function TrainingModulePage({
               <div className="text-xs font-semibold text-accent-600 uppercase tracking-wide mb-1">
                 {completed ? "Done" : "Next step"}
               </div>
-              <div className="font-semibold text-navy-900">
+              <div className="font-semibold text-content">
                 {completed
                   ? "You've marked this stop complete."
                   : "Mark it complete when you're done reading."}
@@ -121,10 +121,10 @@ export default async function TrainingModulePage({
         {previousStop ? (
           <Link href={`/training/${previousStop.slug}`}>
             <Card className="p-4 hover:border-accent-400 transition-colors h-full">
-              <div className="text-xs font-semibold text-steel-500 uppercase tracking-wide mb-1">
+              <div className="text-xs font-semibold text-content-muted uppercase tracking-wide mb-1">
                 ← Previous
               </div>
-              <div className="text-sm font-semibold text-navy-900">
+              <div className="text-sm font-semibold text-content">
                 {previousStop.title}
               </div>
             </Card>
@@ -136,20 +136,20 @@ export default async function TrainingModulePage({
         {nextStop && nextStop.status !== "locked" ? (
           <Link href={`/training/${nextStop.slug}`}>
             <Card className="p-4 hover:border-accent-400 transition-colors h-full text-right">
-              <div className="text-xs font-semibold text-steel-500 uppercase tracking-wide mb-1">
+              <div className="text-xs font-semibold text-content-muted uppercase tracking-wide mb-1">
                 Next →
               </div>
-              <div className="text-sm font-semibold text-navy-900">
+              <div className="text-sm font-semibold text-content">
                 {nextStop.title}
               </div>
             </Card>
           </Link>
         ) : nextStop ? (
           <Card className="p-4 h-full text-right opacity-60">
-            <div className="text-xs font-semibold text-steel-500 uppercase tracking-wide mb-1">
+            <div className="text-xs font-semibold text-content-muted uppercase tracking-wide mb-1">
               Next →
             </div>
-            <div className="text-sm font-semibold text-steel-500">
+            <div className="text-sm font-semibold text-content-muted">
               {nextStop.title}
               <span className="block text-xs font-normal mt-0.5">
                 Unlocks after this stop

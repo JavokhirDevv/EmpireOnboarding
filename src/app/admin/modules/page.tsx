@@ -45,8 +45,8 @@ export default async function AdminModulesPage({
     <div className="max-w-6xl mx-auto px-6 py-10">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-navy-900">Training modules</h1>
-          <p className="text-steel-500">
+          <h1 className="text-2xl font-bold text-content">Training modules</h1>
+          <p className="text-content-muted">
             Create and manage onboarding content and quizzes.
           </p>
         </div>
@@ -66,7 +66,7 @@ export default async function AdminModulesPage({
               className={`text-sm font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
                 active
                   ? "bg-navy-900 text-white"
-                  : "text-steel-500 hover:bg-surface-muted"
+                  : "text-content-muted hover:bg-surface-muted"
               }`}
             >
               {tab.label}
@@ -78,7 +78,7 @@ export default async function AdminModulesPage({
       <Card className="overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-steel-500 bg-surface-muted border-b border-border-subtle">
+            <tr className="text-left text-content-muted bg-surface-muted border-b border-border-subtle">
               <th className="py-3 px-5 font-medium">Title</th>
               {activeTab === "ALL" && <th className="py-3 px-5 font-medium">Department</th>}
               <th className="py-3 px-5 font-medium">Category</th>
@@ -94,7 +94,7 @@ export default async function AdminModulesPage({
                 <td className="py-3 px-5">
                   <Link
                     href={`/admin/modules/${m.id}`}
-                    className="font-medium text-navy-900 hover:text-accent-600"
+                    className="font-medium text-content hover:text-accent-600"
                   >
                     {m.title}
                   </Link>
@@ -104,9 +104,9 @@ export default async function AdminModulesPage({
                     <Badge tone={DEPARTMENT_TONE[m.department]}>{m.department}</Badge>
                   </td>
                 )}
-                <td className="py-3 px-5 text-steel-500">{m.category}</td>
-                <td className="py-3 px-5 text-steel-500">{m.order}</td>
-                <td className="py-3 px-5 text-steel-500">
+                <td className="py-3 px-5 text-content-muted">{m.category}</td>
+                <td className="py-3 px-5 text-content-muted">{m.order}</td>
+                <td className="py-3 px-5 text-content-muted">
                   {m.quiz ? `${m.quiz.questions.length} questions` : "—"}
                 </td>
                 <td className="py-3 px-5">
@@ -129,7 +129,7 @@ export default async function AdminModulesPage({
             ))}
             {modules.length === 0 && (
               <tr>
-                <td colSpan={activeTab === "ALL" ? 7 : 6} className="py-8 text-center text-steel-500">
+                <td colSpan={activeTab === "ALL" ? 7 : 6} className="py-8 text-center text-content-muted">
                   No modules yet. Create your first one.
                 </td>
               </tr>

@@ -37,16 +37,16 @@ export default async function AudioLessonPage({
     <div className="stagger-children max-w-3xl mx-auto px-6 py-10">
       <Link
         href="/audio"
-        className="text-sm text-steel-500 hover:text-navy-800 mb-4 inline-block"
+        className="text-sm text-content-muted hover:text-content-soft mb-4 inline-block"
       >
         ← Back to audio training
       </Link>
 
       <div className="flex items-start justify-between gap-4 mb-2">
-        <h1 className="text-2xl font-bold text-navy-900">{lesson.title}</h1>
+        <h1 className="text-2xl font-bold text-content">{lesson.title}</h1>
         {passed && <Badge tone="success">Passed</Badge>}
       </div>
-      <p className="text-steel-500 mb-6">{lesson.description}</p>
+      <p className="text-content-muted mb-6">{lesson.description}</p>
 
       <Card className="p-6 mb-8">
         <audio
@@ -55,7 +55,7 @@ export default async function AudioLessonPage({
           className="w-full"
           src={`/api/audio/${lesson.id}`}
         />
-        <div className="text-xs text-steel-500 mt-2">
+        <div className="text-xs text-content-muted mt-2">
           {lesson.fileName} · {formatFileSize(lesson.sizeBytes)}
           {lesson.durationLabel ? ` · ${lesson.durationLabel}` : ""}
         </div>
@@ -67,8 +67,8 @@ export default async function AudioLessonPage({
             <div className="text-xs font-semibold text-accent-600 uppercase tracking-wide mb-1">
               {passed ? "Knowledge check" : "Next: knowledge check"}
             </div>
-            <div className="font-semibold text-navy-900">{lesson.quiz.title}</div>
-            <div className="text-sm text-steel-500">
+            <div className="font-semibold text-content">{lesson.quiz.title}</div>
+            <div className="text-sm text-content-muted">
               Score {lesson.quiz.passPercent}% or higher to pass.
               {latestAttempt && <> Last attempt: {latestAttempt.score}%.</>}
             </div>
@@ -78,7 +78,7 @@ export default async function AudioLessonPage({
           </LinkButton>
         </Card>
       ) : (
-        <Card className="p-6 text-steel-500 text-sm">
+        <Card className="p-6 text-content-muted text-sm">
           No quiz has been added for this recording yet.
         </Card>
       )}

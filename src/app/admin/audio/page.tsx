@@ -14,8 +14,8 @@ export default async function AdminAudioPage() {
     <div className="max-w-6xl mx-auto px-6 py-10">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-navy-900">Audio training</h1>
-          <p className="text-steel-500">
+          <h1 className="text-2xl font-bold text-content">Audio training</h1>
+          <p className="text-content-muted">
             Upload recordings and build a knowledge-check quiz for each one.
           </p>
         </div>
@@ -27,7 +27,7 @@ export default async function AdminAudioPage() {
       <Card className="overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-steel-500 bg-surface-muted border-b border-border-subtle">
+            <tr className="text-left text-content-muted bg-surface-muted border-b border-border-subtle">
               <th className="py-3 px-5 font-medium">Title</th>
               <th className="py-3 px-5 font-medium">Duration</th>
               <th className="py-3 px-5 font-medium">Order</th>
@@ -45,16 +45,16 @@ export default async function AdminAudioPage() {
                 <td className="py-3 px-5">
                   <Link
                     href={`/admin/audio/${lesson.id}`}
-                    className="font-medium text-navy-900 hover:text-accent-600"
+                    className="font-medium text-content hover:text-accent-600"
                   >
                     {lesson.title}
                   </Link>
                 </td>
-                <td className="py-3 px-5 text-steel-500">
+                <td className="py-3 px-5 text-content-muted">
                   {lesson.durationLabel ?? "—"}
                 </td>
-                <td className="py-3 px-5 text-steel-500">{lesson.order}</td>
-                <td className="py-3 px-5 text-steel-500">
+                <td className="py-3 px-5 text-content-muted">{lesson.order}</td>
+                <td className="py-3 px-5 text-content-muted">
                   {lesson.quiz ? `${lesson.quiz.questions.length} questions` : "—"}
                 </td>
                 <td className="py-3 px-5">
@@ -77,7 +77,7 @@ export default async function AdminAudioPage() {
             ))}
             {lessons.length === 0 && (
               <tr>
-                <td colSpan={6} className="py-8 text-center text-steel-500">
+                <td colSpan={6} className="py-8 text-center text-content-muted">
                   No audio lessons yet. Upload your first recording.
                 </td>
               </tr>

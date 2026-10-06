@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from
 import { resetProgress } from "@/lib/actions/training";
 import { EmpireLogo } from "@/components/logo";
 import { SignOutButton } from "@/components/sign-out-button";
+import { ThemeToggle } from "@/components/theme-toggle";
 import type { ModuleStatus } from "@/lib/progress";
 import { DEPARTMENT_LABELS, ONBOARDING_LABELS } from "@/lib/departments";
 import type { Department } from "@/generated/prisma/enums";
@@ -351,7 +352,8 @@ export function TraineeSidebar({
             {userTitle ?? `${departmentLabel} Trainee`}
           </div>
         </div>
-          <SignOutButton />
+          <ThemeToggle tone="dark" />
+        <SignOutButton />
       </div>
     </aside>
   );

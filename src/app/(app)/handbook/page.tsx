@@ -16,10 +16,10 @@ export default async function HandbookIndexPage() {
       <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-accent-600">
         Reference
       </span>
-      <h1 className="text-4xl font-bold text-navy-900 mt-1">
+      <h1 className="text-4xl font-bold text-content mt-1">
         Safety Handbook
       </h1>
-      <p className="text-steel-500 mt-2 max-w-xl">
+      <p className="text-content-muted mt-2 max-w-xl">
         Empire National INC — the safety, compliance, and fraud-prevention
         rules every dispatcher works by. Pick a section to read it.
       </p>
@@ -28,15 +28,15 @@ export default async function HandbookIndexPage() {
         {pages.map((page, idx) => (
           <Link key={page.id} href={`/handbook/${page.slug}`} className="block">
             <Card className="px-5 py-4 flex items-center gap-4 hover:border-accent-400 transition-colors">
-              <span className="shrink-0 w-8 text-[11px] font-bold tabular-nums text-steel-500">
+              <span className="shrink-0 w-8 text-[11px] font-bold tabular-nums text-content-muted">
                 {String(idx + 1).padStart(2, "0")}
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block font-semibold text-navy-900">
+                <span className="block font-semibold text-content">
                   {page.title}
                 </span>
                 {page.summary && (
-                  <span className="block text-sm text-steel-500 mt-0.5">
+                  <span className="block text-sm text-content-muted mt-0.5">
                     {page.summary}
                   </span>
                 )}
@@ -47,7 +47,7 @@ export default async function HandbookIndexPage() {
         ))}
 
         {pages.length === 0 && (
-          <Card className="p-8 text-center text-steel-500">
+          <Card className="p-8 text-center text-content-muted">
             No handbook pages have been published yet.
           </Card>
         )}

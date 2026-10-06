@@ -82,8 +82,8 @@ export default async function AdminOverviewPage() {
     <div className="max-w-6xl mx-auto px-6 py-10">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-navy-900">Admin overview</h1>
-          <p className="text-steel-500">
+          <h1 className="text-2xl font-bold text-content">Admin overview</h1>
+          <p className="text-content-muted">
             Manage onboarding content and track trainee progress across departments.
           </p>
         </div>
@@ -100,8 +100,8 @@ export default async function AdminOverviewPage() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
         {stats.map((s) => (
           <Card key={s.label} className="p-5">
-            <div className="text-2xl font-bold text-navy-900">{s.value}</div>
-            <div className="text-sm text-steel-500">{s.label}</div>
+            <div className="text-2xl font-bold text-content">{s.value}</div>
+            <div className="text-sm text-content-muted">{s.label}</div>
           </Card>
         ))}
       </div>
@@ -112,13 +112,13 @@ export default async function AdminOverviewPage() {
             <Card className="p-5 hover:border-accent-400 transition-colors">
               <div className="flex items-center justify-between mb-2">
                 <Badge tone={DEPARTMENT_TONE[department]}>{DEPARTMENT_LABELS[department]}</Badge>
-                <span className="text-xs text-steel-500">
+                <span className="text-xs text-content-muted">
                   {publishedByDepartment[department]} published module
                   {publishedByDepartment[department] === 1 ? "" : "s"}
                 </span>
               </div>
-              <div className="text-2xl font-bold text-navy-900">{count}</div>
-              <div className="text-sm text-steel-500">trainee{count === 1 ? "" : "s"}</div>
+              <div className="text-2xl font-bold text-content">{count}</div>
+              <div className="text-sm text-content-muted">trainee{count === 1 ? "" : "s"}</div>
             </Card>
           </Link>
         ))}
@@ -126,7 +126,7 @@ export default async function AdminOverviewPage() {
 
       <Card className="p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="font-semibold text-navy-900">Trainee progress</h2>
+          <h2 className="font-semibold text-content">Trainee progress</h2>
           <Link
             href="/admin/trainees"
             className="text-sm text-accent-600 font-medium hover:underline"
@@ -135,13 +135,13 @@ export default async function AdminOverviewPage() {
           </Link>
         </div>
         {recentTrainees.length === 0 ? (
-          <p className="text-sm text-steel-500">
+          <p className="text-sm text-content-muted">
             No trainee accounts yet. Create one to get started.
           </p>
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-steel-500 border-b border-border-subtle">
+              <tr className="text-left text-content-muted border-b border-border-subtle">
                 <th className="py-2 font-medium">Name</th>
                 <th className="py-2 font-medium">Email</th>
                 <th className="py-2 font-medium">Department</th>
@@ -157,16 +157,16 @@ export default async function AdminOverviewPage() {
                     <td className="py-2.5">
                       <Link
                         href={`/admin/trainees/${t.id}`}
-                        className="font-medium text-navy-900 hover:text-accent-600"
+                        className="font-medium text-content hover:text-accent-600"
                       >
                         {t.name}
                       </Link>
                     </td>
-                    <td className="py-2.5 text-steel-500">{t.email}</td>
+                    <td className="py-2.5 text-content-muted">{t.email}</td>
                     <td className="py-2.5">
                       <Badge tone={DEPARTMENT_TONE[dept]}>{DEPARTMENT_LABELS[dept]}</Badge>
                     </td>
-                    <td className="py-2.5 text-steel-500">
+                    <td className="py-2.5 text-content-muted">
                       {t.progress.length} / {total}
                     </td>
                   </tr>

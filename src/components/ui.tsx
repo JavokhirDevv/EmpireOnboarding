@@ -28,8 +28,8 @@ const variants = {
   primary: "bg-accent-500 text-white hover:bg-accent-600",
   navy: "bg-navy-900 text-white hover:bg-navy-800",
   outline:
-    "border border-border-subtle bg-surface text-navy-900 hover:bg-surface-muted",
-  ghost: "text-navy-700 hover:bg-surface-muted",
+    "border border-border-subtle bg-surface text-content hover:bg-surface-muted",
+  ghost: "text-content-soft hover:bg-surface-muted",
   danger: "bg-danger-600 text-white hover:bg-danger-600/90",
   gold: "bg-gold-500 text-white hover:bg-gold-600",
 };
@@ -83,7 +83,7 @@ export function Badge({
   tone?: "steel" | "success" | "danger" | "accent" | "gold";
 }) {
   const tones = {
-    steel: "bg-steel-100 text-navy-800",
+    steel: "bg-tint-neutral text-content-soft",
     success: "bg-success-100 text-success-600",
     danger: "bg-danger-100 text-danger-600",
     accent: "bg-accent-100 text-accent-600",
@@ -133,7 +133,7 @@ export function FieldLabel({
   return (
     <label
       htmlFor={htmlFor}
-      className="block text-sm font-semibold text-navy-800 mb-1.5"
+      className="block text-sm font-semibold text-content-soft mb-1.5"
     >
       {children}
     </label>
@@ -141,4 +141,4 @@ export function FieldLabel({
 }
 
 export const inputClass =
-  "w-full rounded-lg border border-border-subtle bg-surface px-3.5 py-2.5 text-sm text-navy-900 placeholder:text-steel-500 focus:outline-none focus:ring-2 focus:ring-accent-400 focus:border-accent-400";
+  "w-full rounded-lg border border-border-subtle bg-surface px-3.5 py-2.5 text-sm text-content placeholder:text-content-muted focus:outline-none focus:ring-2 focus:ring-accent-400 focus:border-accent-400";

@@ -62,8 +62,8 @@ export default async function AdminResultsPage({
   return (
     <div className="max-w-6xl mx-auto px-6 py-10">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-navy-900">Test results</h1>
-        <p className="text-steel-500">
+        <h1 className="text-2xl font-bold text-content">Test results</h1>
+        <p className="text-content-muted">
           Every quiz a trainee has submitted. Download the answer sheet as a PDF
           to keep or forward to HR.
         </p>
@@ -83,7 +83,7 @@ export default async function AdminResultsPage({
               className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition-colors ${
                 active
                   ? "bg-navy-900 text-white"
-                  : "text-steel-500 hover:bg-surface-muted"
+                  : "text-content-muted hover:bg-surface-muted"
               }`}
             >
               {tab.label}
@@ -109,7 +109,7 @@ export default async function AdminResultsPage({
               className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition-colors ${
                 active
                   ? "bg-navy-900 text-white"
-                  : "text-steel-500 hover:bg-surface-muted"
+                  : "text-content-muted hover:bg-surface-muted"
               }`}
             >
               {option.label}
@@ -119,7 +119,7 @@ export default async function AdminResultsPage({
       </div>
 
       {attempts.length > 0 && (
-        <p className="text-sm text-steel-500 mb-3">
+        <p className="text-sm text-content-muted mb-3">
           Showing {attempts.length} attempt{attempts.length === 1 ? "" : "s"} ·{" "}
           {passedCount} passed · {attempts.length - passedCount} not passing
           {attempts.length === PAGE_SIZE && " · most recent 100"}
@@ -129,7 +129,7 @@ export default async function AdminResultsPage({
       <Card className="overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-steel-500 bg-surface-muted border-b border-border-subtle">
+            <tr className="text-left text-content-muted bg-surface-muted border-b border-border-subtle">
               <th className="py-3 px-4 font-medium">Trainee</th>
               <th className="py-3 px-4 font-medium">Quiz</th>
               <th className="py-3 px-4 font-medium">Score</th>
@@ -150,23 +150,23 @@ export default async function AdminResultsPage({
                   <td className="py-3 px-4">
                     <Link
                       href={`/admin/trainees/${attempt.user.id}`}
-                      className="font-semibold text-navy-900 hover:text-accent-600"
+                      className="font-semibold text-content hover:text-accent-600"
                     >
                       {attempt.user.name}
                     </Link>
-                    <div className="text-xs text-steel-500">
+                    <div className="text-xs text-content-muted">
                       {traineeDepartment ? DEPARTMENT_LABELS[traineeDepartment] : attempt.user.role}
                     </div>
                   </td>
                   <td className="py-3 px-4">
-                    <div className="text-navy-800">{material}</div>
+                    <div className="text-content-soft">{material}</div>
                     {attempt.quiz.audioLesson && (
-                      <div className="text-xs text-steel-500">Audio training</div>
+                      <div className="text-xs text-content-muted">Audio training</div>
                     )}
                   </td>
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold tabular-nums text-navy-900">
+                      <span className="font-semibold tabular-nums text-content">
                         {attempt.score}%
                       </span>
                       {attempt.passed ? (
@@ -176,7 +176,7 @@ export default async function AdminResultsPage({
                       )}
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-steel-500 whitespace-nowrap">
+                  <td className="py-3 px-4 text-content-muted whitespace-nowrap">
                     {new Intl.DateTimeFormat("en-US", {
                       dateStyle: "medium",
                       timeStyle: "short",
@@ -195,7 +195,7 @@ export default async function AdminResultsPage({
             })}
             {attempts.length === 0 && (
               <tr>
-                <td colSpan={5} className="py-10 text-center text-steel-500">
+                <td colSpan={5} className="py-10 text-center text-content-muted">
                   No quiz results yet.
                 </td>
               </tr>

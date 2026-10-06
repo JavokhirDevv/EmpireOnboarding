@@ -41,12 +41,12 @@ export function AddRuleForm() {
             className={inputClass}
           />
         </div>
-        <label className="flex items-center gap-2 text-sm font-medium text-navy-800 pb-2.5">
+        <label className="flex items-center gap-2 text-sm font-medium text-content-soft pb-2.5">
           <input type="checkbox" name="critical" />
           Flag as critical
         </label>
       </div>
-      <p className="text-xs text-steel-500 -mt-2">
+      <p className="text-xs text-content-muted -mt-2">
         Critical rules (violations/consequences) are shown with a warning
         highlight so they stand out.
       </p>

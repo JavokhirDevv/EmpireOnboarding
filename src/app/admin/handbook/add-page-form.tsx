@@ -31,7 +31,7 @@ export function AddPageForm() {
       <input type="hidden" name="content" value="" />
       <input type="hidden" name="order" value="0" />
       <input type="hidden" name="published" value="on" />
-      <p className="text-xs text-steel-500">
+      <p className="text-xs text-content-muted">
         The page is created empty and added to the end of the handbook. Open it
         to write the content.
       </p>

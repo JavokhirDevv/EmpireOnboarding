@@ -70,8 +70,8 @@ export default async function TraineesPage({
     <div className="max-w-6xl mx-auto px-6 py-10">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-bold text-navy-900">Trainees</h1>
-          <p className="text-steel-500">
+          <h1 className="text-2xl font-bold text-content">Trainees</h1>
+          <p className="text-content-muted">
             Every account with access to the onboarding platform.
           </p>
         </div>
@@ -91,7 +91,7 @@ export default async function TraineesPage({
               className={`text-sm font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
                 active
                   ? "bg-navy-900 text-white"
-                  : "text-steel-500 hover:bg-surface-muted"
+                  : "text-content-muted hover:bg-surface-muted"
               }`}
             >
               {tab.label}
@@ -103,7 +103,7 @@ export default async function TraineesPage({
       <Card className="overflow-hidden">
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-left text-steel-500 bg-surface-muted border-b border-border-subtle">
+            <tr className="text-left text-content-muted bg-surface-muted border-b border-border-subtle">
               <th className="py-3 px-5 font-medium">Name</th>
               <th className="py-3 px-5 font-medium">Email</th>
               {activeTab === "ALL" && <th className="py-3 px-5 font-medium">Department</th>}
@@ -126,12 +126,12 @@ export default async function TraineesPage({
                   <td className="py-3 px-5">
                     <Link
                       href={`/admin/trainees/${t.id}`}
-                      className="font-medium text-navy-900 hover:text-accent-600"
+                      className="font-medium text-content hover:text-accent-600"
                     >
                       {t.name}
                     </Link>
                   </td>
-                  <td className="py-3 px-5 text-steel-500">{t.email}</td>
+                  <td className="py-3 px-5 text-content-muted">{t.email}</td>
                   {activeTab === "ALL" && (
                     <td className="py-3 px-5">
                       <Badge tone={DEPARTMENT_TONE[dept]}>{DEPARTMENT_LABELS[dept]}</Badge>
@@ -142,7 +142,7 @@ export default async function TraineesPage({
                       <div className="flex-1">
                         <ProgressBar percent={percent} />
                       </div>
-                      <span className="text-xs text-steel-500 w-16 text-right">
+                      <span className="text-xs text-content-muted w-16 text-right">
                         {t.progress.length}/{publishedCount}
                       </span>
                     </div>
@@ -152,7 +152,7 @@ export default async function TraineesPage({
             })}
             {trainees.length === 0 && (
               <tr>
-                <td colSpan={activeTab === "ALL" ? 4 : 3} className="py-8 text-center text-steel-500">
+                <td colSpan={activeTab === "ALL" ? 4 : 3} className="py-8 text-center text-content-muted">
                   No trainee accounts yet.
                 </td>
               </tr>

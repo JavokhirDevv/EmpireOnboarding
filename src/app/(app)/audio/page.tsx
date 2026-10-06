@@ -30,15 +30,15 @@ export default async function AudioTrainingPage() {
       <span className="text-[11px] font-semibold tracking-[0.18em] uppercase text-accent-600">
         Listening
       </span>
-      <h1 className="text-3xl font-bold text-navy-900 mt-1">Audio Training</h1>
-      <p className="text-steel-500 mt-2 max-w-lg">
+      <h1 className="text-3xl font-bold text-content mt-1">Audio Training</h1>
+      <p className="text-content-muted mt-2 max-w-lg">
         Real recordings from the floor — listen, then pass a short quiz to
         confirm what you picked up. These aren&apos;t part of your onboarding
         route, so listen in any order.
       </p>
 
       {lessons.length > 0 && (
-        <p className="text-sm text-steel-500 mt-4">
+        <p className="text-sm text-content-muted mt-4">
           {completedCount} of {lessons.length} quizzes passed
         </p>
       )}
@@ -51,7 +51,7 @@ export default async function AudioTrainingPage() {
             <Link key={lesson.id} href={`/audio/${lesson.id}`}>
               <Card className="p-5 hover:border-accent-400 transition-colors">
                 <div className="flex items-start justify-between gap-4 mb-1.5">
-                  <h3 className="font-semibold text-navy-900">{lesson.title}</h3>
+                  <h3 className="font-semibold text-content">{lesson.title}</h3>
                   {passed ? (
                     <Badge tone="success">Passed</Badge>
                   ) : attempted ? (
@@ -60,7 +60,7 @@ export default async function AudioTrainingPage() {
                     <Badge tone="steel">{lesson.durationLabel}</Badge>
                   ) : null}
                 </div>
-                <p className="text-sm text-steel-500 leading-relaxed">
+                <p className="text-sm text-content-muted leading-relaxed">
                   {lesson.description}
                 </p>
                 {lesson.quiz && (
@@ -74,7 +74,7 @@ export default async function AudioTrainingPage() {
         })}
 
         {lessons.length === 0 && (
-          <Card className="p-8 text-center text-steel-500">
+          <Card className="p-8 text-center text-content-muted">
             No audio lessons have been published yet. Check back soon.
           </Card>
         )}

@@ -43,12 +43,12 @@ export default async function TraineeDetailPage({
       <div className="flex items-start justify-between">
         <div>
           <div className="flex items-center gap-2.5 mb-1">
-            <h1 className="text-2xl font-bold text-navy-900">{trainee.name}</h1>
+            <h1 className="text-2xl font-bold text-content">{trainee.name}</h1>
             <Badge tone="accent">{DEPARTMENT_LABELS[department]}</Badge>
           </div>
-          <p className="text-steel-500">{trainee.email}</p>
+          <p className="text-content-muted">{trainee.email}</p>
           {trainee.title && (
-            <p className="text-sm text-steel-500 mt-1">{trainee.title}</p>
+            <p className="text-sm text-content-muted mt-1">{trainee.title}</p>
           )}
         </div>
         <form action={deleteUserWithId}>
@@ -59,7 +59,7 @@ export default async function TraineeDetailPage({
       </div>
 
       <Card className="p-6 max-w-lg">
-        <h2 className="font-semibold text-navy-900 mb-4">Edit trainee</h2>
+        <h2 className="font-semibold text-content mb-4">Edit trainee</h2>
         <EditTraineeForm
           userId={trainee.id}
           name={trainee.name}
@@ -68,7 +68,7 @@ export default async function TraineeDetailPage({
       </Card>
 
       <Card className="p-6">
-        <h2 className="font-semibold text-navy-900 mb-4">
+        <h2 className="font-semibold text-content mb-4">
           Module completion ({completedModuleIds.size}/{modules.length})
         </h2>
         <ul className="space-y-2">
@@ -77,7 +77,7 @@ export default async function TraineeDetailPage({
               key={m.id}
               className="flex items-center justify-between text-sm border-b border-border-subtle last:border-0 py-2"
             >
-              <span className="text-navy-800">{m.title}</span>
+              <span className="text-content-soft">{m.title}</span>
               {completedModuleIds.has(m.id) ? (
                 <Badge tone="success">Complete</Badge>
               ) : (
@@ -86,19 +86,19 @@ export default async function TraineeDetailPage({
             </li>
           ))}
           {modules.length === 0 && (
-            <p className="text-sm text-steel-500">No published modules for this department yet.</p>
+            <p className="text-sm text-content-muted">No published modules for this department yet.</p>
           )}
         </ul>
       </Card>
 
       <Card className="p-6">
-        <h2 className="font-semibold text-navy-900 mb-4">Quiz attempt history</h2>
+        <h2 className="font-semibold text-content mb-4">Quiz attempt history</h2>
         {trainee.attempts.length === 0 ? (
-          <p className="text-sm text-steel-500">No quiz attempts yet.</p>
+          <p className="text-sm text-content-muted">No quiz attempts yet.</p>
         ) : (
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-steel-500 border-b border-border-subtle">
+              <tr className="text-left text-content-muted border-b border-border-subtle">
                 <th className="py-2 font-medium">Quiz</th>
                 <th className="py-2 font-medium">Score</th>
                 <th className="py-2 font-medium">Result</th>
@@ -109,13 +109,13 @@ export default async function TraineeDetailPage({
             <tbody>
               {trainee.attempts.map((a) => (
                 <tr key={a.id} className="border-b border-border-subtle last:border-0">
-                  <td className="py-2.5 text-navy-800">
+                  <td className="py-2.5 text-content-soft">
                     {a.quiz.module?.title ?? a.quiz.audioLesson?.title}
                     {a.quiz.audioLesson && (
-                      <span className="ml-2 text-xs text-steel-500">(Audio)</span>
+                      <span className="ml-2 text-xs text-content-muted">(Audio)</span>
                     )}
                   </td>
-                  <td className="py-2.5 text-steel-500">{a.score}%</td>
+                  <td className="py-2.5 text-content-muted">{a.score}%</td>
                   <td className="py-2.5">
                     {a.passed ? (
                       <Badge tone="success">Passed</Badge>
@@ -123,7 +123,7 @@ export default async function TraineeDetailPage({
                       <Badge tone="danger">Failed</Badge>
                     )}
                   </td>
-                  <td className="py-2.5 text-steel-500">
+                  <td className="py-2.5 text-content-muted">
                     {new Intl.DateTimeFormat("en-US", {
                       dateStyle: "medium",
                       timeStyle: "short",

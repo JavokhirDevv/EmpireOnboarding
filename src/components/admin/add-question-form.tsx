@@ -53,7 +53,7 @@ export function AddQuestionForm({
               </div>
             ))}
           </div>
-          <p className="text-xs text-steel-500">
+          <p className="text-xs text-content-muted">
             Select the radio button next to the correct answer.
           </p>
         </>
@@ -68,7 +68,7 @@ export function AddQuestionForm({
               className={inputClass}
               placeholder="The driver said his ETA was ____ minutes away."
             />
-            <p className="text-xs text-steel-500 mt-1.5">
+            <p className="text-xs text-content-muted mt-1.5">
               Use <code>____</code> (four underscores) where the blank goes.
             </p>
           </div>
@@ -93,7 +93,7 @@ export function AddQuestionForm({
                 placeholder="Accepted variant (optional)"
               />
             </div>
-            <p className="text-xs text-steel-500 mt-1.5">
+            <p className="text-xs text-content-muted mt-1.5">
               Graded case-insensitively; extra spaces are ignored. Add
               variants like &quot;ETA&quot; / &quot;estimated time of
               arrival&quot; on separate lines.
@@ -125,7 +125,7 @@ function TypeTab({
       type="button"
       onClick={onClick}
       className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-colors ${
-        active ? "bg-surface text-navy-900 shadow-sm" : "text-steel-500 hover:text-navy-800"
+        active ? "bg-surface text-content shadow-sm" : "text-content-muted hover:text-content-soft"
       }`}
     >
       {children}

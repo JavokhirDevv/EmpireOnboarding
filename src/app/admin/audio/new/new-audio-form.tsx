@@ -93,7 +93,7 @@ export function NewAudioLessonForm() {
           className={`${inputClass} py-2`}
         />
       </div>
-      <label className="flex items-center gap-2 text-sm font-medium text-navy-800">
+      <label className="flex items-center gap-2 text-sm font-medium text-content-soft">
         <input type="checkbox" name="published" defaultChecked />
         Published (visible to dispatchers)
       </label>

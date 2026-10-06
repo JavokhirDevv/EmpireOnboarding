@@ -23,13 +23,13 @@ export default async function DashboardPage() {
         Overview
       </span>
       <h1
-        className="fade-up text-3xl font-bold text-navy-900 mt-1"
+        className="fade-up text-3xl font-bold text-content mt-1"
         style={{ "--reveal-delay": "180ms" } as React.CSSProperties}
       >
         Welcome, {user.name.split(" ")[0]}
       </h1>
       <p
-        className="fade-up text-steel-500 mt-2 max-w-lg"
+        className="fade-up text-content-muted mt-2 max-w-lg"
         style={{ "--reveal-delay": "300ms" } as React.CSSProperties}
       >
         Your onboarding route is on the left — stops unlock in order, so
@@ -42,14 +42,14 @@ export default async function DashboardPage() {
       >
         <div className="flex items-center justify-between mb-3">
           <div>
-            <div className="text-sm font-semibold text-navy-900">
+            <div className="text-sm font-semibold text-content">
               Overall progress
             </div>
-            <div className="text-xs text-steel-500">
+            <div className="text-xs text-content-muted">
               {completed} of {total} stops complete
             </div>
           </div>
-          <div className="text-2xl font-bold text-navy-900 tabular-nums">
+          <div className="text-2xl font-bold text-content tabular-nums">
             <CountUp value={percent} delay={700} duration={1500} suffix="%" />
           </div>
         </div>
@@ -65,10 +65,10 @@ export default async function DashboardPage() {
             <div className="text-xs font-semibold text-gold-600 uppercase tracking-wide mb-1">
               Route complete
             </div>
-            <div className="font-semibold text-navy-900">
+            <div className="font-semibold text-content">
               You&apos;ve finished every stop.
             </div>
-            <div className="text-sm text-steel-500">
+            <div className="text-sm text-content-muted">
               Your certificate is ready to download.
             </div>
           </div>
@@ -85,8 +85,8 @@ export default async function DashboardPage() {
             <div className="text-xs font-semibold text-accent-600 uppercase tracking-wide mb-1">
               In progress
             </div>
-            <div className="font-semibold text-navy-900">{nextStop.title}</div>
-            <div className="text-sm text-steel-500">{nextStop.summary}</div>
+            <div className="font-semibold text-content">{nextStop.title}</div>
+            <div className="text-sm text-content-muted">{nextStop.summary}</div>
           </div>
           <LinkButton href={`/training/${nextStop.slug}`} variant="primary">
             Continue
@@ -94,7 +94,7 @@ export default async function DashboardPage() {
         </Card>
       ) : (
         <Card
-          className="fade-up p-8 text-center text-steel-500 mt-5"
+          className="fade-up p-8 text-center text-content-muted mt-5"
           style={{ "--reveal-delay": "620ms" } as React.CSSProperties}
         >
           No training stops have been published yet. Check back soon.
@@ -104,7 +104,7 @@ export default async function DashboardPage() {
       {total > 0 && (
         <div className="mt-10">
           <h2
-            className="fade-up text-sm font-bold uppercase tracking-wide text-steel-500 mb-3"
+            className="fade-up text-sm font-bold uppercase tracking-wide text-content-muted mb-3"
             style={{ "--reveal-delay": "780ms" } as React.CSSProperties}
           >
             Your route
@@ -121,10 +121,10 @@ export default async function DashboardPage() {
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <span className="text-[11px] font-bold tracking-[0.12em] uppercase text-steel-500 shrink-0 w-[3.6rem]">
+                    <span className="text-[11px] font-bold tracking-[0.12em] uppercase text-content-muted shrink-0 w-[3.6rem]">
                       Stop {idx + 1}
                     </span>
-                    <span className="font-medium text-navy-900 truncate">
+                    <span className="font-medium text-content truncate">
                       {m.title}
                     </span>
                   </div>

@@ -5,6 +5,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import type { ReactNode } from "react";
 import { EmpireLogo } from "@/components/logo";
 import { SignOutButton } from "@/components/sign-out-button";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Badge } from "@/components/ui";
 import { DEPARTMENT_LABELS, ONBOARDING_LABELS } from "@/lib/departments";
 import type { Department } from "@/generated/prisma/enums";
@@ -104,7 +105,10 @@ export function AdminSidebar({
               {userName}
             </div>
           </div>
-          <SignOutButton />
+          <div className="flex items-center gap-1">
+            <ThemeToggle tone="dark" />
+            <SignOutButton />
+          </div>
         </div>
       </div>
     </aside>

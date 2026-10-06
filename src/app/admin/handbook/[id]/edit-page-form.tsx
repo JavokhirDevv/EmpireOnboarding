@@ -44,7 +44,7 @@ export function EditPageForm({
           className={`${inputClass} font-mono text-[13px] leading-relaxed`}
           placeholder={"## Section heading\n\nWrite the page here. **Bold**, bullet lists, and tables all work.\n\n- First point\n- Second point"}
         />
-        <p className="text-xs text-steel-500 mt-1.5">
+        <p className="text-xs text-content-muted mt-1.5">
           Same formatting as training modules: <code>## Heading</code>,{" "}
           <code>**bold**</code>, <code>- bullets</code>, tables, and{" "}
           <code>![alt](/path.jpg)</code> for images.
@@ -63,7 +63,7 @@ export function EditPageForm({
             className={inputClass}
           />
         </div>
-        <label className="flex items-center gap-2 text-sm font-medium text-navy-800 pb-2.5">
+        <label className="flex items-center gap-2 text-sm font-medium text-content-soft pb-2.5">
           <input type="checkbox" name="published" defaultChecked={published} />
           Visible to trainees
         </label>

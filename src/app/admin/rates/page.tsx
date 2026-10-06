@@ -13,8 +13,8 @@ export default async function AdminRatesPage() {
   return (
     <div className="max-w-5xl mx-auto px-6 py-10">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-navy-900">Rate rules</h1>
-        <p className="text-steel-500">
+        <h1 className="text-2xl font-bold text-content">Rate rules</h1>
+        <p className="text-content-muted">
           Manage the internal rate-bidding rules dispatchers see at{" "}
           <code className="text-xs">/rates</code>.
         </p>
@@ -22,14 +22,14 @@ export default async function AdminRatesPage() {
 
       <div className="grid md:grid-cols-[1fr_1.4fr] gap-6 items-start">
         <Card className="p-6">
-          <h2 className="font-semibold text-navy-900 mb-4">Add a rule</h2>
+          <h2 className="font-semibold text-content mb-4">Add a rule</h2>
           <AddRuleForm />
         </Card>
 
         <Card className="overflow-hidden">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-steel-500 bg-surface-muted border-b border-border-subtle">
+              <tr className="text-left text-content-muted bg-surface-muted border-b border-border-subtle">
                 <th className="py-3 px-4 font-medium">Rule</th>
                 <th className="py-3 px-4 font-medium"></th>
                 <th className="py-3 px-4 font-medium"></th>
@@ -44,8 +44,8 @@ export default async function AdminRatesPage() {
                     className="border-b border-border-subtle last:border-0 align-top"
                   >
                     <td className="py-3 px-4">
-                      <div className="font-semibold text-navy-900">{r.title}</div>
-                      <div className="text-steel-500 mt-0.5 whitespace-pre-line">
+                      <div className="font-semibold text-content">{r.title}</div>
+                      <div className="text-content-muted mt-0.5 whitespace-pre-line">
                         {r.description}
                       </div>
                     </td>
@@ -67,7 +67,7 @@ export default async function AdminRatesPage() {
               })}
               {rules.length === 0 && (
                 <tr>
-                  <td colSpan={3} className="py-8 text-center text-steel-500">
+                  <td colSpan={3} className="py-8 text-center text-content-muted">
                     No rules yet.
                   </td>
                 </tr>

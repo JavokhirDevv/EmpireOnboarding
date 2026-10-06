@@ -33,7 +33,7 @@ export function GlossarySearch({ terms }: { terms: Term[] }) {
         {filtered.map((t) => (
           <Card key={t.id} className="p-5">
             <div className="flex items-baseline gap-2 flex-wrap">
-              <span className="font-mono font-bold text-navy-900 text-lg tracking-tight">
+              <span className="font-mono font-bold text-content text-lg tracking-tight">
                 {t.term}
               </span>
               {t.fullName && (
@@ -43,11 +43,11 @@ export function GlossarySearch({ terms }: { terms: Term[] }) {
                 </>
               )}
             </div>
-            <p className="text-steel-500 text-sm leading-relaxed mt-2">{t.definition}</p>
+            <p className="text-content-muted text-sm leading-relaxed mt-2">{t.definition}</p>
           </Card>
         ))}
         {filtered.length === 0 && (
-          <p className="col-span-full py-8 text-center text-steel-500">
+          <p className="col-span-full py-8 text-center text-content-muted">
             No terms match &quot;{query}&quot;.
           </p>
         )}

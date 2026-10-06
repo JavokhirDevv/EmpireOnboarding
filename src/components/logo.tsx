@@ -10,7 +10,7 @@ export function EmpireLogo({
   /** Programme name under the wordmark — varies by department. */
   subtitle?: string;
 }) {
-  const textColor = dark ? "text-white" : "text-navy-900";
+  const textColor = dark ? "text-white" : "text-content";
   const subColor = dark ? "text-accent-400" : "text-accent-600";
 
   return (

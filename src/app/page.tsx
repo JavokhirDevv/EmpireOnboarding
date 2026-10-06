@@ -2,14 +2,15 @@ import { EmpireLogo } from "@/components/logo";
 import { LinkButton } from "@/components/ui";
 import { GlobalOffices } from "@/components/global-offices";
 import { CoreTeam } from "@/components/core-team";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const coreTeam = [
   { name: "Cole West", title: "Expedite Manager", photo: "/TeamPics/cole.jpeg" },
   { name: "Nicole Medina", title: "Accounting Specialist", photo: "/TeamPics/nicole.jpeg" },
   { name: "Ryan King", title: "Company Relations", photo: "/TeamPics/ryan.jpeg" },
-  { name: "John Atkinson", title: "Team Lead", photo: "/TeamPics/john.jpeg" },
+  { name: "John Atkinson", title: "Expedite Team Lead", photo: "/TeamPics/john.jpeg" },
   { name: "Alex Green", title: "Operations Manager", photo: "/TeamPics/alex.jpeg" },
-  { name: "Daria Brooks", title: "QA Engineer", photo: "/TeamPics/dasha.jpeg" },
+  { name: "Daria Brooks", title: "Quality Assurance Specialist", photo: "/TeamPics/dasha.jpeg" },
 ];
 
 const branches = [
@@ -46,6 +47,7 @@ export default function Home() {
       <header className="border-b border-border-subtle bg-surface">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <EmpireLogo />
+          <ThemeToggle className="ml-auto" />
           <LinkButton href="/login" variant="navy">
             Sign in
           </LinkButton>
@@ -120,10 +122,10 @@ export default function Home() {
         </section>
 
         <section className="max-w-6xl mx-auto px-6 py-16">
-          <h2 className="text-2xl font-bold text-navy-900 mb-2">
+          <h2 className="text-2xl font-bold text-content mb-2">
             Training built around the job
           </h2>
-          <p className="text-steel-500 mb-10 max-w-2xl">
+          <p className="text-content-muted mb-10 max-w-2xl">
             The curriculum covers the core areas every Empire National
             dispatcher needs before taking live loads.
           </p>
@@ -133,8 +135,8 @@ export default function Home() {
                 key={p.title}
                 className="bg-surface border border-border-subtle rounded-xl p-5"
               >
-                <h3 className="font-semibold text-navy-900 mb-2">{p.title}</h3>
-                <p className="text-sm text-steel-500 leading-relaxed">{p.desc}</p>
+                <h3 className="font-semibold text-content mb-2">{p.title}</h3>
+                <p className="text-sm text-content-muted leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -143,7 +145,7 @@ export default function Home() {
         <section className="bg-surface-muted border-t border-border-subtle">
           <div className="max-w-6xl mx-auto px-6 py-16">
             <div className="text-center mb-12">
-              <h2 className="text-2xl font-bold text-navy-900 mb-3">Core Team</h2>
+              <h2 className="text-2xl font-bold text-content mb-3">Core Team</h2>
               <span className="inline-block w-14 h-0.5 bg-accent-400" />
             </div>
             <CoreTeam members={coreTeam} />
@@ -167,7 +169,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-border-subtle bg-surface">
-        <div className="max-w-6xl mx-auto px-6 py-6 text-xs text-steel-500 flex justify-between">
+        <div className="max-w-6xl mx-auto px-6 py-6 text-xs text-content-muted flex justify-between">
           <span>&copy; {new Date().getFullYear()} Empire National. Internal use only.</span>
           <span>Dispatcher Onboarding Platform</span>
         </div>

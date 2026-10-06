@@ -37,10 +37,10 @@ export function CoreTeam({ members }: { members: TeamMember[] }) {
               className="w-36 h-36 rounded-full object-cover object-center bg-surface-muted ring-1 ring-border-subtle"
             />
           </span>
-          <h3 className="font-semibold text-navy-900 transition-colors duration-300 group-hover:text-accent-600">
+          <h3 className="font-semibold text-content transition-colors duration-300 group-hover:text-accent-600">
             {person.name}
           </h3>
-          <p className="text-sm text-steel-500">{person.title}</p>
+          <p className="text-sm text-content-muted">{person.title}</p>
         </div>
       ))}
     </div>

@@ -16,15 +16,15 @@ export default async function CertificatePage() {
   if (!allComplete) {
     return (
       <div className="max-w-xl mx-auto px-6 py-16 text-center">
-        <h1 className="text-2xl font-bold text-navy-900 mb-2">
+        <h1 className="text-2xl font-bold text-content mb-2">
           Certificate locked
         </h1>
-        <p className="text-steel-500 mb-6">
+        <p className="text-content-muted mb-6">
           Finish every training module and pass its quiz to unlock your
           completion certificate.
         </p>
         <Card className="p-6 mb-6">
-          <div className="text-sm text-steel-500 mb-2">
+          <div className="text-sm text-content-muted mb-2">
             {completed} of {total} modules complete
           </div>
           <ProgressBar percent={percent} />
@@ -54,19 +54,19 @@ export default async function CertificatePage() {
         <div className="text-xs font-semibold tracking-[0.25em] uppercase text-gold-600 mb-3">
           Certificate of Completion
         </div>
-        <h1 className="text-3xl font-bold text-navy-900 mb-2">{user.name}</h1>
-        <p className="text-steel-500 mb-8">
+        <h1 className="text-3xl font-bold text-content mb-2">{user.name}</h1>
+        <p className="text-content-muted mb-8">
           has successfully completed the Empire National {DEPARTMENT_LABELS[department]}{" "}
           Onboarding Program.
         </p>
         <div className="grid grid-cols-2 gap-6 max-w-sm mx-auto text-sm">
           <div>
-            <div className="text-steel-500">Modules completed</div>
-            <div className="font-semibold text-navy-900">{total} / {total}</div>
+            <div className="text-content-muted">Modules completed</div>
+            <div className="font-semibold text-content">{total} / {total}</div>
           </div>
           <div>
-            <div className="text-steel-500">Date</div>
-            <div className="font-semibold text-navy-900">
+            <div className="text-content-muted">Date</div>
+            <div className="font-semibold text-content">
               {completionDate
                 ? new Intl.DateTimeFormat("en-US", {
                     dateStyle: "long",

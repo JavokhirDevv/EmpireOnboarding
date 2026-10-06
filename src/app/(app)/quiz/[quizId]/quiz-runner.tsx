@@ -73,11 +73,11 @@ export function QuizRunner({
             <Badge tone="danger">Not yet passing</Badge>
           )}
         </div>
-        <p className="text-steel-500 mt-4 mb-1">
+        <p className="text-content-muted mt-4 mb-1">
           {result.correctCount} of {result.totalQuestions} correct — you need{" "}
           {result.passPercent}% to pass.
         </p>
-        <p className="text-sm text-steel-500 mb-6">
+        <p className="text-sm text-content-muted mb-6">
           {result.passed
             ? `"${contentTitle}" is now marked complete.`
             : "Review the material and try again when you're ready."}
@@ -92,7 +92,7 @@ export function QuizRunner({
             </Button>
           )}
         </div>
-        <p className="text-xs text-steel-500 mt-4">
+        <p className="text-xs text-content-muted mt-4">
           Your answers have been sent to the admin team.
         </p>
       </Card>
@@ -103,12 +103,12 @@ export function QuizRunner({
     <div>
       <Link
         href={backHref}
-        className="text-sm text-steel-500 hover:text-navy-800 mb-4 inline-block"
+        className="text-sm text-content-muted hover:text-content-soft mb-4 inline-block"
       >
         ← Back to {contentTitle}
       </Link>
-      <h1 className="text-2xl font-bold text-navy-900 mb-1">{quizTitle}</h1>
-      <p className="text-steel-500 mb-8">
+      <h1 className="text-2xl font-bold text-content mb-1">{quizTitle}</h1>
+      <p className="text-content-muted mb-8">
         {questions.length} questions · {passPercent}% required to pass
       </p>
 
@@ -116,7 +116,7 @@ export function QuizRunner({
         {questions.map((q, idx) =>
           q.type === "FILL_BLANK" ? (
             <Card key={q.id} className="p-6">
-              <div className="font-semibold text-navy-900 leading-relaxed">
+              <div className="font-semibold text-content leading-relaxed">
                 {idx + 1}.{" "}
                 {q.text.split("____").map((part, i, arr) => (
                   <span key={i}>
@@ -138,7 +138,7 @@ export function QuizRunner({
             </Card>
           ) : (
             <Card key={q.id} className="p-6">
-              <div className="font-semibold text-navy-900 mb-4">
+              <div className="font-semibold text-content mb-4">
                 {idx + 1}. {q.text}
               </div>
               <div className="space-y-2">

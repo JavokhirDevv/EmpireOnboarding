@@ -42,8 +42,8 @@ export default async function EditAudioLessonPage({
     <div className="max-w-3xl mx-auto px-6 py-10 space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-navy-900">Edit audio lesson</h1>
-          <p className="text-steel-500 text-sm">
+          <h1 className="text-2xl font-bold text-content">Edit audio lesson</h1>
+          <p className="text-content-muted text-sm">
             {lesson.fileName} · {formatFileSize(lesson.sizeBytes)}
           </p>
         </div>
@@ -104,7 +104,7 @@ export default async function EditAudioLessonPage({
                 className={inputClass}
               />
             </div>
-            <label className="flex items-center gap-2 text-sm font-medium text-navy-800 pb-2.5">
+            <label className="flex items-center gap-2 text-sm font-medium text-content-soft pb-2.5">
               <input type="checkbox" name="published" defaultChecked={lesson.published} />
               Published
             </label>
@@ -119,8 +119,8 @@ export default async function EditAudioLessonPage({
       </Card>
 
       <Card className="p-7">
-        <h2 className="font-semibold text-navy-900 mb-1">Quiz</h2>
-        <p className="text-sm text-steel-500 mb-5">
+        <h2 className="font-semibold text-content mb-1">Quiz</h2>
+        <p className="text-sm text-content-muted mb-5">
           A dispatcher marks this lesson complete once they pass the quiz.
         </p>
         <form
@@ -159,7 +159,7 @@ export default async function EditAudioLessonPage({
 
       {lesson.quiz && (
         <Card className="p-7">
-          <h2 className="font-semibold text-navy-900 mb-5">
+          <h2 className="font-semibold text-content mb-5">
             Questions ({lesson.quiz.questions.length})
           </h2>
 
@@ -169,7 +169,7 @@ export default async function EditAudioLessonPage({
               return (
                 <div key={q.id} className="border border-border-subtle rounded-lg p-4">
                   <div className="flex items-start justify-between gap-3 mb-2">
-                    <div className="font-medium text-navy-900 text-sm flex items-center gap-2">
+                    <div className="font-medium text-content text-sm flex items-center gap-2">
                       <span>
                         {idx + 1}.{" "}
                         {q.type === "FILL_BLANK"
@@ -197,7 +197,7 @@ export default async function EditAudioLessonPage({
                     </form>
                   </div>
                   {q.type === "FILL_BLANK" ? (
-                    <div className="flex items-center gap-1.5 flex-wrap text-sm text-steel-500">
+                    <div className="flex items-center gap-1.5 flex-wrap text-sm text-content-muted">
                       Accepted:
                       {q.options.map((o) => (
                         <Badge key={o.id} tone="success">
@@ -214,7 +214,7 @@ export default async function EditAudioLessonPage({
                           ) : (
                             <span className="w-[52px]" />
                           )}
-                          <span className="text-navy-700">{o.text}</span>
+                          <span className="text-content-soft">{o.text}</span>
                         </li>
                       ))}
                     </ul>
@@ -223,7 +223,7 @@ export default async function EditAudioLessonPage({
               );
             })}
             {lesson.quiz.questions.length === 0 && (
-              <p className="text-sm text-steel-500">
+              <p className="text-sm text-content-muted">
                 No questions yet — add one below.
               </p>
             )}
@@ -231,7 +231,7 @@ export default async function EditAudioLessonPage({
 
           {addAudioQuestionWithId && (
             <div className="border-t border-border-subtle pt-6">
-              <h3 className="font-semibold text-navy-900 text-sm mb-4">
+              <h3 className="font-semibold text-content text-sm mb-4">
                 Add a question
               </h3>
               <AddQuestionForm action={addAudioQuestionWithId} />

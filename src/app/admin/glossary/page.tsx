@@ -32,7 +32,7 @@ function TermTable({ terms }: { terms: Term[] }) {
           <col className="w-[18%]" />
         </colgroup>
         <thead>
-          <tr className="text-left text-steel-500 bg-surface-muted border-b border-border-subtle">
+          <tr className="text-left text-content-muted bg-surface-muted border-b border-border-subtle">
             <th className="py-3 px-4 font-medium border-r border-border-subtle">Term</th>
             <th className="py-3 px-4 font-medium border-r border-border-subtle">Full Name</th>
             <th className="py-3 px-4 font-medium border-r border-border-subtle">Definition</th>
@@ -47,13 +47,13 @@ function TermTable({ terms }: { terms: Term[] }) {
                 key={t.id}
                 className="border-b border-border-subtle last:border-0 align-top"
               >
-                <td className="py-3 px-4 font-mono font-semibold text-navy-900 border-r border-border-subtle break-words">
+                <td className="py-3 px-4 font-mono font-semibold text-content border-r border-border-subtle break-words">
                   {t.term}
                 </td>
-                <td className="py-3 px-4 text-steel-500 border-r border-border-subtle break-words">
+                <td className="py-3 px-4 text-content-muted border-r border-border-subtle break-words">
                   {t.fullName ?? "—"}
                 </td>
-                <td className="py-3 px-4 text-steel-500 border-r border-border-subtle leading-relaxed">
+                <td className="py-3 px-4 text-content-muted border-r border-border-subtle leading-relaxed">
                   {t.definition}
                 </td>
                 <td className="py-3 px-4">
@@ -101,20 +101,20 @@ export default async function AdminGlossaryPage() {
   return (
     <div className="px-6 py-10">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-navy-900">Glossary</h1>
-        <p className="text-steel-500">
+        <h1 className="text-2xl font-bold text-content">Glossary</h1>
+        <p className="text-content-muted">
           Manage the dispatch terminology dispatchers see at{" "}
           <code className="text-xs">/glossary</code>.
         </p>
       </div>
 
       <Card className="p-6 mb-8 max-w-xl">
-        <h2 className="font-semibold text-navy-900 mb-4">Add a term</h2>
+        <h2 className="font-semibold text-content mb-4">Add a term</h2>
         <AddTermForm />
       </Card>
 
       {terms.length === 0 ? (
-        <Card className="py-8 text-center text-steel-500">No terms yet.</Card>
+        <Card className="py-8 text-center text-content-muted">No terms yet.</Card>
       ) : (
         <div className={gridClass}>
           {columns.map((col, idx) => (

@@ -29,7 +29,7 @@ export default async function HandbookPageView({
     <div className="stagger-children max-w-3xl mx-auto px-6 py-10">
       <Link
         href="/handbook"
-        className="text-sm text-steel-500 hover:text-navy-800 mb-5 inline-flex items-center gap-1.5"
+        className="text-sm text-content-muted hover:text-content-soft mb-5 inline-flex items-center gap-1.5"
       >
         ← Safety Handbook
       </Link>
@@ -39,14 +39,14 @@ export default async function HandbookPageView({
           Page {index + 1} of {pages.length}
         </span>
         <span className="h-3 w-px bg-border-subtle" />
-        <span className="text-[11px] font-bold tracking-[0.14em] uppercase text-steel-500">
+        <span className="text-[11px] font-bold tracking-[0.14em] uppercase text-content-muted">
           Safety Handbook
         </span>
       </div>
 
-      <h1 className="text-3xl font-bold text-navy-900 mb-2">{page.title}</h1>
+      <h1 className="text-3xl font-bold text-content mb-2">{page.title}</h1>
       {page.summary && (
-        <p className="text-steel-500 mb-8 max-w-xl">{page.summary}</p>
+        <p className="text-content-muted mb-8 max-w-xl">{page.summary}</p>
       )}
 
       <Card className="overflow-hidden mb-6">
@@ -55,7 +55,7 @@ export default async function HandbookPageView({
           {page.content.trim() ? (
             <MarkdownContent>{page.content}</MarkdownContent>
           ) : (
-            <p className="text-steel-500">
+            <p className="text-content-muted">
               This page has not been written yet. An administrator can add its
               content from the admin panel.
             </p>
@@ -67,10 +67,10 @@ export default async function HandbookPageView({
         {previous ? (
           <Link href={`/handbook/${previous.slug}`}>
             <Card className="p-4 hover:border-accent-400 transition-colors h-full">
-              <div className="text-xs font-semibold text-steel-500 uppercase tracking-wide mb-1">
+              <div className="text-xs font-semibold text-content-muted uppercase tracking-wide mb-1">
                 ← Previous
               </div>
-              <div className="text-sm font-semibold text-navy-900">
+              <div className="text-sm font-semibold text-content">
                 {previous.title}
               </div>
             </Card>
@@ -82,10 +82,10 @@ export default async function HandbookPageView({
         {next ? (
           <Link href={`/handbook/${next.slug}`}>
             <Card className="p-4 hover:border-accent-400 transition-colors h-full text-right">
-              <div className="text-xs font-semibold text-steel-500 uppercase tracking-wide mb-1">
+              <div className="text-xs font-semibold text-content-muted uppercase tracking-wide mb-1">
                 Next →
               </div>
-              <div className="text-sm font-semibold text-navy-900">
+              <div className="text-sm font-semibold text-content">
                 {next.title}
               </div>
             </Card>

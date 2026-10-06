@@ -15,8 +15,8 @@ export default async function NewModulePage({
 
   return (
     <div className="max-w-2xl mx-auto px-6 py-10">
-      <h1 className="text-2xl font-bold text-navy-900 mb-1">New training module</h1>
-      <p className="text-steel-500 mb-8">
+      <h1 className="text-2xl font-bold text-content mb-1">New training module</h1>
+      <p className="text-content-muted mb-8">
         Content supports Markdown — headings, bold, lists, and tables.
       </p>
 
@@ -106,7 +106,7 @@ export default async function NewModulePage({
                 className={inputClass}
               />
             </div>
-            <label className="flex items-center gap-2 text-sm font-medium text-navy-800 pb-2.5">
+            <label className="flex items-center gap-2 text-sm font-medium text-content-soft pb-2.5">
               <input type="checkbox" name="published" defaultChecked />
               Published (visible to trainees)
             </label>
